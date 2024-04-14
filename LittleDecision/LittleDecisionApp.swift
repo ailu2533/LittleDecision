@@ -5,28 +5,24 @@
 //  Created by ailu on 2024/4/3.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct LittleDecisionApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    init() {
+        vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
+    }
 
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
+
+    var vm: DecisionViewModel
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(sharedModelContainer)
+        .environment(vm)
     }
 }

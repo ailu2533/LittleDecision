@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2754AA042BC3D188000073FB /* PieDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA032BC3D188000073FB /* PieDecision.swift */; };
+		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
+		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
+		2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA092BC3DCB8000073FB /* ModelUtil.swift */; };
+		2754AA0C2BC3DCEB000073FB /* CommonPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */; };
+		2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */; };
+		2754AA102BC6CA37000073FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA0F2BC6CA37000073FB /* MainView.swift */; };
 		27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */; };
 		27FCEFA92BBC6DAF002518E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFA82BBC6DAF002518E0 /* ContentView.swift */; };
 		27FCEFAB2BBC6DAF002518E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFAA2BBC6DAF002518E0 /* Item.swift */; };
@@ -15,6 +22,7 @@
 		27FCEFBA2BBC6DB0002518E0 /* LittleDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFB92BBC6DB0002518E0 /* LittleDecisionTests.swift */; };
 		27FCEFC42BBC6DB1002518E0 /* LittleDecisionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFC32BBC6DB1002518E0 /* LittleDecisionUITests.swift */; };
 		27FCEFC62BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFC52BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift */; };
+		27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFD22BBC6DF4002518E0 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2754AA032BC3D188000073FB /* PieDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDecision.swift; sourceTree = "<group>"; };
+		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
+		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
+		2754AA092BC3DCB8000073FB /* ModelUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUtil.swift; sourceTree = "<group>"; };
+		2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPreview.swift; sourceTree = "<group>"; };
+		2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionViewModel.swift; sourceTree = "<group>"; };
+		2754AA0F2BC6CA37000073FB /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleDecision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionApp.swift; sourceTree = "<group>"; };
 		27FCEFA82BBC6DAF002518E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +61,7 @@
 		27FCEFBF2BBC6DB1002518E0 /* LittleDecisionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleDecisionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FCEFC32BBC6DB1002518E0 /* LittleDecisionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionUITests.swift; sourceTree = "<group>"; };
 		27FCEFC52BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		27FCEFD22BBC6DF4002518E0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2754AA022BC3D0C6000073FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2754AA032BC3D188000073FB /* PieDecision.swift */,
+				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
+				2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */,
+				2754AA052BC3D1BD000073FB /* PointerShape.swift */,
+				2754AA072BC3DB26000073FB /* DecisionManagementView.swift */,
+				2754AA0F2BC6CA37000073FB /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		27FCEF9A2BBC6DAF002518E0 = {
 			isa = PBXGroup;
 			children = (
@@ -96,11 +125,14 @@
 		27FCEFA52BBC6DAF002518E0 /* LittleDecision */ = {
 			isa = PBXGroup;
 			children = (
+				2754AA022BC3D0C6000073FB /* View */,
 				27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */,
 				27FCEFA82BBC6DAF002518E0 /* ContentView.swift */,
 				27FCEFAA2BBC6DAF002518E0 /* Item.swift */,
 				27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */,
 				27FCEFAE2BBC6DB0002518E0 /* Preview Content */,
+				27FCEFD22BBC6DF4002518E0 /* Model.swift */,
+				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
 			);
 			path = LittleDecision;
 			sourceTree = "<group>";
@@ -260,9 +292,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */,
+				2754AA0C2BC3DCEB000073FB /* CommonPreview.swift in Sources */,
 				27FCEFA92BBC6DAF002518E0 /* ContentView.swift in Sources */,
+				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
+				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
+				2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */,
 				27FCEFAB2BBC6DAF002518E0 /* Item.swift in Sources */,
+				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
+				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
+				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
