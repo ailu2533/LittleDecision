@@ -39,7 +39,6 @@ struct AddChoiceView: View {
     @State private var choices: [EditableChoice] = []
 
     init(decision: Decision? = nil) {
-        print("hello \(decision?.title)")
         self.decision = decision
     }
 
@@ -147,8 +146,6 @@ enum DecisionManagementSheetEnum: Identifiable {
     case edit(Decision)
 }
 
-
 #Preview("AddDecisionView") {
     CommonPreview(content: AddChoiceView())
 }
-
