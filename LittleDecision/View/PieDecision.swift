@@ -146,16 +146,23 @@ struct PieChartView: View {
                     Button(action: {
                         currentDecision.reset()
                         rotateAngle = 0
-//                        selectedCount = 0
-//                        selectedCount = nil
+
 
                     }, label: {
                         Text("还原转盘")
                     }).buttonStyle(BorderedProminentButtonStyle())
-
-                    Button(action: {}, label: {
+//
+//                    Button(action: {}, label: {
+//                        Text("编辑")
+//                    }).buttonStyle(BorderedProminentButtonStyle())
+                    
+                    NavigationLink {
+                        AddChoiceView(decision: currentDecision)
+                    } label: {
                         Text("编辑")
-                    }).buttonStyle(BorderedProminentButtonStyle())
+                    }.buttonStyle(BorderedProminentButtonStyle())
+
+                    
                 }
 
             }.onChange(of: selectedCount, { _, newValue in
@@ -187,7 +194,7 @@ struct PieChartView: View {
             .toolbar {
                 ToolbarItem {
                     NavigationLink {
-                        DecisionListView(didVersion: $didVersion)
+                        DecisionListView()
                     } label: {
                         Image(systemName: "list.bullet")
                     }

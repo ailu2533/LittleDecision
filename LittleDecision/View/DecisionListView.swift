@@ -10,25 +10,13 @@ import SwiftUI
 
 struct DecisionListView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
 
     @AppStorage("decisionId") var decisionId: String = UUID().uuidString
 
-//    @Binding private var didVersion: Int
-
     @State private var showAddDecisionSheet = false
 
-    @State private var editingDecision: Decision? = nil
-
-    @Environment(\.dismiss) private var dismiss
-
     @Query private var decisions: [Decision] = []
-
-    @State private var sheetEnum: DecisionManagementSheetEnum?
-
-    init(didVersion: Binding<Int>) {
-//        _didVersion = didVersion
-        print("DecisionManagementView")
-    }
 
     var body: some View {
         NavigationStack {
@@ -39,8 +27,9 @@ struct DecisionListView: View {
                         HStack {
                             Button(action: {
                                 decisionId = decision.uuid.uuidString
-//                                didVersion += 1
+
                                 dismiss()
+
                             }, label: {
                                 HStack {
                                     Text(decision.title)
@@ -53,13 +42,20 @@ struct DecisionListView: View {
                             })
 
                             Spacer()
+                        }
+                        .listRowBackground(decisionId == decision.uuid.uuidString ? Color(.systemFill) : Color(.systemBackground))
+                        .swipeActions {
+                            Button(role: .destructive) {
+                                modelContext.delete(decision)
+                            } label: {
+                                Label("删除决定", systemImage: "trash.fill")
+                            }
 
-                        }.swipeActions {
                             NavigationLink {
                                 AddChoiceView(decision: decision)
                             } label: {
-                                Label("编辑决定", systemImage: "ellipsis.circle")
-                            }
+                                Label("编辑决定", systemImage: "square.and.pencil.circle")
+                            }.tint(.green)
                         }
                     }
                 }
@@ -71,7 +67,6 @@ struct DecisionListView: View {
             .toolbar(content: {
                 ToolbarItem {
                     Button(action: {
-                        editingDecision = nil
                         showAddDecisionSheet = true
                     }, label: {
                         Label("新增决定", systemImage: "plus")
@@ -86,5 +81,5 @@ struct DecisionListView: View {
 }
 
 #Preview("DecisionManagementView") {
-    CommonPreview(content: DecisionListView(didVersion: .constant(0)))
+    CommonPreview(content: DecisionListView())
 }

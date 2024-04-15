@@ -84,6 +84,22 @@ struct AddChoiceView: View {
                                         Text("选项名")
                                     }
 
+                                    HStack {
+                                        Text("权重").foregroundStyle(.secondary)
+                                        HStack {
+                                            TextField(value: choice.weight, formatter: NumberFormatter()) {
+                                            }
+                                            Text("%")
+                                        }.padding(.leading)
+
+                                            .frame(width: 70)
+//
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 4)
+                                                    .fill(Color(.systemFill))
+                                            )
+                                    }
+
                                     Image(systemName: "xmark.circle").foregroundStyle(.red)
                                         .onTapGesture {
                                             withAnimation(.snappy) {
