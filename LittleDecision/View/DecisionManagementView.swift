@@ -39,6 +39,7 @@ struct AddChoiceView: View {
     @State private var choices: [EditableChoice] = []
 
     init(decision: Decision? = nil) {
+        print("hello \(decision?.title)")
         self.decision = decision
     }
 
@@ -109,7 +110,7 @@ struct AddChoiceView: View {
                     })
                 }
 
-            }.navigationTitle("新增决定")
+            }.navigationTitle(decision == nil ? "新增决定" : "编辑决定")
                 .toolbar(content: {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
@@ -137,89 +138,17 @@ struct AddChoiceView: View {
     }
 }
 
-struct DecisionManagementView: View {
-    @Environment(\.modelContext) private var modelContext
-
-    @AppStorage("decisionId") var decisionId: String = UUID().uuidString
-
-    @Binding private var didVersion: Int
-
-    @State private var showAddDecisionSheet = false
-
-    @Environment(\.dismiss) private var dismiss
-
-    @Query private var decisions: [Decision] = []
-
-    init(didVersion: Binding<Int>) {
-        _didVersion = didVersion
+enum DecisionManagementSheetEnum: Identifiable {
+    var id: UUID {
+        UUID()
     }
 
-    var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(decisions) { decision in
-
-                        HStack {
-                            Button(action: {
-                                decisionId = decision.uuid.uuidString
-                                didVersion += 1
-                                dismiss()
-                            }, label: {
-                                HStack {
-                                    Text(decision.title)
-                                        .foregroundStyle(Color.primary)
-                                        .fontWeight(.regular)
-
-                                    Spacer()
-                                }
-
-                            })
-
-                            Spacer()
-
-                            NavigationLink {
-                                AddChoiceView(decision: decision)
-                            } label: {
-                                Image(systemName: "ellipsis.circle")
-                            }
-                        }
-
-                        .padding()
-                        .background {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.blue.opacity(decisionId == decision.uuid.uuidString ? 0.1 : 0))
-                                .stroke(.gray.opacity(0.5))
-                                .shadow(radius: 8)
-                        }
-
-                        .padding(.horizontal)
-                    }
-                }
-            }
-            .navigationTitle("决定列表")
-            .navigationBarTitleDisplayMode(.inline)
-
-            .toolbar(content: {
-                ToolbarItem {
-                    Button(action: {
-                        showAddDecisionSheet = true
-                    }, label: {
-                        Label("新增决定", systemImage: "plus")
-                    })
-                }
-            })
-            .sheet(isPresented: $showAddDecisionSheet, content: {
-                AddChoiceView()
-            })
-        }
-    }
+    case add
+    case edit(Decision)
 }
+
 
 #Preview("AddDecisionView") {
     CommonPreview(content: AddChoiceView())
 }
 
-#Preview("DecisionManagementView") {
-    CommonPreview(content: DecisionManagementView(didVersion: .constant(0)))
-}

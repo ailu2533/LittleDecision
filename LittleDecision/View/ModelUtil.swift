@@ -12,9 +12,6 @@ class ModelUtil {
     static func getModelContainer(isStoredInMemoryOnly: Bool = true) -> ModelContainer {
         let sharedModelContainer: ModelContainer = {
             let schema = Schema([
-//                Habit.self,
-//                Tag.self,
-//                CheckinLog.self,
                 Choice.self,
                 Decision.self,
             ])

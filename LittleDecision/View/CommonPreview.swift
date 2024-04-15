@@ -10,7 +10,7 @@ import SwiftUI
 
 @MainActor
 struct CommonPreview<Content: View>: View {
-    let container = getModelContainer()
+    let container = getModelContainer(isStoredInMemoryOnly: false)
     @State private var vm: DecisionViewModel
 
     var content: Content

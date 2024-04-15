@@ -187,7 +187,7 @@ struct PieChartView: View {
             .toolbar {
                 ToolbarItem {
                     NavigationLink {
-                        DecisionManagementView(didVersion: $didVersion)
+                        DecisionListView(didVersion: $didVersion)
                     } label: {
                         Image(systemName: "list.bullet")
                     }
