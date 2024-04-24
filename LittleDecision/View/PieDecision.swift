@@ -34,6 +34,8 @@ struct PieChartView: View {
 
     @Environment(\.modelContext) private var modelContext
 
+    @Environment(DecisionViewModel.self) private var vm
+
     private var currentDecision: Decision {
         let did = UUID(uuidString: decisionId)!
 
@@ -99,7 +101,8 @@ struct PieChartView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        @Bindable var vm = vm
+        NavigationStack(path: $vm.navigationPath) {
             VStack {
                 Text(currentDecision.title)
                     .font(.title)
@@ -147,7 +150,6 @@ struct PieChartView: View {
                         currentDecision.reset()
                         rotateAngle = 0
 
-
                     }, label: {
                         Text("还原转盘")
                     }).buttonStyle(BorderedProminentButtonStyle())
@@ -155,14 +157,12 @@ struct PieChartView: View {
 //                    Button(action: {}, label: {
 //                        Text("编辑")
 //                    }).buttonStyle(BorderedProminentButtonStyle())
-                    
-                    NavigationLink {
-                        AddChoiceView(decision: currentDecision)
-                    } label: {
-                        Text("编辑")
-                    }.buttonStyle(BorderedProminentButtonStyle())
 
-                    
+//                    NavigationLink {
+//                        AddChoiceView(decision: currentDecision)
+//                    } label: {
+//                        Text("编辑")
+//                    }.buttonStyle(BorderedProminentButtonStyle())
                 }
 
             }.onChange(of: selectedCount, { _, newValue in
@@ -193,13 +193,17 @@ struct PieChartView: View {
             })
             .toolbar {
                 ToolbarItem {
-                    NavigationLink {
-                        DecisionListView()
-                    } label: {
+
+                    
+                    Button(action: {
+                        vm.navigationPath.append(1)
+                    }, label: {
                         Image(systemName: "list.bullet")
-                    }
+                    })
                 }
-            }
+            }.navigationDestination(for: Int.self, destination: { _ in
+                DecisionListView()
+            })
 
             .padding()
         }
@@ -224,5 +228,5 @@ struct PieChartView: View {
 }
 
 #Preview {
-    PieChartView()
+   CommonPreview(content:  PieChartView())
 }

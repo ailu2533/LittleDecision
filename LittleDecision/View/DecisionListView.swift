@@ -12,6 +12,8 @@ struct DecisionListView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
 
+    @Environment(DecisionViewModel.self) private var vm
+
     @AppStorage("decisionId") var decisionId: String = UUID().uuidString
 
     @State private var showAddDecisionSheet = false
@@ -19,30 +21,24 @@ struct DecisionListView: View {
     @Query private var decisions: [Decision] = []
 
     var body: some View {
-        NavigationStack {
+        @Bindable var vm = vm
+       Group {
             VStack {
                 List {
                     ForEach(decisions) { decision in
 
                         HStack {
-                            Button(action: {
-                                decisionId = decision.uuid.uuidString
-
-                                dismiss()
-
-                            }, label: {
-                                HStack {
-                                    Text(decision.title)
-                                        .foregroundStyle(Color.primary)
-                                        .fontWeight(.regular)
-
-                                    Spacer()
+                            DecisionListItem(text: decision.title, selected: decisionId == decision.uuid.uuidString)
+                                .onTapGesture {
+                                    decisionId = decision.uuid.uuidString
                                 }
-
-                            })
-
                             Spacer()
+                            Image(systemName: "pencil.circle")
+                                .onTapGesture {
+                                    vm.navigationPath.append(decision)
+                                }
                         }
+
                         .listRowBackground(decisionId == decision.uuid.uuidString ? Color(.systemFill) : Color(.systemBackground))
                         .swipeActions {
                             Button(role: .destructive) {
@@ -50,15 +46,12 @@ struct DecisionListView: View {
                             } label: {
                                 Label("删除决定", systemImage: "trash.fill")
                             }
-
-                            NavigationLink {
-                                AddChoiceView(decision: decision)
-                            } label: {
-                                Label("编辑决定", systemImage: "square.and.pencil.circle")
-                            }.tint(.green)
                         }
                     }
                 }
+                .navigationDestination(for: Decision.self, destination: {
+                    AddChoiceView(decision: $0)
+                })
             }
 
             .navigationTitle("决定列表")

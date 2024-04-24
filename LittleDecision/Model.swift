@@ -49,6 +49,13 @@ class Decision {
     }
 }
 
+extension Decision: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+        hasher.combine(title)
+    }
+}
+
 extension Decision: CustomStringConvertible {
     var description: String {
         return """

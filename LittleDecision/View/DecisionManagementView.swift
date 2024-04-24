@@ -69,87 +69,85 @@ struct AddChoiceView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                Form {
-                    Section("决定") {
-                        TextField("决定名", text: $decisionTitle)
-                    }
+        VStack {
+            Form {
+                Section("决定") {
+                    TextField("决定名", text: $decisionTitle)
+                }
 
-                    Section("选项") {
-                        List {
-                            ForEach($choices) { choice in
+                Section("选项") {
+                    List {
+                        ForEach($choices) { choice in
+                            HStack {
+                                TextField(text: choice.title) {
+                                    Text("选项名")
+                                }
+
                                 HStack {
-                                    TextField(text: choice.title) {
-                                        Text("选项名")
-                                    }
-
+                                    Text("权重").foregroundStyle(.secondary)
                                     HStack {
-                                        Text("权重").foregroundStyle(.secondary)
-                                        HStack {
-                                            TextField(value: choice.weight, formatter: NumberFormatter()) {
-                                            }
-                                            Text("%")
-                                        }.padding(.leading)
+                                        TextField(value: choice.weight, formatter: NumberFormatter()) {
+                                        }
+                                        Text("%")
+                                    }.padding(.leading)
 
-                                            .frame(width: 70)
+                                        .frame(width: 70)
 //
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 4)
-                                                    .fill(Color(.systemFill))
-                                            )
-                                    }
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 4)
+                                                .fill(Color(.systemFill))
+                                        )
+                                }
 
-                                    Image(systemName: "xmark.circle").foregroundStyle(.red)
-                                        .onTapGesture {
-                                            withAnimation(.snappy) {
-                                                choices.removeAll {
-                                                    $0.id == choice.id
-                                                }
+                                Image(systemName: "xmark.circle").foregroundStyle(.red)
+                                    .onTapGesture {
+                                        withAnimation(.snappy) {
+                                            choices.removeAll {
+                                                $0.id == choice.id
                                             }
                                         }
-                                }
+                                    }
                             }
                         }
                     }
-
-                    Button(action: {
-                        if let last = choices.last, last.title.isEmpty {
-                            return
-                        }
-
-                        choices.append(.init(title: "", weight: 0, sortValue: choices.count))
-
-                    }, label: {
-                        Text("新增选项")
-                    })
                 }
 
-            }.navigationTitle(decision == nil ? "新增决定" : "编辑决定")
-                .toolbar(content: {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(action: {
-                            saveOrUpdate()
-
-                            dismiss()
-                        }, label: {
-                            Text("保存")
-                        })
+                Button(action: {
+                    if let last = choices.last, last.title.isEmpty {
+                        return
                     }
+
+                    choices.append(.init(title: "", weight: 0, sortValue: choices.count))
+
+                }, label: {
+                    Text("新增选项")
                 })
-        }
-        .onAppear(perform: {
-            if let decision {
-                decisionTitle = decision.title
-                let r = decision.choices.map { $0.toEditable() }
-                choices = r.sorted(using: SortDescriptor(\.sortValue))
             }
 
-            if choices.isEmpty {
-                choices.append(EditableChoice(title: "", weight: 1, sortValue: 0))
-            }
+        }.navigationTitle(decision == nil ? "新增决定" : "编辑决定")
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: {
+                        saveOrUpdate()
 
-        })
+                        dismiss()
+                    }, label: {
+                        Text("保存")
+                    })
+                }
+            })
+            .onAppear(perform: {
+                if let decision {
+                    decisionTitle = decision.title
+                    let r = decision.choices.map { $0.toEditable() }
+                    choices = r.sorted(using: SortDescriptor(\.sortValue))
+                }
+
+                if choices.isEmpty {
+                    choices.append(EditableChoice(title: "", weight: 1, sortValue: 0))
+                }
+
+            })
     }
 }
 
