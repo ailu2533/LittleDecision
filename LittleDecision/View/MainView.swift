@@ -74,7 +74,7 @@ struct ExtractedView: View {
 
             HStack {
                 Button(action: {
-                    rotateDiceToEndRandomly(diceNode: node1)
+                    rotateDiceToRandomFace(diceNode: node1)
 //                    node2.setFaceUp(face: [1, 2, 3, 4, 5, 6].randomElement() ?? 1)
 //                    node3.setFaceUp(face: [1, 2, 3, 4, 5, 6].randomElement() ?? 1)
                 }, label: {
@@ -88,32 +88,29 @@ struct ExtractedView: View {
         }
     }
 
-    func rotateDiceToEndRandomly(diceNode: SCNNode) {
-        // 定义旋转的角度（弧度）
-        let rotationX = CGFloat(Float.random(in: 0...2 * .pi))
-        let rotationY = CGFloat(Float.random(in: 0...2 * .pi))
-        let rotationZ = CGFloat(Float.random(in: 0...2 * .pi))
 
-        // 创建旋转动作
-        let rotateAction = SCNAction.rotateBy(x: rotationX, y: rotationY, z: rotationZ, duration: 2.0)
-        rotateAction.timingMode = .easeInEaseOut  // 设置动作的时间曲线为先加速后减速
+    func rotateDiceToRandomFace(diceNode: SCNNode) {
+        // 随机选择一个面，每个面对应一个旋转角度
+        let faces = [
+            (x: 0, y: 0, z: 0), // 面1
+            (x: CGFloat.pi / 2, y: 0, z: 0), // 面2
+            (x: -CGFloat.pi / 2, y: 0, z: 0), // 面3
+            (x: CGFloat.pi, y: 0, z: 0), // 面4
+            (x: 0, y: CGFloat.pi / 2, z: 0), // 面5
+            (x: 0, y: -CGFloat.pi / 2, z: 0) // 面6
+        ]
+        
+        let randomFace = faces.randomElement()!
+        let additionalRotations = CGFloat.pi * 2 * 2 // 随机额外旋转2到4圈
 
-        // 计算完成动作的目标方向
-        let finalRotationX = CGFloat.pi / 2 * round(rotationX / (CGFloat.pi / 2))
-        let finalRotationY = CGFloat.pi / 2 * round(rotationY / (CGFloat.pi / 2))
-        let finalRotationZ = CGFloat.pi / 2 * round(rotationZ / (CGFloat.pi / 2))
-
-        // 计算完成动作的持续时间，考虑旋转动作的持续时间
-        let maxRotation = max(abs(finalRotationX - rotationX), abs(finalRotationY - rotationY), abs(finalRotationZ - rotationZ))
-        let duration = max(0.1, 1.0 * maxRotation / (2 * CGFloat.pi))  // 持续时间与最大角度变化成比例，考虑旋转动作只用了2秒
-
-        let finalOrientationAction = SCNAction.rotateTo(x: finalRotationX, y: finalRotationY, z: finalRotationZ, duration: 2)
-        finalOrientationAction.timingMode = .easeInEaseOut  // 使结束动作也先加速后减速
-
-        // 创建一个动作序列
-        let sequence = SCNAction.sequence([rotateAction, finalOrientationAction])
+        // 创建旋转动作到随机面，包括额外的旋转
+        let rotateToFaceAction = SCNAction.rotateTo(x: randomFace.x + additionalRotations,
+                                                    y: randomFace.y + additionalRotations,
+                                                    z: CGFloat(randomFace.z) + additionalRotations,
+                                                    duration: 2.0)
+        rotateToFaceAction.timingMode = .linear
 
         // 执行动作
-        diceNode.runAction(sequence)
+        diceNode.runAction(rotateToFaceAction)
     }
 }
