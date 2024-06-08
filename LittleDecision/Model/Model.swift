@@ -76,6 +76,9 @@ class Choice {
     var title: String
     var weight: Int
     var sortValue: Double
+    
+    // 是否可以被选中
+    var enable: Bool = true
 
     var createDate: Date
     // 选中状态

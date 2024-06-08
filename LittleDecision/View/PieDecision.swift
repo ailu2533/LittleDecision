@@ -11,9 +11,17 @@ import SwiftData
 import SwiftUI
 
 struct LotteryConfig {
-    static let duration = 4.0 // 总动画时间，单位秒
-    static let initialSpeed = 120.0 // 初始每次增加的角度
-    static let decayFactor = 0.95 // 速度衰减因子
+    var duration = 4.0 // 总动画时间，单位秒
+    var initialSpeed = 120.0 // 初始每次增加的角度
+    var decayFactor = 0.95 // 速度衰减因子
+
+    init() {
+        // 随机设置
+        // self.duration = Double.random(in: 2...4)
+        self.initialSpeed = Double.random(in: 150...200)
+        self.decayFactor = Double.random(in: 0.9...0.99)
+    }
+
 }
 
 class LotteryViewModel {
@@ -55,51 +63,76 @@ class LotteryViewModel {
 }
 
 struct PieChartView: View {
-    @State private var selectedCount: Double?
-    @State private var randomNumber: Double = 0.0
     @State private var rotateAngle: Double = 0.0
+    @State private var isTimerActive = false  // 新增状态变量来跟踪计时器是否活跃
 
     var currentDecision: Decision
     @Binding var selection: Choice?
 
+    let lotteryConfig = LotteryConfig()
+
     var body: some View {
         VStack {
-            Text(selection?.title ?? "无")
 //            Text(rotateAngle.formatted())
             ChartView(currentDecision: currentDecision, selection: $selection)
                 .chartOverlay(alignment: .center) { _ in
                     PointerShape()
 
-                        .fill(.blue.opacity(0.8))
+                        .fill(.white)
+                        .shadow(radius: 1)
                         .rotationEffect(.degrees(rotateAngle))
                         .frame(width: 150, height: 150)
                         .overlay(alignment: .center) {
                             Text("开始")
                                 .foregroundStyle(.black)
                         }.onTapGesture {
-                            selection = nil
 
-                            var currentSpeed = LotteryConfig.initialSpeed
-                            var currentTime = 0.0
+                            if !isTimerActive {  // 检查是否已有计时器在运行
+                                isTimerActive = true  // 标记计时器为活跃状态
+                                var currentSpeed = lotteryConfig.initialSpeed
+                                var currentTime = 0.0
 
-                            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-                                withAnimation {
-                                    self.rotateAngle += currentSpeed
-                                }
-                                currentSpeed *= LotteryConfig.decayFactor // 逐渐减小增加的角度
-                                currentTime += 0.1
+                                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                                    withAnimation {
+                                        self.rotateAngle += currentSpeed
+                                    }
+                                    currentSpeed *= lotteryConfig.decayFactor // 逐渐减小增加的角度
+                                    currentTime += 0.1
 
-                                withAnimation(.easeInOut) {
-                                    selection = LotteryViewModel.selectChoice(from: currentDecision.choices, basedOn: self.rotateAngle)
-                                }
+                                    let selectedChoice = LotteryViewModel.selectChoice(from: currentDecision.choices, basedOn: self.rotateAngle)
 
-                                if currentTime >= LotteryConfig.duration {
-                                    timer.invalidate() // 停止计时器
-                                    
+                                    withAnimation(.easeInOut) {
+                                        selection = selectedChoice
+                                    }
+
+                                    if currentTime >= lotteryConfig.duration {
+                                        timer.invalidate() // 停止计时器
+                                        isTimerActive = false  // 重置计时器活跃状态
+                                    }
                                 }
                             }
                         }
                 }
+
+            Spacer()
+
+            HStack {
+                Spacer()
+                Button(action: {
+                    withAnimation {
+                        selection = nil
+                        rotateAngle = rotateAngle - rotateAngle.truncatingRemainder(dividingBy: 360)
+                    }
+
+                    rotateAngle = 0
+                    
+
+                    
+                }, label: {
+                    Text("还原转盘")
+                })
+                Spacer()
+            }
         }
     }
 }
@@ -107,13 +140,12 @@ struct PieChartView: View {
 struct ChartView: View {
     var currentDecision: Decision
     @Binding var selection: Choice?
-    @State private var selectedCount: Double?
 
     var body: some View {
         Chart(currentDecision.choices) { choice in
 
             SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight)),
-                       innerRadius: .ratio(0.45),
+//                       innerRadius: .ratio(0.45),
                        outerRadius: choice.uuid == selection?.uuid ? 165 : 150,
                        angularInset: 1)
 
@@ -124,9 +156,9 @@ struct ChartView: View {
 
                 .foregroundStyle(by: .value(Text(verbatim: choice.title), choice.title))
                 .opacity(choice.choosed ? 0.1 : 1)
+        }
 
-        }.chartAngleSelection(value: $selectedCount)
-
-            .chartLegend(.hidden)
+        .chartLegend(.hidden)
     }
 }
+

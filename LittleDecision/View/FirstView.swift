@@ -40,14 +40,25 @@ struct FirstView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text(decisionId)
+                Spacer()
+                VStack {
+                    Text(currentDecision?.title ?? "")
+                        .font(.title)
+                    Text(selectedChoice?.title ?? "??")
+                        .font(.title2)
+                }
 
+                Spacer()
                 if let currentDecision {
                     PieChartView(currentDecision: currentDecision, selection: $selectedChoice)
+                        .frame(maxHeight: 400)
+//                        .background(.blue.opacity(0.3))
                 }
+                
+                Spacer()
             }
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
                         DecisionListView()
                     } label: {
@@ -61,4 +72,33 @@ struct FirstView: View {
 
 #Preview {
     FirstView()
+}
+
+struct CarouselSettingsView: View {
+    @AppStorage("noRepeat") private var noRepeat = false
+    @AppStorage("equalWeight") private var equalWeight = false
+    @AppStorage("rotationTime") private var rotationTime = 4
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Toggle(isOn: $noRepeat, label: {
+                    Text("不重复抽取")
+                })
+
+                Toggle(isOn: $equalWeight, label: {
+                    Text("隐藏权重")
+                })
+
+                Picker(selection: $rotationTime) {
+                    ForEach([2, 3, 4, 5, 6, 7, 8], id: \.self) {
+                        Text("\($0)秒")
+                            .tag($0)
+                    }
+                } label: {
+                    Text("旋转时长")
+                }
+            }
+        }
+    }
 }

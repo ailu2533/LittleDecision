@@ -53,7 +53,7 @@ struct MainView: View {
                 .tabItem {
                     Label("随机数", systemImage: "42.circle.fill")
                 }
-            Text("我的")
+           CarouselSettingsView()
                 .tabItem {
                     Label("我的", systemImage: "house.circle.fill")
                 }
