@@ -18,10 +18,9 @@ struct LotteryConfig {
     init() {
         // 随机设置
         // self.duration = Double.random(in: 2...4)
-        self.initialSpeed = Double.random(in: 150...200)
-        self.decayFactor = Double.random(in: 0.9...0.99)
+        initialSpeed = Double.random(in: 150 ... 200)
+        decayFactor = Double.random(in: 0.9 ... 0.99)
     }
-
 }
 
 class LotteryViewModel {
@@ -64,10 +63,12 @@ class LotteryViewModel {
 
 struct PieChartView: View {
     @State private var rotateAngle: Double = 0.0
-    @State private var isTimerActive = false  // 新增状态变量来跟踪计时器是否活跃
+    @State private var isTimerActive = false // 新增状态变量来跟踪计时器是否活跃
 
     var currentDecision: Decision
     @Binding var selection: Choice?
+
+    @State private var isCalculating = false // 用于跟踪是否有计算任务正在进行
 
     let lotteryConfig = LotteryConfig()
 
@@ -86,9 +87,8 @@ struct PieChartView: View {
                             Text("开始")
                                 .foregroundStyle(.black)
                         }.onTapGesture {
-
-                            if !isTimerActive {  // 检查是否已有计时器在运行
-                                isTimerActive = true  // 标记计时器为活跃状态
+                            if !isTimerActive { // 检查是否已有计时器在运行
+                                isTimerActive = true // 标记计时器为活跃状态
                                 var currentSpeed = lotteryConfig.initialSpeed
                                 var currentTime = 0.0
 
@@ -99,15 +99,26 @@ struct PieChartView: View {
                                     currentSpeed *= lotteryConfig.decayFactor // 逐渐减小增加的角度
                                     currentTime += 0.1
 
-                                    let selectedChoice = LotteryViewModel.selectChoice(from: currentDecision.choices, basedOn: self.rotateAngle)
+                                    if !isCalculating {
+                                        isCalculating = true
 
-                                    withAnimation(.easeInOut) {
-                                        selection = selectedChoice
+                                        let task = DispatchWorkItem {
+                                            let selectedChoice = LotteryViewModel.selectChoice(from: self.currentDecision.choices, basedOn: self.rotateAngle)
+
+                                            DispatchQueue.main.async {
+                                                withAnimation(.easeInOut) {
+                                                    self.selection = selectedChoice
+                                                }
+                                                self.isCalculating = false
+                                            }
+                                        }
                                     }
 
                                     if currentTime >= lotteryConfig.duration {
                                         timer.invalidate() // 停止计时器
-                                        isTimerActive = false  // 重置计时器活跃状态
+                                        isTimerActive = false // 重置计时器活跃状态
+
+                                        self.selection = LotteryViewModel.selectChoice(from: self.currentDecision.choices, basedOn: self.rotateAngle)
                                     }
                                 }
                             }
@@ -125,9 +136,7 @@ struct PieChartView: View {
                     }
 
                     rotateAngle = 0
-                    
 
-                    
                 }, label: {
                     Text("还原转盘")
                 })
@@ -161,4 +170,3 @@ struct ChartView: View {
         .chartLegend(.hidden)
     }
 }
-
