@@ -50,7 +50,7 @@ struct FirstView: View {
 
                 Spacer()
                 if let currentDecision {
-                    PieChartView(currentDecision: currentDecision, selection: $selectedChoice)
+                    PieChartView(selection: $selectedChoice, currentDecision: currentDecision)
                         .frame(maxHeight: 400)
 //                        .background(.blue.opacity(0.3))
                 }

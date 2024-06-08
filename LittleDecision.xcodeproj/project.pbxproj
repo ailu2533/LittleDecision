@@ -15,6 +15,10 @@
 		273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */; };
 		273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFC2C141AEB006AC677 /* CommonEditView.swift */; };
 		273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFE2C144C6C006AC677 /* FirstView.swift */; };
+		273ADD022C14864C006AC677 /* TouchPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD012C14864C006AC677 /* TouchPointsView.swift */; };
+		273ADD042C148661006AC677 /* TouchPointsRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD032C148661006AC677 /* TouchPointsRepresentable.swift */; };
+		273ADD062C14869C006AC677 /* FingerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD052C14869C006AC677 /* FingerContentView.swift */; };
+		273ADD082C14AB87006AC677 /* CubicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD072C14AB87006AC677 /* CubicView.swift */; };
 		2754AA042BC3D188000073FB /* PieDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA032BC3D188000073FB /* PieDecision.swift */; };
 		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
 		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
@@ -59,6 +63,10 @@
 		273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAddView.swift; sourceTree = "<group>"; };
 		273ADCFC2C141AEB006AC677 /* CommonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEditView.swift; sourceTree = "<group>"; };
 		273ADCFE2C144C6C006AC677 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		273ADD012C14864C006AC677 /* TouchPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointsView.swift; sourceTree = "<group>"; };
+		273ADD032C148661006AC677 /* TouchPointsRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPointsRepresentable.swift; sourceTree = "<group>"; };
+		273ADD052C14869C006AC677 /* FingerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerContentView.swift; sourceTree = "<group>"; };
+		273ADD072C14AB87006AC677 /* CubicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicView.swift; sourceTree = "<group>"; };
 		2754AA032BC3D188000073FB /* PieDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDecision.swift; sourceTree = "<group>"; };
 		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
 		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
@@ -135,9 +143,21 @@
 			path = EditView;
 			sourceTree = "<group>";
 		};
+		273ADD002C148639006AC677 /* Finger */ = {
+			isa = PBXGroup;
+			children = (
+				273ADD012C14864C006AC677 /* TouchPointsView.swift */,
+				273ADD032C148661006AC677 /* TouchPointsRepresentable.swift */,
+				273ADD052C14869C006AC677 /* FingerContentView.swift */,
+				273ADD072C14AB87006AC677 /* CubicView.swift */,
+			);
+			path = Finger;
+			sourceTree = "<group>";
+		};
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				273ADD002C148639006AC677 /* Finger */,
 				273ADCF72C14116F006AC677 /* EditView */,
 				2754AA032BC3D188000073FB /* PieDecision.swift */,
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
@@ -356,15 +376,19 @@
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
 				2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */,
 				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
+				273ADD042C148661006AC677 /* TouchPointsRepresentable.swift in Sources */,
 				273ADCF32C13F4FE006AC677 /* ViewModel.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
+				273ADD062C14869C006AC677 /* FingerContentView.swift in Sources */,
 				27FCEFAB2BBC6DAF002518E0 /* Item.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
+				273ADD022C14864C006AC677 /* TouchPointsView.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
+				273ADD082C14AB87006AC677 /* CubicView.swift in Sources */,
 				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */,
 			);
@@ -530,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
-				DEVELOPMENT_TEAM = 5Y2258N9GL;
+				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -543,7 +567,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = im.ailu.LittleDecision;
+				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -559,7 +583,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
-				DEVELOPMENT_TEAM = 5Y2258N9GL;
+				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -572,7 +596,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = im.ailu.LittleDecision;
+				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

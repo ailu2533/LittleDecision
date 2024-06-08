@@ -63,22 +63,17 @@ class LotteryViewModel {
 
 struct PieChartView: View {
     @State private var rotateAngle: Double = 0.0
-    @State private var isTimerActive = false // 新增状态变量来跟踪计时器是否活跃
-
-    var currentDecision: Decision
-    @Binding var selection: Choice?
-
-    @State private var isCalculating = false // 用于跟踪是否有计算任务正在进行
-
+    @State private var isTimerActive = false
+    @State private var isCalculating = false
     let lotteryConfig = LotteryConfig()
+    @Binding var selection: Choice?
+    var currentDecision: Decision
 
     var body: some View {
         VStack {
-//            Text(rotateAngle.formatted())
             ChartView(currentDecision: currentDecision, selection: $selection)
                 .chartOverlay(alignment: .center) { _ in
                     PointerShape()
-
                         .fill(.white)
                         .shadow(radius: 1)
                         .rotationEffect(.degrees(rotateAngle))
@@ -87,60 +82,51 @@ struct PieChartView: View {
                             Text("开始")
                                 .foregroundStyle(.black)
                         }.onTapGesture {
-                            if !isTimerActive { // 检查是否已有计时器在运行
-                                isTimerActive = true // 标记计时器为活跃状态
-                                var currentSpeed = lotteryConfig.initialSpeed
-                                var currentTime = 0.0
-
-                                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-                                    withAnimation {
-                                        self.rotateAngle += currentSpeed
-                                    }
-                                    currentSpeed *= lotteryConfig.decayFactor // 逐渐减小增加的角度
-                                    currentTime += 0.1
-
-                                    if !isCalculating {
-                                        isCalculating = true
-
-                                        let task = DispatchWorkItem {
-                                            let selectedChoice = LotteryViewModel.selectChoice(from: self.currentDecision.choices, basedOn: self.rotateAngle)
-
-                                            DispatchQueue.main.async {
-                                                withAnimation(.easeInOut) {
-                                                    self.selection = selectedChoice
-                                                }
-                                                self.isCalculating = false
-                                            }
-                                        }
-                                    }
-
-                                    if currentTime >= lotteryConfig.duration {
-                                        timer.invalidate() // 停止计时器
-                                        isTimerActive = false // 重置计时器活跃状态
-
-                                        self.selection = LotteryViewModel.selectChoice(from: self.currentDecision.choices, basedOn: self.rotateAngle)
-                                    }
-                                }
-                            }
+                            startSpinning()
                         }
                 }
-
             Spacer()
+            resetButton
+        }
+    }
 
-            HStack {
-                Spacer()
-                Button(action: {
-                    withAnimation {
-                        selection = nil
-                        rotateAngle = rotateAngle - rotateAngle.truncatingRemainder(dividingBy: 360)
+    private var resetButton: some View {
+        Button("还原转盘") {
+            withAnimation {
+                selection = nil
+                rotateAngle = rotateAngle - rotateAngle.truncatingRemainder(dividingBy: 360)
+                
+            }
+            rotateAngle = 0
+        }
+    }
+
+    private func startSpinning() {
+        guard !isTimerActive else { return }
+        isTimerActive = true
+        var currentSpeed = lotteryConfig.initialSpeed
+        var currentTime = 0.0
+
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            withAnimation {
+                self.rotateAngle += currentSpeed
+            }
+            currentSpeed *= lotteryConfig.decayFactor
+            currentTime += 0.1
+
+            // 在这里调用选择逻辑
+            DispatchQueue.global(qos: .userInitiated).async {
+                let selectedChoice = LotteryViewModel.selectChoice(from: self.currentDecision.choices, basedOn: self.rotateAngle)
+                DispatchQueue.main.async {
+                    withAnimation(.easeInOut) {
+                        self.selection = selectedChoice
                     }
+                }
+            }
 
-                    rotateAngle = 0
-
-                }, label: {
-                    Text("还原转盘")
-                })
-                Spacer()
+            if currentTime >= lotteryConfig.duration {
+                timer.invalidate()
+                isTimerActive = false
             }
         }
     }
