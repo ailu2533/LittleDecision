@@ -21,54 +21,51 @@ struct DecisionListView: View {
     @Query private var decisions: [Decision] = []
 
     var body: some View {
-        @Bindable var vm = vm
-       Group {
-            VStack {
-                List {
-                    ForEach(decisions) { decision in
+        List {
+            ForEach(decisions.filter({ decision in
+                decision.saved == true
+            })) { decision in
 
-                        HStack {
-                            DecisionListItem(text: decision.title, selected: decisionId == decision.uuid.uuidString)
-                                .onTapGesture {
-                                    decisionId = decision.uuid.uuidString
-                                }
-                            Spacer()
-                            Image(systemName: "pencil.circle")
-                                .onTapGesture {
-                                    vm.navigationPath.append(decision)
-                                }
+                HStack {
+                    Image(systemName: decisionId == decision.uuid.uuidString ? "checkmark.circle" : "circle")
+                        .imageScale(.large)
+                        .foregroundColor(.accentColor)
+                        .onTapGesture {
+                            decisionId = decision.uuid.uuidString
                         }
+                        .frame(minWidth: 40)
 
-                        .listRowBackground(decisionId == decision.uuid.uuidString ? Color(.systemFill) : Color(.systemBackground))
-                        .swipeActions {
-                            Button(role: .destructive) {
-                                modelContext.delete(decision)
-                            } label: {
-                                Label("删除决定", systemImage: "trash.fill")
-                            }
-                        }
-                    }
-                }
-                .navigationDestination(for: Decision.self, destination: {
-                    AddChoiceView(decision: $0)
-                })
-            }
-
-            .navigationTitle("决定列表")
-            .navigationBarTitleDisplayMode(.inline)
-
-            .toolbar(content: {
-                ToolbarItem {
-                    Button(action: {
-                        showAddDecisionSheet = true
+                    NavigationLink(destination: {
+                        ChoiceEditView(decision: decision)
                     }, label: {
-                        Label("新增决定", systemImage: "plus")
+                        Text(decision.title)
                     })
                 }
-            })
+
+                .swipeActions {
+                    Button(role: .destructive) {
+                        modelContext.delete(decision)
+                    } label: {
+                        Label("删除决定", systemImage: "trash.fill")
+                    }
+                }
+            }
         }
+
+        .navigationTitle("决定列表")
+        .navigationBarTitleDisplayMode(.inline)
+
+        .toolbar(content: {
+            ToolbarItem {
+                Button(action: {
+                    showAddDecisionSheet = true
+                }, label: {
+                    Label("新增决定", systemImage: "plus")
+                })
+            }
+        })
         .sheet(isPresented: $showAddDecisionSheet, content: {
-            AddChoiceView()
+            ChoiceAddView()
         })
     }
 }

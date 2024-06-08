@@ -10,16 +10,20 @@ import SwiftUI
 
 @Model
 class Decision {
-    var uuid: UUID = UUID()
+    let uuid: UUID
     var title: String
 
     @Relationship(inverse: \Choice.decision)
     var choices: [Choice]
+    
+    // 已经保存
+    var saved: Bool = false
 
     var createDate: Date
     var updateDate: Date
 
-    init(title: String, choices: [Choice]) {
+    init(uuid: UUID = UUID(), title: String, choices: [Choice]) {
+        self.uuid = uuid
         self.title = title
         self.choices = choices
         createDate = .now
@@ -71,13 +75,13 @@ class Choice {
     var decision: Decision?
     var title: String
     var weight: Int
-    var sortValue: Int
+    var sortValue: Double
 
     var createDate: Date
     // 选中状态
     var choosed: Bool = false
 
-    init(content: String, weight: Int, sortValue: Int) {
+    init(content: String, weight: Int, sortValue: Double) {
         title = content
         self.weight = weight
         createDate = .now
@@ -93,30 +97,4 @@ extension Choice: CustomStringConvertible {
         Sort Value: \(sortValue)
         """
     }
-}
-
-@Observable
-class ViewModel {
-    private let ctx: ModelContext
-
-    init(ctx: ModelContext) {
-        self.ctx = ctx
-    }
-
-    // 查询所有 decision
-
-    func fetchAllDecisions() -> [Decision] {
-        let descriptor = FetchDescriptor<Decision>(sortBy: [SortDescriptor<Decision>(\Decision.createDate, order: .reverse)])
-
-        do {
-            let res = try ctx.fetch(descriptor)
-            return res
-        } catch {
-            print(error.localizedDescription)
-        }
-
-        return []
-    }
-
-    // 查询一个 decision 下的所有 choice
 }

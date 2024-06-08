@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		271DE9692BD92872005C6405 /* LemonUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 271DE9682BD92872005C6405 /* LemonUtils */; };
 		271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271DE96A2BD93549005C6405 /* DecisionListItem.swift */; };
+		273ADCF32C13F4FE006AC677 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF22C13F4FE006AC677 /* ViewModel.swift */; };
+		273ADCF62C1409CE006AC677 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF52C1409CE006AC677 /* Logging.swift */; };
+		273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF82C141193006AC677 /* ChoiceEditView.swift */; };
+		273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */; };
+		273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFC2C141AEB006AC677 /* CommonEditView.swift */; };
 		2754AA042BC3D188000073FB /* PieDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA032BC3D188000073FB /* PieDecision.swift */; };
 		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
 		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
@@ -47,6 +52,11 @@
 
 /* Begin PBXFileReference section */
 		271DE96A2BD93549005C6405 /* DecisionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListItem.swift; sourceTree = "<group>"; };
+		273ADCF22C13F4FE006AC677 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		273ADCF52C1409CE006AC677 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
+		273ADCF82C141193006AC677 /* ChoiceEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceEditView.swift; sourceTree = "<group>"; };
+		273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAddView.swift; sourceTree = "<group>"; };
+		273ADCFC2C141AEB006AC677 /* CommonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEditView.swift; sourceTree = "<group>"; };
 		2754AA032BC3D188000073FB /* PieDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDecision.swift; sourceTree = "<group>"; };
 		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
 		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
@@ -95,14 +105,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273ADCF12C13F4C8006AC677 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27FCEFD22BBC6DF4002518E0 /* Model.swift */,
+				273ADCF22C13F4FE006AC677 /* ViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		273ADCF42C1409AC006AC677 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				273ADCF52C1409CE006AC677 /* Logging.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		273ADCF72C14116F006AC677 /* EditView */ = {
+			isa = PBXGroup;
+			children = (
+				2754AA072BC3DB26000073FB /* DecisionManagementView.swift */,
+				273ADCF82C141193006AC677 /* ChoiceEditView.swift */,
+				273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */,
+				273ADCFC2C141AEB006AC677 /* CommonEditView.swift */,
+			);
+			path = EditView;
+			sourceTree = "<group>";
+		};
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				273ADCF72C14116F006AC677 /* EditView */,
 				2754AA032BC3D188000073FB /* PieDecision.swift */,
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
 				2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */,
 				2754AA052BC3D1BD000073FB /* PointerShape.swift */,
-				2754AA072BC3DB26000073FB /* DecisionManagementView.swift */,
 				2754AA0F2BC6CA37000073FB /* MainView.swift */,
 				27DB357D2BCCD73000019054 /* DecisionListView.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
@@ -133,13 +171,14 @@
 		27FCEFA52BBC6DAF002518E0 /* LittleDecision */ = {
 			isa = PBXGroup;
 			children = (
+				273ADCF42C1409AC006AC677 /* Utils */,
+				273ADCF12C13F4C8006AC677 /* Model */,
 				2754AA022BC3D0C6000073FB /* View */,
 				27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */,
 				27FCEFA82BBC6DAF002518E0 /* ContentView.swift */,
 				27FCEFAA2BBC6DAF002518E0 /* Item.swift */,
 				27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */,
 				27FCEFAE2BBC6DB0002518E0 /* Preview Content */,
-				27FCEFD22BBC6DF4002518E0 /* Model.swift */,
 				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
 			);
 			path = LittleDecision;
@@ -307,18 +346,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */,
+				273ADCF62C1409CE006AC677 /* Logging.swift in Sources */,
 				2754AA0C2BC3DCEB000073FB /* CommonPreview.swift in Sources */,
 				27FCEFA92BBC6DAF002518E0 /* ContentView.swift in Sources */,
 				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
 				2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */,
+				273ADCF32C13F4FE006AC677 /* ViewModel.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
+				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
 				27FCEFAB2BBC6DAF002518E0 /* Item.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
+				273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,
+				273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
