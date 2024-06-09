@@ -56,7 +56,7 @@ struct MainView: View {
 
             CarouselSettingsView()
                 .tabItem {
-                    Label("我的", systemImage: "house.circle.fill")
+                    Label("设置", systemImage: "gear")
                 }
         }
     }

@@ -16,7 +16,6 @@
 		273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFC2C141AEB006AC677 /* CommonEditView.swift */; };
 		273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFE2C144C6C006AC677 /* FirstView.swift */; };
 		273ADD0D2C153092006AC677 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD0C2C153092006AC677 /* HistoryView.swift */; };
-		273ADD0F2C1530BB006AC677 /* DecisionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD0E2C1530BB006AC677 /* DecisionList.swift */; };
 		273ADD112C153431006AC677 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD102C153431006AC677 /* SettingsView.swift */; };
 		273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */; };
 		273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */; };
@@ -29,8 +28,6 @@
 		2754AA102BC6CA37000073FB /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA0F2BC6CA37000073FB /* MainView.swift */; };
 		27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DB357D2BCCD73000019054 /* DecisionListView.swift */; };
 		27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */; };
-		27FCEFA92BBC6DAF002518E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFA82BBC6DAF002518E0 /* ContentView.swift */; };
-		27FCEFAB2BBC6DAF002518E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFAA2BBC6DAF002518E0 /* Item.swift */; };
 		27FCEFAD2BBC6DB0002518E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */; };
 		27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FCEFAF2BBC6DB0002518E0 /* Preview Assets.xcassets */; };
 		27FCEFBA2BBC6DB0002518E0 /* LittleDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFB92BBC6DB0002518E0 /* LittleDecisionTests.swift */; };
@@ -65,7 +62,6 @@
 		273ADCFC2C141AEB006AC677 /* CommonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEditView.swift; sourceTree = "<group>"; };
 		273ADCFE2C144C6C006AC677 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		273ADD0C2C153092006AC677 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		273ADD0E2C1530BB006AC677 /* DecisionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionList.swift; sourceTree = "<group>"; };
 		273ADD102C153431006AC677 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartNoRepeatView.swift; sourceTree = "<group>"; };
@@ -79,8 +75,6 @@
 		27DB357D2BCCD73000019054 /* DecisionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListView.swift; sourceTree = "<group>"; };
 		27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleDecision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionApp.swift; sourceTree = "<group>"; };
-		27FCEFA82BBC6DAF002518E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		27FCEFAA2BBC6DAF002518E0 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27FCEFAF2BBC6DB0002518E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27FCEFB52BBC6DB0002518E0 /* LittleDecisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleDecisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,7 +161,6 @@
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
 				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
 				273ADD0C2C153092006AC677 /* HistoryView.swift */,
-				273ADD0E2C1530BB006AC677 /* DecisionList.swift */,
 				273ADD102C153431006AC677 /* SettingsView.swift */,
 			);
 			path = View;
@@ -200,8 +193,6 @@
 				273ADCF12C13F4C8006AC677 /* Model */,
 				2754AA022BC3D0C6000073FB /* View */,
 				27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */,
-				27FCEFA82BBC6DAF002518E0 /* ContentView.swift */,
-				27FCEFAA2BBC6DAF002518E0 /* Item.swift */,
 				27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */,
 				27FCEFAE2BBC6DB0002518E0 /* Preview Content */,
 				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
@@ -376,7 +367,6 @@
 				2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */,
 				273ADCF62C1409CE006AC677 /* Logging.swift in Sources */,
 				2754AA0C2BC3DCEB000073FB /* CommonPreview.swift in Sources */,
-				27FCEFA92BBC6DAF002518E0 /* ContentView.swift in Sources */,
 				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
 				2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */,
@@ -384,8 +374,6 @@
 				273ADCF32C13F4FE006AC677 /* ViewModel.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
-				273ADD0F2C1530BB006AC677 /* DecisionList.swift in Sources */,
-				27FCEFAB2BBC6DAF002518E0 /* Item.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,

@@ -31,7 +31,8 @@ struct CarouselSettingsView: View {
                 } label: {
                     Text("旋转时长")
                 }
-            }
+            }.navigationTitle("设置")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

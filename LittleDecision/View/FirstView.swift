@@ -44,6 +44,7 @@ struct FirstView: View {
                 VStack {
                     Text(currentDecision?.title ?? "")
                         .font(.title)
+                        .fontWeight(.bold)
                     Text(selectedChoice?.title ?? "??")
                         .font(.title2)
                 }
@@ -51,12 +52,11 @@ struct FirstView: View {
                 Spacer()
                 if let currentDecision {
                     PieChartNoRepeatView(selection: $selectedChoice, currentDecision: currentDecision)
-                        .frame(maxHeight: 400)
+                        .padding(.horizontal, 12)
                 }
-                
+
                 Spacer()
             }
-
         }
     }
 }
@@ -64,4 +64,3 @@ struct FirstView: View {
 #Preview {
     FirstView()
 }
-

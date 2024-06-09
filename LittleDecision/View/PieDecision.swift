@@ -59,6 +59,88 @@ class LotteryViewModel {
 
         return nil // 如果没有找到，理论上不应该发生
     }
+
+    // 从choices中随机选择一个choice，然后计算出weight的角度范围
+
+    static func selectChoice(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
+        let totalWeight = choices.reduce(0) { $0 + $1.weight }
+        if totalWeight == 0 { return nil } // 防止除以零的错误
+
+        // 随机选择一个choice
+        var randomWeight = Int.random(in: 0 ..< totalWeight)
+        var cumulativeWeight = 0
+        var selectedChoice: Choice?
+
+        for choice in choices {
+            cumulativeWeight += choice.weight
+            if randomWeight < cumulativeWeight {
+                selectedChoice = choice
+                break
+            }
+        }
+
+        guard let choice = selectedChoice else { return nil }
+
+        // 计算角度范围
+        var startAngle = 0.0
+        var endAngle = 0.0
+        cumulativeWeight = 0
+
+        for choice in choices {
+            let angle = (Double(choice.weight) / Double(totalWeight)) * 360
+            if choice === selectedChoice {
+                endAngle = startAngle + angle
+                break
+            }
+            startAngle += angle
+        }
+
+        // 生成 startAngle 和 endAngle 之间的一个平均值
+        let randomAngle = (startAngle + endAngle) / 2
+
+        return (choice, randomAngle)
+    }
+
+    static func selectChoiceExcludeDisable(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
+        let filteredTotalWeight = choices.filter { $0.enable }.reduce(0) { $0 + $1.weight }
+        if filteredTotalWeight == 0 { return nil } // 防止除以零的错误
+
+        // 随机选择一个choice
+        var randomWeight = Int.random(in: 0 ..< filteredTotalWeight)
+        var cumulativeWeight = 0
+        var selectedChoice: Choice?
+
+        for choice in choices.filter({ $0.enable }) {
+            cumulativeWeight += choice.weight
+            if randomWeight < cumulativeWeight {
+                selectedChoice = choice
+                break
+            }
+        }
+
+        guard let choice = selectedChoice else { return nil }
+        
+        let totalWeight = choices.reduce(0) { $0 + $1.weight }
+
+        // 计算角度范围
+        var startAngle = 0.0
+        var endAngle = 0.0
+        cumulativeWeight = 0
+
+        for choice in choices {
+            let angle = (Double(choice.weight) / Double(totalWeight)) * 360
+            if choice === selectedChoice {
+                endAngle = startAngle + angle
+                break
+            }
+            startAngle += angle
+        }
+
+        // 生成 startAngle 和 endAngle 之间的一个平均值
+        let randomAngle = (startAngle + endAngle) / 2
+
+        return (choice, randomAngle)
+    }
 }
 
 struct PieChartView: View {
@@ -95,7 +177,6 @@ struct PieChartView: View {
             withAnimation {
                 selection = nil
                 rotateAngle = rotateAngle - rotateAngle.truncatingRemainder(dividingBy: 360)
-                
             }
             rotateAngle = 0
         }
@@ -140,11 +221,9 @@ struct ChartView: View {
         Chart(currentDecision.choices) { choice in
             let isSelected = choice.uuid == selection?.uuid
             let outerRadius = isSelected ? 165 : 150
-            let title = Text(verbatim: choice.title)
+            let title = Text(verbatim: choice.title).foregroundStyle(choice.enable ? .primary : Color.white)
 
             SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight)),
-//                       innerRadius: .ratio(0.45),
-//                       outerRadius: MarkDimension(integerLiteral: outerRadius),     
                        angularInset: 1)
                 .cornerRadius(4)
                 .annotation(position: .overlay, alignment: .center) {

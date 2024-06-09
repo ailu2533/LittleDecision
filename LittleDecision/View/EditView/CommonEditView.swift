@@ -19,99 +19,94 @@ struct CommonEditView: View {
     @Environment(\.modelContext)
     private var modelContext
 
-    @State private var showAlert = false
-
     @State private var tappedChoiceUUID: UUID?
+
+    var choices: [Choice] {
+        decision.choices.sorted(by: { $0.sortValue < $1.sortValue })
+    }
 
     var body: some View {
         Form {
             Section("决定名") {
-                TextField(text: $decision.title) {
-                    Text("决定名")
-                }
+                TextField("决定名", text: $decision.title)
+                    .submitLabel(.done)
             }
 
-            Section(content: {
+            Section(header: Text("选项列表")) {
                 List {
-                    ForEach(decision.choices) { choice in
-
-                        HStack {
-                            if tappedChoiceUUID == choice.uuid {
-                                VStack {
-                                    TextField(text: Binding(get: {
-                                        choice.title
-                                    }, set: { newValue in
-                                        choice.title = newValue
-                                    })) {
-                                        Text("选项名")
-                                    }
-
-                                    TextField("权重", value: Binding(get: {
-                                        choice.weight
-                                    }, set: { newValue in
-                                        choice.weight = newValue
-                                    }), formatter: NumberFormatter())
-                                }
-
-                            } else {
-                                HStack {
-                                    Text(choice.title)
-                                    Spacer()
-                                    Text(choice.weight.formatted())
-                                }
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    tappedChoiceUUID = choice.uuid
-                                }
-                            }
-
-                            if tappedChoiceUUID == choice.uuid {
-                                Image(systemName: "checkmark.circle")
-                                    .imageScale(.large)
-                                    .foregroundStyle(Color.accentColor)
-                                    .onTapGesture {
-                                        tappedChoiceUUID = nil
-                                    }
-                            }
-                        }
-
-                    }.onDelete(perform: { indexSet in
-                        let dels = indexSet.map { idx in
-                            decision.choices[idx]
-                        }
-
-                        dels.forEach { choice in
-                            modelContext.delete(choice)
-                        }
-
-                        decision.choices.removeAll { choice in
-                            dels.contains { choice2 in
-                                choice.id == choice2.id
-                            }
-                        }
-
-                    })
+                    ForEach(choices) { choice in
+                        ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID)
+                    }
+                    .onDelete(perform: deleteChoices)
                 }
-
-            }, header: {
-                HStack {
-                    Text("决定列表")
-                    Spacer()
-                    EditButton()
-                }
-            })
+            }
 
             Section {
-                Button(action: {
-                    let newChoice = Choice(content: inputChoiceTitle, weight: 100, sortValue: Double(decision.choices.count))
-                    decision.choices.append(newChoice)
-                    tappedChoiceUUID = newChoice.uuid
-                }, label: {
-                    Text("新增选项")
-                })
+                Button("新增选项") {
+                    addNewChoice()
+                }
             }
         }
-
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func deleteChoices(at offsets: IndexSet) {
+        offsets.map { choices[$0] }.forEach(modelContext.delete)
+        decision.choices.removeAll(where: { choice in offsets.contains(where: { choices[$0].id == choice.id }) })
+    }
+
+    private func addNewChoice() {
+        let newChoice = Choice(content: inputChoiceTitle, weight: Int(inputChoiceWeight) ?? 0, sortValue: Double(decision.choices.count))
+        decision.choices.append(newChoice)
+        tappedChoiceUUID = newChoice.uuid
+    }
+}
+
+struct ChoiceRow: View {
+    @Bindable var choice: Choice
+    @Binding var tappedChoiceUUID: UUID?
+    @FocusState private var isTextFieldFocused: Bool
+    @FocusState private var isWeightTextFieldFocused: Bool
+
+
+    var body: some View {
+        HStack {
+            if tappedChoiceUUID == choice.uuid {
+                HStack {
+                    VStack {
+                        TextField("选项名", text: $choice.title)
+                            .focused($isTextFieldFocused)
+                            .onAppear {
+                                DispatchQueue.main.async {
+                                    self.isTextFieldFocused = true
+                                }
+                            }
+                            .onSubmit {
+                                isWeightTextFieldFocused = true
+                            }
+
+                        TextField("权重", value: $choice.weight, formatter: NumberFormatter())
+                            .focused($isWeightTextFieldFocused)
+                            .keyboardType(.numberPad)
+                    }
+                    Image(systemName: "checkmark.circle")
+                        .imageScale(.large)
+                        .foregroundStyle(Color.accentColor)
+                        .onTapGesture {
+                            tappedChoiceUUID = (tappedChoiceUUID == choice.uuid) ? nil : choice.uuid
+                        }
+                }
+
+            } else {
+                HStack {
+                    Text(choice.title)
+                    Spacer()
+                    Text("\(choice.weight)")
+                }.contentShape(Rectangle())
+                    .onTapGesture {
+                        tappedChoiceUUID = choice.uuid
+                    }
+            }
+        }
     }
 }
