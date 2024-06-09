@@ -38,7 +38,12 @@ struct DecisionListView: View {
                     NavigationLink(destination: {
                         ChoiceEditView(decision: decision)
                     }, label: {
-                        Text(decision.title)
+                        VStack(alignment: .leading) {
+                            Text(decision.title)
+                            Text("\(decision.choices.count)个选项")
+                                .font(.caption)
+                        }
+
                     })
                 }
                 .frame(height: 42)
