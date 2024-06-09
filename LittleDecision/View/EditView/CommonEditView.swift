@@ -56,7 +56,7 @@ struct CommonEditView: View {
     }
 
     private func addNewChoice() {
-        let newChoice = Choice(content: inputChoiceTitle, weight: Int(inputChoiceWeight) ?? 0, sortValue: Double(decision.choices.count))
+        let newChoice = Choice(content: inputChoiceTitle, weight: Int(inputChoiceWeight) ?? 1, sortValue: Double(decision.choices.count))
         decision.choices.append(newChoice)
         tappedChoiceUUID = newChoice.uuid
     }
@@ -74,8 +74,7 @@ struct ChoiceRow: View {
     var body: some View {
         HStack {
             if tappedChoiceUUID == choice.uuid {
-                HStack {
-                    VStack {
+                  VStack {
                         TextField("选项名", text: $choice.title)
                             .focused($focusedField, equals: .title)
                             .onAppear {
@@ -83,6 +82,7 @@ struct ChoiceRow: View {
                                     self.focusedField = .title
                                 }
                             }
+                            .submitLabel(.next)
                             .onSubmit {
                                 focusedField = .weight
                             }
@@ -90,17 +90,31 @@ struct ChoiceRow: View {
                         TextField("权重", value: $choice.weight, formatter: NumberFormatter())
                             .focused($focusedField, equals: .weight)
                             .keyboardType(.numberPad)
+                            .toolbar {
+                                if focusedField == .weight || focusedField == .title {
+                                    ToolbarItemGroup(placement: .keyboard) {
+                                        Spacer() // 使文本居中
+                                        Text("请输入大于0的权重").opacity(focusedField == .title ? 0 : 1)
+                                        Spacer() // 使文本居中
+                                        Button("完成") {
+                                            focusedField = nil // 关闭键盘
+                                            tappedChoiceUUID = nil
+                                        }
+                                    }
+                                }
+                            }
+
+                            .onChange(of: choice.weight, { _, newValue in
+                                if newValue <= 0 {
+                                    choice.weight = 1
+                                }
+                            })
+
                             .onSubmit {
                                 focusedField = nil
                             }
                     }
-                    Image(systemName: "checkmark.circle")
-                        .imageScale(.large)
-                        .foregroundStyle(Color.accentColor)
-                        .onTapGesture {
-                            tappedChoiceUUID = (tappedChoiceUUID == choice.uuid) ? nil : choice.uuid
-                        }
-                }
+                 
 
             } else {
                 HStack {
