@@ -65,9 +65,11 @@ struct CommonEditView: View {
 struct ChoiceRow: View {
     @Bindable var choice: Choice
     @Binding var tappedChoiceUUID: UUID?
-    @FocusState private var isTextFieldFocused: Bool
-    @FocusState private var isWeightTextFieldFocused: Bool
+    @FocusState private var focusedField: Field?
 
+    enum Field {
+        case title, weight
+    }
 
     var body: some View {
         HStack {
@@ -75,19 +77,22 @@ struct ChoiceRow: View {
                 HStack {
                     VStack {
                         TextField("选项名", text: $choice.title)
-                            .focused($isTextFieldFocused)
+                            .focused($focusedField, equals: .title)
                             .onAppear {
                                 DispatchQueue.main.async {
-                                    self.isTextFieldFocused = true
+                                    self.focusedField = .title
                                 }
                             }
                             .onSubmit {
-                                isWeightTextFieldFocused = true
+                                focusedField = .weight
                             }
 
                         TextField("权重", value: $choice.weight, formatter: NumberFormatter())
-                            .focused($isWeightTextFieldFocused)
+                            .focused($focusedField, equals: .weight)
                             .keyboardType(.numberPad)
+                            .onSubmit {
+                                focusedField = nil
+                            }
                     }
                     Image(systemName: "checkmark.circle")
                         .imageScale(.large)
