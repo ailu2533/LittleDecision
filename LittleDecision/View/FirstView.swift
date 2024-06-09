@@ -29,7 +29,9 @@ struct FirstView: View {
         let descriptor = FetchDescriptor(predicate: p)
 
         do {
-            return try modelContext.fetch(descriptor).first
+            let res = try modelContext.fetch(descriptor).first
+            Logging.shared.debug("currentDecision: \(res.debugDescription)  isNil \(res==nil)")
+            return res
         } catch {
             Logging.shared.error("currentDecision: \(error)")
         }
@@ -42,7 +44,7 @@ struct FirstView: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(currentDecision?.title ?? "")
+                    Text(currentDecision?.title ?? "xx")
                         .font(.title)
                         .fontWeight(.bold)
                     Text(selectedChoice?.title ?? "??")
@@ -53,6 +55,10 @@ struct FirstView: View {
                 if let currentDecision {
                     PieChartNoRepeatView(selection: $selectedChoice, currentDecision: currentDecision)
                         .padding(.horizontal, 12)
+                } else {
+                    ContentUnavailableView(label: {
+                        Label("No Mail", systemImage: "tray.fill")
+                    })
                 }
 
                 Spacer()

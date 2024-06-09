@@ -15,7 +15,7 @@ class Decision {
 
     @Relationship(inverse: \Choice.decision)
     var choices: [Choice]
-    
+
     // 已经保存
     var saved: Bool = false
 
@@ -36,20 +36,24 @@ class Decision {
         })
     }
 
-    // 还原转盘
-    func reset() {
-        choices.forEach {
-            $0.choosed = false
-        }
-    }
+    @Transient private var totalWeightCache: Int?
 
     // 总权重
-    var totalWeight: Double {
-        var res = 0.0
-        choices.forEach {
-            res += Double($0.weight)
+    var totalWeight: Int {
+        if let totalWeightCache {
+            return totalWeightCache
+        } else {
+            let totalWeight = choices.reduce(0) { partialResult, choice in
+                partialResult + choice.weight
+            }
+
+            totalWeightCache = totalWeight
+            return totalWeight
         }
-        return res
+    }
+    
+    func resetTotalWeight() {
+        totalWeightCache = nil
     }
 }
 
@@ -76,7 +80,7 @@ class Choice {
     var title: String
     var weight: Int
     var sortValue: Double
-    
+
     // 是否可以被选中
     var enable: Bool = true
 

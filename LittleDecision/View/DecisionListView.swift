@@ -46,6 +46,19 @@ struct DecisionListView: View {
                 .swipeActions {
                     Button(role: .destructive) {
                         modelContext.delete(decision)
+
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            Logging.shared.error("save")
+                        }
+
+                        if decision.uuid.uuidString == decisionId {
+                            decisionId = decisions.filter({ decision in
+                                decision.saved == true
+                            }).first?.uuid.uuidString ?? UUID().uuidString
+                        }
+
                     } label: {
                         Label("删除决定", systemImage: "trash.fill")
                     }

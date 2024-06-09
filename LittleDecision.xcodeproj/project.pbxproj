@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		271DE9692BD92872005C6405 /* LemonUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 271DE9682BD92872005C6405 /* LemonUtils */; };
 		271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271DE96A2BD93549005C6405 /* DecisionListItem.swift */; };
-		273ADCF32C13F4FE006AC677 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF22C13F4FE006AC677 /* ViewModel.swift */; };
 		273ADCF62C1409CE006AC677 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF52C1409CE006AC677 /* Logging.swift */; };
 		273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF82C141193006AC677 /* ChoiceEditView.swift */; };
 		273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */; };
@@ -55,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		271DE96A2BD93549005C6405 /* DecisionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListItem.swift; sourceTree = "<group>"; };
-		273ADCF22C13F4FE006AC677 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		273ADCF52C1409CE006AC677 /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		273ADCF82C141193006AC677 /* ChoiceEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceEditView.swift; sourceTree = "<group>"; };
 		273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAddView.swift; sourceTree = "<group>"; };
@@ -115,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				27FCEFD22BBC6DF4002518E0 /* Model.swift */,
-				273ADCF22C13F4FE006AC677 /* ViewModel.swift */,
+				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,7 +193,6 @@
 				27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */,
 				27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */,
 				27FCEFAE2BBC6DB0002518E0 /* Preview Content */,
-				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
 				273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */,
 			);
 			path = LittleDecision;
@@ -371,7 +368,6 @@
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
 				2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */,
 				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
-				273ADCF32C13F4FE006AC677 /* ViewModel.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,

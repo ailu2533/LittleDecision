@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ChoiceAddView: View {
-   
     @Environment(\.modelContext)
     private var modelContext
-    
+
     @Environment(\.dismiss)
     private var dismiss
 
@@ -37,11 +36,15 @@ struct ChoiceAddView: View {
 
         }.onAppear {
             modelContext.insert(decision)
-        }
+        }.onDisappear(perform: {
+            if decision.saved == false {
+                modelContext.delete(decision)
+                Logging.shared.debug("delete not saved ")
+            }
+        })
     }
 }
 
 #Preview {
     ChoiceAddView()
 }
-
