@@ -7,24 +7,19 @@
 
 import SwiftUI
 
+/// 主视图，用于编辑决策和其选项。
 struct CommonEditView: View {
-    @Bindable var decision: Decision
+    @Bindable var decision: Decision  // 绑定的决策对象
 
-//    @State private var inputChoiceTitle: String = ""
-//    @State private var inputChoiceWeight: String = ""
+    @Environment(\.dismiss) private var dismiss  // 环境变量，用于视图的关闭操作
 
-    @Environment(\.dismiss)
-    private var dismiss
+    @Environment(DecisionViewModel.self) private var vm  // 视图模型，用于数据处理
 
-    @Environment(DecisionViewModel.self)
-    private var vm
+    @Environment(\.modelContext) private var modelContext  // 数据模型上下文环境
 
-    @Environment(\.modelContext)
-    private var modelContext
+    @State private var tappedChoiceUUID: UUID?  // 当前被选中的选项的 UUID
 
-    @State private var tappedChoiceUUID: UUID?
-
-    @State private var totalWeight = 0
+    @State private var totalWeight = 0  // 所有选项的总权重
 
     var body: some View {
         Form {
@@ -57,6 +52,7 @@ struct CommonEditView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
+    /// 添加新选项的方法。
     private func addNewChoice() {
         let newChoice = vm.addNewChoice(to: decision)
         tappedChoiceUUID = newChoice.uuid
@@ -64,25 +60,25 @@ struct CommonEditView: View {
     }
 }
 
+/// 表示单个选项的视图。
 struct ChoiceRow: View {
-    @Bindable var choice: Choice
-    @Binding var tappedChoiceUUID: UUID?
-    @FocusState private var focusedField: Field?
+    @Bindable var choice: Choice  // 绑定的选项对象
+    @Binding var tappedChoiceUUID: UUID?  // 绑定的被选中选项的 UUID
+    @FocusState private var focusedField: Field?  // 当前焦点所在的字段
 
-    @Environment(\.modelContext)
-    private var modelContext
+    @Environment(\.modelContext) private var modelContext  // 数据模型上下文环境
 
-    @Environment(DecisionViewModel.self)
-    private var vm
+    @Environment(DecisionViewModel.self) private var vm  // 视图模型
 
-    var decision: Decision
+    var decision: Decision  // 当前的决策对象
 
-    @Binding var totalWeight: Int
+    @Binding var totalWeight: Int  // 绑定的总权重
 
     enum Field {
         case title, weight
     }
 
+    /// 添加新选项并更新权重的方法。
     private func addNewChoice() {
         let newChoice = vm.addNewChoice(to: decision)
         tappedChoiceUUID = newChoice.uuid
@@ -165,6 +161,7 @@ struct ChoiceRow: View {
         }
     }
 
+    /// 计算并返回选项的概率，结果保留两位小数。
     func probability() -> String {
         let result = Double(choice.weight) / Double(totalWeight) * 100
         return String(format: "%.2f", result)
