@@ -68,9 +68,8 @@ class DecisionViewModel {
     }
 
     public func addNewChoice(to decision: Decision) -> Choice {
-        let newChoice = Choice(content: "", weight: 1, sortValue: Double(decision.choices.count))
+        let newChoice = Choice(content: "", weight: 1)
         decision.choices.append(newChoice)
-        decision.resetTotalWeight()
         return newChoice
     }
 
@@ -80,15 +79,14 @@ class DecisionViewModel {
         decision.choices.removeAll {
             $0.uuid == choice.uuid
         }
-        decision.resetTotalWeight()
 
     }
 
     public func deleteChoices(from decision: Decision, at offsets: IndexSet) {
+        print("idx:\(offsets)")
         let choices = decision.sortedChoices
         offsets.map { choices[$0] }.forEach(modelContext.delete)
         decision.choices.removeAll(where: { choice in offsets.contains(where: { choices[$0].id == choice.id }) })
-        decision.resetTotalWeight()
     }
     
 }

@@ -24,9 +24,7 @@ struct CommonEditView: View {
 
     @State private var tappedChoiceUUID: UUID?
 
-    var choices: [Choice] {
-        decision.choices.sorted(by: { $0.sortValue < $1.sortValue })
-    }
+    @State private var totalWeight = 0
 
     var body: some View {
         Form {
@@ -37,12 +35,12 @@ struct CommonEditView: View {
 
             Section(header: Text("选项列表")) {
                 List {
-                    ForEach(choices) { choice in
-                        ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID, decision: decision)
+                    ForEach(decision.sortedChoices) { choice in
+                        ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID, decision: decision, totalWeight: $totalWeight)
                     }
                     .onDelete { indexSet in
                         vm.deleteChoices(from: decision, at: indexSet)
-                        decision.resetTotalWeight()
+                        totalWeight = decision.totalWeight
                     }
                 }
             }
@@ -53,12 +51,16 @@ struct CommonEditView: View {
                 }
             }
         }
+        .onAppear {
+            totalWeight = decision.totalWeight
+        }
         .navigationBarTitleDisplayMode(.inline)
     }
 
     private func addNewChoice() {
         let newChoice = vm.addNewChoice(to: decision)
         tappedChoiceUUID = newChoice.uuid
+        totalWeight += 1
     }
 }
 
@@ -75,6 +77,8 @@ struct ChoiceRow: View {
 
     var decision: Decision
 
+    @Binding var totalWeight: Int
+
     enum Field {
         case title, weight
     }
@@ -82,6 +86,7 @@ struct ChoiceRow: View {
     private func addNewChoice() {
         let newChoice = vm.addNewChoice(to: decision)
         tappedChoiceUUID = newChoice.uuid
+        totalWeight += 1
     }
 
     var body: some View {
@@ -118,6 +123,7 @@ struct ChoiceRow: View {
                                     Spacer() // 使文本居中
                                     Button("继续新增") {
                                         addNewChoice()
+                                        totalWeight += choice.weight - 1
                                     }.disabled(choice.title.isEmpty)
                                     Button("完成") {
                                         focusedField = nil // 关闭键盘
@@ -125,6 +131,7 @@ struct ChoiceRow: View {
                                         if choice.title.isEmpty {
                                             vm.deleteChoice(from: decision, choice: choice)
                                         }
+                                        totalWeight = decision.totalWeight
                                     }
                                 }
                             }
@@ -159,7 +166,7 @@ struct ChoiceRow: View {
     }
 
     func probability() -> String {
-        let result = Double(choice.weight) / Double(decision.totalWeight) * 100
+        let result = Double(choice.weight) / Double(totalWeight) * 100
         return String(format: "%.2f", result)
     }
 }

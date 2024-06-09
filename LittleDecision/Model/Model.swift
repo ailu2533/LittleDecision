@@ -32,29 +32,20 @@ class Decision {
 
     var sortedChoices: [Choice] {
         return choices.sorted(by: {
-            $0.sortValue < $1.sortValue
+            $0.createDate < $1.createDate
         })
     }
 
-    @Transient private var totalWeightCache: Int?
-
     // 总权重
     var totalWeight: Int {
-        if let totalWeightCache {
-            return totalWeightCache
-        } else {
-            let totalWeight = choices.reduce(0) { partialResult, choice in
-                partialResult + choice.weight
-            }
-
-            totalWeightCache = totalWeight
-            return totalWeight
+        let totalWeight = choices.reduce(0) { partialResult, choice in
+            partialResult + choice.weight
         }
+
+        return totalWeight
     }
-    
-    func resetTotalWeight() {
-        totalWeightCache = nil
-    }
+
+ 
 }
 
 extension Decision: Hashable {
@@ -79,7 +70,7 @@ class Choice {
     var decision: Decision?
     var title: String
     var weight: Int
-    var sortValue: Double
+//    var sortValue: Double
 
     // 是否可以被选中
     var enable: Bool = true
@@ -88,11 +79,11 @@ class Choice {
     // 选中状态
     var choosed: Bool = false
 
-    init(content: String, weight: Int, sortValue: Double) {
+    init(content: String, weight: Int) {
         title = content
         self.weight = weight
         createDate = .now
-        self.sortValue = sortValue
+//        self.sortValue = sortValue
     }
 }
 
@@ -101,7 +92,6 @@ extension Choice: CustomStringConvertible {
         return """
         Choice: \(title)
         Weight: \(weight)
-        Sort Value: \(sortValue)
         """
     }
 }
