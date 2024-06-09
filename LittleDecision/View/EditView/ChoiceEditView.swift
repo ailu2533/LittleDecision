@@ -16,5 +16,7 @@ struct ChoiceEditView: View {
 
     var body: some View {
         CommonEditView(decision: decision)
+            .navigationTitle("编辑决定")
+
     }
 }

@@ -41,6 +41,7 @@ struct DecisionListView: View {
                         Text(decision.title)
                     })
                 }
+                .frame(height: 42)
 
                 .swipeActions {
                     Button(role: .destructive) {

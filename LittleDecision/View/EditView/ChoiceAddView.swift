@@ -11,6 +11,9 @@ struct ChoiceAddView: View {
    
     @Environment(\.modelContext)
     private var modelContext
+    
+    @Environment(\.dismiss)
+    private var dismiss
 
     @State private var decision: Decision = Decision(title: "", choices: [])
 
@@ -20,6 +23,18 @@ struct ChoiceAddView: View {
     var body: some View {
         NavigationStack {
             CommonEditView(decision: decision)
+                .navigationTitle("新增决定")
+                .toolbar(content: {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button(action: {
+                            decision.saved = true
+                            dismiss()
+                        }, label: {
+                            Text("完成")
+                        })
+                    }
+                })
+
         }.onAppear {
             modelContext.insert(decision)
         }

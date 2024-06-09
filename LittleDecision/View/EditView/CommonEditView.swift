@@ -33,7 +33,7 @@ struct CommonEditView: View {
 
             Section(content: {
                 List {
-                    ForEach(decision.choices.sorted(by: { $0.sortValue < $1.sortValue })) { choice in
+                    ForEach(decision.choices) { choice in
 
                         HStack {
                             if tappedChoiceUUID == choice.uuid {
@@ -109,17 +109,7 @@ struct CommonEditView: View {
             }
         }
 
-        .navigationTitle("添加决定")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar(content: {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    decision.saved = true
-                    dismiss()
-                }, label: {
-                    Text("完成")
-                })
-            }
-        })
+      
     }
 }
