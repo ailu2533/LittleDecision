@@ -72,10 +72,7 @@ struct CommonEditView: View {
                                     .onTapGesture {
                                         tappedChoiceUUID = nil
                                     }
-
-
                             }
-                               
                         }
 
                     }.onDelete(perform: { indexSet in
@@ -85,6 +82,12 @@ struct CommonEditView: View {
 
                         dels.forEach { choice in
                             modelContext.delete(choice)
+                        }
+
+                        decision.choices.removeAll { choice in
+                            dels.contains { choice2 in
+                                choice.id == choice2.id
+                            }
                         }
 
                     })
@@ -110,6 +113,5 @@ struct CommonEditView: View {
         }
 
         .navigationBarTitleDisplayMode(.inline)
-      
     }
 }

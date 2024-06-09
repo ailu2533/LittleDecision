@@ -138,21 +138,24 @@ struct ChartView: View {
 
     var body: some View {
         Chart(currentDecision.choices) { choice in
+            let isSelected = choice.uuid == selection?.uuid
+            let outerRadius = isSelected ? 165 : 150
+            let title = Text(verbatim: choice.title)
 
             SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight)),
 //                       innerRadius: .ratio(0.45),
-                       outerRadius: choice.uuid == selection?.uuid ? 165 : 150,
+                       outerRadius: MarkDimension(integerLiteral: outerRadius),     
                        angularInset: 1)
-
-                .cornerRadius(12)
+                .cornerRadius(4)
                 .annotation(position: .overlay, alignment: .center) {
-                    Text(choice.title)
+                    title
+                        .frame(maxWidth: 150)
+                        .lineLimit(1) // 限制一行显示，避免文本溢出
+                        .truncationMode(.tail) // 超出部分显示省略号
                 }
-
-                .foregroundStyle(by: .value(Text(verbatim: choice.title), choice.title))
-                .opacity(choice.choosed ? 0.1 : 1)
+                .foregroundStyle(by: .value(title, choice.title))
         }
-
-        .chartLegend(.hidden)
+        .chartLegend(.hidden) // 隐藏图例
     }
 }
+
