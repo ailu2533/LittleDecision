@@ -50,7 +50,7 @@ struct FirstView: View {
 
                 Spacer()
                 if let currentDecision {
-                    PieChartView(selection: $selectedChoice, currentDecision: currentDecision)
+                    PieChartNoRepeatView(selection: $selectedChoice, currentDecision: currentDecision)
                         .frame(maxHeight: 400)
                 }
                 

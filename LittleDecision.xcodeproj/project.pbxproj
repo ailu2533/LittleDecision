@@ -19,6 +19,7 @@
 		273ADD0F2C1530BB006AC677 /* DecisionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD0E2C1530BB006AC677 /* DecisionList.swift */; };
 		273ADD112C153431006AC677 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD102C153431006AC677 /* SettingsView.swift */; };
 		273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */; };
+		273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */; };
 		2754AA042BC3D188000073FB /* PieDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA032BC3D188000073FB /* PieDecision.swift */; };
 		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
 		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
@@ -67,6 +68,7 @@
 		273ADD0E2C1530BB006AC677 /* DecisionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionList.swift; sourceTree = "<group>"; };
 		273ADD102C153431006AC677 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
+		273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartNoRepeatView.swift; sourceTree = "<group>"; };
 		2754AA032BC3D188000073FB /* PieDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDecision.swift; sourceTree = "<group>"; };
 		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
 		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
@@ -143,9 +145,18 @@
 			path = EditView;
 			sourceTree = "<group>";
 		};
+		273ADD142C157809006AC677 /* LotteryView */ = {
+			isa = PBXGroup;
+			children = (
+				273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */,
+			);
+			path = LotteryView;
+			sourceTree = "<group>";
+		};
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				273ADD142C157809006AC677 /* LotteryView */,
 				273ADCF72C14116F006AC677 /* EditView */,
 				2754AA032BC3D188000073FB /* PieDecision.swift */,
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
@@ -379,6 +390,7 @@
 				273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
+				273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				273ADD0D2C153092006AC677 /* HistoryView.swift in Sources */,
 				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,

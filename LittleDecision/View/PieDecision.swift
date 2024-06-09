@@ -144,7 +144,7 @@ struct ChartView: View {
 
             SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight)),
 //                       innerRadius: .ratio(0.45),
-                       outerRadius: MarkDimension(integerLiteral: outerRadius),     
+//                       outerRadius: MarkDimension(integerLiteral: outerRadius),     
                        angularInset: 1)
                 .cornerRadius(4)
                 .annotation(position: .overlay, alignment: .center) {
@@ -158,4 +158,5 @@ struct ChartView: View {
         .chartLegend(.hidden) // 隐藏图例
     }
 }
+
 
