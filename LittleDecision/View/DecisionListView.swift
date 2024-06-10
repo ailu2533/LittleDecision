@@ -65,7 +65,7 @@ struct DecisionListView: View {
                             ChoiceEditView(decision: decision)
                         }, label: {
                             VStack(alignment: .leading) {
-                                Text(decision.title)
+                                Text(decision.title).fontWeight(.bold)
                                 Text("\(decision.choices.count)个选项")
                                     .font(.caption)
                             }
@@ -101,6 +101,7 @@ struct DecisionListView: View {
                 }
             }
         }
+        .sensoryFeedback(.selection, trigger: decisionId)
 
         .overlay(content: {
             if decisions.isEmpty {

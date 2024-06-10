@@ -18,6 +18,8 @@ struct CarouselSettingsView: View {
                 Toggle(isOn: $noRepeat, label: {
                     Text("不重复抽取")
                 })
+                
+                
 
                 Toggle(isOn: $equalWeight, label: {
                     Text("隐藏权重")
