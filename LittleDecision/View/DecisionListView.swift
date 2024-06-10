@@ -7,6 +7,21 @@
 
 import SwiftData
 import SwiftUI
+import TipKit
+
+struct UseDecisionTip: Tip {
+    var title: Text {
+        Text("使用决定")
+    }
+
+    var message: Text? {
+        Text("点击决定最左侧的圆圈来使用决定")
+    }
+
+    var image: Image? {
+        Image(systemName: "lightbulb")
+    }
+}
 
 struct DecisionListView: View {
     @Environment(\.modelContext) private var modelContext
@@ -20,11 +35,19 @@ struct DecisionListView: View {
 
     @Query private var decisions: [Decision] = []
 
+    let tip = UseDecisionTip()
+
+    var savedDecision: [Decision] {
+        return decisions.filter({ decision in
+            decision.saved == true
+        })
+    }
+
     var body: some View {
+        let decisions = savedDecision
+
         List {
-            ForEach(decisions.filter({ decision in
-                decision.saved == true
-            })) { decision in
+            ForEach(decisions) { decision in
 
                 HStack {
                     Image(systemName: decisionId == decision.uuid.uuidString ? "checkmark.circle" : "circle")
@@ -69,7 +92,24 @@ struct DecisionListView: View {
                     }
                 }
             }
+            if !decisions.isEmpty {
+                TipView(tip, arrowEdge: .top)
+                    .listRowBackground(Color.clear)
+//                    .background(Color(.systemGray5))
+            }
         }
+
+        .overlay(content: {
+            if decisions.isEmpty {
+                ContentUnavailableView(label: {
+                    Label("没有决定", systemImage: "tray.fill")
+                }, actions: {
+                    Text("请按右上方的+添加决定")
+                        .foregroundStyle(.secondary)
+                })
+            }
+
+        })
 
         .navigationTitle("决定列表")
         .navigationBarTitleDisplayMode(.inline)

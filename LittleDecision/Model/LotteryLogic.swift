@@ -138,4 +138,14 @@ class LotteryViewModel {
 
         return (choice, randomAngle)
     }
+
+    static func select(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
+        let noRepeat = UserDefaults.standard.bool(forKey: "noRepeat")
+
+        if noRepeat {
+            return selectChoiceExcludeDisable(from: choices)
+        } else {
+            return selectChoice(from: choices)
+        }
+    }
 }

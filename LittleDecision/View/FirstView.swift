@@ -30,7 +30,7 @@ struct FirstView: View {
 
         do {
             let res = try modelContext.fetch(descriptor).first
-            Logging.shared.debug("currentDecision: \(res.debugDescription)  isNil \(res==nil)")
+            Logging.shared.debug("currentDecision: \(res.debugDescription)  isNil \(res == nil)")
             return res
         } catch {
             Logging.shared.error("currentDecision: \(error)")
@@ -44,7 +44,7 @@ struct FirstView: View {
             VStack {
                 Spacer()
                 VStack {
-                    Text(currentDecision?.title ?? "xx")
+                    Text(currentDecision?.title ?? "没有决定")
                         .font(.title)
                         .fontWeight(.bold)
                     Text(selectedChoice?.title ?? "??")
@@ -57,7 +57,7 @@ struct FirstView: View {
                         .padding(.horizontal, 12)
                 } else {
                     ContentUnavailableView(label: {
-                        Label("No Mail", systemImage: "tray.fill")
+                        Label("请现在决定Tab添加决定", systemImage: "tray.fill")
                     })
                 }
 

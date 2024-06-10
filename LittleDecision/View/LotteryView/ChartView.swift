@@ -16,7 +16,7 @@ struct ChartView: View {
 
             SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight4calc)),
                        angularInset: 1)
-                .cornerRadius(4)
+                .cornerRadius(8)
                 .annotation(position: .overlay, alignment: .center) {
                     let rotationAngel = -90 + (dict[choice.uuid] ?? 90)
 

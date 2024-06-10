@@ -20,11 +20,11 @@ struct PieChartNoRepeatView: View {
     @State private var lastReportAngle = 0.0
 
     @State private var isRunning = false
-    
+
     // 设置
     @AppStorage("noRepeat") private var noRepeat = false
     @AppStorage("equalWeight") private var equalWeight = false
-    @AppStorage("rotationTime") private var rotationTime = 4
+    @AppStorage("rotationTime") private var rotationTime: Double = 4
 
     var body: some View {
         VStack {
@@ -45,17 +45,24 @@ struct PieChartNoRepeatView: View {
                         }
                 }
             Spacer()
-            
+
         }.sensoryFeedback(.impact(flexibility: .solid), trigger: tapCount)
             .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { oldValue, newValue in
                 oldValue && !newValue
             }
             .toolbar(content: {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("还原转盘") {
+//                    Button("还原转盘") {
+//                        restore()
+//                        tapCount += 1
+//                    }
+
+                    Button(action: {
                         restore()
                         tapCount += 1
-                    }
+                    }, label: {
+                        Label("还原转盘", systemImage: "arrow.clockwise")
+                    })
                 }
             })
     }
@@ -81,12 +88,16 @@ struct PieChartNoRepeatView: View {
 
         selection = nil
 
-        if let (choice, angle) = LotteryViewModel.selectChoiceExcludeDisable(from: currentDecision.choices) {
-            withAnimation(.smooth(duration: 4)) {
-                self.rotateAngle += (angle + 360 - self.rotateAngle.truncatingRemainder(dividingBy: 360) + 4 * 360)
+        if let (choice, angle) = LotteryViewModel.select(from: currentDecision.choices) {
+            withAnimation(.smooth(duration: rotationTime)) {
+                let extraRotation: Double = rotationTime * 360.0
+                self.rotateAngle += (angle + 360 - self.rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
             } completion: {
                 selection = choice
-                selection?.enable = false
+
+                if noRepeat {
+                    selection?.enable = false
+                }
 
                 isRunning = false
             }

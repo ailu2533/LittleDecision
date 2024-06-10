@@ -161,9 +161,15 @@ struct ChoiceRow: View {
         }
     }
 
-    /// 计算并返回选项的概率，结果保留两位小数。
-    func probability() -> String {
-        let result = Double(choice.weight) / Double(totalWeight) * 100
-        return String(format: "%.2f", result)
-    }
+    /// 计算并返回选项的概率，结果最多保留两位小数，尾数为0则不显示。
+func probability() -> String {
+    let result = Double(choice.weight) / Double(totalWeight) * 100
+    
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.maximumFractionDigits = 2
+    formatter.minimumFractionDigits = 0  // 最小小数位数为0，尾数0不显示
+
+    return formatter.string(from: NSNumber(value: result)) ?? "0"
+}
 }

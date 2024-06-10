@@ -7,11 +7,14 @@
 
 import SwiftData
 import SwiftUI
+import TipKit
 
 @main
 struct LittleDecisionApp: App {
     init() {
         vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
+        try? Tips.configure()
+
     }
 
     var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
