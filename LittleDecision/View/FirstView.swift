@@ -55,9 +55,16 @@ struct FirstView: View {
                 if let currentDecision {
                     PieChartNoRepeatView(selection: $selectedChoice, currentDecision: currentDecision)
                         .padding(.horizontal, 12)
+
+                    if currentDecision.choices.isEmpty {
+                        Text("请确保当前选中的决定中至少有一个选项")
+                            .foregroundStyle(Color.secondary)
+                            .padding(.bottom)
+                    }
+
                 } else {
                     ContentUnavailableView(label: {
-                        Label("请现在决定Tab添加决定", systemImage: "tray.fill")
+                        Label("请在决定Tab添加决定", systemImage: "tray.fill")
                     })
                 }
 

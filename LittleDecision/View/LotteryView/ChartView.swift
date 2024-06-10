@@ -18,7 +18,7 @@ struct ChartView: View {
                        angularInset: 1)
                 .cornerRadius(8)
                 .annotation(position: .overlay, alignment: .center) {
-                    let rotationAngel = -90 + (dict[choice.uuid] ?? 90)
+                    let rotationAngel = (dict[choice.uuid] ?? 0)
 
                     title
                         .frame(maxWidth: 150)
@@ -44,7 +44,17 @@ struct ChartView: View {
             let angle = weightProportion * 360.0
             let endAngle = startAngle + angle
             let averageAngle = (startAngle + endAngle) / 2
-            angles[choice.uuid] = averageAngle
+
+            var rotation = 0.0
+            if averageAngle <= 180 {
+                rotation = -90.0 + averageAngle
+            } else if averageAngle <= 270 {
+                rotation = -90 + averageAngle + 180
+            } else {
+                rotation = -90.0 + averageAngle - 180
+            }
+
+            angles[choice.uuid] = rotation
             startAngle = endAngle
         }
 

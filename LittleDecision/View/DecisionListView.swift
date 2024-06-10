@@ -45,57 +45,60 @@ struct DecisionListView: View {
 
     var body: some View {
         let decisions = savedDecision
+        VStack {
+            List {
+                ForEach(decisions) { decision in
 
-        List {
-            ForEach(decisions) { decision in
+                    HStack {
+                        Image(systemName: decisionId == decision.uuid.uuidString ? "checkmark.square" : "square")
+                            .imageScale(.large)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.accentColor)
 
-                HStack {
-                    Image(systemName: decisionId == decision.uuid.uuidString ? "checkmark.circle" : "circle")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                        .onTapGesture {
-                            decisionId = decision.uuid.uuidString
+                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .onTapGesture {
+                                decisionId = decision.uuid.uuidString
+                            }
+
+                        NavigationLink(destination: {
+                            ChoiceEditView(decision: decision)
+                        }, label: {
+                            VStack(alignment: .leading) {
+                                Text(decision.title)
+                                Text("\(decision.choices.count)个选项")
+                                    .font(.caption)
+                            }
+
+                        })
+                    }
+                    .frame(height: 42)
+
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            modelContext.delete(decision)
+
+                            do {
+                                try modelContext.save()
+                            } catch {
+                                Logging.shared.error("save")
+                            }
+
+                            if decision.uuid.uuidString == decisionId {
+                                decisionId = decisions.filter({ decision in
+                                    decision.saved == true
+                                }).first?.uuid.uuidString ?? UUID().uuidString
+                            }
+
+                        } label: {
+                            Label("删除决定", systemImage: "trash.fill")
                         }
-                        .frame(minWidth: 40)
-
-                    NavigationLink(destination: {
-                        ChoiceEditView(decision: decision)
-                    }, label: {
-                        VStack(alignment: .leading) {
-                            Text(decision.title)
-                            Text("\(decision.choices.count)个选项")
-                                .font(.caption)
-                        }
-
-                    })
-                }
-                .frame(height: 42)
-
-                .swipeActions {
-                    Button(role: .destructive) {
-                        modelContext.delete(decision)
-
-                        do {
-                            try modelContext.save()
-                        } catch {
-                            Logging.shared.error("save")
-                        }
-
-                        if decision.uuid.uuidString == decisionId {
-                            decisionId = decisions.filter({ decision in
-                                decision.saved == true
-                            }).first?.uuid.uuidString ?? UUID().uuidString
-                        }
-
-                    } label: {
-                        Label("删除决定", systemImage: "trash.fill")
                     }
                 }
-            }
-            if !decisions.isEmpty {
-                TipView(tip, arrowEdge: .top)
-                    .listRowBackground(Color.clear)
-//                    .background(Color(.systemGray5))
+                if !decisions.isEmpty {
+                    TipView(tip)
+                        .listRowBackground(Color.clear)
+                }
             }
         }
 

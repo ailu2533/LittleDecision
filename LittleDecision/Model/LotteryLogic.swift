@@ -60,7 +60,7 @@ class LotteryViewModel {
     // 从choices中随机选择一个choice，然后计算出weight的角度范围
 
     static func selectChoice(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
-        let totalWeight = choices.reduce(0) { $0 + $1.weight }
+        let totalWeight = choices.reduce(0) { $0 + $1.weight4calc }
         if totalWeight == 0 { return nil } // 防止除以零的错误
 
         // 随机选择一个choice
@@ -69,7 +69,7 @@ class LotteryViewModel {
         var selectedChoice: Choice?
 
         for choice in choices {
-            cumulativeWeight += choice.weight
+            cumulativeWeight += choice.weight4calc
             if randomWeight < cumulativeWeight {
                 selectedChoice = choice
                 break
@@ -84,7 +84,7 @@ class LotteryViewModel {
         cumulativeWeight = 0
 
         for choice in choices {
-            let angle = (Double(choice.weight) / Double(totalWeight)) * 360
+            let angle = (Double(choice.weight4calc) / Double(totalWeight)) * 360
             if choice === selectedChoice {
                 endAngle = startAngle + angle
                 break
