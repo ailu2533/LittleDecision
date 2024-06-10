@@ -11,13 +11,14 @@ import TipKit
 
 struct UseDecisionTip: Tip {
     var title: Text {
-        Text("使用决定")
+        Text("使用提示")
     }
 
     var message: Text? {
-        Text("点击决定最左侧的圆圈来使用决定")
+        Text("点击**方框**使用决定\n向左滑动删除决定")
+//        .multilineTextAlignment(.leading)
     }
-
+//
     var image: Image? {
         Image(systemName: "lightbulb")
     }
@@ -96,8 +97,10 @@ struct DecisionListView: View {
                     }
                 }
                 if !decisions.isEmpty {
-                    TipView(tip)
-                        .listRowBackground(Color.clear)
+                    TipView(tip, arrowEdge: .top)
+                        .listRowBackground(Color.accentColor.opacity(0.1))
+                        .tipBackground(Color.clear)
+                        .listRowSpacing(0)
                 }
             }
         }

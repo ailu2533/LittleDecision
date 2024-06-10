@@ -18,7 +18,7 @@ struct ChoiceTip: Tip {
     }
 
     var message: Text? {
-        Text("点击选项可以编辑选项名和权重，被选中概率=权重/总权重。向左滑动删除选项")
+        Text("**点击选项**可以编辑选项名和权重\n被选中概率=权重/总权重\n**向左滑动**删除选项")
     }
 }
 
@@ -55,6 +55,13 @@ struct CommonEditView: View {
                         vm.deleteChoices(from: decision, at: indexSet)
                         totalWeight = decision.totalWeight
                     }
+                    if !decision.choices.isEmpty {
+                        TipView(tip, arrowEdge: .top)
+                            .tipBackground(Color.clear)
+                            .listRowBackground(Color.accentColor.opacity(0.1))
+                            .listSectionSpacing(0)
+                            .listRowSpacing(0)
+                    }
                 }
             } header: {
                 HStack {
@@ -63,11 +70,9 @@ struct CommonEditView: View {
                     Text("总权重 \(totalWeight)")
                 }
             }
-            TipView(tip, arrowEdge: .top)
-                .background(Color(.systemGray5))
-                .listRowBackground(Color.clear)
-                .listSectionSpacing(0)
-                .listRowSpacing(0)
+            
+            
+            
 
             Section {
                 Button("新增选项") {
