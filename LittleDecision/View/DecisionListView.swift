@@ -18,6 +18,7 @@ struct UseDecisionTip: Tip {
         Text("点击**方框**使用决定\n向左滑动删除决定")
 //        .multilineTextAlignment(.leading)
     }
+
 //
     var image: Image? {
         Image(systemName: "lightbulb")
@@ -34,7 +35,7 @@ struct DecisionListView: View {
 
     @State private var showAddDecisionSheet = false
 
-    @Query private var decisions: [Decision] = []
+    @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)]) private var decisions: [Decision] = []
 
     let tip = UseDecisionTip()
 

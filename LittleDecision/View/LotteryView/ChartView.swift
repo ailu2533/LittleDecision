@@ -21,9 +21,9 @@ struct ChartView: View {
                     let rotationAngel = (dict[choice.uuid] ?? 0)
 
                     title
-                        .frame(maxWidth: 150)
-                        .lineLimit(1) // 限制一行显示，避免文本溢出
-                        .truncationMode(.tail) // 超出部分显示省略号
+                        .frame(maxWidth: 148)
+//                        .lineLimit(1) // 限制一行显示，避免文本溢出
+//                        .truncationMode(.tail) // 超出部分显示省略号
                         .rotationEffect(.degrees(rotationAngel))
                 }
                 .foregroundStyle(by: .value(title, choice.uuid.uuidString))

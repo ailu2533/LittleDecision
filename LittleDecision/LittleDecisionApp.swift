@@ -24,6 +24,9 @@ struct LittleDecisionApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .onAppear {
+                    insertData(ctx: sharedModelContainer.mainContext)
+                }
         }
         .modelContainer(sharedModelContainer)
         .environment(vm)
