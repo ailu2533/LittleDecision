@@ -44,8 +44,6 @@ class Decision {
 
         return totalWeight
     }
-
- 
 }
 
 extension Decision: Hashable {
@@ -83,7 +81,11 @@ class Choice {
         title = content
         self.weight = weight
         createDate = .now
-//        self.sortValue = sortValue
+    }
+
+    var weight4calc: Int {
+        let hideWeight = UserDefaults.standard.bool(forKey: "equalWeight")
+        return hideWeight ? 1 : weight
     }
 }
 

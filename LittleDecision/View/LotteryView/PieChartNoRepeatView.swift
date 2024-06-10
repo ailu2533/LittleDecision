@@ -20,6 +20,11 @@ struct PieChartNoRepeatView: View {
     @State private var lastReportAngle = 0.0
 
     @State private var isRunning = false
+    
+    // 设置
+    @AppStorage("noRepeat") private var noRepeat = false
+    @AppStorage("equalWeight") private var equalWeight = false
+    @AppStorage("rotationTime") private var rotationTime = 4
 
     var body: some View {
         VStack {

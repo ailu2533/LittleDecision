@@ -18,6 +18,8 @@
 		273ADD112C153431006AC677 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD102C153431006AC677 /* SettingsView.swift */; };
 		273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */; };
 		273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */; };
+		273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADDA02C16B38B006AC677 /* LotteryLogic.swift */; };
+		273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADDA22C16B3B9006AC677 /* ChartView.swift */; };
 		2754AA042BC3D188000073FB /* PieDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA032BC3D188000073FB /* PieDecision.swift */; };
 		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
 		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
@@ -63,6 +65,8 @@
 		273ADD102C153431006AC677 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartNoRepeatView.swift; sourceTree = "<group>"; };
+		273ADDA02C16B38B006AC677 /* LotteryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLogic.swift; sourceTree = "<group>"; };
+		273ADDA22C16B3B9006AC677 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		2754AA032BC3D188000073FB /* PieDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDecision.swift; sourceTree = "<group>"; };
 		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
 		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 			children = (
 				27FCEFD22BBC6DF4002518E0 /* Model.swift */,
 				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
+				273ADDA02C16B38B006AC677 /* LotteryLogic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */,
+				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -378,7 +384,9 @@
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				273ADD0D2C153092006AC677 /* HistoryView.swift in Sources */,
 				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,
+				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */,
+				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
