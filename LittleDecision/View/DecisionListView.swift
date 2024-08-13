@@ -5,6 +5,7 @@
 //  Created by ailu on 2024/4/15.
 //
 
+import Defaults
 import SwiftData
 import SwiftUI
 import TipKit
@@ -25,7 +26,9 @@ struct UseDecisionTip: Tip {
 
 struct DecisionListView: View {
     @Environment(\.modelContext) private var modelContext
-    @AppStorage("decisionId") var decisionId: String = UUID().uuidString
+
+    @Default(.decisionId) private var decisionId
+
     @State private var showAddDecisionSheet = false
     @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)]) private var decisions: [Decision] = []
 
@@ -98,14 +101,14 @@ struct DecisionListView: View {
     }
 
     private func selectionIcon(for decision: Decision) -> some View {
-        Image(systemName: decisionId == decision.uuid.uuidString ? "checkmark.square" : "square")
+        Image(systemName: decisionId == decision.uuid ? "checkmark.square" : "square")
             .imageScale(.large)
             .font(.title2)
             .fontWeight(.bold)
             .foregroundColor(.accentColor)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .onTapGesture {
-                decisionId = decision.uuid.uuidString
+                decisionId = decision.uuid
             }
     }
 
@@ -127,8 +130,8 @@ struct DecisionListView: View {
                 Logging.shared.error("save")
             }
 
-            if decision.uuid.uuidString == decisionId {
-                decisionId = savedDecisions.first?.uuid.uuidString ?? UUID().uuidString
+            if decision.uuid == decisionId {
+                decisionId = savedDecisions.first?.uuid ?? UUID()
             }
         } label: {
             Label("删除决定", systemImage: "trash.fill")

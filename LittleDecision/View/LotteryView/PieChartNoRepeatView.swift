@@ -39,13 +39,15 @@ struct PieChartNoRepeatView: View {
 
     private var pointerView: some View {
         PointerShape()
-            .fill(.white)
+            .fill(.regularMaterial)
             .shadow(radius: 3)
             .rotationEffect(.degrees(rotateAngle))
             .frame(width: 150, height: 150)
             .overlay(alignment: .center) {
                 Text("开始")
                     .foregroundStyle(.black)
+                    .fontWeight(.semibold)
+                    .fontDesign(.rounded)
             }
             .onTapGesture {
                 tapCount += 1

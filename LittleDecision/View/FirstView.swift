@@ -5,11 +5,12 @@
 //  Created by ailu on 2024/6/8.
 //
 
+import Defaults
 import SwiftData
 import SwiftUI
 
 struct FirstView: View {
-    @AppStorage("decisionId") var decisionId: String = UUID().uuidString
+    @Default(.decisionId) private var decisionId
     @Environment(\.modelContext) private var modelContext
     @Environment(DecisionViewModel.self) private var vm
     @State private var selectedChoice: Choice?
@@ -33,6 +34,7 @@ struct FirstView: View {
                 .fontWeight(.bold)
             Text(selectedChoice?.title ?? "??")
                 .font(.title2)
+                .foregroundStyle(.red)
         }
     }
 
@@ -66,9 +68,7 @@ struct FirstView: View {
     }
 
     private var currentDecision: Decision? {
-        guard let did = UUID(uuidString: decisionId) else { return nil }
-
-        let predicate = #Predicate<Decision> { $0.uuid == did }
+        let predicate = #Predicate<Decision> { $0.uuid == decisionId }
         let descriptor = FetchDescriptor(predicate: predicate)
 
         do {

@@ -7,8 +7,6 @@ struct ChartView: View {
 
     @State private var dict: [UUID: Double] = [:]
 
-//    @AppStorage("equalWeight") private var hideWeight = false
-
     var body: some View {
         Chart(currentDecision.choices) { choice in
 

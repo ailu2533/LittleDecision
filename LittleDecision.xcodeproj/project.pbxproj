@@ -33,6 +33,7 @@
 		8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1931E92C6BAA7B00F9D2A4 /* LemonViews */; };
 		8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1931EC2C6BB12D00F9D2A4 /* Defaults */; };
 		8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */; };
+		8D1931F12C6BBFA400F9D2A4 /* ChoiceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1931F02C6BBFA400F9D2A4 /* ChoiceRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		8D1931E42C6B73DD00F9D2A4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8D1931E62C6B84AB00F9D2A4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		8D1931F02C6BBFA400F9D2A4 /* ChoiceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				273ADCF82C141193006AC677 /* ChoiceEditView.swift */,
 				273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */,
 				273ADCFC2C141AEB006AC677 /* CommonEditView.swift */,
+				8D1931F02C6BBFA400F9D2A4 /* ChoiceRow.swift */,
 			);
 			path = EditView;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */,
+				8D1931F12C6BBFA400F9D2A4 /* ChoiceRow.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */,
