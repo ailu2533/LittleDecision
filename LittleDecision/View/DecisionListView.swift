@@ -40,9 +40,9 @@ struct DecisionListView: View {
     let tip = UseDecisionTip()
 
     var savedDecision: [Decision] {
-        return decisions.filter({ decision in
+        decisions.filter { decision in
             decision.saved == true
-        })
+        }
     }
 
     var body: some View {
@@ -57,7 +57,6 @@ struct DecisionListView: View {
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(.accentColor)
-
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                             .onTapGesture {
                                 decisionId = decision.uuid.uuidString
@@ -75,7 +74,6 @@ struct DecisionListView: View {
                         })
                     }
                     .frame(height: 42)
-
                     .swipeActions {
                         Button(role: .destructive) {
                             modelContext.delete(decision)
@@ -87,9 +85,9 @@ struct DecisionListView: View {
                             }
 
                             if decision.uuid.uuidString == decisionId {
-                                decisionId = decisions.filter({ decision in
+                                decisionId = decisions.filter { decision in
                                     decision.saved == true
-                                }).first?.uuid.uuidString ?? UUID().uuidString
+                                }.first?.uuid.uuidString ?? UUID().uuidString
                             }
 
                         } label: {
@@ -106,7 +104,6 @@ struct DecisionListView: View {
             }
         }
         .sensoryFeedback(.selection, trigger: decisionId)
-
         .overlay(content: {
             if decisions.isEmpty {
                 ContentUnavailableView(label: {
@@ -121,7 +118,6 @@ struct DecisionListView: View {
 
         .navigationTitle("决定列表")
         .navigationBarTitleDisplayMode(.inline)
-
         .toolbar(content: {
             ToolbarItem {
                 Button(action: {

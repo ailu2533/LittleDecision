@@ -21,17 +21,17 @@ struct MainView: View {
     private var currentDecision: Decision {
         let did = UUID(uuidString: decisionId)!
 
-        let p = #Predicate<Decision> {
+        let predicate = #Predicate<Decision> {
             $0.uuid == did
         }
 
-        let descriptor = FetchDescriptor(predicate: p)
+        let descriptor = FetchDescriptor(predicate: predicate)
 
         do {
             let decisions = try modelContext.fetch(descriptor)
 
-            if let d = decisions.first {
-                return d
+            if let decision = decisions.first {
+                return decision
             }
 
         } catch {

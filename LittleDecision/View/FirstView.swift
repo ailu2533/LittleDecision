@@ -22,11 +22,11 @@ struct FirstView: View {
     private var currentDecision: Decision? {
         guard let did = UUID(uuidString: decisionId) else { return nil }
 
-        let p = #Predicate<Decision> {
+        let predicate = #Predicate<Decision> {
             $0.uuid == did
         }
 
-        let descriptor = FetchDescriptor(predicate: p)
+        let descriptor = FetchDescriptor(predicate: predicate)
 
         do {
             let res = try modelContext.fetch(descriptor).first

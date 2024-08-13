@@ -32,7 +32,7 @@ class Decision {
     }
 
     var sortedChoices: [Choice] {
-        return choices.sorted(by: {
+        choices.sorted(by: {
             $0.createDate < $1.createDate
         })
     }
@@ -56,9 +56,9 @@ extension Decision: Hashable {
 
 extension Decision: CustomStringConvertible {
     var description: String {
-        return """
+        """
         Decision: \(title)
-        Choices: \(choices.map { $0.description }.joined(separator: "\n"))
+        Choices: \(choices.map(\.description).joined(separator: "\n"))
         """
     }
 }
@@ -92,13 +92,14 @@ class Choice {
 
 extension Choice: CustomStringConvertible {
     var description: String {
-        return """
+        """
         Choice: \(title)
         Weight: \(weight)
         """
     }
 }
 
+// swiftlint:disable:next function_body_length
 func insertData(ctx: ModelContext) {
     // 从userDefaults中读取是否有数据
     let hasData = UserDefaults.standard.bool(forKey: "hasData")
@@ -294,7 +295,7 @@ func insertData(ctx: ModelContext) {
     ])
     ctx.insert(truthDecision)
     ctx.insert(dareDecision)
-   
+
     ctx.insert(dinnerDecision)
     ctx.insert(dateDecision)
     ctx.insert(lunchDecision)

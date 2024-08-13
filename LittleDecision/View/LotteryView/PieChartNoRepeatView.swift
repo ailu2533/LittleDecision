@@ -34,7 +34,6 @@ struct PieChartNoRepeatView: View {
                         .fill(.white)
                         .shadow(radius: 3)
                         .rotationEffect(.degrees(rotateAngle))
-
                         .frame(width: 150, height: 150)
                         .overlay(alignment: .center) {
                             Text("开始")
@@ -70,9 +69,9 @@ struct PieChartNoRepeatView: View {
     private func restore() {
         withAnimation {
             selection = nil
-            rotateAngle = rotateAngle - rotateAngle.truncatingRemainder(dividingBy: 360)
+            rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
 
-            currentDecision.choices.forEach { choice in
+            for choice in currentDecision.choices {
                 choice.enable = true
             }
         }
@@ -91,7 +90,7 @@ struct PieChartNoRepeatView: View {
         if let (choice, angle) = LotteryViewModel.select(from: currentDecision.choices) {
             withAnimation(.smooth(duration: rotationTime)) {
                 let extraRotation: Double = rotationTime * 360.0
-                self.rotateAngle += (angle + 360 - self.rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
+                rotateAngle += (angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
             } completion: {
                 selection = choice
 

@@ -70,9 +70,6 @@ struct CommonEditView: View {
                     Text("总权重 \(totalWeight)")
                 }
             }
-            
-            
-            
 
             Section {
                 Button("新增选项") {
@@ -127,7 +124,7 @@ struct ChoiceRow: View {
                         .focused($focusedField, equals: .title)
                         .onAppear {
                             DispatchQueue.main.async {
-                                self.focusedField = .title
+                                focusedField = .title
                             }
                         }
                         .submitLabel(.next)
@@ -167,11 +164,11 @@ struct ChoiceRow: View {
                             }
                         }
 
-                        .onChange(of: choice.weight, { _, newValue in
+                        .onChange(of: choice.weight) { _, newValue in
                             if newValue <= 0 {
                                 choice.weight = 1
                             }
-                        })
+                        }
 
                         .onSubmit {
                             focusedField = nil

@@ -11,9 +11,8 @@ struct CarouselSettingsView: View {
     @AppStorage("noRepeat") private var noRepeat = false
     @AppStorage("equalWeight") private var equalWeight = false
     @AppStorage("rotationTime") private var rotationTime = 4
-    
-    @Environment(\.openURL) private var openURL
 
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         NavigationStack {

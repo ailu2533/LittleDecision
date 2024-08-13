@@ -8,7 +8,6 @@
 import SwiftData
 import SwiftUI
 
-
 enum DecisionManagementSheetEnum: Identifiable {
     var id: UUID {
         UUID()

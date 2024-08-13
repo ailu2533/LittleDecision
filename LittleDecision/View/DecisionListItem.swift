@@ -10,7 +10,6 @@ import SwiftUI
 struct DecisionListItem: View {
     private var text: String
     private var selected: Bool
-    
 
     init(text: String, selected: Bool = false) {
         self.text = text
@@ -23,8 +22,7 @@ struct DecisionListItem: View {
             Text(text)
             Spacer()
         }.contentShape(Rectangle())
-
-        .foregroundStyle(selected ? Color(.systemBlue) : Color(.systemGray))
+            .foregroundStyle(selected ? Color(.systemBlue) : Color(.systemGray))
     }
 }
 

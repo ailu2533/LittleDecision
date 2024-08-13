@@ -14,10 +14,9 @@ struct ChoiceAddView: View {
     @Environment(\.dismiss)
     private var dismiss
 
-    @State private var decision: Decision = Decision(title: "", choices: [])
+    @State private var decision: Decision = .init(title: "", choices: [])
 
-    init() {
-    }
+    init() {}
 
     var body: some View {
         NavigationStack {

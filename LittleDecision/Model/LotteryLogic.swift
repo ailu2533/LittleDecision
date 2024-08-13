@@ -99,7 +99,7 @@ class LotteryViewModel {
     }
 
     static func selectChoiceExcludeDisable(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
-        let filteredTotalWeight = choices.filter { $0.enable }.reduce(0) { $0 + $1.weight4calc }
+        let filteredTotalWeight = choices.filter(\.enable).reduce(0) { $0 + $1.weight4calc }
         if filteredTotalWeight == 0 { return nil } // 防止除以零的错误
 
         // 随机选择一个choice
@@ -107,7 +107,7 @@ class LotteryViewModel {
         var cumulativeWeight = 0
         var selectedChoice: Choice?
 
-        for choice in choices.filter({ $0.enable }) {
+        for choice in choices.filter(\.enable) {
             cumulativeWeight += choice.weight4calc
             if randomWeight < cumulativeWeight {
                 selectedChoice = choice

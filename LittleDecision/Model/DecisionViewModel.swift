@@ -12,18 +12,18 @@ import SwiftUI
 @Observable
 class DecisionViewModel {
     var modelContext: ModelContext
-    var navigationPath: NavigationPath = NavigationPath()
+    var navigationPath: NavigationPath = .init()
 
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
     }
 
     func queryDecisions() -> Decision? {
-        let p = #Predicate<Decision> { _ in
+        let predicate = #Predicate<Decision> { _ in
             true
         }
 
-        var descriptor = FetchDescriptor(predicate: p)
+        var descriptor = FetchDescriptor(predicate: predicate)
 
         descriptor.fetchLimit = 1
 
@@ -36,8 +36,7 @@ class DecisionViewModel {
             return nil
         }
     }
-    
-    
+
     // 查询所有 decision
 
     func fetchAllDecisions() -> [Decision] {
@@ -79,7 +78,6 @@ class DecisionViewModel {
         decision.choices.removeAll {
             $0.uuid == choice.uuid
         }
-
     }
 
     public func deleteChoices(from decision: Decision, at offsets: IndexSet) {
@@ -88,5 +86,4 @@ class DecisionViewModel {
         offsets.map { choices[$0] }.forEach(modelContext.delete)
         decision.choices.removeAll(where: { choice in offsets.contains(where: { choices[$0].id == choice.id }) })
     }
-    
 }

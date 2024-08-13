@@ -15,9 +15,9 @@ struct PointerShape: Shape {
             path.addArc(center: .init(x: rect.midX, y: rect.midY), radius: rect.width / 4, startAngle: .zero, endAngle: .radians(.pi * 2), clockwise: true)
 
             var trianglePath = Path()
-            let w = rect.width / 8
-            trianglePath.move(to: .init(x: rect.midX - w, y: rect.midY))
-            trianglePath.addLine(to: .init(x: rect.midX + w, y: rect.midY))
+            let width = rect.width / 8
+            trianglePath.move(to: .init(x: rect.midX - width, y: rect.midY))
+            trianglePath.addLine(to: .init(x: rect.midX + width, y: rect.midY))
             trianglePath.addLine(to: .init(x: rect.midX, y: rect.minY))
             trianglePath.closeSubpath()
 

@@ -1,5 +1,5 @@
 //
-//  PieChartView.swift
+//  PieDecision.swift
 //  Widget
 //
 //  Created by ailu on 2024/3/21.
@@ -9,7 +9,6 @@ import Charts
 import Combine
 import SwiftData
 import SwiftUI
-
 
 struct PieChartView: View {
     @State private var rotateAngle: Double = 0.0
@@ -44,7 +43,7 @@ struct PieChartView: View {
         Button("还原转盘") {
             withAnimation {
                 selection = nil
-                rotateAngle = rotateAngle - rotateAngle.truncatingRemainder(dividingBy: 360)
+                rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
             }
             rotateAngle = 0
         }
@@ -58,17 +57,17 @@ struct PieChartView: View {
 
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             withAnimation {
-                self.rotateAngle += currentSpeed
+                rotateAngle += currentSpeed
             }
             currentSpeed *= lotteryConfig.decayFactor
             currentTime += 0.1
 
             // 在这里调用选择逻辑
             DispatchQueue.global(qos: .userInitiated).async {
-                let selectedChoice = LotteryViewModel.selectChoice(from: self.currentDecision.choices, basedOn: self.rotateAngle)
+                let selectedChoice = LotteryViewModel.selectChoice(from: currentDecision.choices, basedOn: rotateAngle)
                 DispatchQueue.main.async {
                     withAnimation(.easeInOut) {
-                        self.selection = selectedChoice
+                        selection = selectedChoice
                     }
                 }
             }
@@ -80,4 +79,3 @@ struct PieChartView: View {
         }
     }
 }
-
