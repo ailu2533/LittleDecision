@@ -26,7 +26,7 @@ struct ChoiceTip: Tip {
 struct CommonEditView: View {
     @Bindable var decision: Decision // 绑定的决策对象
 
-    @Environment(\.dismiss) private var dismiss // 环境变量，用于视图的关闭操作
+//    @Environment(\.dismiss) private var dismiss // 环境变量，用于视图的关闭操作
 
     @Environment(DecisionViewModel.self) private var vm // 视图模型，用于数据处理
 

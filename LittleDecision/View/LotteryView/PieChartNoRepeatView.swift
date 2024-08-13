@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PieChartNoRepeatView: View {
     @State private var rotateAngle: Double = 0.0
-    @State private var isTimerActive = false
-    @State private var isCalculating = false
+//    @State private var isTimerActive = false
+//    @State private var isCalculating = false
     let lotteryConfig = LotteryConfig()
     @Binding var selection: Choice?
     var currentDecision: Decision

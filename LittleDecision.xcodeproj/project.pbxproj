@@ -18,7 +18,6 @@
 		273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */; };
 		273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADDA02C16B38B006AC677 /* LotteryLogic.swift */; };
 		273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADDA22C16B3B9006AC677 /* ChartView.swift */; };
-		2754AA042BC3D188000073FB /* PieDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA032BC3D188000073FB /* PieDecision.swift */; };
 		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
 		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
 		2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA092BC3DCB8000073FB /* ModelUtil.swift */; };
@@ -29,28 +28,8 @@
 		27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */; };
 		27FCEFAD2BBC6DB0002518E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */; };
 		27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FCEFAF2BBC6DB0002518E0 /* Preview Assets.xcassets */; };
-		27FCEFBA2BBC6DB0002518E0 /* LittleDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFB92BBC6DB0002518E0 /* LittleDecisionTests.swift */; };
-		27FCEFC42BBC6DB1002518E0 /* LittleDecisionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFC32BBC6DB1002518E0 /* LittleDecisionUITests.swift */; };
-		27FCEFC62BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFC52BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift */; };
 		27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFD22BBC6DF4002518E0 /* Model.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		27FCEFB62BBC6DB0002518E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27FCEF9B2BBC6DAF002518E0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27FCEFA22BBC6DAF002518E0;
-			remoteInfo = LittleDecision;
-		};
-		27FCEFC02BBC6DB1002518E0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27FCEF9B2BBC6DAF002518E0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27FCEFA22BBC6DAF002518E0;
-			remoteInfo = LittleDecision;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		271DE96A2BD93549005C6405 /* DecisionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListItem.swift; sourceTree = "<group>"; };
@@ -64,7 +43,6 @@
 		273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartNoRepeatView.swift; sourceTree = "<group>"; };
 		273ADDA02C16B38B006AC677 /* LotteryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLogic.swift; sourceTree = "<group>"; };
 		273ADDA22C16B3B9006AC677 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
-		2754AA032BC3D188000073FB /* PieDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieDecision.swift; sourceTree = "<group>"; };
 		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
 		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
 		2754AA092BC3DCB8000073FB /* ModelUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUtil.swift; sourceTree = "<group>"; };
@@ -76,31 +54,12 @@
 		27FCEFA62BBC6DAF002518E0 /* LittleDecisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionApp.swift; sourceTree = "<group>"; };
 		27FCEFAC2BBC6DB0002518E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27FCEFAF2BBC6DB0002518E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		27FCEFB52BBC6DB0002518E0 /* LittleDecisionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleDecisionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27FCEFB92BBC6DB0002518E0 /* LittleDecisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionTests.swift; sourceTree = "<group>"; };
-		27FCEFBF2BBC6DB1002518E0 /* LittleDecisionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittleDecisionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27FCEFC32BBC6DB1002518E0 /* LittleDecisionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionUITests.swift; sourceTree = "<group>"; };
-		27FCEFC52BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleDecisionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		27FCEFD22BBC6DF4002518E0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8D1931E42C6B73DD00F9D2A4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		27FCEFA02BBC6DAF002518E0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27FCEFB22BBC6DB0002518E0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27FCEFBC2BBC6DB1002518E0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -153,7 +112,6 @@
 			children = (
 				273ADD142C157809006AC677 /* LotteryView */,
 				273ADCF72C14116F006AC677 /* EditView */,
-				2754AA032BC3D188000073FB /* PieDecision.swift */,
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
 				2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */,
 				2754AA052BC3D1BD000073FB /* PointerShape.swift */,
@@ -170,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				27FCEFA52BBC6DAF002518E0 /* LittleDecision */,
-				27FCEFB82BBC6DB0002518E0 /* LittleDecisionTests */,
-				27FCEFC22BBC6DB1002518E0 /* LittleDecisionUITests */,
 				27FCEFA42BBC6DAF002518E0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,8 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */,
-				27FCEFB52BBC6DB0002518E0 /* LittleDecisionTests.xctest */,
-				27FCEFBF2BBC6DB1002518E0 /* LittleDecisionUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,23 +163,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		27FCEFB82BBC6DB0002518E0 /* LittleDecisionTests */ = {
-			isa = PBXGroup;
-			children = (
-				27FCEFB92BBC6DB0002518E0 /* LittleDecisionTests.swift */,
-			);
-			path = LittleDecisionTests;
-			sourceTree = "<group>";
-		};
-		27FCEFC22BBC6DB1002518E0 /* LittleDecisionUITests */ = {
-			isa = PBXGroup;
-			children = (
-				27FCEFC32BBC6DB1002518E0 /* LittleDecisionUITests.swift */,
-				27FCEFC52BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift */,
-			);
-			path = LittleDecisionUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,42 +186,6 @@
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
 			productType = "com.apple.product-type.application";
 		};
-		27FCEFB42BBC6DB0002518E0 /* LittleDecisionTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27FCEFCC2BBC6DB1002518E0 /* Build configuration list for PBXNativeTarget "LittleDecisionTests" */;
-			buildPhases = (
-				27FCEFB12BBC6DB0002518E0 /* Sources */,
-				27FCEFB22BBC6DB0002518E0 /* Frameworks */,
-				27FCEFB32BBC6DB0002518E0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27FCEFB72BBC6DB0002518E0 /* PBXTargetDependency */,
-			);
-			name = LittleDecisionTests;
-			productName = LittleDecisionTests;
-			productReference = 27FCEFB52BBC6DB0002518E0 /* LittleDecisionTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		27FCEFBE2BBC6DB1002518E0 /* LittleDecisionUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27FCEFCF2BBC6DB1002518E0 /* Build configuration list for PBXNativeTarget "LittleDecisionUITests" */;
-			buildPhases = (
-				27FCEFBB2BBC6DB1002518E0 /* Sources */,
-				27FCEFBC2BBC6DB1002518E0 /* Frameworks */,
-				27FCEFBD2BBC6DB1002518E0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27FCEFC12BBC6DB1002518E0 /* PBXTargetDependency */,
-			);
-			name = LittleDecisionUITests;
-			productName = LittleDecisionUITests;
-			productReference = 27FCEFBF2BBC6DB1002518E0 /* LittleDecisionUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,14 +198,6 @@
 				TargetAttributes = {
 					27FCEFA22BBC6DAF002518E0 = {
 						CreatedOnToolsVersion = 15.3;
-					};
-					27FCEFB42BBC6DB0002518E0 = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 27FCEFA22BBC6DAF002518E0;
-					};
-					27FCEFBE2BBC6DB1002518E0 = {
-						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 27FCEFA22BBC6DAF002518E0;
 					};
 				};
 			};
@@ -325,8 +218,6 @@
 			projectRoot = "";
 			targets = (
 				27FCEFA22BBC6DAF002518E0 /* LittleDecision */,
-				27FCEFB42BBC6DB0002518E0 /* LittleDecisionTests */,
-				27FCEFBE2BBC6DB1002518E0 /* LittleDecisionUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -339,20 +230,6 @@
 				273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */,
 				27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */,
 				27FCEFAD2BBC6DB0002518E0 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27FCEFB32BBC6DB0002518E0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27FCEFBD2BBC6DB1002518E0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +275,6 @@
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
-				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
@@ -406,37 +282,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27FCEFB12BBC6DB0002518E0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27FCEFBA2BBC6DB0002518E0 /* LittleDecisionTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27FCEFBB2BBC6DB1002518E0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27FCEFC62BBC6DB1002518E0 /* LittleDecisionUITestsLaunchTests.swift in Sources */,
-				27FCEFC42BBC6DB1002518E0 /* LittleDecisionUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		27FCEFB72BBC6DB0002518E0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27FCEFA22BBC6DAF002518E0 /* LittleDecision */;
-			targetProxy = 27FCEFB62BBC6DB0002518E0 /* PBXContainerItemProxy */;
-		};
-		27FCEFC12BBC6DB1002518E0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27FCEFA22BBC6DAF002518E0 /* LittleDecision */;
-			targetProxy = 27FCEFC02BBC6DB1002518E0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		27FCEFC72BBC6DB1002518E0 /* Debug */ = {
@@ -624,82 +470,6 @@
 			};
 			name = Release;
 		};
-		27FCEFCD2BBC6DB1002518E0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y2258N9GL;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = im.ailu.LittleDecisionTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittleDecision.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LittleDecision";
-			};
-			name = Debug;
-		};
-		27FCEFCE2BBC6DB1002518E0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y2258N9GL;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = im.ailu.LittleDecisionTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittleDecision.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LittleDecision";
-			};
-			name = Release;
-		};
-		27FCEFD02BBC6DB1002518E0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y2258N9GL;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = im.ailu.LittleDecisionUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LittleDecision;
-			};
-			name = Debug;
-		};
-		27FCEFD12BBC6DB1002518E0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5Y2258N9GL;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = im.ailu.LittleDecisionUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = LittleDecision;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -717,24 +487,6 @@
 			buildConfigurations = (
 				27FCEFCA2BBC6DB1002518E0 /* Debug */,
 				27FCEFCB2BBC6DB1002518E0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27FCEFCC2BBC6DB1002518E0 /* Build configuration list for PBXNativeTarget "LittleDecisionTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27FCEFCD2BBC6DB1002518E0 /* Debug */,
-				27FCEFCE2BBC6DB1002518E0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27FCEFCF2BBC6DB1002518E0 /* Build configuration list for PBXNativeTarget "LittleDecisionUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27FCEFD02BBC6DB1002518E0 /* Debug */,
-				27FCEFD12BBC6DB1002518E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

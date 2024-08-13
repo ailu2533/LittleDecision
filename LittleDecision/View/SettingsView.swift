@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CarouselSettingsView: View {
+struct SettingsView: View {
     @AppStorage("noRepeat") private var noRepeat = false
     @AppStorage("equalWeight") private var equalWeight = false
     @AppStorage("rotationTime") private var rotationTime = 4
