@@ -1,0 +1,33 @@
+{
+  "originHash" : "9edbc8a2ffcb7e4507dec72ec3830703745c2f1dfbe5c4c0a08c81a795a4cb67",
+  "pins" : [
+    {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4c009d5c2496e7aa126e922c94dd3d6ae049efa2"
+      }
+    },
+    {
+      "identity" : "lemonviews",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ailu2533/LemonViews.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8d7e5cee2fd3206397a3c8a4fad8469946f1f0e3"
+      }
+    },
+    {
+      "identity" : "swiftuix",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SwiftUIX/SwiftUIX",
+      "state" : {
+        "revision" : "cdc902f828e8c457f601e744cc7607148dcdb91a",
+        "version" : "0.2.2"
+      }
+    }
+  ],
+  "version" : 3
+}

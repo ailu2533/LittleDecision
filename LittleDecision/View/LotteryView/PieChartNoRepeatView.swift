@@ -5,6 +5,7 @@
 //  Created by ailu on 2024/6/9.
 //
 
+import Defaults
 import SwiftUI
 
 struct PieChartNoRepeatView: View {
@@ -15,9 +16,9 @@ struct PieChartNoRepeatView: View {
     @State private var tapCount = 0
     @State private var isRunning = false
 
-    @AppStorage("noRepeat") private var noRepeat = false
-    @AppStorage("equalWeight") private var equalWeight = false
-    @AppStorage("rotationTime") private var rotationTime: Double = 4
+    @Default(.noRepeat) private var noRepeat
+    @Default(.equalWeight) private var equalWeight
+    @Default(.rotationTime) private var rotationTime
 
     var body: some View {
         VStack {

@@ -5,6 +5,7 @@
 //  Created by ailu on 2024/4/3.
 //
 
+import Defaults
 import SwiftData
 import SwiftUI
 
@@ -83,7 +84,7 @@ class Choice {
     }
 
     var weight4calc: Int {
-        let hideWeight = UserDefaults.standard.bool(forKey: "equalWeight")
+        let hideWeight = Defaults[.equalWeight]
         return hideWeight ? 1 : weight
     }
 }

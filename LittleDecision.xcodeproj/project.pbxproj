@@ -30,6 +30,9 @@
 		27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27FCEFAF2BBC6DB0002518E0 /* Preview Assets.xcassets */; };
 		27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FCEFD22BBC6DF4002518E0 /* Model.swift */; };
 		8D1931E72C6B84AB00F9D2A4 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D1931E62C6B84AB00F9D2A4 /* Localizable.xcstrings */; };
+		8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1931E92C6BAA7B00F9D2A4 /* LemonViews */; };
+		8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1931EC2C6BB12D00F9D2A4 /* Defaults */; };
+		8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,7 @@
 		27FCEFD22BBC6DF4002518E0 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8D1931E42C6B73DD00F9D2A4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		8D1931E62C6B84AB00F9D2A4 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
+				8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +83,7 @@
 				27FCEFD22BBC6DF4002518E0 /* Model.swift */,
 				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
 				273ADDA02C16B38B006AC677 /* LotteryLogic.swift */,
+				8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +191,8 @@
 			);
 			name = LittleDecision;
 			packageProductDependencies = (
+				8D1931E92C6BAA7B00F9D2A4 /* LemonViews */,
+				8D1931EC2C6BB12D00F9D2A4 /* Defaults */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -215,6 +224,8 @@
 			);
 			mainGroup = 27FCEF9A2BBC6DAF002518E0;
 			packageReferences = (
+				8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */,
+				8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -281,6 +292,7 @@
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */,
+				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
 			);
@@ -498,6 +510,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ailu2533/LemonViews.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8D1931E92C6BAA7B00F9D2A4 /* LemonViews */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */;
+			productName = LemonViews;
+		};
+		8D1931EC2C6BB12D00F9D2A4 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27FCEF9B2BBC6DAF002518E0 /* Project object */;
 }

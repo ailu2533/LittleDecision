@@ -11,7 +11,7 @@ struct PointerShape: Shape {
     func path(in rect: CGRect) -> Path {
         Path { path in
 
-            path.addArc(center: .init(x: rect.midX, y: rect.midY), radius: rect.width / 4, startAngle: .zero, endAngle: .radians(.pi * 2), clockwise: true)
+            path.addArc(center: .init(x: rect.midX, y: rect.midY), radius: rect.width / 4, startAngle: .zero, endAngle: .radians(CGFloat.pi * 2), clockwise: true)
 
             var trianglePath = Path()
             let width = rect.width / 8
@@ -23,12 +23,4 @@ struct PointerShape: Shape {
             path.addPath(trianglePath)
         }
     }
-}
-
-#Preview {
-    PointerShape()
-//        .stroke(style: StrokeStyle(lineWidth: 8.0,lineCap: .round, lineJoin: .round))
-        .fill(.blue)
-        .frame(width: 400, height: 400)
-        .background(.red.opacity(0.3))
 }

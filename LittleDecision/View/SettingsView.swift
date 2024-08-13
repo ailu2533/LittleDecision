@@ -5,12 +5,15 @@
 //  Created by ailu on 2024/6/9.
 //
 
+import Defaults
+import LemonViews
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("noRepeat") private var noRepeat = false
-    @AppStorage("equalWeight") private var equalWeight = false
-    @AppStorage("rotationTime") private var rotationTime = 4
+    @Default(.noRepeat) private var noRepeat
+    @Default(.equalWeight) private var equalWeight
+    @Default(.rotationTime) private var rotationTime
+
     @Environment(\.openURL) private var openURL
 
     var body: some View {
@@ -44,15 +47,18 @@ struct SettingsView: View {
         Section("联系我们") {
             contactButton(title: "小红书", icon: "person.2", urlString: "xhsdiscover://user/60ba522d0000000001008b88")
             contactButton(title: "问题反馈", icon: "envelope", urlString: "https://docs.qq.com/sheet/DWllUVmZwS21sd1Zw?tab=BB08J2")
+            contactButton(title: "给我们好评", icon: "hand.thumbsup", urlString: "itms-apps://itunes.apple.com/app/id6504145207?action=write-review")
         }
     }
 
     private func settingToggle(title: String, description: String, icon: String, isOn: Binding<Bool>) -> some View {
         HStack {
             Image(systemName: icon)
-                .font(.system(size: 24))
-                .foregroundColor(.accentColor)
-                .frame(width: 30)
+                .font(.system(.body, design: .rounded))
+                .foregroundColor(.white)
+                .frame(width: 30, height: 30)
+                .background(.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             Toggle(isOn: isOn) {
                 VStack(alignment: .leading) {
@@ -68,26 +74,21 @@ struct SettingsView: View {
     private var rotationTimePicker: some View {
         HStack {
             Image(systemName: "stopwatch")
-                .font(.system(size: 24))
-                .foregroundColor(.accentColor)
-                .frame(width: 30)
+                .font(.system(.body, design: .rounded))
+                .foregroundColor(.white)
+                .frame(width: 30, height: 30)
+                .background(.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             Picker("转盘旋转时长", selection: $rotationTime) {
-                ForEach([2, 3, 4, 5, 6, 7, 8], id: \.self) { duration in
-                    Text("\(duration)秒").tag(duration)
+                ForEach([2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0], id: \.self) { duration in
+                    Text("\(Int(duration))秒").tag(duration)
                 }
             }
         }
     }
 
     private func contactButton(title: String, icon: String, urlString: String) -> some View {
-        HStack {
-            Image(systemName: icon)
-            Button(title) {
-                if let url = URL(string: urlString) {
-                    openURL(url)
-                }
-            }
-        }
+        SettingsOpenUrlButton(title: title, icon: icon, iconBackground: .orange, urlString: urlString)
     }
 }
