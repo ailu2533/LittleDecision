@@ -3,18 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		271DE9692BD92872005C6405 /* LemonUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 271DE9682BD92872005C6405 /* LemonUtils */; };
 		271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271DE96A2BD93549005C6405 /* DecisionListItem.swift */; };
 		273ADCF62C1409CE006AC677 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF52C1409CE006AC677 /* Logging.swift */; };
 		273ADCF92C141193006AC677 /* ChoiceEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF82C141193006AC677 /* ChoiceEditView.swift */; };
 		273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */; };
 		273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFC2C141AEB006AC677 /* CommonEditView.swift */; };
 		273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFE2C144C6C006AC677 /* FirstView.swift */; };
-		273ADD0D2C153092006AC677 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD0C2C153092006AC677 /* HistoryView.swift */; };
 		273ADD112C153431006AC677 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD102C153431006AC677 /* SettingsView.swift */; };
 		273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */; };
 		273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */; };
@@ -61,7 +59,6 @@
 		273ADCFA2C1411A6006AC677 /* ChoiceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAddView.swift; sourceTree = "<group>"; };
 		273ADCFC2C141AEB006AC677 /* CommonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEditView.swift; sourceTree = "<group>"; };
 		273ADCFE2C144C6C006AC677 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
-		273ADD0C2C153092006AC677 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		273ADD102C153431006AC677 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartNoRepeatView.swift; sourceTree = "<group>"; };
@@ -92,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				271DE9692BD92872005C6405 /* LemonUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +160,6 @@
 				27DB357D2BCCD73000019054 /* DecisionListView.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
 				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
-				273ADD0C2C153092006AC677 /* HistoryView.swift */,
 				273ADD102C153431006AC677 /* SettingsView.swift */,
 			);
 			path = View;
@@ -246,7 +241,6 @@
 			);
 			name = LittleDecision;
 			packageProductDependencies = (
-				271DE9682BD92872005C6405 /* LemonUtils */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -322,7 +316,6 @@
 			);
 			mainGroup = 27FCEF9A2BBC6DAF002518E0;
 			packageReferences = (
-				271DE9672BD92872005C6405 /* XCLocalSwiftPackageReference "../LemonUtils" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -382,7 +375,6 @@
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
-				273ADD0D2C153092006AC677 /* HistoryView.swift in Sources */,
 				2754AA042BC3D188000073FB /* PieDecision.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* ChoiceAddView.swift in Sources */,
@@ -725,20 +717,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		271DE9672BD92872005C6405 /* XCLocalSwiftPackageReference "../LemonUtils" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../LemonUtils;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		271DE9682BD92872005C6405 /* LemonUtils */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = LemonUtils;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27FCEF9B2BBC6DAF002518E0 /* Project object */;
 }
