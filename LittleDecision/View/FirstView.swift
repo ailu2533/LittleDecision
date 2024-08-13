@@ -52,7 +52,7 @@ struct FirstView: View {
                 .padding(.horizontal, 12)
 
             if decision.choices.isEmpty {
-                Text("请确保当前选中的决定中至少有一个选项")
+                Text("还没有选项哦，试着添加一些吧")
                     .foregroundStyle(Color.secondary)
                     .padding(.bottom)
             }

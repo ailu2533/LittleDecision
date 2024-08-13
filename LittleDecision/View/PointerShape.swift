@@ -9,8 +9,7 @@ import SwiftUI
 
 struct PointerShape: Shape {
     func path(in rect: CGRect) -> Path {
-        Path {
-            path in
+        Path { path in
 
             path.addArc(center: .init(x: rect.midX, y: rect.midY), radius: rect.width / 4, startAngle: .zero, endAngle: .radians(.pi * 2), clockwise: true)
 

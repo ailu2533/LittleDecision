@@ -18,53 +18,6 @@ class DecisionViewModel {
         self.modelContext = modelContext
     }
 
-//    func queryDecisions() -> Decision? {
-//        let predicate = #Predicate<Decision> { _ in
-//            true
-//        }
-//
-//        var descriptor = FetchDescriptor(predicate: predicate)
-//
-//        descriptor.fetchLimit = 1
-//
-//        descriptor.propertiesToFetch = [\Decision.uuid]
-//
-//        do {
-//            return try modelContext.fetch(descriptor).first
-//        } catch {
-//            Logging.shared.error("currentDecision: \(error)")
-//            return nil
-//        }
-//    }
-
-    // 查询所有 decision
-
-//    func fetchAllDecisions() -> [Decision] {
-//        let descriptor = FetchDescriptor<Decision>(sortBy: [SortDescriptor<Decision>(\Decision.createDate, order: .reverse)])
-//
-//        do {
-//            return try modelContext.fetch(descriptor)
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//
-//        return []
-//    }
-
-    // 根据 uuid 查询 decision
-//    func fetchDecisionBy(uuid: UUID) -> Decision? {
-//        let desciptor = FetchDescriptor<Decision>(predicate: #Predicate { decision in
-//            decision.uuid == uuid
-//        })
-//
-//        do {
-//            return try modelContext.fetch(desciptor).first
-//        } catch {
-//            Logging.shared.error("fetchDecisionBy uuid: \(uuid)")
-//            return nil
-//        }
-//    }
-
     func addNewChoice(to decision: Decision) -> Choice {
         let newChoice = Choice(content: "", weight: 1)
         decision.choices.append(newChoice)

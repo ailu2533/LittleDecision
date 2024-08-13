@@ -7,23 +7,12 @@
 
 import Foundation
 
-struct LotteryConfig {
-    var duration = 4.0 // 总动画时间，单位秒
-    var initialSpeed = 120.0 // 初始每次增加的角度
-    var decayFactor = 0.95 // 速度衰减因子
-
-    init() {
-        // 随机设置
-        // self.duration = Double.random(in: 2...4)
-        initialSpeed = Double.random(in: 150 ... 200)
-        decayFactor = Double.random(in: 0.9 ... 0.99)
-    }
-}
-
 class LotteryViewModel {
     static func selectChoice(from choices: [Choice], basedOn rotateAngle: Double) -> Choice? {
+        guard !choices.isEmpty else { return nil }
+
         let totalWeight = choices.reduce(0) { $0 + $1.weight }
-        if totalWeight == 0 { return nil } // 防止除以零的错误
+        guard totalWeight > 0 else { return choices.randomElement() }
 
         // 计算每个 choice 的角度范围
         var angles = [Double]()
@@ -54,48 +43,47 @@ class LotteryViewModel {
             }
         }
 
-        return nil // 如果没有找到，理论上不应该发生
+        return choices.last // 如果没有找到，返回最后一个选项
     }
 
-    // 从choices中随机选择一个choice，然后计算出weight的角度范围
-
     static func selectChoice(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
-        let totalWeight = choices.reduce(0) { $0 + $1.weight4calc }
-        if totalWeight == 0 { return nil } // 防止除以零的错误
+        guard !choices.isEmpty else { return nil }
+
+        let totalWeight = choices.reduce(0) { $0 + max($1.weight4calc, 0) }
+        guard totalWeight > 0 else { return (choices.randomElement(), Double.random(in: 0...360)) }
 
         // 随机选择一个choice
-        let randomWeight = Int.random(in: 0 ..< totalWeight)
+        let randomWeight = Int.random(in: 0..<totalWeight)
         var cumulativeWeight = 0
         var selectedChoice: Choice?
 
         for choice in choices {
-            cumulativeWeight += choice.weight4calc
+            cumulativeWeight += max(choice.weight4calc, 0)
             if randomWeight < cumulativeWeight {
                 selectedChoice = choice
                 break
             }
         }
 
-        guard let choice = selectedChoice else { return nil }
+        guard let choice = selectedChoice else { return (choices.randomElement(), Double.random(in: 0...360)) }
 
         // 计算角度范围
         var startAngle = 0.0
-        var endAngle = 0.0
         cumulativeWeight = 0
 
         for choice in choices {
-            let angle = (Double(choice.weight4calc) / Double(totalWeight)) * 360
-            if choice === selectedChoice {
-                endAngle = startAngle + angle
-                break
+            let angle = (Double(max(choice.weight4calc, 0)) / Double(totalWeight)) * 360
+            if choice === choice {
+                let endAngle = startAngle + angle
+                // 生成 startAngle 和 endAngle 之间的一个随机值
+                let randomAngle = Double.random(in: startAngle...endAngle)
+                return (choice, randomAngle)
             }
             startAngle += angle
         }
 
-        // 生成 startAngle 和 endAngle 之间的一个平均值
-        let randomAngle = (startAngle + endAngle) / 2
-
-        return (choice, randomAngle)
+        // 理论上不应该到达这里，但为了安全起见
+        return (choice, Double.random(in: 0...360))
     }
 
     static func selectChoiceExcludeDisable(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {

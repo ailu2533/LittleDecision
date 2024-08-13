@@ -19,8 +19,6 @@ struct PieChartNoRepeatView: View {
     @AppStorage("equalWeight") private var equalWeight = false
     @AppStorage("rotationTime") private var rotationTime: Double = 4
 
-    private let lotteryConfig = LotteryConfig()
-
     var body: some View {
         VStack {
             ChartView(currentDecision: currentDecision, selection: $selection)
