@@ -9,26 +9,51 @@ import SceneKit
 import SwiftData
 import SwiftUI
 
-struct MainView: View {
-    var body: some View {
-        TabView {
-            FirstView()
-                .tabItem {
-                    Label("转盘", systemImage: "chart.pie")
-                }
-            DecisionListView()
-                .tabItem {
-                    Label("决定", systemImage: "list.bullet")
-                }
+enum Tab: Int, CaseIterable, Identifiable {
+    case wheel
+    case decisions
+    case settings
 
-            SettingsView()
-                .tabItem {
-                    Label("设置", systemImage: "gear")
-                }
+    var id: Int {
+        rawValue
+    }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .wheel: return "转盘"
+        case .decisions: return "决定"
+        case .settings: return "设置"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .wheel: return "chart.pie"
+        case .decisions: return "list.bullet"
+        case .settings: return "gear"
+        }
+    }
+
+    @ViewBuilder
+    var view: some View {
+        switch self {
+        case .wheel: FirstView()
+        case .decisions: DecisionListView()
+        case .settings: SettingsView()
         }
     }
 }
 
-#Preview {
-    MainView()
+struct MainView: View {
+    var body: some View {
+        TabView {
+            ForEach(Tab.allCases) { tab in
+                tab.view
+                    .tabItem {
+                        Label(tab.title, systemImage: tab.icon)
+                    }
+                    .tag(tab)
+            }
+        }
+    }
 }

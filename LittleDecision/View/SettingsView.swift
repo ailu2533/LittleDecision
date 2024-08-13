@@ -11,96 +11,83 @@ struct SettingsView: View {
     @AppStorage("noRepeat") private var noRepeat = false
     @AppStorage("equalWeight") private var equalWeight = false
     @AppStorage("rotationTime") private var rotationTime = 4
-
     @Environment(\.openURL) private var openURL
 
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    HStack {
-                        Image(systemName: "repeat")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 30)
+                settingsSection
+                contactSection
+            }
+            .navigationTitle("设置")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+    }
 
-                        Toggle(isOn: $noRepeat, label: {
-                            VStack(alignment: .leading) {
-                                Text("不重复抽取")
-                                Text("已经被抽中的选项不会被抽中")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                                //                            .padding(.leading, 12)
-                            }
+    private var settingsSection: some View {
+        Section {
+            settingToggle(title: "不重复抽取",
+                          description: "已经被抽中的选项不会被抽中",
+                          icon: "repeat",
+                          isOn: $noRepeat)
 
-                        })
-                    }
+            settingToggle(title: "等概率抽取",
+                          description: "抽取时忽略选项的权重",
+                          icon: "equal.square",
+                          isOn: $equalWeight)
 
-                    HStack {
-                        Image(systemName: "equal.square")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 30)
+            rotationTimePicker
+        }
+    }
 
-                        Toggle(isOn: $equalWeight, label: {
-                            VStack(alignment: .leading) {
-                                Text("等概率抽取")
-                                Text("抽取时忽略选项的权重")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
+    private var contactSection: some View {
+        Section("联系我们") {
+            contactButton(title: "小红书", icon: "person.2", urlString: "xhsdiscover://user/60ba522d0000000001008b88")
+            contactButton(title: "问题反馈", icon: "envelope", urlString: "https://docs.qq.com/sheet/DWllUVmZwS21sd1Zw?tab=BB08J2")
+        }
+    }
 
-                        })
-                    }
+    private func settingToggle(title: String, description: String, icon: String, isOn: Binding<Bool>) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .font(.system(size: 24))
+                .foregroundColor(.accentColor)
+                .frame(width: 30)
 
-                    HStack {
-                        Image(systemName: "stopwatch")
-                            .font(.system(size: 24))
-                            .foregroundColor(.accentColor)
-                            .frame(width: 30)
-
-                        Picker(selection: $rotationTime) {
-                            ForEach([2, 3, 4, 5, 6, 7, 8], id: \.self) {
-                                Text("\($0)秒")
-                                    .tag($0)
-                            }
-                        } label: {
-                            Text("转盘旋转时长")
-                        }
-                    }
+            Toggle(isOn: isOn) {
+                VStack(alignment: .leading) {
+                    Text(title)
+                    Text(description)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
+            }
+        }
+    }
 
-                Section("联系我们") {
-                    HStack {
-                        Image(systemName: "person.2")
-                        Button("小红书") {
-                            if let url = URL(string: "xhsdiscover://user/60ba522d0000000001008b88") {
-                                openURL(url)
-                            }
-                        }
-                    }
+    private var rotationTimePicker: some View {
+        HStack {
+            Image(systemName: "stopwatch")
+                .font(.system(size: 24))
+                .foregroundColor(.accentColor)
+                .frame(width: 30)
 
-//                    HStack {
-//                        Image(systemName: "hand.thumbsup")
-//                        Button("给我们好评") {
-//                            if let url = URL(string: "itms-apps://itunes.apple.com/app/id6499009310?action=write-review") {
-//                                openURL(url)
-//                            }
-//                        }
-//                    }
-
-                    HStack {
-                        Image(systemName: "envelope")
-                        Button("问题反馈") {
-                            if let url = URL(string: "https://docs.qq.com/sheet/DWllUVmZwS21sd1Zw?tab=BB08J2") {
-                                openURL(url)
-                            }
-                        }
-                    }
+            Picker("转盘旋转时长", selection: $rotationTime) {
+                ForEach([2, 3, 4, 5, 6, 7, 8], id: \.self) { duration in
+                    Text("\(duration)秒").tag(duration)
                 }
+            }
+        }
+    }
 
-            }.navigationTitle("设置")
-                .navigationBarTitleDisplayMode(.inline)
+    private func contactButton(title: String, icon: String, urlString: String) -> some View {
+        HStack {
+            Image(systemName: icon)
+            Button(title) {
+                if let url = URL(string: urlString) {
+                    openURL(url)
+                }
+            }
         }
     }
 }

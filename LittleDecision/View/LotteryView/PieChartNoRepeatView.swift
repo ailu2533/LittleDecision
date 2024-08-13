@@ -8,96 +8,85 @@
 import SwiftUI
 
 struct PieChartNoRepeatView: View {
-    @State private var rotateAngle: Double = 0.0
-//    @State private var isTimerActive = false
-//    @State private var isCalculating = false
-    let lotteryConfig = LotteryConfig()
     @Binding var selection: Choice?
     var currentDecision: Decision
 
+    @State private var rotateAngle: Double = 0.0
     @State private var tapCount = 0
-
-    @State private var lastReportAngle = 0.0
-
     @State private var isRunning = false
 
-    // 设置
     @AppStorage("noRepeat") private var noRepeat = false
     @AppStorage("equalWeight") private var equalWeight = false
     @AppStorage("rotationTime") private var rotationTime: Double = 4
+
+    private let lotteryConfig = LotteryConfig()
 
     var body: some View {
         VStack {
             ChartView(currentDecision: currentDecision, selection: $selection)
                 .chartOverlay(alignment: .center) { _ in
-                    PointerShape()
-                        .fill(.white)
-                        .shadow(radius: 3)
-                        .rotationEffect(.degrees(rotateAngle))
-                        .frame(width: 150, height: 150)
-                        .overlay(alignment: .center) {
-                            Text("开始")
-                                .foregroundStyle(.black)
-                        }.onTapGesture {
-                            tapCount += 1
-                            startSpinning()
-                        }
+                    pointerView
                 }
             Spacer()
-
-        }.sensoryFeedback(.impact(flexibility: .solid), trigger: tapCount)
-            .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { oldValue, newValue in
-                oldValue && !newValue
+        }
+        .sensoryFeedback(.impact(flexibility: .solid), trigger: tapCount)
+        .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                restoreButton
             }
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarTrailing) {
-//                    Button("还原转盘") {
-//                        restore()
-//                        tapCount += 1
-//                    }
+        }
+    }
 
-                    Button(action: {
-                        restore()
-                        tapCount += 1
-                    }, label: {
-                        Label("还原转盘", systemImage: "arrow.clockwise")
-                    })
-                }
-            })
+    private var pointerView: some View {
+        PointerShape()
+            .fill(.white)
+            .shadow(radius: 3)
+            .rotationEffect(.degrees(rotateAngle))
+            .frame(width: 150, height: 150)
+            .overlay(alignment: .center) {
+                Text("开始")
+                    .foregroundStyle(.black)
+            }
+            .onTapGesture {
+                tapCount += 1
+                startSpinning()
+            }
+    }
+
+    private var restoreButton: some View {
+        Button(action: {
+            restore()
+            tapCount += 1
+        }, label: {
+            Label("还原转盘", systemImage: "arrow.clockwise")
+        })
     }
 
     private func restore() {
         withAnimation {
             selection = nil
             rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
-
-            for choice in currentDecision.choices {
-                choice.enable = true
-            }
+            currentDecision.choices.forEach { $0.enable = true }
         }
         rotateAngle = 0
     }
 
     private func startSpinning() {
-        if isRunning {
-            return
-        }
+        guard !isRunning else { return }
 
         isRunning = true
-
         selection = nil
 
         if let (choice, angle) = LotteryViewModel.select(from: currentDecision.choices) {
+            let extraRotation = rotationTime * 360.0
+            let targetAngle = (angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
+
             withAnimation(.smooth(duration: rotationTime)) {
-                let extraRotation: Double = rotationTime * 360.0
-                rotateAngle += (angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
+                rotateAngle += targetAngle
             } completion: {
                 selection = choice
-
-                if noRepeat {
-                    selection?.enable = false
-                }
-
+                if noRepeat { selection?.enable = false }
                 isRunning = false
             }
         } else {
