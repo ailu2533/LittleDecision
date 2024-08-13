@@ -10,7 +10,7 @@ import SwiftData
 
 class ModelUtil {
     static func getModelContainer(isStoredInMemoryOnly: Bool = true) -> ModelContainer {
-        let sharedModelContainer: ModelContainer = {
+        return {
             let schema = Schema([
                 Choice.self,
                 Decision.self,
@@ -22,16 +22,14 @@ class ModelUtil {
             } catch {
                 fatalError("Could not create ModelContainer: \(error)")
             }
-        }()
-
-        return sharedModelContainer
+        }() as ModelContainer
     }
 }
 
 func getModelContainer(isStoredInMemoryOnly: Bool = true) -> ModelContainer {
     print(URL.applicationSupportDirectory.path(percentEncoded: false))
 
-    let sharedModelContainer: ModelContainer = {
+    return {
         let schema = Schema([
             Choice.self,
             Decision.self,
@@ -43,9 +41,7 @@ func getModelContainer(isStoredInMemoryOnly: Bool = true) -> ModelContainer {
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
-    }()
-
-    return sharedModelContainer
+    }() as ModelContainer
 }
 
 // protocol Reorderable {

@@ -39,11 +39,9 @@ class Decision {
 
     // 总权重
     var totalWeight: Int {
-        let totalWeight = choices.reduce(0) { partialResult, choice in
+        return choices.reduce(0) { partialResult, choice in
             partialResult + choice.weight
         }
-
-        return totalWeight
     }
 }
 

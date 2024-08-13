@@ -144,8 +144,7 @@ class LotteryViewModel {
 
         if noRepeat {
             return selectChoiceExcludeDisable(from: choices)
-        } else {
-            return selectChoice(from: choices)
         }
+        return selectChoice(from: choices)
     }
 }

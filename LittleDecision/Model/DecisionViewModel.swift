@@ -43,8 +43,7 @@ class DecisionViewModel {
         let descriptor = FetchDescriptor<Decision>(sortBy: [SortDescriptor<Decision>(\Decision.createDate, order: .reverse)])
 
         do {
-            let res = try modelContext.fetch(descriptor)
-            return res
+            return try modelContext.fetch(descriptor)
         } catch {
             print(error.localizedDescription)
         }
