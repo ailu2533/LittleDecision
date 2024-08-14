@@ -33,7 +33,7 @@ struct ChoiceRow: View {
                 .background(.green)
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
-           Text("")
+            Text("")
 
             TextField("选项名", text: $choice.title)
                 .padding(.trailing, 90)

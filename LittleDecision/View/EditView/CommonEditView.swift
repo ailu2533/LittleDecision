@@ -142,13 +142,15 @@ struct CommonEditView: View {
             if !decision.choices.isEmpty {
                 tipView
             }
-        } header: {
-            HStack {
-                Text("选项列表")
-                Spacer()
-                Text("总权重 \(totalWeight)")
-            }
         }
+
+//    header: {
+//            HStack {
+//                Text("选项列表")
+//                Spacer()
+        ////                Text("总权重 \(totalWeight)")
+//            }
+//        }
     }
 
     private var tipView: some View {
