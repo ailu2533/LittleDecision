@@ -11,7 +11,7 @@ import SwiftUI
 struct ChoiceRow: View {
     @Bindable var choice: Choice
     @Binding var tappedChoiceUUID: UUID?
-    @FocusState private var focusedField: Field?
+//    @FocusState private var focusedField: Field?
     @Environment(DecisionViewModel.self) private var vm
     var decision: Decision
     @Binding var totalWeight: Int
@@ -21,34 +21,33 @@ struct ChoiceRow: View {
     }
 
     var body: some View {
-        if tappedChoiceUUID == choice.uuid {
-            editModeView
-        } else {
-            displayModeView
-        }
+        editModeView
     }
 
     private var editModeView: some View {
-        VStack(spacing: 12) {
-            TextField("选项名", text: $choice.title)
-                .focused($focusedField, equals: .title)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onAppear { DispatchQueue.main.async { focusedField = .title } }
-                .submitLabel(.next)
-                .onSubmit { focusedField = .weight }
+        HStack {
+            Image(systemName: "tag")
+                .font(.system(.body, design: .rounded))
+                .foregroundColor(.white)
+                .frame(width: 30, height: 30)
+                .background(.green)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
-            TextField("权重", value: $choice.weight, formatter: NumberFormatter())
-                .focused($focusedField, equals: .weight)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .onChange(of: choice.weight) { _, newValue in
-                    if newValue <= 0 { choice.weight = 1 }
+           Text("")
+
+            TextField("选项名", text: $choice.title)
+                .padding(.trailing, 90)
+
+                .overlay(alignment: .trailing) {
+                    Text(probability())
+                        .monospaced()
+                        .padding(.vertical, 4)
+                        .padding(.horizontal, 8)
+                        .background(Color.accentColor.opacity(0.3))
+                        .clipShape(Capsule())
                 }
-                .onSubmit { focusedField = nil }
         }
-        .padding(.vertical, 8)
-        .animation(.easeInOut, value: focusedField)
-        .toolbar { keyboardToolbar }
+//        .listRowSeparator(.hidden)
     }
 
     private var displayModeView: some View {
@@ -68,35 +67,35 @@ struct ChoiceRow: View {
         .padding(.vertical, 8)
     }
 
-    @ToolbarContentBuilder
-    private var keyboardToolbar: some ToolbarContent {
-        ToolbarItemGroup(placement: .keyboard) {
-            if focusedField != nil {
-                Text(focusedField == .title ? "选项名不能为空" : "权重需要大于0")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                Spacer()
-                Button("继续新增") {
-                    let newChoice = vm.addNewChoice(to: decision)
-                    tappedChoiceUUID = newChoice.uuid
-                    totalWeight += choice.weight - 1
-                }
-                .disabled(choice.title.isEmpty)
-                Button("完成") {
-                    finishEditing()
-                }
-            }
-        }
-    }
+//    @ToolbarContentBuilder
+//    private var keyboardToolbar: some ToolbarContent {
+//        ToolbarItemGroup(placement: .keyboard) {
+//            if focusedField != nil {
+//                Text(focusedField == .title ? "选项名不能为空" : "权重需要大于0")
+//                    .font(.caption)
+//                    .foregroundColor(.secondary)
+//                Spacer()
+//                Button("继续新增") {
+//                    let newChoice = vm.addNewChoice(to: decision)
+//                    tappedChoiceUUID = newChoice.uuid
+//                    totalWeight += choice.weight - 1
+//                }
+//                .disabled(choice.title.isEmpty)
+//                Button("完成") {
+//                    finishEditing()
+//                }
+//            }
+//        }
+//    }
 
-    private func finishEditing() {
-        focusedField = nil
-        tappedChoiceUUID = nil
-        if choice.title.isEmpty {
-            vm.deleteChoice(from: decision, choice: choice)
-        }
-        totalWeight = decision.totalWeight
-    }
+//    private func finishEditing() {
+//        focusedField = nil
+//        tappedChoiceUUID = nil
+//        if choice.title.isEmpty {
+//            vm.deleteChoice(from: decision, choice: choice)
+//        }
+//        totalWeight = decision.totalWeight
+//    }
 
     private func probability() -> String {
         let result = Double(choice.weight) / Double(totalWeight) * 100

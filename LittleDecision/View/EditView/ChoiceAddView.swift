@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIX
 
 struct ChoiceAddView: View {
     @Environment(\.modelContext)
@@ -42,8 +43,4 @@ struct ChoiceAddView: View {
             }
         })
     }
-}
-
-#Preview {
-    ChoiceAddView()
 }

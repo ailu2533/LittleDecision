@@ -22,6 +22,64 @@ struct ChoiceTip: Tip {
     }
 }
 
+struct SafeAreaInsetsKey: PreferenceKey {
+    static var defaultValue = EdgeInsets()
+    static func reduce(value: inout EdgeInsets, nextValue: () -> EdgeInsets) {
+        value = nextValue()
+    }
+}
+
+extension View {
+    func getSafeAreaInsets(_ safeInsets: Binding<EdgeInsets>) -> some View {
+        background(
+            GeometryReader { proxy in
+                Color.clear
+                    .preference(key: SafeAreaInsetsKey.self, value: proxy.safeAreaInsets)
+            }
+            .onPreferenceChange(SafeAreaInsetsKey.self) { value in
+                safeInsets.wrappedValue = value
+            }
+        )
+    }
+}
+
+extension View {
+    func printSafeAreaInsets(id: String) -> some View {
+        background(
+            GeometryReader { proxy in
+                Color.clear
+                    .preference(key: SafeAreaInsetsKey.self, value: proxy.safeAreaInsets)
+            }
+            .onPreferenceChange(SafeAreaInsetsKey.self) { value in
+                print("\(id) insets:\(value)")
+            }
+        )
+    }
+}
+
+struct GetSafeArea: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Hello world")
+                    .printSafeAreaInsets(id: "Text")
+            }
+        }
+        .printSafeAreaInsets(id: "NavigationView")
+    }
+}
+
+struct ViewOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
+// iPhone 13 pro
+// NavigationView insets:EdgeInsets(top: 47.0, leading: 0.0, bottom: 34.0, trailing: 0.0)
+// Text insets:EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0)
+
 /// 主视图，用于编辑决策和其选项。
 struct CommonEditView: View {
     @Bindable var decision: Decision
@@ -31,35 +89,58 @@ struct CommonEditView: View {
     @State private var totalWeight = 0
     private let tip = ChoiceTip()
 
+    @State private var visibility = Visibility.visible
+
     var body: some View {
-        Form {
+        List {
             decisionTitleSection
             choicesSection
-            addChoiceSection
         }
-        .onAppear { totalWeight = decision.totalWeight }
-        .navigationBarTitleDisplayMode(.inline)
+        .listStyle(.inset)
+        .toolbar {
+            ToolbarItemGroup(placement: .bottomBar) {
+                Spacer()
+                Button(action: {
+                    let newChoice = vm.addNewChoice(to: decision)
+                    tappedChoiceUUID = newChoice.uuid
+                    totalWeight += 1
+                }, label: {
+                    HStack {
+                        Image(systemName: "plus.circle.fill")
+                        Text("新选项")
+                    }
+                })
+            }
+        }
     }
 
     private var decisionTitleSection: some View {
-        Section("决定名") {
-            TextField("决定名", text: $decision.title)
-                .font(.title3)
+        HStack {
+            Image(systemName: "arrow.triangle.branch")
+                .font(.system(.body, design: .rounded))
+                .foregroundColor(.white)
+                .frame(width: 30, height: 30)
+                .background(.orange)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+            TextField("输入让你犹豫不决的事情", text: $decision.title)
+                .font(.title2)
+                .fontWeight(.bold)
+                .fontDesign(.rounded)
                 .submitLabel(.done)
         }
+        .listRowSeparator(.hidden)
     }
 
     private var choicesSection: some View {
         Section {
-            List {
-                ForEach(decision.sortedChoices) { choice in
-                    ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID, decision: decision, totalWeight: $totalWeight)
-                }
-                .onDelete(perform: deleteChoices)
+            ForEach(decision.sortedChoices) { choice in
+                ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID, decision: decision, totalWeight: $totalWeight)
+            }
+            .onDelete(perform: deleteChoices)
 
-                if !decision.choices.isEmpty {
-                    tipView
-                }
+            if !decision.choices.isEmpty {
+                tipView
             }
         } header: {
             HStack {
@@ -79,13 +160,13 @@ struct CommonEditView: View {
     }
 
     private var addChoiceSection: some View {
-        Section {
-            Button("新增选项") {
-                let newChoice = vm.addNewChoice(to: decision)
-                tappedChoiceUUID = newChoice.uuid
-                totalWeight += 1
-            }
+        Button("新增选项") {
+            let newChoice = vm.addNewChoice(to: decision)
+            tappedChoiceUUID = newChoice.uuid
+            totalWeight += 1
         }
+        .buttonStyle(BorderedButtonStyle())
+        .listRowSeparator(.hidden)
     }
 
     private func deleteChoices(at indexSet: IndexSet) {
@@ -93,4 +174,3 @@ struct CommonEditView: View {
         totalWeight = decision.totalWeight
     }
 }
-
