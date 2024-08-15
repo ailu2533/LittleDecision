@@ -44,6 +44,7 @@ struct ChoiceEditorView: View {
                 ForEach(1 ... 100, id: \.self) { Text("\($0)") }
             }
         }
+        .listRowSeparator(.hidden)
     }
 
     private var weightInfoSection: some View {
@@ -51,6 +52,7 @@ struct ChoiceEditorView: View {
             LabeledContent("总权重", value: "\(totalWeight)")
             LabeledContent("当前选项概率", value: probability(choice.weight, totalWeight))
         }
+        .listRowSeparator(.hidden)
     }
 
     private var deleteSection: some View {

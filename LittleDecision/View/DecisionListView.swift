@@ -66,6 +66,7 @@ struct DecisionListView: View {
             ForEach(savedDecisions) { decision in
                 decisionRow(for: decision)
             }
+            .listRowSeparator(.hidden)
             tipView
         }
     }

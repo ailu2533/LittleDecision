@@ -19,7 +19,6 @@
 		273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADDA02C16B38B006AC677 /* LotteryLogic.swift */; };
 		273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADDA22C16B3B9006AC677 /* ChartView.swift */; };
 		2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA052BC3D1BD000073FB /* PointerShape.swift */; };
-		2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA072BC3DB26000073FB /* DecisionManagementView.swift */; };
 		2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA092BC3DCB8000073FB /* ModelUtil.swift */; };
 		2754AA0C2BC3DCEB000073FB /* CommonPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */; };
 		2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */; };
@@ -39,6 +38,15 @@
 		8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1932572C6DB42F00F9D2A4 /* ChoiceEditorView.swift */; };
 		8D19325A2C6E0F0E00F9D2A4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1932592C6E0F0E00F9D2A4 /* Utils.swift */; };
 		8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19325B2C6E12F400F9D2A4 /* ChoiceAddView.swift */; };
+		8D19325E2C6E1B8200F9D2A4 /* AddChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19325D2C6E1B8200F9D2A4 /* AddChoiceButton.swift */; };
+		8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */; };
+		8D1932622C6E435700F9D2A4 /* PreloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1932612C6E435700F9D2A4 /* PreloadData.swift */; };
+		8D19326A2C6E47D000F9D2A4 /* data.zh.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932632C6E43EC00F9D2A4 /* data.zh.json */; };
+		8D19326B2C6E47D000F9D2A4 /* data.de.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932692C6E45F100F9D2A4 /* data.de.json */; };
+		8D19326C2C6E47D000F9D2A4 /* data.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932652C6E44B000F9D2A4 /* data.en.json */; };
+		8D19326D2C6E47D000F9D2A4 /* data.jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932672C6E453000F9D2A4 /* data.jp.json */; };
+		8D19326E2C6E47D000F9D2A4 /* data.kr.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932682C6E455100F9D2A4 /* data.kr.json */; };
+		8D19326F2C6E47D000F9D2A4 /* data.tw.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932662C6E44F100F9D2A4 /* data.tw.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +62,6 @@
 		273ADDA02C16B38B006AC677 /* LotteryLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LotteryLogic.swift; sourceTree = "<group>"; };
 		273ADDA22C16B3B9006AC677 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		2754AA052BC3D1BD000073FB /* PointerShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerShape.swift; sourceTree = "<group>"; };
-		2754AA072BC3DB26000073FB /* DecisionManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionManagementView.swift; sourceTree = "<group>"; };
 		2754AA092BC3DCB8000073FB /* ModelUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelUtil.swift; sourceTree = "<group>"; };
 		2754AA0B2BC3DCEB000073FB /* CommonPreview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPreview.swift; sourceTree = "<group>"; };
 		2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionViewModel.swift; sourceTree = "<group>"; };
@@ -73,6 +80,15 @@
 		8D1932572C6DB42F00F9D2A4 /* ChoiceEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceEditorView.swift; sourceTree = "<group>"; };
 		8D1932592C6E0F0E00F9D2A4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		8D19325B2C6E12F400F9D2A4 /* ChoiceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceAddView.swift; sourceTree = "<group>"; };
+		8D19325D2C6E1B8200F9D2A4 /* AddChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoiceButton.swift; sourceTree = "<group>"; };
+		8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreButton.swift; sourceTree = "<group>"; };
+		8D1932612C6E435700F9D2A4 /* PreloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreloadData.swift; sourceTree = "<group>"; };
+		8D1932632C6E43EC00F9D2A4 /* data.zh.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.zh.json; sourceTree = "<group>"; };
+		8D1932652C6E44B000F9D2A4 /* data.en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.en.json; sourceTree = "<group>"; };
+		8D1932662C6E44F100F9D2A4 /* data.tw.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.tw.json; sourceTree = "<group>"; };
+		8D1932672C6E453000F9D2A4 /* data.jp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.jp.json; sourceTree = "<group>"; };
+		8D1932682C6E455100F9D2A4 /* data.kr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.kr.json; sourceTree = "<group>"; };
+		8D1932692C6E45F100F9D2A4 /* data.de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.de.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +112,7 @@
 				2754AA0D2BC3DD32000073FB /* DecisionViewModel.swift */,
 				273ADDA02C16B38B006AC677 /* LotteryLogic.swift */,
 				8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */,
+				8D1932612C6E435700F9D2A4 /* PreloadData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,7 +129,6 @@
 		273ADCF72C14116F006AC677 /* EditView */ = {
 			isa = PBXGroup;
 			children = (
-				2754AA072BC3DB26000073FB /* DecisionManagementView.swift */,
 				273ADCF82C141193006AC677 /* DecisionEditorView.swift */,
 				273ADCFA2C1411A6006AC677 /* DecisionAddView.swift */,
 				273ADCFC2C141AEB006AC677 /* CommonEditView.swift */,
@@ -120,6 +136,7 @@
 				8D1932552C6DA4CF00F9D2A4 /* KeyboardAccessoryView.swift */,
 				8D1932572C6DB42F00F9D2A4 /* ChoiceEditorView.swift */,
 				8D19325B2C6E12F400F9D2A4 /* ChoiceAddView.swift */,
+				8D19325D2C6E1B8200F9D2A4 /* AddChoiceButton.swift */,
 			);
 			path = EditView;
 			sourceTree = "<group>";
@@ -129,6 +146,7 @@
 			children = (
 				273ADD152C157830006AC677 /* PieChartNoRepeatView.swift */,
 				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
+				8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -169,6 +187,7 @@
 		27FCEFA52BBC6DAF002518E0 /* LittleDecision */ = {
 			isa = PBXGroup;
 			children = (
+				8D1932642C6E448000F9D2A4 /* Resources */,
 				273ADCF42C1409AC006AC677 /* Utils */,
 				273ADCF12C13F4C8006AC677 /* Model */,
 				2754AA022BC3D0C6000073FB /* View */,
@@ -188,6 +207,19 @@
 				27FCEFAF2BBC6DB0002518E0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8D1932642C6E448000F9D2A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1932632C6E43EC00F9D2A4 /* data.zh.json */,
+				8D1932652C6E44B000F9D2A4 /* data.en.json */,
+				8D1932662C6E44F100F9D2A4 /* data.tw.json */,
+				8D1932672C6E453000F9D2A4 /* data.jp.json */,
+				8D1932682C6E455100F9D2A4 /* data.kr.json */,
+				8D1932692C6E45F100F9D2A4 /* data.de.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +271,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 27FCEF9A2BBC6DAF002518E0;
 			packageReferences = (
@@ -264,6 +297,12 @@
 				27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */,
 				8D1931E72C6B84AB00F9D2A4 /* Localizable.xcstrings in Resources */,
 				27FCEFAD2BBC6DB0002518E0 /* Assets.xcassets in Resources */,
+				8D19326A2C6E47D000F9D2A4 /* data.zh.json in Resources */,
+				8D19326B2C6E47D000F9D2A4 /* data.de.json in Resources */,
+				8D19326C2C6E47D000F9D2A4 /* data.en.json in Resources */,
+				8D19326D2C6E47D000F9D2A4 /* data.jp.json in Resources */,
+				8D19326E2C6E47D000F9D2A4 /* data.kr.json in Resources */,
+				8D19326F2C6E47D000F9D2A4 /* data.tw.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,10 +335,10 @@
 			files = (
 				2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */,
 				273ADCF62C1409CE006AC677 /* Logging.swift in Sources */,
+				8D1932622C6E435700F9D2A4 /* PreloadData.swift in Sources */,
 				2754AA0C2BC3DCEB000073FB /* CommonPreview.swift in Sources */,
 				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
-				2754AA082BC3DB26000073FB /* DecisionManagementView.swift in Sources */,
 				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
@@ -307,7 +346,9 @@
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
+				8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */,
 				8D1931F12C6BBFA400F9D2A4 /* ChoiceRow.swift in Sources */,
+				8D19325E2C6E1B8200F9D2A4 /* AddChoiceButton.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartNoRepeatView.swift in Sources */,

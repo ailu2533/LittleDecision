@@ -25,9 +25,8 @@ struct ChoiceTip: Tip {
 /// 主视图，用于编辑决策和其选项。
 struct CommonEditView: View {
     @Bindable var decision: Decision
-    @Environment(DecisionViewModel.self) private var vm
-    @Environment(\.modelContext) private var modelContext
-    
+    @Environment(DecisionViewModel.self) private var viewModel
+
     private let tip = ChoiceTip()
 
     var body: some View {
@@ -38,7 +37,7 @@ struct CommonEditView: View {
             }
             .contentMargins(16, for: .scrollContent)
             .scrollIndicators(.hidden)
-            .safeAreaInset(edge: .bottom) { addChoiceButton }
+            .safeAreaInset(edge: .bottom) { AddChoiceButton(decision: decision) }
             .ignoresSafeArea(.keyboard)
         }
     }
@@ -87,23 +86,7 @@ struct CommonEditView: View {
             .listRowSpacing(0)
     }
 
-    private var addChoiceButton: some View {
-        HStack {
-            Spacer()
-            NavigationLink(destination: ChoiceAddView(decision: decision)) {
-                Label("新选项", systemImage: "plus.circle.fill")
-                    .foregroundColor(.blue)
-                    .padding(12)
-                    .background(.biege)
-                    .clipShape(Capsule())
-            }
-            .buttonStyle(.plain)
-            .shadow(radius: 0.4)
-            .padding()
-        }
-    }
-
     private func deleteChoices(at indexSet: IndexSet) {
-        vm.deleteChoices(from: decision, at: indexSet)
+        viewModel.deleteChoices(from: decision, at: indexSet)
     }
 }

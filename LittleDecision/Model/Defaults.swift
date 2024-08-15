@@ -13,5 +13,6 @@ extension Defaults.Keys {
     static let equalWeight = Key<Bool>("equalWeight", default: false)
     static let rotationTime = Key<Double>("rotationTime", default: 4)
 
+    static let hasData = Key<Bool>("hasData", default: false)
     static let decisionId = Key<UUID>("decisionId", default: UUID())
 }

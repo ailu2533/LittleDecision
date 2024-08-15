@@ -9,10 +9,39 @@ import Defaults
 import SwiftData
 import SwiftUI
 
+struct DecisionTitleView: View {
+    var currentDecisionTitle: String?
+    var selectedChoiceTitle: String?
+
+    var body: some View {
+        VStack(spacing: 12) {
+            Text(currentDecisionTitle ?? String(localized: "没有决定"))
+                .font(.title)
+                .fontWeight(.semibold)
+                .fontDesign(.rounded)
+                .foregroundColor(.primary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+
+            Text(selectedChoiceTitle ?? String(localized: "等待选择"))
+                .font(.title2)
+                .fontWeight(.semibold)
+                .fontDesign(.rounded)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+        }
+
+        .padding(.horizontal)
+    }
+}
+
 struct FirstView: View {
     @Default(.decisionId) private var decisionId
     @Environment(\.modelContext) private var modelContext
-    @Environment(DecisionViewModel.self) private var vm
+//    @Environment(DecisionViewModel.self) private var vm
     @State private var selectedChoice: Choice?
 
     var body: some View {
@@ -26,14 +55,7 @@ struct FirstView: View {
     }
 
     private var decisionTitleView: some View {
-        VStack {
-            Text(currentDecision?.title ?? "没有决定")
-                .font(.title)
-                .fontWeight(.bold)
-            Text(selectedChoice?.title ?? "??")
-                .font(.title2)
-                .foregroundStyle(.red)
-        }
+        DecisionTitleView(currentDecisionTitle: currentDecision?.title, selectedChoiceTitle: selectedChoice?.title)
     }
 
     private var mainContentView: some View {

@@ -11,6 +11,7 @@ struct ChartView: View {
         Chart(currentDecision.choices) { choice in
 
             let title = Text(verbatim: choice.title).foregroundStyle(choice.enable ? .primary : Color.white)
+                .font(.caption)
 
             SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight4calc)),
                        angularInset: 1)
@@ -33,29 +34,29 @@ struct ChartView: View {
     }
 
     func calculateAverageAngles() -> [UUID: Double] {
-        let totalWeight = currentDecision.choices.reduce(0) { $0 + $1.weight4calc }
-        var angles = [UUID: Double]()
-        var startAngle = 0.0
+            let totalWeight = currentDecision.choices.reduce(0) { $0 + $1.weight4calc }
+            var angles = [UUID: Double]()
+            var startAngle = 0.0
 
-        for choice in currentDecision.choices {
-            let weightProportion = Double(choice.weight4calc) / Double(totalWeight)
-            let angle = weightProportion * 360.0
-            let endAngle = startAngle + angle
-            let averageAngle = (startAngle + endAngle) / 2
+            for choice in currentDecision.choices {
+                let weightProportion = Double(choice.weight4calc) / Double(totalWeight)
+                let angle = weightProportion * 360.0
+                let endAngle = startAngle + angle
+                let averageAngle = (startAngle + endAngle) / 2
 
-            var rotation = 0.0
-            if averageAngle <= 180 {
-                rotation = -90.0 + averageAngle
-            } else if averageAngle <= 270 {
-                rotation = -90 + averageAngle + 180
-            } else {
-                rotation = -90.0 + averageAngle - 180
+                var rotation = 0.0
+                if averageAngle <= 180 {
+                    rotation = -90.0 + averageAngle
+                } else if averageAngle <= 270 {
+                    rotation = -90 + averageAngle + 180
+                } else {
+                    rotation = -90.0 + averageAngle - 180
+                }
+
+                angles[choice.uuid] = rotation
+                startAngle = endAngle
             }
 
-            angles[choice.uuid] = rotation
-            startAngle = endAngle
+            return angles
         }
-
-        return angles
-    }
 }

@@ -26,11 +26,12 @@ struct PieChartNoRepeatView: View {
                 .chartOverlay(alignment: .center) { _ in
                     pointerView
                 }
+                .id(currentDecision.uuid)
             Spacer()
 
             HStack {
                 Spacer()
-                restoreButton
+                RestoreButton(action: restore, tapCount: $tapCount)
                     .padding()
             }
         }
@@ -59,16 +60,6 @@ struct PieChartNoRepeatView: View {
                 tapCount += 1
                 startSpinning()
             }
-    }
-
-    private var restoreButton: some View {
-        Button(action: {
-            restore()
-            tapCount += 1
-        }, label: {
-            Label("还原转盘", systemImage: "arrow.clockwise")
-        })
-        .buttonStyle(BorderedButtonStyle())
     }
 
     private func restore() {

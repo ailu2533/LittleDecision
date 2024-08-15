@@ -14,8 +14,6 @@ struct SettingsView: View {
     @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
 
-    @Environment(\.openURL) private var openURL
-
     var body: some View {
         NavigationStack {
             Form {
@@ -51,7 +49,7 @@ struct SettingsView: View {
         }
     }
 
-    private func settingToggle(title: String, description: String, icon: String, isOn: Binding<Bool>) -> some View {
+    private func settingToggle(title: LocalizedStringKey, description: LocalizedStringKey, icon: String, isOn: Binding<Bool>) -> some View {
         HStack {
             Image(systemName: icon)
                 .font(.system(.body, design: .rounded))
@@ -88,7 +86,7 @@ struct SettingsView: View {
         }
     }
 
-    private func contactButton(title: String, icon: String, urlString: String) -> some View {
+    private func contactButton(title: LocalizedStringKey, icon: String, urlString: String) -> some View {
         SettingsOpenUrlButton(title: title, icon: icon, iconBackground: .orange, urlString: urlString)
     }
 }
