@@ -89,6 +89,7 @@
 		8D1932672C6E453000F9D2A4 /* data.jp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.jp.json; sourceTree = "<group>"; };
 		8D1932682C6E455100F9D2A4 /* data.kr.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.kr.json; sourceTree = "<group>"; };
 		8D1932692C6E45F100F9D2A4 /* data.de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.de.json; sourceTree = "<group>"; };
+		8D1932702C6E4E5300F9D2A4 /* extract_translation.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = extract_translation.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +219,7 @@
 				8D1932672C6E453000F9D2A4 /* data.jp.json */,
 				8D1932682C6E455100F9D2A4 /* data.kr.json */,
 				8D1932692C6E45F100F9D2A4 /* data.de.json */,
+				8D1932702C6E4E5300F9D2A4 /* extract_translation.py */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
