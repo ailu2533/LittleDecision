@@ -7,6 +7,7 @@
 
 import SwiftData
 import SwiftUI
+import SwiftUI_Keyboard_Observer
 import TipKit
 
 @main
@@ -27,8 +28,11 @@ struct LittleDecisionApp: App {
                 .onAppear {
                     insertData(ctx: sharedModelContainer.mainContext)
                 }
+                .observeSoftwareKeyboard()
+
         }
         .modelContainer(sharedModelContainer)
         .environment(vm)
+
     }
 }

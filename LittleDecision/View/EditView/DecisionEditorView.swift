@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChoiceEditView: View {
+struct DecisionEditorView: View {
     var decision: Decision
 
     init(decision: Decision) {

@@ -27,14 +27,20 @@ struct PieChartNoRepeatView: View {
                     pointerView
                 }
             Spacer()
+
+            HStack {
+                Spacer()
+                restoreButton
+                    .padding()
+            }
         }
         .sensoryFeedback(.impact(flexibility: .solid), trigger: tapCount)
         .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                restoreButton
-            }
-        }
+//        .toolbar {
+//            ToolbarItem(placement: .topBarTrailing) {
+//                restoreButton
+//            }
+//        }
     }
 
     private var pointerView: some View {
@@ -62,6 +68,7 @@ struct PieChartNoRepeatView: View {
         }, label: {
             Label("还原转盘", systemImage: "arrow.clockwise")
         })
+        .buttonStyle(BorderedButtonStyle())
     }
 
     private func restore() {

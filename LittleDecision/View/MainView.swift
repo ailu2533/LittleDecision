@@ -45,15 +45,45 @@ enum Tab: Int, CaseIterable, Identifiable {
 }
 
 struct MainView: View {
+    @State private var showListSheet = false
+    @State private var showSettingsSheet = false
+
     var body: some View {
-        TabView {
-            ForEach(Tab.allCases) { tab in
-                tab.view
-                    .tabItem {
-                        Label(tab.title, systemImage: tab.icon)
+//        TabView {
+//            ForEach(Tab.allCases) { tab in
+//                tab.view
+//                    .tabItem {
+//                        Label(tab.title, systemImage: tab.icon)
+//                    }
+//                    .tag(tab)
+//            }
+//        }
+
+        NavigationStack {
+            FirstView()
+                .toolbar {
+                    ToolbarItemGroup(placement: .topBarLeading) {
+                        Button(action: {
+                            showSettingsSheet = true
+                        }, label: {
+                            Image(systemName: "gear")
+                        })
                     }
-                    .tag(tab)
-            }
+
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        Button(action: {
+                            showListSheet = true
+                        }, label: {
+                            Image(systemName: "list.bullet")
+                        })
+                    }
+                }
+                .sheet(isPresented: $showListSheet, content: {
+                    DecisionListView()
+                })
+                .sheet(isPresented: $showSettingsSheet, content: {
+                    SettingsView()
+                })
         }
     }
 }

@@ -16,14 +16,12 @@ struct FirstView: View {
     @State private var selectedChoice: Choice?
 
     var body: some View {
-        NavigationStack {
-            VStack {
-                Spacer()
-                decisionTitleView
-                Spacer()
-                mainContentView
-                Spacer()
-            }
+        VStack {
+            Spacer()
+            decisionTitleView
+            Spacer()
+            mainContentView
+            Spacer()
         }
     }
 

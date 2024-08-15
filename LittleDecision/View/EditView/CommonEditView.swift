@@ -83,34 +83,53 @@ struct ViewOffsetKey: PreferenceKey {
 /// 主视图，用于编辑决策和其选项。
 struct CommonEditView: View {
     @Bindable var decision: Decision
+
     @Environment(DecisionViewModel.self) private var vm
     @Environment(\.modelContext) private var modelContext
+
     @State private var tappedChoiceUUID: UUID?
-    @State private var totalWeight = 0
+    @State private var totalWeight = 1
     private let tip = ChoiceTip()
 
     @State private var visibility = Visibility.visible
 
+    @State private var text: String = ""
+    @State private var weight: Int = 1
+
     var body: some View {
-        List {
-            decisionTitleSection
-            choicesSection
-        }
-        .listStyle(.inset)
-        .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
-                Spacer()
-                Button(action: {
-                    let newChoice = vm.addNewChoice(to: decision)
-                    tappedChoiceUUID = newChoice.uuid
-                    totalWeight += 1
-                }, label: {
-                    HStack {
-                        Image(systemName: "plus.circle.fill")
-                        Text("新选项")
-                    }
-                })
+        GeometryReader { _ in
+            Form {
+                decisionTitleSection
+                choicesSection
             }
+            .contentMargins(16, for: .scrollContent)
+            .scrollIndicators(.hidden)
+
+            .listStyle(.inset)
+            .safeAreaInset(edge: .bottom, content: {
+                HStack {
+                    Spacer()
+
+                    NavigationLink(destination: {
+                        ChoiceAddView(decision: decision)
+                    }, label: {
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                            Text("新选项")
+                        }
+                        .foregroundColor(.blue)
+                    })
+
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(12)
+                    .background(.biege)
+                    .clipShape(Capsule())
+                    .shadow(radius: 0.4)
+                    .padding()
+                }
+            })
+
+            .ignoresSafeArea(.keyboard)
         }
     }
 
@@ -129,13 +148,19 @@ struct CommonEditView: View {
                 .fontDesign(.rounded)
                 .submitLabel(.done)
         }
-        .listRowSeparator(.hidden)
     }
 
     private var choicesSection: some View {
         Section {
             ForEach(decision.sortedChoices) { choice in
-                ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID, decision: decision, totalWeight: $totalWeight)
+
+                NavigationLink {
+                    ChoiceEditorView(choice: choice, totalWeight: totalWeight)
+                } label: {
+                    ChoiceRow(choice: choice, tappedChoiceUUID: $tappedChoiceUUID, decision: decision)
+                }
+                .buttonStyle(PlainButtonStyle())
+                .listRowSeparator(.hidden)
             }
             .onDelete(perform: deleteChoices)
 
@@ -143,14 +168,6 @@ struct CommonEditView: View {
                 tipView
             }
         }
-
-//    header: {
-//            HStack {
-//                Text("选项列表")
-//                Spacer()
-        ////                Text("总权重 \(totalWeight)")
-//            }
-//        }
     }
 
     private var tipView: some View {

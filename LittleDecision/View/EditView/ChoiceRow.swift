@@ -7,17 +7,20 @@
 
 import SwiftUI
 
+enum Field: Hashable {
+    case title(UUID)
+    case weight(UUID)
+}
+
 /// 表示单个选项的视图。
 struct ChoiceRow: View {
     @Bindable var choice: Choice
     @Binding var tappedChoiceUUID: UUID?
-//    @FocusState private var focusedField: Field?
+
     @Environment(DecisionViewModel.self) private var vm
     var decision: Decision
-    @Binding var totalWeight: Int
-
-    enum Field: Hashable {
-        case title, weight
+    var totalWeight: Int {
+        return choice.decision?.totalWeight ?? 0
     }
 
     var body: some View {
@@ -28,26 +31,25 @@ struct ChoiceRow: View {
         HStack {
             Image(systemName: "tag")
                 .font(.system(.body, design: .rounded))
-                .foregroundColor(.white)
+                .fontWeight(.bold)
+                .foregroundColor(.accentColor)
                 .frame(width: 30, height: 30)
-                .background(.green)
-                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//                .background(.green)
+//                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
-            Text("")
+            HStack {
+                Text(choice.title)
 
-            TextField("选项名", text: $choice.title)
-                .padding(.trailing, 90)
+                Spacer()
 
-                .overlay(alignment: .trailing) {
-                    Text(probability())
-                        .monospaced()
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 8)
-                        .background(Color.accentColor.opacity(0.3))
-                        .clipShape(Capsule())
-                }
+                Text(probability(choice.weight, totalWeight))
+                    .monospaced()
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+//                    .background(Color.systemYellow)
+//                    .clipShape(Capsule())
+            }
         }
-//        .listRowSeparator(.hidden)
     }
 
     private var displayModeView: some View {
@@ -55,7 +57,7 @@ struct ChoiceRow: View {
             Text(choice.title)
                 .lineLimit(1)
             Spacer()
-            Text(probability())
+            Text(probability(choice.weight, totalWeight))
                 .monospaced()
                 .padding(.vertical, 4)
                 .padding(.horizontal, 8)
@@ -97,8 +99,8 @@ struct ChoiceRow: View {
 //        totalWeight = decision.totalWeight
 //    }
 
-    private func probability() -> String {
-        let result = Double(choice.weight) / Double(totalWeight) * 100
-        return String(format: "%.1f%%", result)
-    }
+//    private func probability() -> String {
+//        let result = Double(choice.weight) / Double(totalWeight) * 100
+//        return String(format: "%.1f%%", result)
+//    }
 }

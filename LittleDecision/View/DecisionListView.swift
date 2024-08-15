@@ -57,7 +57,7 @@ struct DecisionListView: View {
         }
         .sensoryFeedback(.selection, trigger: decisionId)
         .sheet(isPresented: $showAddDecisionSheet) {
-            ChoiceAddView()
+            DecisionAddView()
         }
     }
 
@@ -73,7 +73,7 @@ struct DecisionListView: View {
     private func decisionRow(for decision: Decision) -> some View {
         HStack {
             selectionIcon(for: decision)
-            NavigationLink(destination: ChoiceEditView(decision: decision)) {
+            NavigationLink(destination: DecisionEditorView(decision: decision)) {
                 decisionInfo(for: decision)
             }
         }
@@ -96,7 +96,7 @@ struct DecisionListView: View {
         Button(action: {
             showAddDecisionSheet = true
         }, label: {
-            Label("新增决定", systemImage: "plus")
+            Label("新增决定", systemImage: "plus.circle.fill")
         })
     }
 
