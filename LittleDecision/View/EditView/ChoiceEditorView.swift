@@ -28,7 +28,11 @@ struct ChoiceEditorView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("保存", action: saveAndDismiss)
+                    Button(action: {
+                        saveAndDismiss()
+                    }, label: {
+                        Text("保存")
+                    })
                 }
             }
         }
@@ -69,6 +73,7 @@ struct ChoiceEditorView: View {
 
     private func saveAndDismiss() {
         do {
+            choice.decision?.updateDate = Date()
             try modelContext.save()
             dismiss()
         } catch {

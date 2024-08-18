@@ -7,6 +7,7 @@
 
 import Defaults
 import Foundation
+import SwiftUI
 
 extension Defaults.Keys {
     static let noRepeat = Key<Bool>("noRepeat", default: false)
@@ -15,4 +16,6 @@ extension Defaults.Keys {
 
     static let hasData = Key<Bool>("hasData", default: false)
     static let decisionId = Key<UUID>("decisionId", default: UUID())
+
+    static let fontSize = Key<CGFloat>("fontSize", default: 15)
 }

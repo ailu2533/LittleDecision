@@ -1,1434 +1,1400 @@
 {
-  "sourceLanguage": "zh-Hans",
-  "strings": {
-    "**点击选项**可以编辑选项名和权重\n被选中概率=权重/总权重\n**向左滑动**删除选项": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**Tippen Sie auf eine Option**, um ihren Namen und ihr Gewicht zu bearbeiten\nAuswahlwahrscheinlichkeit = Gewicht / Gesamtgewicht\n**Nach links wischen**, um eine Option zu löschen"
+  "sourceLanguage" : "zh-Hans",
+  "strings" : {
+    "**点击选项**可以编辑选项名和权重\n被选中概率=权重/总权重\n**向左滑动**删除选项" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Tippen Sie auf eine Option**, um ihren Namen und ihr Gewicht zu bearbeiten\nAuswahlwahrscheinlichkeit = Gewicht / Gesamtgewicht\n**Nach links wischen**, um eine Option zu löschen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**Tap an option** to edit its name and weight\nProbability of being chosen = weight / total weight\n**Swipe left** to delete an option"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Tap an option** to edit its name and weight\nProbability of being chosen = weight / total weight\n**Swipe left** to delete an option"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**オプションをタップ**して名前と重みを編集\n選択される確率=重み/総重み\n**左にスワイプ**してオプションを削除"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**オプションをタップ**して名前と重みを編集\n選択される確率=重み/総重み\n**左にスワイプ**してオプションを削除"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**옵션을 탭**하여 이름과 가중치를 편집\n선택될 확률 = 가중치 / 총 가중치\n**왼쪽으로 스와이프**하여 옵션 삭제"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**옵션을 탭**하여 이름과 가중치를 편집\n선택될 확률 = 가중치 / 총 가중치\n**왼쪽으로 스와이프**하여 옵션 삭제"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**點擊選項**可以編輯選項名和權重\n被選中概率=權重/總權重\n**向左滑動**刪除選項"
-          }
-        }
-      }
-    },
-    "%lld": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**點擊選項**可以編輯選項名和權重\n被選中概率=權重/總權重\n**向左滑動**刪除選項"
           }
         }
       }
     },
-    "%lld个选项": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Optionen"
+    "%lld" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld options"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld個のオプション"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld개 옵션"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld個選項"
-          }
-        }
-      }
-    },
-    "%lld秒": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld Sekunden"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld seconds"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld秒"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld초"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld秒"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
           }
         }
       }
     },
-    "99%": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "99%"
+    "%lld个选项" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Optionen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "99%"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld options"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "99%"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld個のオプション"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "99%"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld개 옵션"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "99%"
-          }
-        }
-      }
-    },
-    "不重复抽取": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ohne Wiederholung ziehen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Draw Without Replacement"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重複なしで抽選"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "중복 없이 추첨"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不重複抽取"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld個選項"
           }
         }
       }
     },
-    "使用提示": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nutzungshinweise"
+    "%lld秒" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld Sekunden"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usage Tips"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld seconds"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "使用ヒント"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld秒"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "사용 팁"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld초"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "使用提示"
-          }
-        }
-      }
-    },
-    "决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entscheidung"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Decision"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld秒"
           }
         }
       }
     },
-    "决定列表": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entscheidungsliste"
+    "不重复抽取" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohne Wiederholung ziehen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Decision List"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Draw Without Replacement"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定リスト"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重複なしで抽選"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정 목록"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "중복 없이 추첨"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定列表"
-          }
-        }
-      }
-    },
-    "删除决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entscheidung löschen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete Decision"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定を削除"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정 삭제"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "刪除決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不重複抽取"
           }
         }
       }
     },
-    "删除当前选项": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktuelle Option löschen"
+    "使用提示" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzungshinweise"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete Current Option"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usage Tips"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "現在のオプションを削除"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用ヒント"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "현재 옵션 삭제"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용 팁"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "刪除當前選項"
-          }
-        }
-      }
-    },
-    "取消": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abbrechen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "キャンセル"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "취소"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "取消"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用提示"
           }
         }
       }
     },
-    "完成": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fertig"
+    "保存" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speichern"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "完了"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "완료"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "完成"
-          }
-        }
-      }
-    },
-    "小红书": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Xiaohongshu"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Xiaohongshu"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "小紅書"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "샤오홍슈"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "小紅書"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
           }
         }
       }
     },
-    "已经被抽中的选项不会被抽中": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bereits gezogene Optionen werden nicht erneut gezogen"
+    "决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entscheidung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Options that have been drawn will not be drawn again"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Decision"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "すでに選ばれたオプションは再び選ばれません"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "이미 뽑힌 옵션은 다시 뽑히지 않습니다"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已經被抽中的選項不會被抽中"
-          }
-        }
-      }
-    },
-    "开始": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "開始"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "시작"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "開始"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定"
           }
         }
       }
     },
-    "当前选项概率": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wahrscheinlichkeit der aktuellen Option"
+    "决定列表" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entscheidungsliste"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Current Option Probability"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Decision List"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "現在のオプションの確率"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定リスト"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "현재 옵션 확률"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정 목록"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "當前選項概率"
-          }
-        }
-      }
-    },
-    "总权重": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gesamtgewicht"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total Weight"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "総重み"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "총 가중치"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "總權重"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定列表"
           }
         }
       }
     },
-    "抽取时忽略选项的权重": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gewichtung der Optionen beim Ziehen ignorieren"
+    "删除决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entscheidung löschen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ignore option weights when drawing"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Decision"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "抽選時にオプションの重みを無視する"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定を削除"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "추첨 시 옵션 가중치 무시"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정 삭제"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "抽取時忽略選項的權重"
-          }
-        }
-      }
-    },
-    "新增决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entscheidung hinzufügen"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add Decision"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定を追加"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정 추가"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新增決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刪除決定"
           }
         }
       }
     },
-    "新选项": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Neue Option"
+    "删除当前选项" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktuelle Option löschen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New Option"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Current Option"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新しいオプション"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在のオプションを削除"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "새 옵션"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 옵션 삭제"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新選項"
-          }
-        }
-      }
-    },
-    "权重": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gewicht"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Weight"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重み"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "가중치"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "權重"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "刪除當前選項"
           }
         }
       }
     },
-    "概率": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wahrscheinlichkeit"
+    "取消" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Probability"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "確率"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "확률"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "취소"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "概率"
-          }
-        }
-      }
-    },
-    "没有决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Entscheidung"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No Decision"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定なし"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정 없음"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "沒有決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消"
           }
         }
       }
     },
-    "点击**方框**使用决定\n向左滑动删除决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tippen Sie auf die **Box**, um eine Entscheidung zu verwenden\nNach links wischen, um eine Entscheidung zu löschen"
+    "字体大小" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schriftgröße"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap the **box** to use a decision\nSwipe left to delete a decision"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Font Size"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**ボックス**をタップして決定を使用\n左にスワイプして決定を削除"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォントサイズ"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "**박스**를 탭하여 결정 사용\n왼쪽으로 스와이프하여 결정 삭제"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "글꼴 크기"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "點擊**方框**使用決定\n向左滑動刪除決定"
-          }
-        }
-      }
-    },
-    "等待选择": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Warten auf Auswahl"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Waiting for Selection"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "選択待ち"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "선택 대기 중"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "等待選擇"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "字體大小"
           }
         }
       }
     },
-    "等概率抽取": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gleichmäßige Ziehung"
+    "完成" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Equal Probability Draw"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "等確率抽選"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "동일 확률 추첨"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "等概率抽取"
-          }
-        }
-      }
-    },
-    "给我们好评": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bewerten Sie uns"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rate Us"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "評価をお願いします"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "평가해 주세요"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "給我們好評"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完成"
           }
         }
       }
     },
-    "继续新增": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Weiter hinzufügen"
+    "小红书" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xiaohongshu"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continue Adding"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xiaohongshu"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "追加を続ける"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小紅書"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "계속 추가"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "샤오홍슈"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "繼續新增"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "小紅書"
           }
         }
       }
     },
-    "编辑决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entscheidung bearbeiten"
+    "已经被抽中的选项不会被抽中" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bereits gezogene Optionen werden nicht erneut gezogen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edit Decision"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options that have been drawn will not be drawn again"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定を編集"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すでに選ばれたオプションは再び選ばれません"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정 편집"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이미 뽑힌 옵션은 다시 뽑히지 않습니다"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "編輯決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已經被抽中的選項不會被抽中"
           }
         }
       }
     },
-    "编辑选项": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Option bearbeiten"
+    "开始" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edit Option"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "オプションを編集"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "옵션 편집"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시작"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "編輯選項"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開始"
           }
         }
       }
     },
-    "联系我们": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kontaktieren Sie uns"
+    "当前选项概率" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wahrscheinlichkeit der aktuellen Option"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contact Us"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Current Option Probability"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "お問い合わせ"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在のオプションの確率"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "문의하기"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 옵션 확률"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "聯繫我們"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "當前選項概率"
           }
         }
       }
     },
-    "设置": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einstellungen"
+    "总权重" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamtgewicht"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Total Weight"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "設定"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "総重み"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "설정"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "총 가중치"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "設置"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "總權重"
           }
         }
       }
     },
-    "请在决定Tab添加决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte fügen Sie eine Entscheidung im Entscheidungs-Tab hinzu"
+    "抽取时忽略选项的权重" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewichtung der Optionen beim Ziehen ignorieren"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please add a decision in the Decision tab"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignore option weights when drawing"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "決定タブで決定を追加してください"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "抽選時にオプションの重みを無視する"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "결정 탭에서 결정을 추가해주세요"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "추첨 시 옵션 가중치 무시"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "請在決定Tab添加決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "抽取時忽略選項的權重"
           }
         }
       }
     },
-    "请按右上方的+添加决定": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bitte tippen Sie auf das + oben rechts, um eine Entscheidung hinzuzufügen"
+    "新增决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entscheidung hinzufügen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Please tap the + in the upper right to add a decision"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add Decision"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "右上の+をタップして決定を追加してください"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定を追加"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "오른쪽 상단의 +를 탭하여 결정을 추가해주세요"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정 추가"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "請按右上方的+添加決定"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新增決定"
           }
         }
       }
     },
-    "转盘": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glücksrad"
+    "新选项" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Option"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wheel"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Option"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ルーレット"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいオプション"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "룰렛"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새 옵션"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "轉盤"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新選項"
           }
         }
       }
     },
-    "转盘旋转时长": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dauer der Glücksraddrehung"
+    "权重" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewicht"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wheel Rotation Duration"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weight"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ルーレット回転時間"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重み"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "룰렛 회전 시간"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가중치"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "轉盤旋轉時長"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "權重"
           }
         }
       }
     },
-    "输入让你犹豫不决的事情": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Geben Sie die Sache ein, bei der Sie unentschlossen sind"
+    "没有决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Entscheidung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enter the thing you're indecisive about"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Decision"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "迷っていることを入力してください"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定なし"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "망설이고 있는 일을 입력하세요"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정 없음"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "輸入讓你猶豫不決的事情"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "沒有決定"
           }
         }
       }
     },
-    "还原转盘": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glücksrad zurücksetzen"
+    "点击**方框**使用决定\n向左滑动删除决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen Sie auf die **Box**, um eine Entscheidung zu verwenden\nNach links wischen, um eine Entscheidung zu löschen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset Wheel"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap the **box** to use a decision\nSwipe left to delete a decision"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ルーレットをリセット"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**ボックス**をタップして決定を使用\n左にスワイプして決定を削除"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "룰렛 초기화"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**박스**를 탭하여 결정 사용\n왼쪽으로 스와이프하여 결정 삭제"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "還原轉盤"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊**方框**使用決定\n向左滑動刪除決定"
           }
         }
       }
     },
-    "还没有选项哦，试着添加一些吧": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noch keine Optionen, versuchen Sie einige hinzuzufügen"
+    "等待选择" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warten auf Auswahl"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No options yet, try adding some"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waiting for Selection"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "まだオプションがありません。いくつか追加してみてください"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択待ち"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "아직 옵션이 없습니다. 몇 가지 추가해보세요"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택 대기 중"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "還沒有選項哦，試著添加一些吧"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等待選擇"
           }
         }
       }
     },
-    "选项名": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Optionsname"
+    "等概率抽取" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gleichmäßige Ziehung"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Option Name"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Equal Probability Draw"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "オプション名"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等確率抽選"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "옵션 이름"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "동일 확률 추첨"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "選項名"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "等概率抽取"
           }
         }
       }
     },
-    "问题反馈": {
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Feedback"
+    "给我们好评" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bewerten Sie uns"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Feedback"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rate Us"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "フィードバック"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "評価をお願いします"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "피드백"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "평가해 주세요"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "問題反饋"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "給我們好評"
+          }
+        }
+      }
+    },
+    "编辑决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entscheidung bearbeiten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Decision"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定を編集"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정 편집"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯決定"
+          }
+        }
+      }
+    },
+    "编辑选项" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Option bearbeiten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Option"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプションを編集"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "옵션 편집"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯選項"
+          }
+        }
+      }
+    },
+    "联系我们" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontaktieren Sie uns"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact Us"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お問い合わせ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문의하기"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "聯繫我們"
+          }
+        }
+      }
+    },
+    "设置" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設置"
+          }
+        }
+      }
+    },
+    "请在决定Tab添加决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte fügen Sie eine Entscheidung im Entscheidungs-Tab hinzu"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please add a decision in the Decision tab"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "決定タブで決定を追加してください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "결정 탭에서 결정을 추가해주세요"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請在決定Tab添加決定"
+          }
+        }
+      }
+    },
+    "请按右上方的+添加决定" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte tippen Sie auf das + oben rechts, um eine Entscheidung hinzuzufügen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please tap the + in the upper right to add a decision"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右上の+をタップして決定を追加してください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오른쪽 상단의 +를 탭하여 결정을 추가해주세요"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請按右上方的+添加決定"
+          }
+        }
+      }
+    },
+    "转盘" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glücksrad"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wheel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ルーレット"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "룰렛"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轉盤"
+          }
+        }
+      }
+    },
+    "转盘旋转时长" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dauer der Glücksraddrehung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wheel Rotation Duration"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ルーレット回転時間"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "룰렛 회전 시간"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轉盤旋轉時長"
+          }
+        }
+      }
+    },
+    "输入让你犹豫不决的事情" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie die Sache ein, bei der Sie unentschlossen sind"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the thing you're indecisive about"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "迷っていることを入力してください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "망설이고 있는 일을 입력하세요"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "輸入讓你猶豫不決的事情"
+          }
+        }
+      }
+    },
+    "还原转盘" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glücksrad zurücksetzen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Wheel"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ルーレットをリセット"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "룰렛 초기화"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "還原轉盤"
+          }
+        }
+      }
+    },
+    "还没有选项哦，试着添加一些吧" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Optionen, versuchen Sie einige hinzuzufügen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No options yet, try adding some"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "まだオプションがありません。いくつか追加してみてください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "아직 옵션이 없습니다. 몇 가지 추가해보세요"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "還沒有選項哦，試著添加一些吧"
+          }
+        }
+      }
+    },
+    "选项名" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionsname"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Option Name"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプション名"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "옵션 이름"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選項名"
+          }
+        }
+      }
+    },
+    "问题反馈" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フィードバック"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "피드백"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "問題反饋"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

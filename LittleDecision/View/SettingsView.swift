@@ -13,6 +13,7 @@ struct SettingsView: View {
     @Default(.noRepeat) private var noRepeat
     @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
+    @Default(.fontSize) private var fontSize
 
     var body: some View {
         NavigationStack {
@@ -38,6 +39,8 @@ struct SettingsView: View {
                           isOn: $equalWeight)
 
             rotationTimePicker
+
+            fontSizeSlider
         }
     }
 
@@ -83,6 +86,26 @@ struct SettingsView: View {
                     Text("\(Int(duration))秒").tag(duration)
                 }
             }
+        }
+    }
+
+    private var fontSizeSlider: some View {
+        VStack {
+            HStack {
+                Image(systemName: "textformat.size")
+                    .font(.system(.body, design: .rounded))
+                    .foregroundColor(.white)
+                    .frame(width: 30, height: 30)
+                    .background(.orange)
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+                Text("字体大小")
+                Spacer()
+                Text("\(Int(fontSize))")
+            }
+            
+            Slider(value: $fontSize, in: 12...24, step: 1)
+                .accentColor(.orange)
         }
     }
 

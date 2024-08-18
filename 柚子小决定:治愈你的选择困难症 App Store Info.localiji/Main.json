@@ -1,0 +1,102 @@
+{
+  "bundleId" : "top.lemonapp.LittleDecision",
+  "id" : "6504145207",
+  "languages" : {
+    "elements" : [
+      {
+        "appInfo" : {
+          "path" : "App Information.json"
+        },
+        "appStoreVersions" : {
+          "elements" : [
+            {
+              "description" : {
+                "path" : "Description.txt"
+              },
+              "id" : "IOS",
+              "keywords" : {
+                "path" : "Keywords.txt"
+              },
+              "path" : "iOS App",
+              "promotionalText" : {
+                "path" : "Promotional text.txt"
+              },
+              "supportURL" : "https://docs.qq.com/sheet/DWlFyaUdpQkJyZmRp?tab=BB08J2",
+              "whatsNew" : {
+                "path" : "What's new.txt"
+              }
+            }
+          ],
+          "path" : "App Store Versions"
+        },
+        "id" : "zh-Hans",
+        "path" : "zh-Hans",
+        "privacyPolicyURL" : "https://www.freeprivacypolicy.com/live/b22ec170-fd1f-46f3-bb93-199f6f82b274"
+      },
+      {
+        "appInfo" : {
+          "path" : "App Information.json"
+        },
+        "appStoreVersions" : {
+          "elements" : [
+            {
+              "description" : {
+                "path" : "Description.txt"
+              },
+              "id" : "IOS",
+              "keywords" : {
+                "path" : "Keywords.txt"
+              },
+              "path" : "iOS App",
+              "promotionalText" : {
+                "path" : "Promotional text.txt"
+              },
+              "supportURL" : "https://docs.qq.com/sheet/DWlFyaUdpQkJyZmRp?tab=BB08J2",
+              "whatsNew" : {
+                "path" : "What's new.txt"
+              }
+            }
+          ],
+          "path" : "App Store Versions"
+        },
+        "id" : "zh-Hant",
+        "path" : "zh-Hant",
+        "privacyPolicyURL" : "https://www.freeprivacypolicy.com/live/b22ec170-fd1f-46f3-bb93-199f6f82b274"
+      },
+      {
+        "appInfo" : {
+          "path" : "App Information.json"
+        },
+        "appStoreVersions" : {
+          "elements" : [
+            {
+              "description" : {
+                "path" : "Description.txt"
+              },
+              "id" : "IOS",
+              "keywords" : {
+                "path" : "Keywords.txt"
+              },
+              "path" : "iOS App",
+              "promotionalText" : {
+                "path" : "Promotional text.txt"
+              },
+              "supportURL" : "https://docs.qq.com/sheet/DWlFyaUdpQkJyZmRp?tab=BB08J2",
+              "whatsNew" : {
+                "path" : "What's new.txt"
+              }
+            }
+          ],
+          "path" : "App Store Versions"
+        },
+        "id" : "en-US",
+        "path" : "en-US",
+        "privacyPolicyURL" : "https://www.freeprivacypolicy.com/live/b22ec170-fd1f-46f3-bb93-199f6f82b274"
+      }
+    ],
+    "path" : "Languages"
+  },
+  "name" : "柚子小决定:治愈你的选择困难症",
+  "primaryLocale" : "zh-Hans",
+  "version" : 1
+}

@@ -8,7 +8,7 @@
 import Defaults
 import SwiftUI
 
-struct PieChartNoRepeatView: View {
+struct PieChartView: View {
     @Binding var selection: Choice?
     var currentDecision: Decision
 
@@ -26,7 +26,7 @@ struct PieChartNoRepeatView: View {
                 .chartOverlay(alignment: .center) { _ in
                     pointerView
                 }
-                .id(currentDecision.uuid)
+                .id(currentDecision.hashValue)
             Spacer()
 
             HStack {
@@ -37,11 +37,6 @@ struct PieChartNoRepeatView: View {
         }
         .sensoryFeedback(.impact(flexibility: .solid), trigger: tapCount)
         .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
-//        .toolbar {
-//            ToolbarItem(placement: .topBarTrailing) {
-//                restoreButton
-//            }
-//        }
     }
 
     private var pointerView: some View {

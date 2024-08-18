@@ -70,7 +70,7 @@ struct FirstView: View {
 
     private func decisionContentView(for decision: Decision) -> some View {
         VStack {
-            PieChartNoRepeatView(selection: $selectedChoice, currentDecision: decision)
+            PieChartView(selection: $selectedChoice, currentDecision: decision)
                 .padding(.horizontal, 12)
 
             if decision.choices.isEmpty {

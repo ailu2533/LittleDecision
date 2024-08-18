@@ -25,21 +25,3 @@ func getModelContainer(isStoredInMemoryOnly: Bool = true) -> ModelContainer {
         }
     }() as ModelContainer
 }
-
-// protocol Reorderable {
-//    var sortValue: Int { get set }
-// }
-//
-// func reorder(habits: [Reorderable], fromOffsets: IndexSet, toOffset: Int) {
-//    var sortValueList = [Int]()
-//    habits.forEach {
-//        sortValueList.append($0.sortValue)
-//    }
-//
-//    var copy = habits
-//    copy.move(fromOffsets: fromOffsets, toOffset: toOffset)
-//
-//    for i in copy.indices {
-//        copy[i].sortValue = sortValueList[i]
-//    }
-// }
