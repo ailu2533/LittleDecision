@@ -18,8 +18,8 @@ struct ChartOverlayView: View {
     let outerRadius: CGFloat
     let mcalc: MathCalculation
 
-    init(proxy: ChartProxy, currentDecision: Decision, selection: Choice? = nil) {
-        size = min(proxy.plotSize.width, proxy.plotSize.height)
+    init(size: CGFloat, currentDecision: Decision, selection: Choice? = nil) {
+        self.size = size
         self.currentDecision = currentDecision
         self.selection = selection
         outerRadius = (size / 2).rounded()

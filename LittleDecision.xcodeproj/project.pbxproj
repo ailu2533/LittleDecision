@@ -46,7 +46,6 @@
 		8D19326F2C6E47D000F9D2A4 /* data.tw.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932662C6E44F100F9D2A4 /* data.tw.json */; };
 		8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1932832C70490C00F9D2A4 /* Constants.swift */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
-		8D66ECC12C79AB3C003557C2 /* TestRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC02C79AB3C003557C2 /* TestRotation.swift */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */; };
 /* End PBXBuildFile section */
@@ -92,7 +91,6 @@
 		8D1932702C6E4E5300F9D2A4 /* extract_translation.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = extract_translation.py; sourceTree = "<group>"; };
 		8D1932832C70490C00F9D2A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		8D66ECC02C79AB3C003557C2 /* TestRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRotation.swift; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
 		8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,7 +149,6 @@
 				273ADD152C157830006AC677 /* PieChartView.swift */,
 				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
 				8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */,
-				8D66ECC02C79AB3C003557C2 /* TestRotation.swift */,
 				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
 				8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */,
 			);
@@ -364,7 +361,6 @@
 				8D1931F12C6BBFA400F9D2A4 /* ChoiceRow.swift in Sources */,
 				8D19325E2C6E1B8200F9D2A4 /* AddChoiceButton.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
-				8D66ECC12C79AB3C003557C2 /* TestRotation.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartView.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,

@@ -31,7 +31,8 @@ struct ChartView: View {
         .chartLegend(.hidden) // 隐藏图例
         .chartForegroundStyleScale(domain: .automatic, range: Self.chartColors)
         .chartOverlay(alignment: .center, content: { proxy in
-            ChartOverlayView(proxy: proxy, currentDecision: currentDecision, selection: selection)
+            let size = min(proxy.plotSize.width, proxy.plotSize.height)
+            ChartOverlayView(size: size, currentDecision: currentDecision, selection: selection)
         })
     }
 }
