@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "zh-Hans",
   "strings" : {
+    "" : {
+
+    },
     "**点击选项**可以编辑选项名和权重\n被选中概率=权重/总权重\n**向左滑动**删除选项" : {
       "localizations" : {
         "de" : {

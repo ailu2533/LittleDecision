@@ -33,9 +33,16 @@ class Decision {
     }
 
     var sortedChoices: [Choice] {
-        choices.sorted(by: {
-            $0.createDate < $1.createDate
+        let res = choices.sorted(by: {
+            if $0.createDate == $1.createDate {
+                return $0.uuid < $1.uuid
+            }
+            return $0.createDate < $1.createDate
         })
+
+        Logging.shared.debug("sorted \(res)")
+
+        return res
     }
 
     // 总权重

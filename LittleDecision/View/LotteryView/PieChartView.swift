@@ -5,6 +5,7 @@
 //  Created by ailu on 2024/6/9.
 //
 
+import Combine
 import Defaults
 import SwiftUI
 
@@ -20,13 +21,18 @@ struct PieChartView: View {
     @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
 
+    @State private var deg: CGFloat = 0
+
     var body: some View {
         VStack {
-            ChartView(currentDecision: currentDecision, selection: $selection)
-                .chartOverlay(alignment: .center) { _ in
-                    pointerView
-                }
-                .id(currentDecision.hashValue)
+            RotatingView(angle: rotateAngle) {
+                ChartView(currentDecision: currentDecision, selection: $selection)
+            }
+            .chartOverlay(alignment: .center) { _ in
+                pointerView
+            }
+            .id(currentDecision.hashValue)
+
             Spacer()
 
             HStack {
@@ -43,7 +49,6 @@ struct PieChartView: View {
         PointerShape()
             .fill(.regularMaterial)
             .shadow(radius: 3)
-            .rotationEffect(.degrees(rotateAngle))
             .frame(width: 150, height: 150)
             .overlay(alignment: .center) {
                 Text("开始")
@@ -72,7 +77,7 @@ struct PieChartView: View {
         isRunning = true
         selection = nil
 
-        if let (choice, angle) = LotteryViewModel.select(from: currentDecision.choices) {
+        if let (choice, angle) = LotteryViewModel.select(from: currentDecision.sortedChoices) {
             let extraRotation = rotationTime * 360.0
             let targetAngle = (angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
 
@@ -87,5 +92,30 @@ struct PieChartView: View {
             restore()
             isRunning = false
         }
+    }
+}
+
+struct RotatingView<Content: View>: View {
+    let angle: Double
+    let content: () -> Content
+
+    var body: some View {
+        content()
+            .modifier(RotationModifier(angle: angle))
+    }
+}
+
+struct RotationModifier: AnimatableModifier {
+    var angle: Double
+
+    var animatableData: Double {
+        get { angle }
+        set {
+            angle = newValue
+        }
+    }
+
+    func body(content: Content) -> some View {
+        content.rotationEffect(.degrees(angle))
     }
 }

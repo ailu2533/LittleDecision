@@ -26,12 +26,14 @@ struct DecisionTitleView: View {
 
             Text(selectedChoiceTitle ?? String(localized: "等待选择"))
                 .font(.title2)
+                .minimumScaleFactor(0.2)
                 .fontWeight(.semibold)
                 .fontDesign(.rounded)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
+                .frame(height: 50)
         }
 
         .padding(.horizontal)
