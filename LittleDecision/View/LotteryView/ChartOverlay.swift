@@ -56,17 +56,25 @@ struct ChartItemView: View {
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
         size = item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
+
+        if size.width < 0 {
+            fatalError("\(size.width)")
+        }
+
+        if size.height < 0 {
+            fatalError("\(size.height)")
+        }
     }
 
     var body: some View {
         Text(choice.title)
             .padding(.trailing, 16)
             .frame(
-                width: min(size.width, .greatestFiniteMagnitude),
-                height: min(size.height, .greatestFiniteMagnitude),
+                width: clip(size.width, minValue: 0, maxValue: .greatestFiniteMagnitude),
+                height: clip(size.height, minValue: 0, maxValue: .greatestFiniteMagnitude),
                 alignment: .trailing
             )
-            .font(.system(size: 18, weight: .semibold))
+            .fontWeight(.semibold)
             .minimumScaleFactor(0.1)
             .multilineTextAlignment(.trailing)
             .lineLimit(3)
@@ -74,4 +82,8 @@ struct ChartItemView: View {
             .rotationEffect(.radians(item.rotationDegrees))
             .foregroundColor(choice.choosed ? .white : .black)
     }
+}
+
+func clip<T: Comparable>(_ value: T, minValue: T, maxValue: T) -> T {
+    return min(max(value, minValue), maxValue)
 }

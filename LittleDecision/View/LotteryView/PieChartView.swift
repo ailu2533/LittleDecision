@@ -26,7 +26,7 @@ struct PieChartView: View {
     var body: some View {
         VStack {
             RotatingView(angle: rotateAngle) {
-                ChartView(currentDecision: currentDecision, selection: $selection)
+                ChartView(currentDecision: currentDecision, selection: selection)
             }
             .chartOverlay(alignment: .center) { _ in
                 pointerView
