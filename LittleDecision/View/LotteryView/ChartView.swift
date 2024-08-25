@@ -18,21 +18,55 @@ struct ChartView: View {
         .pink.opacity(0.4), .pink.opacity(0.55),
     ]
 
+    var colors: [Color] = [Color.pink.opacity(0.2), Color.pink.opacity(0.6)]
+    let lineWidth: CGFloat = 2
+
     var body: some View {
-        Chart(currentDecision.sortedChoices) { choice in
-
-            let title = Text(verbatim: choice.title).foregroundStyle(choice.enable ? .primary : Color.white)
-                .font(.system(size: fontSize))
-
-            SectorMark(angle: .value(Text(verbatim: choice.title), Double(choice.weight4calc)), angularInset: 1)
-                .cornerRadius(8)
-                .foregroundStyle(by: .value(title, choice.uuid.uuidString))
+        ZStack {
+            circleBackground()
+            chartContent()
         }
-        .chartLegend(.hidden) // 隐藏图例
-        .chartForegroundStyleScale(domain: .automatic, range: Self.chartColors)
-        .chartOverlay(alignment: .center, content: { proxy in
-            let size = min(proxy.plotSize.width, proxy.plotSize.height)
-            ChartOverlayView(size: size, currentDecision: currentDecision, selection: selection)
-        })
+    }
+
+    private func circleBackground() -> some View {
+        Circle().fill(.white)
+            .stroke(.black, style: .init(lineWidth: lineWidth))
+            .shadow(radius: 2)
+    }
+
+    private func chartContent() -> some View {
+        GeometryReader { proxy in
+            let radius = min(proxy.size.width, proxy.size.height) / 2
+            let innerRadius: CGFloat = max(radius / 5, 50)
+            let trailingPadding: CGFloat = max(radius / 7, 12)
+
+            ZStack {
+                let weights = currentDecision.sortedChoices.map { CGFloat($0.weight) }
+                let titles = currentDecision.sortedChoices.map { $0.title }
+                let mcalc = MathCalculation(innerRadius: innerRadius, outerRadius: radius, weights: weights, titles: titles)
+
+                ForEach(mcalc.items) { item in
+                    SpinWheelCell(startAngle: item.startAngle, endAngle: item.endAngle)
+                        .fill(colors[item.index % colors.count])
+                        .stroke(Color.black, style: .init(lineWidth: lineWidth, lineJoin: .round))
+                        .overlay {
+                            chartItemText(item: item, innerRadius: innerRadius, outerRadius: radius, trailingPadding: trailingPadding)
+                        }
+                }
+            }
+        }
+        .padding(8)
+    }
+
+    private func chartItemText(item: Item, innerRadius: CGFloat, outerRadius: CGFloat, trailingPadding: CGFloat) -> some View {
+        let size = item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
+        return Text(item.title)
+            .padding(.trailing, trailingPadding)
+            .multilineTextAlignment(.trailing)
+            .minimumScaleFactor(0.2)
+            .lineLimit(3)
+            .frame(width: size.width, height: size.height, alignment: .trailing)
+            .offset(x: innerRadius + size.width / 2)
+            .rotationEffect(.radians(item.rotationDegrees) + .pi / 2)
     }
 }

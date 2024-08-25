@@ -16,6 +16,7 @@ struct Item: Identifiable {
     let index: Int
     // 被抽中的权重
     let weight: CGFloat
+    let title: String
     // 数据在转盘中的圆弧对应角度范围, 单位弧度制
     let startAngle: CGFloat
     let endAngle: CGFloat
@@ -50,18 +51,21 @@ class MathCalculation {
     let outerRadius: CGFloat
 
     let weights: [CGFloat]
+    let titles: [String]
 
-    init(innerRadius: CGFloat, outerRadius: CGFloat, weights: [CGFloat]) {
+    init(innerRadius: CGFloat, outerRadius: CGFloat, weights: [CGFloat], titles: [String]) {
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
         self.weights = weights
-        items = MathCalculation.calculateItemsByWeights(weights)
+        self.titles = titles
+
+        items = calculateItemsByWeights(weights)
     }
 
     // 根据weights计算出每个weiht所在的比例
-    var items: [Item]
+    var items: [Item] = []
 
-    private static func calculateItemsByWeights(_ weights: [CGFloat]) -> [Item] {
+    private func calculateItemsByWeights(_ weights: [CGFloat]) -> [Item] {
         let totalWeight = weights.reduce(0, +)
         var startAngle: CGFloat = 0
         var calculatedItems: [Item] = []
@@ -73,6 +77,7 @@ class MathCalculation {
             let item = Item(
                 index: index,
                 weight: weight,
+                title: titles[index],
                 startAngle: startAngle,
                 endAngle: endAngle
             )

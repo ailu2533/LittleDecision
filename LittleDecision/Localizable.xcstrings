@@ -137,6 +137,12 @@
         }
       }
     },
+    "hello" : {
+
+    },
+    "Hello, World!" : {
+
+    },
     "不重复抽取" : {
       "localizations" : {
         "de" : {

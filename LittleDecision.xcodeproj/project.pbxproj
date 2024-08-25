@@ -48,6 +48,8 @@
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */; };
+		8D66ECFD2C7ADB84003557C2 /* CustomPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFC2C7ADB84003557C2 /* CustomPieChart.swift */; };
+		8D66ECFF2C7ADBDD003557C2 /* SpinWheelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFE2C7ADBDD003557C2 /* SpinWheelCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
 		8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartOverlay.swift; sourceTree = "<group>"; };
+		8D66ECFC2C7ADB84003557C2 /* CustomPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieChart.swift; sourceTree = "<group>"; };
+		8D66ECFE2C7ADBDD003557C2 /* SpinWheelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +150,13 @@
 		273ADD142C157809006AC677 /* LotteryView */ = {
 			isa = PBXGroup;
 			children = (
+				8D66ECFE2C7ADBDD003557C2 /* SpinWheelCell.swift */,
 				273ADD152C157830006AC677 /* PieChartView.swift */,
 				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
 				8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */,
 				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
 				8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */,
+				8D66ECFC2C7ADB84003557C2 /* CustomPieChart.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
+				8D66ECFF2C7ADBDD003557C2 /* SpinWheelCell.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
@@ -368,6 +375,7 @@
 				273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */,
 				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
+				8D66ECFD2C7ADB84003557C2 /* CustomPieChart.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
 				8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */,
 				8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */,

@@ -30,7 +30,8 @@ struct ChartOverlayView: View {
         mcalc = MathCalculation(
             innerRadius: innerRadius,
             outerRadius: outerRadius,
-            weights: weights
+            weights: weights,
+            titles: []
         )
 
         Logging.shared.debug("ChartOverlayView init")
