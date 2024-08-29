@@ -31,7 +31,8 @@ struct ChartOverlayView: View {
             innerRadius: innerRadius,
             outerRadius: outerRadius,
             weights: weights,
-            titles: []
+            titles: [],
+            selected: []
         )
 
         Logging.shared.debug("ChartOverlayView init")

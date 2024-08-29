@@ -17,6 +17,7 @@ struct Item: Identifiable {
     // 被抽中的权重
     let weight: CGFloat
     let title: String
+    let selected: Bool
     // 数据在转盘中的圆弧对应角度范围, 单位弧度制
     let startAngle: CGFloat
     let endAngle: CGFloat
@@ -42,7 +43,7 @@ struct Item: Identifiable {
 
     var rotationDegrees: CGFloat {
         let avgAngle = (startAngle + endAngle) / 2
-        return avgAngle - .pi / 2
+        return avgAngle
     }
 }
 
@@ -52,12 +53,14 @@ class MathCalculation {
 
     let weights: [CGFloat]
     let titles: [String]
+    let selected: [Bool]
 
-    init(innerRadius: CGFloat, outerRadius: CGFloat, weights: [CGFloat], titles: [String]) {
+    init(innerRadius: CGFloat, outerRadius: CGFloat, weights: [CGFloat], titles: [String], selected: [Bool]) {
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
         self.weights = weights
         self.titles = titles
+        self.selected = selected
 
         items = calculateItemsByWeights(weights)
     }
@@ -78,6 +81,7 @@ class MathCalculation {
                 index: index,
                 weight: weight,
                 title: titles[index],
+                selected: selected[index],
                 startAngle: startAngle,
                 endAngle: endAngle
             )

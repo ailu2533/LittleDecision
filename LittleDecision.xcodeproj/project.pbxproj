@@ -48,8 +48,10 @@
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */; };
-		8D66ECFD2C7ADB84003557C2 /* CustomPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFC2C7ADB84003557C2 /* CustomPieChart.swift */; };
-		8D66ECFF2C7ADBDD003557C2 /* SpinWheelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFE2C7ADBDD003557C2 /* SpinWheelCell.swift */; };
+		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
+		8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */; };
+		8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D66ED062C7B5BA4003557C2 /* Subsonic */; };
+		8DF0AA712C7F6D3800F4FD27 /* EmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA702C7F6D3800F4FD27 /* EmailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,8 +97,10 @@
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
 		8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartOverlay.swift; sourceTree = "<group>"; };
-		8D66ECFC2C7ADB84003557C2 /* CustomPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieChart.swift; sourceTree = "<group>"; };
-		8D66ECFE2C7ADBDD003557C2 /* SpinWheelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelCell.swift; sourceTree = "<group>"; };
+		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
+		8D66ED022C7B2231003557C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3"; sourceTree = "<group>"; };
+		8DF0AA702C7F6D3800F4FD27 /* EmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */,
 				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
 				8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */,
 			);
@@ -150,13 +155,11 @@
 		273ADD142C157809006AC677 /* LotteryView */ = {
 			isa = PBXGroup;
 			children = (
-				8D66ECFE2C7ADBDD003557C2 /* SpinWheelCell.swift */,
 				273ADD152C157830006AC677 /* PieChartView.swift */,
 				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
 				8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */,
 				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
 				8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */,
-				8D66ECFC2C7ADB84003557C2 /* CustomPieChart.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */,
 				273ADD142C157809006AC677 /* LotteryView */,
 				273ADCF72C14116F006AC677 /* EditView */,
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
@@ -172,7 +176,6 @@
 				27DB357D2BCCD73000019054 /* DecisionListView.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
 				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
-				273ADD102C153431006AC677 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 		27FCEFA52BBC6DAF002518E0 /* LittleDecision */ = {
 			isa = PBXGroup;
 			children = (
+				8D66ED022C7B2231003557C2 /* Info.plist */,
 				8D1932642C6E448000F9D2A4 /* Resources */,
 				273ADCF42C1409AC006AC677 /* Utils */,
 				273ADCF12C13F4C8006AC677 /* Model */,
@@ -223,6 +227,8 @@
 		8D1932642C6E448000F9D2A4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */,
+				8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */,
 				8D1932632C6E43EC00F9D2A4 /* data.zh.json */,
 				8D1932652C6E44B000F9D2A4 /* data.en.json */,
 				8D1932662C6E44F100F9D2A4 /* data.tw.json */,
@@ -232,6 +238,15 @@
 				8D1932702C6E4E5300F9D2A4 /* extract_translation.py */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				273ADD102C153431006AC677 /* SettingsView.swift */,
+				8DF0AA702C7F6D3800F4FD27 /* EmailController.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,6 +269,7 @@
 			packageProductDependencies = (
 				8D1931E92C6BAA7B00F9D2A4 /* LemonViews */,
 				8D1931EC2C6BB12D00F9D2A4 /* Defaults */,
+				8D66ED062C7B5BA4003557C2 /* Subsonic */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -294,6 +310,7 @@
 			packageReferences = (
 				8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */,
 				8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */,
+				8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -309,6 +326,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */,
+				8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */,
 				273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */,
 				27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */,
 				8D1931E72C6B84AB00F9D2A4 /* Localizable.xcstrings in Resources */,
@@ -359,7 +378,6 @@
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
-				8D66ECFF2C7ADBDD003557C2 /* SpinWheelCell.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
@@ -370,12 +388,12 @@
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartView.swift in Sources */,
+				8DF0AA712C7F6D3800F4FD27 /* EmailController.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */,
 				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
-				8D66ECFD2C7ADB84003557C2 /* CustomPieChart.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
 				8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */,
 				8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */,
@@ -513,22 +531,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LittleDecision/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -537,7 +555,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -547,22 +565,22 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LittleDecision/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -571,7 +589,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -615,6 +633,14 @@
 				kind = branch;
 			};
 		};
+		8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Subsonic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -627,6 +653,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		8D66ED062C7B5BA4003557C2 /* Subsonic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */;
+			productName = Subsonic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

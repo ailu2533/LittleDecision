@@ -24,16 +24,22 @@ struct DecisionTitleView: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
 
-            Text(selectedChoiceTitle ?? String(localized: "等待选择"))
-                .font(.title2)
-                .minimumScaleFactor(0.2)
-                .fontWeight(.semibold)
-                .fontDesign(.rounded)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-                .frame(maxWidth: .infinity)
-                .frame(height: 50)
+            Group {
+                if let selectedChoiceTitle {
+                    Text(selectedChoiceTitle)
+                } else {
+                    Text("")
+                }
+            }
+            .font(.title2)
+            .minimumScaleFactor(0.2)
+            .fontWeight(.semibold)
+            .fontDesign(.rounded)
+            .foregroundColor(.secondary)
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity)
+            .frame(height: 50)
         }
 
         .padding(.horizontal)
@@ -46,6 +52,7 @@ struct FirstView: View {
 //    @Environment(DecisionViewModel.self) private var vm
     @State private var selectedChoice: Choice?
 
+
     var body: some View {
         VStack {
             Spacer()
@@ -53,6 +60,12 @@ struct FirstView: View {
             Spacer()
             mainContentView
             Spacer()
+        }
+        .background {
+            Image(uiImage: UIImage(resource: .backgroundImg))
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
         }
     }
 
@@ -77,8 +90,10 @@ struct FirstView: View {
 
             if decision.choices.isEmpty {
                 Text("还没有选项哦，试着添加一些吧")
-                    .foregroundStyle(Color.secondary)
+                    .fontWeight(.bold)
+//                    .foregroundStyle(Color.)
                     .padding(.bottom)
+                
             }
         }
     }

@@ -9,18 +9,17 @@ import SwiftUI
 
 struct PointerShape: Shape {
     func path(in rect: CGRect) -> Path {
-        Path { path in
+        var path = Path()
+        path.addArc(center: .init(x: rect.midX, y: rect.midY), radius: rect.width / 4, startAngle: .zero, endAngle: .radians(CGFloat.pi * 2), clockwise: true)
 
-            path.addArc(center: .init(x: rect.midX, y: rect.midY), radius: rect.width / 4, startAngle: .zero, endAngle: .radians(CGFloat.pi * 2), clockwise: true)
+        var trianglePath = Path()
+        let width = rect.width / 4
+        trianglePath.move(to: .init(x: rect.midX - width, y: rect.midY))
+        trianglePath.addLine(to: .init(x: rect.midX + width, y: rect.midY))
+        trianglePath.addLine(to: .init(x: rect.midX, y: rect.minY + width / 2))
+        trianglePath.closeSubpath()
 
-            var trianglePath = Path()
-            let width = rect.width / 8
-            trianglePath.move(to: .init(x: rect.midX - width, y: rect.midY))
-            trianglePath.addLine(to: .init(x: rect.midX + width, y: rect.midY))
-            trianglePath.addLine(to: .init(x: rect.midX, y: rect.minY))
-            trianglePath.closeSubpath()
-
-            path.addPath(trianglePath)
-        }
+        return path.union(trianglePath)
     }
 }
+

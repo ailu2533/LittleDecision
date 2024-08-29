@@ -49,16 +49,6 @@ struct MainView: View {
     @State private var showSettingsSheet = false
 
     var body: some View {
-//        TabView {
-//            ForEach(Tab.allCases) { tab in
-//                tab.view
-//                    .tabItem {
-//                        Label(tab.title, systemImage: tab.icon)
-//                    }
-//                    .tag(tab)
-//            }
-//        }
-
         NavigationStack {
             FirstView()
                 .toolbar {
@@ -67,6 +57,7 @@ struct MainView: View {
                             showSettingsSheet = true
                         }, label: {
                             Image(systemName: "gear")
+                                .fontWeight(.bold)
                         })
                     }
 
@@ -75,6 +66,8 @@ struct MainView: View {
                             showListSheet = true
                         }, label: {
                             Image(systemName: "list.bullet")
+                                .fontWeight(.bold)
+
                         })
                     }
                 }

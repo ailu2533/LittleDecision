@@ -25,7 +25,7 @@ struct RestoreButton: View {
         }
         .foregroundColor(.accentColor)
         .buttonStyle(PlainButtonStyle())
-        .shadow(radius: 0.4)
+        .shadow(radius: 0.8)
         .animation(.spring(), value: tapCount)
     }
 }

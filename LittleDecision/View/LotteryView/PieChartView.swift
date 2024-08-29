@@ -7,6 +7,7 @@
 
 import Combine
 import Defaults
+import Subsonic
 import SwiftUI
 
 struct PieChartView: View {
@@ -17,9 +18,13 @@ struct PieChartView: View {
     @State private var tapCount = 0
     @State private var isRunning = false
 
+    @StateObject private var sound = SubsonicPlayer(sound: "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3")
+
     @Default(.noRepeat) private var noRepeat
     @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
+
+    @Default(.enableSound) private var enableSound
 
     @State private var deg: CGFloat = 0
 
@@ -28,9 +33,9 @@ struct PieChartView: View {
             RotatingView(angle: rotateAngle) {
                 ChartView(currentDecision: currentDecision, selection: selection)
             }
-            .chartOverlay(alignment: .center) { _ in
+            .overlay({
                 pointerView
-            }
+            })
             .id(currentDecision.hashValue)
 
             Spacer()
@@ -47,14 +52,14 @@ struct PieChartView: View {
 
     private var pointerView: some View {
         PointerShape()
-            .fill(.regularMaterial)
-            .shadow(radius: 3)
+            .fill(.pointerPink)
+            .stroke(.black, style: .init(lineWidth: 2))
             .frame(width: 150, height: 150)
             .overlay(alignment: .center) {
                 Text("开始")
+                    .font(.custom("ChillRoundM", size: 20))
+                    .minimumScaleFactor(0.5)
                     .foregroundStyle(.black)
-                    .fontWeight(.semibold)
-                    .fontDesign(.rounded)
             }
             .onTapGesture {
                 tapCount += 1
@@ -63,6 +68,10 @@ struct PieChartView: View {
     }
 
     private func restore() {
+        if isRunning {
+            return
+        }
+
         withAnimation {
             selection = nil
             rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
@@ -74,19 +83,32 @@ struct PieChartView: View {
     private func startSpinning() {
         guard !isRunning else { return }
 
-        isRunning = true
         selection = nil
 
         if let (choice, angle) = LotteryViewModel.select(from: currentDecision.sortedChoices) {
             let extraRotation = rotationTime * 360.0
-            let targetAngle = (angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
+            let targetAngle = (270 - angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
+
+            isRunning = true
+
+            if enableSound {
+                sound.play()
+            }
 
             withAnimation(.smooth(duration: rotationTime)) {
                 rotateAngle += targetAngle
             } completion: {
-                selection = choice
-                if noRepeat { selection?.enable = false }
-                isRunning = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + rotationTime / 7) {
+                    
+                    selection = choice
+                    if noRepeat { selection?.enable = false }
+
+                    isRunning = false
+
+                    if sound.isPlaying {
+                        sound.stop()
+                    }
+                }
             }
         } else {
             restore()
