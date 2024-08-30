@@ -16,10 +16,11 @@ struct DecisionTitleView: View {
     var body: some View {
         VStack(spacing: 12) {
             Text(currentDecisionTitle ?? String(localized: "没有决定"))
-                .font(.title)
-                .fontWeight(.semibold)
-                .fontDesign(.rounded)
-                .foregroundColor(.primary)
+
+                .font(customTitleFont)
+                .minimumScaleFactor(0.5)
+                .foregroundStyle(.black)
+
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
@@ -31,10 +32,11 @@ struct DecisionTitleView: View {
                     Text("")
                 }
             }
-            .font(.title2)
-            .minimumScaleFactor(0.2)
-            .fontWeight(.semibold)
-            .fontDesign(.rounded)
+
+            .font(customSubtitleFont)
+            .minimumScaleFactor(0.5)
+            .foregroundStyle(.secondary)
+
             .foregroundColor(.secondary)
             .multilineTextAlignment(.center)
             .padding(.horizontal)
@@ -52,7 +54,6 @@ struct FirstView: View {
 //    @Environment(DecisionViewModel.self) private var vm
     @State private var selectedChoice: Choice?
 
-
     var body: some View {
         VStack {
             Spacer()
@@ -61,12 +62,7 @@ struct FirstView: View {
             mainContentView
             Spacer()
         }
-        .background {
-            Image(uiImage: UIImage(resource: .backgroundImg))
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-        }
+        .mainBackground()
     }
 
     private var decisionTitleView: some View {
@@ -93,7 +89,6 @@ struct FirstView: View {
                     .fontWeight(.bold)
 //                    .foregroundStyle(Color.)
                     .padding(.bottom)
-                
             }
         }
     }

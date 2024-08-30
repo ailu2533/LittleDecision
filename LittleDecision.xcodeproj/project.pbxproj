@@ -51,7 +51,18 @@
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
 		8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */; };
 		8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D66ED062C7B5BA4003557C2 /* Subsonic */; };
+		8DDB81F42C816467005152BE /* PointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F32C816467005152BE /* PointerView.swift */; };
+		8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F62C817A5E005152BE /* PremiumView.swift */; };
+		8DDB81F92C81A319005152BE /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F82C81A319005152BE /* ContactView.swift */; };
+		8DDB81FB2C81B1E3005152BE /* BackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */; };
+		8DDB81FE2C81C71B005152BE /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8DDB81FD2C81C71B005152BE /* RevenueCat */; };
+		8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8DDB81FF2C81C71B005152BE /* RevenueCatUI */; };
+		8DDB82022C81C7CF005152BE /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82012C81C7CF005152BE /* PurchaseManager.swift */; };
+		8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDB82042C8204F7005152BE /* StoreKit.framework */; };
+		8DDB82082C820710005152BE /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB82072C820710005152BE /* StoreKitTestCertificate.cer */; };
 		8DF0AA712C7F6D3800F4FD27 /* EmailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA702C7F6D3800F4FD27 /* EmailController.swift */; };
+		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
+		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,7 +111,17 @@
 		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
 		8D66ED022C7B2231003557C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3"; sourceTree = "<group>"; };
+		8DDB81F32C816467005152BE /* PointerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerView.swift; sourceTree = "<group>"; };
+		8DDB81F62C817A5E005152BE /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
+		8DDB81F82C81A319005152BE /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundContainer.swift; sourceTree = "<group>"; };
+		8DDB82012C81C7CF005152BE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		8DDB82042C8204F7005152BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8DDB82062C82052C005152BE /* Yuzu DecideEasy.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Yuzu DecideEasy.storekit"; sourceTree = "<group>"; };
+		8DDB82072C820710005152BE /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../Downloads/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		8DF0AA702C7F6D3800F4FD27 /* EmailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailController.swift; sourceTree = "<group>"; };
+		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +129,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDB81FE2C81C71B005152BE /* RevenueCat in Frameworks */,
 				8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */,
 				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
+				8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */,
+				8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */,
 				8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +158,11 @@
 			children = (
 				273ADCF52C1409CE006AC677 /* Logging.swift */,
 				8D1932592C6E0F0E00F9D2A4 /* Utils.swift */,
+				8DF0AA742C8083B800F4FD27 /* CustomFont.swift */,
+				8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */,
+				8DDB81F32C816467005152BE /* PointerView.swift */,
+				8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */,
+				8DDB82012C81C7CF005152BE /* PurchaseManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -167,6 +196,7 @@
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DDB81F52C817A44005152BE /* Premium */,
 				8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */,
 				273ADD142C157809006AC677 /* LotteryView */,
 				273ADCF72C14116F006AC677 /* EditView */,
@@ -183,9 +213,12 @@
 		27FCEF9A2BBC6DAF002518E0 = {
 			isa = PBXGroup;
 			children = (
+				8DDB82062C82052C005152BE /* Yuzu DecideEasy.storekit */,
+				8DDB82072C820710005152BE /* StoreKitTestCertificate.cer */,
 				8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */,
 				27FCEFA52BBC6DAF002518E0 /* LittleDecision */,
 				27FCEFA42BBC6DAF002518E0 /* Products */,
+				8DDB82032C8204F7005152BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,11 +273,28 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8DDB81F52C817A44005152BE /* Premium */ = {
+			isa = PBXGroup;
+			children = (
+				8DDB81F62C817A5E005152BE /* PremiumView.swift */,
+			);
+			path = Premium;
+			sourceTree = "<group>";
+		};
+		8DDB82032C8204F7005152BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DDB82042C8204F7005152BE /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
 				273ADD102C153431006AC677 /* SettingsView.swift */,
 				8DF0AA702C7F6D3800F4FD27 /* EmailController.swift */,
+				8DDB81F82C81A319005152BE /* ContactView.swift */,
 			);
 			path = SettingsView;
 			sourceTree = "<group>";
@@ -270,6 +320,8 @@
 				8D1931E92C6BAA7B00F9D2A4 /* LemonViews */,
 				8D1931EC2C6BB12D00F9D2A4 /* Defaults */,
 				8D66ED062C7B5BA4003557C2 /* Subsonic */,
+				8DDB81FD2C81C71B005152BE /* RevenueCat */,
+				8DDB81FF2C81C71B005152BE /* RevenueCatUI */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -311,6 +363,7 @@
 				8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */,
 				8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */,
 				8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */,
+				8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -327,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */,
+				8DDB82082C820710005152BE /* StoreKitTestCertificate.cer in Resources */,
 				8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */,
 				273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */,
 				27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */,
@@ -377,21 +431,28 @@
 				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
+				8DDB81F42C816467005152BE /* PointerView.swift in Sources */,
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
+				8DDB82022C81C7CF005152BE /* PurchaseManager.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
 				8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */,
 				8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */,
 				8D1931F12C6BBFA400F9D2A4 /* ChoiceRow.swift in Sources */,
+				8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */,
 				8D19325E2C6E1B8200F9D2A4 /* AddChoiceButton.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
+				8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */,
+				8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartView.swift in Sources */,
 				8DF0AA712C7F6D3800F4FD27 /* EmailController.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */,
+				8DDB81FB2C81B1E3005152BE /* BackgroundContainer.swift in Sources */,
+				8DDB81F92C81A319005152BE /* ContactView.swift in Sources */,
 				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
@@ -555,7 +616,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -589,7 +650,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -641,6 +702,14 @@
 				minimumVersion = 0.2.0;
 			};
 		};
+		8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -658,6 +727,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */;
 			productName = Subsonic;
+		};
+		8DDB81FD2C81C71B005152BE /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		8DDB81FF2C81C71B005152BE /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCatUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

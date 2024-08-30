@@ -1,0 +1,94 @@
+{
+  "identifier" : "A355DBF1",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6639617007",
+      "localizations" : [
+        {
+          "description" : "解锁应用的全部功能，享受终身高级特权！",
+          "displayName" : "终身会员特权",
+          "locale" : "zh_CN"
+        },
+        {
+          "description" : "Pay once, enjoy forever!",
+          "displayName" : "Lifetime Access",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "yuzu_decideEasy_lifetime",
+      "referenceName" : "lemon_widget_lifetime5",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6504145207",
+    "_developerTeamID" : "S3879FFC37",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 746718514.08714998,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "subscriptionOffersKeyPair" : {
+    "id" : "5A8A7E84",
+    "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgmr90MAsmB9WaytAXLNLx1nHBdD4g2zuMi3cC3DSaAoGgCgYIKoZIzj0DAQehRANCAATTy5uZ/SRa46xk3mJLb++PzxuPbIOdnmYQ3XT9PM8OwXfU6OYPAgd/1jnKMA19PNe54YAo+dWCcqNw5JAAZO9+"
+  },
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

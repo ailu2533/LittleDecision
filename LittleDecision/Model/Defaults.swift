@@ -19,4 +19,6 @@ extension Defaults.Keys {
     static let decisionId = Key<UUID>("decisionId", default: UUID())
 
     static let fontSize = Key<CGFloat>("fontSize", default: 15)
+
+    static let selectedThemeID = Key<ThemeID>("selectedThemeID", default: .pink)
 }

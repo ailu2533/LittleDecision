@@ -26,6 +26,7 @@ struct UseDecisionTip: Tip {
 
 struct DecisionListView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
 
     @Default(.decisionId) private var decisionId
 
@@ -47,6 +48,8 @@ struct DecisionListView: View {
                     decisionListView
                 }
             }
+            .scrollContentBackground(.hidden)
+            .mainBackground()
             .navigationTitle("决定列表")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -102,21 +105,25 @@ struct DecisionListView: View {
     }
 
     private func selectionIcon(for decision: Decision) -> some View {
-        Image(systemName: decisionId == decision.uuid ? "checkmark.square" : "square")
-            .imageScale(.large)
-            .font(.title2)
-            .fontWeight(.bold)
-            .foregroundColor(.accentColor)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .onTapGesture {
-                decisionId = decision.uuid
-            }
+        Button(action: {
+            decisionId = decision.uuid
+            dismiss()
+        }, label: {
+            Image(systemName: decisionId == decision.uuid ? "checkmark.circle.fill" : "circle")
+                .imageScale(.large)
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.accentColor)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+        })
+        .buttonStyle(PlainButtonStyle())
     }
 
     private func decisionInfo(for decision: Decision) -> some View {
         VStack(alignment: .leading) {
             Text(decision.title).fontWeight(.bold)
             Text("\(decision.choices.count)个选项")
+                .foregroundStyle(.secondary)
                 .font(.caption)
         }
     }

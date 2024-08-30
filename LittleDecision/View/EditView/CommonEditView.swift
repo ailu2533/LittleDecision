@@ -44,6 +44,8 @@ struct CommonEditView: View {
                 }
             }
             .ignoresSafeArea(.keyboard)
+            .scrollContentBackground(.hidden)
+            .mainBackground()
         }
     }
 
@@ -53,7 +55,7 @@ struct CommonEditView: View {
                 .font(.system(.body, design: .rounded))
                 .foregroundColor(.white)
                 .frame(width: 30, height: 30)
-                .background(.orange)
+                .background(.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             TextField("输入让你犹豫不决的事情", text: $decision.title)

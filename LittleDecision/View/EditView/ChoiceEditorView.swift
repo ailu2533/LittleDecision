@@ -26,6 +26,8 @@ struct ChoiceEditorView: View {
                 weightInfoSection
                 deleteSection
             }
+            .scrollContentBackground(.hidden)
+            .mainBackground()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {

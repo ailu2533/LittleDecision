@@ -7,6 +7,7 @@
 
 import Defaults
 import LemonViews
+import RevenueCatUI
 import SwiftUI
 
 struct SettingsView: View {
@@ -15,18 +16,38 @@ struct SettingsView: View {
     @Default(.rotationTime) private var rotationTime
     @Default(.fontSize) private var fontSize
     @Default(.enableSound) private var enableSound
-    
+
     @Environment(\.openURL) var openURL
 
+    @State private var showPaywall = false
 
     var body: some View {
         NavigationStack {
             Form {
+                Button(action: {
+                    showPaywall = true
+                }, label: {
+                    PremiumView()
+                })
+                .buttonStyle(PlainButtonStyle())
+
+                .listRowBackground(Color.clear)
+                .listRowInsets(.zero)
+
                 settingsSection
+                    .listRowSeparator(.hidden)
+
                 contactSection
+                    .listRowSeparator(.hidden)
             }
+            .scrollContentBackground(.hidden)
+            .settingsBackground()
             .navigationTitle("设置")
             .navigationBarTitleDisplayMode(.inline)
+//            .presentPaywallIfNeeded(requiredEntitlementIdentifier: "lifetime pro")
+            .sheet(isPresented: $showPaywall, content: {
+                PaywallView(displayCloseButton: true)
+            })
         }
     }
 
@@ -42,12 +63,12 @@ struct SettingsView: View {
                           icon: "equal.square",
                           isOn: $equalWeight)
 
-            rotationTimePicker
-
             settingToggle(title: "声音",
                           description: nil,
                           icon: "speaker.wave.3",
                           isOn: $enableSound)
+
+            rotationTimePicker
 
 //            fontSizeSlider
         }
@@ -60,14 +81,38 @@ struct SettingsView: View {
             contactButton(title: "给我们好评", icon: "hand.thumbsup", urlString: "itms-apps://itunes.apple.com/app/id6504145207?action=write-review")
 
             ShareLink(item: URL(string: "https://apps.apple.com/cn/app/%E6%9F%9A%E5%AD%90%E5%B0%8F%E5%86%B3%E5%AE%9A-%E6%B2%BB%E6%84%88%E4%BD%A0%E7%9A%84%E9%80%89%E6%8B%A9%E5%9B%B0%E9%9A%BE%E7%97%87/id6504145207")!) {
-                Label("Share", systemImage: "square.and.arrow.up")
+//                Label("Share", systemImage: "square.and.arrow.up")
+
+                HStack {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
+                        .background(.accent)
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+                    Text("分享")
+                }
             }
 
-            Button("Contact Developer") {
+//            contactButton(title: "通过邮件联系我们", icon: "mail", urlString: <#T##String#>)
+
+            Button(action: {
                 let subject = "Support email from app user"
                 let email = SupportEmail(toAddress: "im.ailu@outlook.com", subject: subject)
                 email.send(openURL: openURL)
-            }
+            }, label: {
+                HStack {
+                    Image(systemName: "mail")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(.white)
+                        .frame(width: 30, height: 30)
+                        .background(.accent)
+                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+                    Text("通过邮件联系我们")
+                }
+            })
         }
     }
 
@@ -77,7 +122,7 @@ struct SettingsView: View {
                 .font(.system(.body, design: .rounded))
                 .foregroundColor(.white)
                 .frame(width: 30, height: 30)
-                .background(.orange)
+                .background(.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             Toggle(isOn: isOn) {
@@ -99,7 +144,7 @@ struct SettingsView: View {
                 .font(.system(.body, design: .rounded))
                 .foregroundColor(.white)
                 .frame(width: 30, height: 30)
-                .background(.orange)
+                .background(.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             Picker("转盘旋转时长", selection: $rotationTime) {
@@ -131,6 +176,6 @@ struct SettingsView: View {
     }
 
     private func contactButton(title: LocalizedStringKey, icon: String, urlString: String) -> some View {
-        SettingsOpenUrlButton(title: title, icon: icon, iconBackground: .orange, urlString: urlString)
+        SettingsOpenUrlButton(title: title, icon: icon, iconBackground: .accent, urlString: urlString)
     }
 }

@@ -26,6 +26,8 @@ struct PieChartView: View {
 
     @Default(.enableSound) private var enableSound
 
+    @Default(.selectedThemeID) private var selectedThemeID
+
     @State private var deg: CGFloat = 0
 
     var body: some View {
@@ -34,7 +36,15 @@ struct PieChartView: View {
                 ChartView(currentDecision: currentDecision, selection: selection)
             }
             .overlay({
-                pointerView
+                Button(action: {
+                    tapCount += 1
+                    startSpinning()
+                }, label: {
+                    PointerView()
+                })
+
+                .buttonStyle(PointerViewButtonStyle())
+
             })
             .id(currentDecision.hashValue)
 
@@ -46,25 +56,27 @@ struct PieChartView: View {
                     .padding()
             }
         }
-        .sensoryFeedback(.impact(flexibility: .solid), trigger: tapCount)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
         .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
     }
 
     private var pointerView: some View {
         PointerShape()
-            .fill(.pointerPink)
+            .fill(.pink1)
             .stroke(.black, style: .init(lineWidth: 2))
+            .overlay {
+                PointerShape()
+                    .fill(Material.thin)
+            }
+
             .frame(width: 150, height: 150)
             .overlay(alignment: .center) {
                 Text("开始")
-                    .font(.custom("ChillRoundM", size: 20))
+                    .font(customStartFont)
                     .minimumScaleFactor(0.5)
                     .foregroundStyle(.black)
             }
-            .onTapGesture {
-                tapCount += 1
-                startSpinning()
-            }
+
     }
 
     private func restore() {
@@ -95,19 +107,17 @@ struct PieChartView: View {
                 sound.play()
             }
 
-            withAnimation(.smooth(duration: rotationTime)) {
+            withAnimation(.easeInOut(duration: rotationTime)) {
                 rotateAngle += targetAngle
+
             } completion: {
-                DispatchQueue.main.asyncAfter(deadline: .now() + rotationTime / 7) {
-                    
-                    selection = choice
-                    if noRepeat { selection?.enable = false }
+                selection = choice
+                if noRepeat { selection?.enable = false }
 
-                    isRunning = false
+                isRunning = false
 
-                    if sound.isPlaying {
-                        sound.stop()
-                    }
+                if sound.isPlaying {
+                    sound.stop()
                 }
             }
         } else {

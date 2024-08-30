@@ -134,14 +134,17 @@ struct ChartItemText: View {
     var body: some View {
         let size = item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
         return Text(item.title)
-            .font(.custom("ChillRoundM", size: 18))
+            .font(customBodyFont)
             .foregroundStyle(selected ? Color.black : Color.gray)
-            .padding(.trailing, trailingPadding)
+            .padding(.trailing, 12)
             .multilineTextAlignment(.trailing)
-            .minimumScaleFactor(0.2)
+            .minimumScaleFactor(0.3)
             .lineLimit(3)
             .frame(width: size.width, height: size.height, alignment: .trailing)
             .offset(x: innerRadius + size.width / 2)
             .rotationEffect(.radians(item.rotationDegrees))
     }
 }
+
+
+
