@@ -47,7 +47,6 @@
 		8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1932832C70490C00F9D2A4 /* Constants.swift */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
-		8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */; };
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
 		8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */; };
 		8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D66ED062C7B5BA4003557C2 /* Subsonic */; };
@@ -66,6 +65,12 @@
 		8DDB82122C821878005152BE /* SubscriptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82112C821878005152BE /* SubscriptionState.swift */; };
 		8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82142C821FF9005152BE /* SubscriptionViewModel.swift */; };
 		8DDB82192C82C1DA005152BE /* ContactSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82182C82C1DA005152BE /* ContactSection.swift */; };
+		8DDB821C2C82CBD1005152BE /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB821B2C82CBD1005152BE /* ToolbarView.swift */; };
+		8DDB821E2C82CCA4005152BE /* SkinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB821D2C82CCA4005152BE /* SkinListView.swift */; };
+		8DDB82202C82D2CD005152BE /* SpinWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB821F2C82D2CD005152BE /* SpinWheel.swift */; };
+		8DDB82222C82D2F1005152BE /* SpinWheelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */; };
+		8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */; };
+		8DDB82262C82D3FF005152BE /* ChartItemText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82252C82D3FF005152BE /* ChartItemText.swift */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -112,7 +117,6 @@
 		8D1932832C70490C00F9D2A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
-		8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartOverlay.swift; sourceTree = "<group>"; };
 		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
 		8D66ED022C7B2231003557C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3"; sourceTree = "<group>"; };
@@ -130,6 +134,12 @@
 		8DDB82112C821878005152BE /* SubscriptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionState.swift; sourceTree = "<group>"; };
 		8DDB82142C821FF9005152BE /* SubscriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewModel.swift; sourceTree = "<group>"; };
 		8DDB82182C82C1DA005152BE /* ContactSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSection.swift; sourceTree = "<group>"; };
+		8DDB821B2C82CBD1005152BE /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		8DDB821D2C82CCA4005152BE /* SkinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinListView.swift; sourceTree = "<group>"; };
+		8DDB821F2C82D2CD005152BE /* SpinWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheel.swift; sourceTree = "<group>"; };
+		8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelCell.swift; sourceTree = "<group>"; };
+		8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelCellShape.swift; sourceTree = "<group>"; };
+		8DDB82252C82D3FF005152BE /* ChartItemText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItemText.swift; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,7 +208,10 @@
 				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
 				8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */,
 				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
-				8D66ECFA2C7AC389003557C2 /* ChartOverlay.swift */,
+				8DDB821F2C82D2CD005152BE /* SpinWheel.swift */,
+				8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */,
+				8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */,
+				8DDB82252C82D3FF005152BE /* ChartItemText.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -206,13 +219,13 @@
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DDB821A2C82CBB9005152BE /* MainView */,
 				8DDB81F52C817A44005152BE /* Premium */,
 				8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */,
 				273ADD142C157809006AC677 /* LotteryView */,
 				273ADCF72C14116F006AC677 /* EditView */,
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
 				2754AA052BC3D1BD000073FB /* PointerShape.swift */,
-				2754AA0F2BC6CA37000073FB /* MainView.swift */,
 				27DB357D2BCCD73000019054 /* DecisionListView.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
 				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
@@ -318,6 +331,16 @@
 				8DDB82142C821FF9005152BE /* SubscriptionViewModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8DDB821A2C82CBB9005152BE /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				2754AA0F2BC6CA37000073FB /* MainView.swift */,
+				8DDB821B2C82CBD1005152BE /* ToolbarView.swift */,
+				8DDB821D2C82CCA4005152BE /* SkinListView.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 		8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */ = {
@@ -459,6 +482,7 @@
 				8D1932622C6E435700F9D2A4 /* PreloadData.swift in Sources */,
 				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
+				8DDB82222C82D2F1005152BE /* SpinWheelCell.swift in Sources */,
 				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
@@ -470,14 +494,18 @@
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
 				8DDB820E2C82184A005152BE /* IAPError.swift in Sources */,
+				8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
 				8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */,
 				8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */,
 				8D1931F12C6BBFA400F9D2A4 /* ChoiceRow.swift in Sources */,
+				8DDB821C2C82CBD1005152BE /* ToolbarView.swift in Sources */,
+				8DDB82202C82D2CD005152BE /* SpinWheel.swift in Sources */,
 				8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */,
 				8D19325E2C6E1B8200F9D2A4 /* AddChoiceButton.swift in Sources */,
 				27FCEFA72BBC6DAF002518E0 /* LittleDecisionApp.swift in Sources */,
 				27FCEFD32BBC6DF4002518E0 /* Model.swift in Sources */,
+				8DDB82262C82D3FF005152BE /* ChartItemText.swift in Sources */,
 				8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */,
 				8DDB82122C821878005152BE /* SubscriptionState.swift in Sources */,
 				8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */,
@@ -490,8 +518,8 @@
 				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
+				8DDB821E2C82CCA4005152BE /* SkinListView.swift in Sources */,
 				8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */,
-				8D66ECFB2C7AC389003557C2 /* ChartOverlay.swift in Sources */,
 				8DDB820A2C8217CF005152BE /* RCConstant.swift in Sources */,
 				8DDB82192C82C1DA005152BE /* ContactSection.swift in Sources */,
 				8D19325A2C6E0F0E00F9D2A4 /* Utils.swift in Sources */,

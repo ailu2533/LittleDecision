@@ -146,6 +146,9 @@
     "hello" : {
 
     },
+    "Hello, World!" : {
+
+    },
     "不重复抽取" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -250,6 +253,7 @@
       }
     },
     "决定" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -916,6 +920,9 @@
         }
       }
     },
+    "皮肤" : {
+
+    },
     "等待选择" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1225,6 +1232,7 @@
       }
     },
     "转盘" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
