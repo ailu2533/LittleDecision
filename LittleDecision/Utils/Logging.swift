@@ -11,4 +11,5 @@ import OSLog
 
 class Logging {
     static let shared = Logger(subsystem: "shared", category: "decision")
+    static let iapService = Logger(subsystem: "iapService", category: "decision")
 }

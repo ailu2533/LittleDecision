@@ -1,5 +1,5 @@
 {
-  "originHash" : "ae58793d1c6128ee20a09512f50d5006da8b30dedb3258b72455c2f9066231fb",
+  "originHash" : "bd69ebc87983b8c236d46a5cb4e9ef799df60ef2f230267921a7a7f7a541cb48",
   "pins" : [
     {
       "identity" : "defaults",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/ailu2533/LemonViews.git",
       "state" : {
         "branch" : "main",
-        "revision" : "a9f7f0fb23278b5482ecb6938fbddc6a42629863"
+        "revision" : "167ac0e65502c8c4f34abf071de8a387a30ce289"
       }
     },
     {

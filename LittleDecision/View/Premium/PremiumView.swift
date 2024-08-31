@@ -8,16 +8,26 @@
 import SwiftUI
 
 struct PremiumView: View {
+    var isPremium: Bool
+
     var body: some View {
         HStack {
             Spacer()
-            Image(.cry)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
+            Group {
+                if isPremium {
+                    Image(.smile)
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    Image(.cry)
+                        .resizable()
+                        .scaledToFit()
+                }
+            }
+            .frame(width: 80, height: 80)
             Spacer()
             VStack(spacing: 12) {
-                Text("您还不是会员")
+                Text(isPremium ? "高贵的会员" : "您还不是会员")
                     .fontWeight(.bold)
                     .font(.title2)
                     .foregroundColor(.netureWhite)
@@ -47,7 +57,7 @@ struct PremiumView: View {
             .ignoresSafeArea()
 
         VStack {
-            PremiumView()
+            PremiumView(isPremium: false)
                 .padding(16)
             Spacer()
         }

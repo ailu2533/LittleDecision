@@ -111,10 +111,8 @@ struct DecisionListView: View {
         }, label: {
             Image(systemName: decisionId == decision.uuid ? "checkmark.circle.fill" : "circle")
                 .imageScale(.large)
-                .font(.title2)
-                .fontWeight(.bold)
+                .fontWeight(.semibold)
                 .foregroundColor(.accentColor)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
         })
         .buttonStyle(PlainButtonStyle())
     }

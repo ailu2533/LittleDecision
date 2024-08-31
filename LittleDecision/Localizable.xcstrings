@@ -147,6 +147,7 @@
 
     },
     "不重复抽取" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -422,6 +423,7 @@
       }
     },
     "声音" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -564,6 +566,7 @@
 
     },
     "已经被抽中的选项不会被抽中" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -706,6 +709,7 @@
 
     },
     "抽取时忽略选项的权重" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -948,6 +952,7 @@
       }
     },
     "等概率抽取" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1423,9 +1428,6 @@
         }
       }
     },
-    "通过邮件联系我们" : {
-
-    },
     "问题反馈" : {
       "localizations" : {
         "de" : {
@@ -1459,6 +1461,9 @@
           }
         }
       }
+    },
+    "高贵的会员" : {
+
     }
   },
   "version" : "1.0"

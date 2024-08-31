@@ -24,10 +24,18 @@ func setupAudioSession() {
 
 @main
 struct LittleDecisionApp: App {
+    let iapService: IAPService
+//    @State var premiumSubscriptionInfo: SubscriptionInfo?
+
+    @State var premiumSubscriptionViewModel = SubscriptionViewModel(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
+
     init() {
         vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
         try? Tips.configure()
-        configureRevenueCat()
+
+        RevenueCatService.configOnLaunch()
+        iapService = RevenueCatService()
+
         setupAudioSession()
     }
 
@@ -38,16 +46,23 @@ struct LittleDecisionApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environment(premiumSubscriptionViewModel)
                 .onAppear {
                     insertData(ctx: sharedModelContainer.mainContext)
+                }
+                .task {
+                    do {
+                        try await iapService.monitoringSubscriptionInfoUpdates { premiumSubscriptionInfo in
+                            premiumSubscriptionViewModel.canAccessContent = premiumSubscriptionInfo.canAccessContent
+                            premiumSubscriptionViewModel.isEligibleForTrial = premiumSubscriptionInfo.isEligibleForTrial
+                            premiumSubscriptionViewModel.subscriptionState = premiumSubscriptionInfo.subscriptionState
+                        }
+                    } catch {
+                        Logging.iapService.error("Error on handling customer info updates: \(error, privacy: .public)")
+                    }
                 }
         }
         .modelContainer(sharedModelContainer)
         .environment(vm)
-    }
-
-    private func configureRevenueCat() {
-        Purchases.logLevel = .debug // 开发时使用,发布时请移除
-        Purchases.configure(withAPIKey: "appl_DJrbtXcoBtXHBPYNySzEnrrGFdV")
     }
 }
