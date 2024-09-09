@@ -24,7 +24,6 @@ struct AddChoiceButton: View {
         .buttonStyle(.plain)
 
         .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding()
     }
 }
 
@@ -58,7 +57,7 @@ struct BatchAddChoiceButton: View {
 
     var body: some View {
         NavigationLink(destination: BatchAddChoiceView(decision: decision)) {
-            Label("批量添加新选项", systemImage: "plus.circle.fill")
+            Label("批量添加", systemImage: "plus.circle.fill")
                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
@@ -70,6 +69,6 @@ struct BatchAddChoiceButton: View {
         .buttonStyle(.plain)
 
         .frame(maxWidth: .infinity, alignment: .trailing)
-        .padding()
+//        .padding()
     }
 }

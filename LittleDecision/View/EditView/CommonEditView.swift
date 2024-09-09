@@ -55,7 +55,7 @@ struct CommonEditView: View {
             VStack(spacing: 12) {
                 AddChoiceButton(decision: decision)
                 BatchAddChoiceButton(decision: decision)
-            }
+            }.padding(.trailing, 16)
         }
         .ignoresSafeArea(.keyboard)
         .scrollContentBackground(.hidden)
@@ -98,7 +98,7 @@ struct CommonEditView: View {
                     ChoiceRow(choice: choice, totalWeight: 0)
                 }
                 .buttonStyle(.plain)
-                .listRowSeparator(.hidden)
+//                .listRowSeparator(.hidden)
             }
             .onDelete(perform: deleteChoices)
 

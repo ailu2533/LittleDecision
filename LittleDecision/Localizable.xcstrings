@@ -1589,7 +1589,11 @@
         }
       }
     },
+    "批量添加" : {
+
+    },
     "批量添加新选项" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
