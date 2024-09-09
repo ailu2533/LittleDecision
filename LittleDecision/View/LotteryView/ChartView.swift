@@ -5,16 +5,14 @@ import SwiftUI
 struct ChartView: View {
     var currentDecision: Decision
     var selection: Choice?
-    @Default(.fontSize) private var fontSize
 
     var colors: [Color] = [Color.pink1, Color.white]
-    let lineWidth: CGFloat = 2
 
     var body: some View {
         ZStack {
-            CircleBackground(lineWidth: lineWidth)
-            ChartContent(currentDecision: currentDecision, colors: colors, lineWidth: lineWidth, fontSize: fontSize)
-                .padding(24)
+            CircleBackground(lineWidth: 1)
+            ChartContent(currentDecision: currentDecision, colors: colors)
+                .padding(12)
         }
     }
 }
@@ -24,20 +22,20 @@ struct CircleBackground: View {
 
     var body: some View {
         ZStack {
-            Circle().fill(.pink1)
-                .stroke(.black, style: .init(lineWidth: lineWidth))
-                .shadow(radius: 2)
-                .padding(12)
+            Circle().fill(.netureWhite)
+                .stroke(.netureBlack, style: .init(lineWidth: lineWidth))
+//                .shadow(radius: 2)
+//                .padding(12)
                 .zIndex(3)
 
-            Circle().stroke(Color.gray, style: .init(lineWidth: 3, dash: [7, 8]))
-                .padding(6)
-                .zIndex(2)
+//            Circle().stroke(Color.gray, style: .init(lineWidth: 3, dash: [7, 8]))
+//                .padding(6)
+//                .zIndex(2)
 
-            Circle().fill(.white)
-                .stroke(.black, style: .init(lineWidth: lineWidth))
-                .shadow(radius: 2)
-                .zIndex(1)
+//            Circle().fill(.white)
+//                .stroke(.black, style: .init(lineWidth: lineWidth))
+////                .shadow(radius: 2)
+//                .zIndex(1)
         }
     }
 }
@@ -45,27 +43,56 @@ struct CircleBackground: View {
 struct ChartContent: View {
     var currentDecision: Decision
     var colors: [Color]
-    let lineWidth: CGFloat
-    let fontSize: CGFloat
+
+    @Default(.selectedSkinConfiguration)
+    private var selectedSkinConfiguration
+
+    var rawItems: [SpinCellRawItem] {
+        _ = currentDecision.wheelVersion
+        return currentDecision.sortedChoices.map { choice in
+            SpinCellRawItem(title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
+        }
+    }
+
+    var configuration: SpinWheelConfiguration {
+        SkinManager.shared.getSkinConfiguration(skinKind: selectedSkinConfiguration)
+    }
 
     var body: some View {
         GeometryReader { proxy in
-            let radius = min(proxy.size.width, proxy.size.height) / 2
-            let innerRadius: CGFloat = max(radius / 5, 50)
-            let trailingPadding: CGFloat = max(radius / 7, 12)
 
-            let weights = currentDecision.sortedChoices.map { CGFloat($0.weight) }
-            let titles = currentDecision.sortedChoices.map { $0.title }
-            let selected = currentDecision.sortedChoices.map { $0.choosed }
+            SpinWheel(rawItems: rawItems,
+                      size: proxy.size,
+                      configuration: configuration
+            )
+        }
+    }
+}
 
-            SpinWheel(weights: weights,
-                      titles: titles,
-                      selected: selected,
-                      radius: radius,
-                      innerRadius: innerRadius,
-                      colors: colors,
-                      lineWidth: lineWidth,
-                      trailingPadding: trailingPadding
+let rawItems: [SpinCellRawItem] = [
+    .init(title: "item 1"),
+    .init(title: "item 2"),
+    .init(title: "item 3"),
+    .init(title: "item 4"),
+    .init(title: "item 5"),
+    .init(title: "item 6"),
+    .init(title: "item 7"),
+    .init(title: "item 8"),
+]
+
+struct SpinWheelPreview: View {
+    var skinKind: SkinKind
+
+    private var configuration: SpinWheelConfiguration {
+        SkinManager.shared.getSkinConfiguration(skinKind: skinKind)
+    }
+
+    var body: some View {
+        GeometryReader { proxy in
+
+            SpinWheel(rawItems: rawItems,
+                      size: proxy.size,
+                      configuration: configuration
             )
         }
     }

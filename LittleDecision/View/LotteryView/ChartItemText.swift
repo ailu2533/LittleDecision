@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ChartItemText: View {
     let item: Item
-    let selected: Bool
     let innerRadius: CGFloat
     let outerRadius: CGFloat
     let trailingPadding: CGFloat
@@ -18,8 +17,8 @@ struct ChartItemText: View {
         let size = item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
         return Text(item.title)
             .font(customBodyFont)
-            .foregroundStyle(selected ? Color.black : Color.gray)
-            .padding(.trailing, 12)
+            .foregroundStyle(item.enabled ? .primary : .secondary)
+            .padding(.trailing, trailingPadding)
             .multilineTextAlignment(.trailing)
             .minimumScaleFactor(0.3)
             .lineLimit(3)

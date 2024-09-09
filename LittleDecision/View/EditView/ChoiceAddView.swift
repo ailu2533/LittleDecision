@@ -30,7 +30,11 @@ struct ChoiceAddView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("保存", action: saveAndDismiss)
+                    Button(action: {
+                        saveAndDismiss()
+                    }, label: {
+                        Text("保存")
+                    })
                 }
             }
         }
@@ -57,7 +61,11 @@ struct ChoiceAddView: View {
 
     private var addMoreSection: some View {
         Section {
-            Button("继续增加新选项", action: addNewChoice)
+            Button(action: {
+                addNewChoice()
+            }, label: {
+                Text("继续增加新选项")
+            })
         }
     }
 

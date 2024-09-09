@@ -5,11 +5,12 @@
 //  Created by ailu on 2024/4/10.
 //
 
+import Defaults
 import SceneKit
 import SwiftData
 import SwiftUI
 
-//enum Tab: Int, CaseIterable, Identifiable {
+// enum Tab: Int, CaseIterable, Identifiable {
 //    case wheel
 //    case decisions
 //    case settings
@@ -42,7 +43,7 @@ import SwiftUI
 //        case .settings: SettingsView()
 //        }
 //    }
-//}
+// }
 
 enum ActiveSheet: Identifiable {
     case decisionList, settings, skinList
@@ -53,22 +54,48 @@ enum ActiveSheet: Identifiable {
 struct MainView: View {
     @State private var activeSheet: ActiveSheet?
 
+    @Default(.decisionId) private var decisionId
+    @Environment(\.modelContext) private var modelContext
+
+    private var currentDecision: Decision? {
+        let predicate = #Predicate<Decision> { $0.uuid == decisionId }
+        let descriptor = FetchDescriptor(predicate: predicate)
+
+        do {
+            let res = try modelContext.fetch(descriptor).first
+            Logging.shared.debug("currentDecision: \(res.debugDescription)  isNil \(res == nil)")
+            return res
+        } catch {
+            Logging.shared.error("currentDecision: \(error)")
+            return nil
+        }
+    }
+
     var body: some View {
         NavigationStack {
-            FirstView()
-                .toolbar {
-                    ToolbarView(activeSheet: $activeSheet)
+            Group {
+                if currentDecision?.displayModel == DecisionDisplayMode.wheel.rawValue {
+                    FirstView()
+                } else {
+                    DeckModeView()
+                        .id(currentDecision.hashValue)
                 }
-                .sheet(item: $activeSheet) { item in
-                    switch item {
-                    case .decisionList:
-                        DecisionListView()
-                    case .settings:
-                        SettingsView()
-                    case .skinList:
-                        SkinListView()
-                    }
+            }
+
+            .mainBackground()
+            .toolbar {
+                ToolbarView(activeSheet: $activeSheet)
+            }
+            .sheet(item: $activeSheet) { item in
+                switch item {
+                case .decisionList:
+                    DecisionListView()
+                case .settings:
+                    SettingsView()
+                case .skinList:
+                    SkinListView()
                 }
+            }
         }
     }
 }

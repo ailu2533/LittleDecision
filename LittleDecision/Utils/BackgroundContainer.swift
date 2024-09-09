@@ -45,8 +45,14 @@ extension View {
 }
 
 #Preview {
-    VStack {
-        Text("hello")
+    List {
+        Color.accentColor.opacity(0.3)
+            .frame(width: 200, height: 200)
+
+        Color.accentColor.opacity(0.2)
+            .frame(width: 200, height: 200)
+
+        Color.accentColor.opacity(0.01)
+            .frame(width: 200, height: 200)
     }
-    .settingsBackground()
 }

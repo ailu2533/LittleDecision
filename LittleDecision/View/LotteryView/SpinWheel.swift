@@ -9,40 +9,51 @@ import Foundation
 import SwiftUI
 
 struct SpinWheel: View {
-    let weights: [CGFloat]
-    let titles: [String]
-    let selected: [Bool]
-    let radius: CGFloat
-    let innerRadius: CGFloat
-    let colors: [Color]
-    let lineWidth: CGFloat
-    let trailingPadding: CGFloat
+    private let radius: CGFloat
+    private let innerRadius: CGFloat
+    private let trailingPadding: CGFloat
+
+    let size: CGSize
+    let rawItems: [SpinCellRawItem]
+    let configuration: SpinWheelConfiguration
 
     private let mcalc: MathCalculation
 
-    init(weights: [CGFloat], titles: [String], selected: [Bool], radius: CGFloat, innerRadius: CGFloat, colors: [Color], lineWidth: CGFloat, trailingPadding: CGFloat) {
-        self.weights = weights
-        self.titles = titles
-        self.selected = selected
-        self.radius = radius
-        self.innerRadius = innerRadius
-        self.colors = colors
-        self.lineWidth = lineWidth
-        self.trailingPadding = trailingPadding
-        mcalc = MathCalculation(innerRadius: innerRadius, outerRadius: radius, weights: weights, titles: titles, selected: selected)
+    init(rawItems: [SpinCellRawItem], size: CGSize, configuration: SpinWheelConfiguration) {
+        self.rawItems = rawItems
+        self.size = size
+        self.configuration = configuration
+
+        radius = configuration.radius(size: size)
+        innerRadius = configuration.innerRadius(size: size)
+        trailingPadding = configuration.trailingPadding(size: size)
+
+        mcalc = MathCalculation(innerRadius: innerRadius, outerRadius: radius, rawItems: rawItems)
     }
 
     var body: some View {
         ZStack {
             ForEach(mcalc.items) { item in
                 SpinWheelCell(item: item,
-                              colors: colors,
-                              lineWidth: lineWidth,
                               innerRadius: innerRadius,
                               outerRadius: radius,
-                              trailingPadding: trailingPadding
+                              trailingPadding: trailingPadding,
+                              configuration: configuration
                 )
             }
         }
+    }
+}
+
+struct SpinCellRawItem: Identifiable {
+    let id = UUID()
+    let title: String
+    let weight: CGFloat
+    let enabled: Bool
+
+    init(title: String, weight: CGFloat = 1, enabled: Bool = true) {
+        self.title = title
+        self.weight = weight
+        self.enabled = enabled
     }
 }

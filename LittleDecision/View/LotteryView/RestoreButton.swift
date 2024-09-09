@@ -35,7 +35,7 @@ struct RestoreButtonStyle: ButtonStyle {
             .clipShape(Capsule())
             .foregroundColor(.accentColor)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .shadow(radius: 0.5, x: 0.5, y: 0.5)
+            .shadow(radius: 1)
             .contentShape(Rectangle())
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,7 +52,6 @@
 		8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D66ED062C7B5BA4003557C2 /* Subsonic */; };
 		8DDB81F42C816467005152BE /* PointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F32C816467005152BE /* PointerView.swift */; };
 		8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F62C817A5E005152BE /* PremiumView.swift */; };
-		8DDB81F92C81A319005152BE /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F82C81A319005152BE /* ContactView.swift */; };
 		8DDB81FB2C81B1E3005152BE /* BackgroundContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */; };
 		8DDB81FE2C81C71B005152BE /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 8DDB81FD2C81C71B005152BE /* RevenueCat */; };
 		8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8DDB81FF2C81C71B005152BE /* RevenueCatUI */; };
@@ -71,6 +70,17 @@
 		8DDB82222C82D2F1005152BE /* SpinWheelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */; };
 		8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */; };
 		8DDB82262C82D3FF005152BE /* ChartItemText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82252C82D3FF005152BE /* ChartItemText.swift */; };
+		8DDB82282C83247F005152BE /* SpinWheelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82272C83247F005152BE /* SpinWheelConfiguration.swift */; };
+		8DDB822A2C83F0F2005152BE /* PremiumIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82292C83F0F2005152BE /* PremiumIcon.swift */; };
+		8DDB822D2C83F893005152BE /* SkinConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB822C2C83F893005152BE /* SkinConfiguration.swift */; };
+		8DDB822E2C8408C6005152BE /* Yuzu DecideEasy.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB82062C82052C005152BE /* Yuzu DecideEasy.storekit */; };
+		8DE2A4BA2C8B1D68002BC37F /* DeckKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8DE2A4B92C8B1D68002BC37F /* DeckKit */; };
+		8DE2A4BC2C8B1D9C002BC37F /* DeckModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A4BB2C8B1D9C002BC37F /* DeckModeView.swift */; };
+		8DE2A4BE2C8B1E41002BC37F /* DeckCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A4BD2C8B1E41002BC37F /* DeckCardView.swift */; };
+		8DE2A4C02C8C163C002BC37F /* DecisionDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A4BF2C8C163C002BC37F /* DecisionDisplayMode.swift */; };
+		8DE2A4C32C8C5947002BC37F /* TemplateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A4C22C8C5947002BC37F /* TemplateList.swift */; };
+		8DE2A4C62C8C692B002BC37F /* HorizontalPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 8DE2A4C52C8C692B002BC37F /* HorizontalPicker */; };
+		8DE2A4CA2C8DE953002BC37F /* frequentUsed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2A4C92C8DE953002BC37F /* frequentUsed.json */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -122,7 +132,6 @@
 		8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3"; sourceTree = "<group>"; };
 		8DDB81F32C816467005152BE /* PointerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerView.swift; sourceTree = "<group>"; };
 		8DDB81F62C817A5E005152BE /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
-		8DDB81F82C81A319005152BE /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundContainer.swift; sourceTree = "<group>"; };
 		8DDB82012C81C7CF005152BE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		8DDB82042C8204F7005152BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -140,6 +149,14 @@
 		8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelCell.swift; sourceTree = "<group>"; };
 		8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelCellShape.swift; sourceTree = "<group>"; };
 		8DDB82252C82D3FF005152BE /* ChartItemText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItemText.swift; sourceTree = "<group>"; };
+		8DDB82272C83247F005152BE /* SpinWheelConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelConfiguration.swift; sourceTree = "<group>"; };
+		8DDB82292C83F0F2005152BE /* PremiumIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumIcon.swift; sourceTree = "<group>"; };
+		8DDB822C2C83F893005152BE /* SkinConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinConfiguration.swift; sourceTree = "<group>"; };
+		8DE2A4BB2C8B1D9C002BC37F /* DeckModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckModeView.swift; sourceTree = "<group>"; };
+		8DE2A4BD2C8B1E41002BC37F /* DeckCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCardView.swift; sourceTree = "<group>"; };
+		8DE2A4BF2C8C163C002BC37F /* DecisionDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionDisplayMode.swift; sourceTree = "<group>"; };
+		8DE2A4C22C8C5947002BC37F /* TemplateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateList.swift; sourceTree = "<group>"; };
+		8DE2A4C92C8DE953002BC37F /* frequentUsed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frequentUsed.json; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,8 +166,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE2A4C62C8C692B002BC37F /* HorizontalPicker in Frameworks */,
 				8DDB81FE2C81C71B005152BE /* RevenueCat in Frameworks */,
 				8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */,
+				8DE2A4BA2C8B1D68002BC37F /* DeckKit in Frameworks */,
 				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
 				8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */,
 				8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */,
@@ -169,6 +188,7 @@
 				273ADDA02C16B38B006AC677 /* LotteryLogic.swift */,
 				8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */,
 				8D1932612C6E435700F9D2A4 /* PreloadData.swift */,
+				8DE2A4BF2C8C163C002BC37F /* DecisionDisplayMode.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +232,7 @@
 				8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */,
 				8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */,
 				8DDB82252C82D3FF005152BE /* ChartItemText.swift */,
+				8DDB82272C83247F005152BE /* SpinWheelConfiguration.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -219,6 +240,7 @@
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DE2A4C12C8C5731002BC37F /* TemplateList */,
 				8DDB821A2C82CBB9005152BE /* MainView */,
 				8DDB81F52C817A44005152BE /* Premium */,
 				8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */,
@@ -229,6 +251,8 @@
 				27DB357D2BCCD73000019054 /* DecisionListView.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
 				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
+				8DE2A4BB2C8B1D9C002BC37F /* DeckModeView.swift */,
+				8DE2A4BD2C8B1E41002BC37F /* DeckCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +280,7 @@
 		27FCEFA52BBC6DAF002518E0 /* LittleDecision */ = {
 			isa = PBXGroup;
 			children = (
+				8DDB822B2C83F883005152BE /* Skin */,
 				8D66ED022C7B2231003557C2 /* Info.plist */,
 				8D1932642C6E448000F9D2A4 /* Resources */,
 				273ADCF42C1409AC006AC677 /* Utils */,
@@ -290,6 +315,7 @@
 				8D1932662C6E44F100F9D2A4 /* data.tw.json */,
 				8D1932672C6E453000F9D2A4 /* data.jp.json */,
 				8D1932682C6E455100F9D2A4 /* data.kr.json */,
+				8DE2A4C92C8DE953002BC37F /* frequentUsed.json */,
 				8D1932692C6E45F100F9D2A4 /* data.de.json */,
 				8D1932702C6E4E5300F9D2A4 /* extract_translation.py */,
 			);
@@ -300,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				8DDB81F62C817A5E005152BE /* PremiumView.swift */,
+				8DDB82292C83F0F2005152BE /* PremiumIcon.swift */,
 			);
 			path = Premium;
 			sourceTree = "<group>";
@@ -343,11 +370,26 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		8DDB822B2C83F883005152BE /* Skin */ = {
+			isa = PBXGroup;
+			children = (
+				8DDB822C2C83F893005152BE /* SkinConfiguration.swift */,
+			);
+			path = Skin;
+			sourceTree = "<group>";
+		};
+		8DE2A4C12C8C5731002BC37F /* TemplateList */ = {
+			isa = PBXGroup;
+			children = (
+				8DE2A4C22C8C5947002BC37F /* TemplateList.swift */,
+			);
+			path = TemplateList;
+			sourceTree = "<group>";
+		};
 		8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
 				273ADD102C153431006AC677 /* SettingsView.swift */,
-				8DDB81F82C81A319005152BE /* ContactView.swift */,
 				8DDB82182C82C1DA005152BE /* ContactSection.swift */,
 			);
 			path = SettingsView;
@@ -376,6 +418,8 @@
 				8D66ED062C7B5BA4003557C2 /* Subsonic */,
 				8DDB81FD2C81C71B005152BE /* RevenueCat */,
 				8DDB81FF2C81C71B005152BE /* RevenueCatUI */,
+				8DE2A4B92C8B1D68002BC37F /* DeckKit */,
+				8DE2A4C52C8C692B002BC37F /* HorizontalPicker */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -398,7 +442,7 @@
 			};
 			buildConfigurationList = 27FCEF9E2BBC6DAF002518E0 /* Build configuration list for PBXProject "LittleDecision" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = "zh-Hans";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -418,6 +462,8 @@
 				8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */,
 				8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */,
 				8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				8DE2A4B82C8B1D68002BC37F /* XCLocalSwiftPackageReference "../AppCodeProjects/DeckKit" */,
+				8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -437,6 +483,7 @@
 				8DDB82082C820710005152BE /* StoreKitTestCertificate.cer in Resources */,
 				8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */,
 				273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */,
+				8DE2A4CA2C8DE953002BC37F /* frequentUsed.json in Resources */,
 				27FCEFB02BBC6DB0002518E0 /* Preview Assets.xcassets in Resources */,
 				8D1931E72C6B84AB00F9D2A4 /* Localizable.xcstrings in Resources */,
 				27FCEFAD2BBC6DB0002518E0 /* Assets.xcassets in Resources */,
@@ -444,6 +491,7 @@
 				8D19326B2C6E47D000F9D2A4 /* data.de.json in Resources */,
 				8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */,
 				8D19326C2C6E47D000F9D2A4 /* data.en.json in Resources */,
+				8DDB822E2C8408C6005152BE /* Yuzu DecideEasy.storekit in Resources */,
 				8D19326D2C6E47D000F9D2A4 /* data.jp.json in Resources */,
 				8D19326E2C6E47D000F9D2A4 /* data.kr.json in Resources */,
 				8D19326F2C6E47D000F9D2A4 /* data.tw.json in Resources */,
@@ -482,7 +530,9 @@
 				8D1932622C6E435700F9D2A4 /* PreloadData.swift in Sources */,
 				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
+				8DE2A4C32C8C5947002BC37F /* TemplateList.swift in Sources */,
 				8DDB82222C82D2F1005152BE /* SpinWheelCell.swift in Sources */,
+				8DDB822D2C83F893005152BE /* SkinConfiguration.swift in Sources */,
 				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
@@ -490,10 +540,13 @@
 				273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */,
 				8DDB82102C821866005152BE /* SubscriptionInfo.swift in Sources */,
 				8DDB82022C81C7CF005152BE /* PurchaseManager.swift in Sources */,
+				8DE2A4BC2C8B1D9C002BC37F /* DeckModeView.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
+				8DE2A4C02C8C163C002BC37F /* DecisionDisplayMode.swift in Sources */,
 				8DDB820E2C82184A005152BE /* IAPError.swift in Sources */,
+				8DE2A4BE2C8B1E41002BC37F /* DeckCardView.swift in Sources */,
 				8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
 				8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */,
@@ -513,11 +566,12 @@
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */,
+				8DDB822A2C83F0F2005152BE /* PremiumIcon.swift in Sources */,
 				8DDB81FB2C81B1E3005152BE /* BackgroundContainer.swift in Sources */,
-				8DDB81F92C81A319005152BE /* ContactView.swift in Sources */,
 				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
+				8DDB82282C83247F005152BE /* SpinWheelConfiguration.swift in Sources */,
 				8DDB821E2C82CCA4005152BE /* SkinListView.swift in Sources */,
 				8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */,
 				8DDB820A2C8217CF005152BE /* RCConstant.swift in Sources */,
@@ -656,9 +710,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LittleDecision/Info.plist;
@@ -666,12 +721,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -690,9 +747,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LittleDecision/Info.plist;
@@ -700,12 +758,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -741,6 +801,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		8DE2A4B82C8B1D68002BC37F /* XCLocalSwiftPackageReference "../AppCodeProjects/DeckKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../AppCodeProjects/DeckKit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -774,6 +841,14 @@
 				minimumVersion = 5.3.0;
 			};
 		};
+		8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ailu2533/HorizontalPicker.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -801,6 +876,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCatUI;
+		};
+		8DE2A4B92C8B1D68002BC37F /* DeckKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeckKit;
+		};
+		8DE2A4C52C8C692B002BC37F /* HorizontalPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */;
+			productName = HorizontalPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

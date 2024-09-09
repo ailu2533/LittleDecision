@@ -20,32 +20,30 @@ struct ChoiceEditorView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            Form {
-                choiceDetailsSection
-                weightInfoSection
-                deleteSection
-            }
-            .scrollContentBackground(.hidden)
-            .mainBackground()
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        saveAndDismiss()
-                    }, label: {
-                        Text("保存")
-                    })
-                }
+        Form {
+            choiceDetailsSection
+            weightInfoSection
+            deleteSection
+        }
+        .scrollContentBackground(.hidden)
+        .mainBackground()
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    saveAndDismiss()
+                }, label: {
+                    Text("保存")
+                })
             }
         }
     }
 
     private var choiceDetailsSection: some View {
         Section {
-            LabeledContent("选项名") {
-                TextField("选项名", text: $choice.title)
-                    .multilineTextAlignment(.trailing)
-            }
+            TextField("选项名", text: $choice.title, axis: .vertical)
+                .lineLimit(5)
+                .fontWeight(.semibold)
+                .font(.title3)
             Picker("权重", selection: $choice.weight) {
                 ForEach(1 ... 100, id: \.self) { Text("\($0)") }
             }

@@ -52,15 +52,16 @@ struct DecisionListView: View {
             .mainBackground()
             .navigationTitle("决定列表")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    addButton
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .primaryAction) {
+//                    addButton
+//                }
+//            }
         }
         .sensoryFeedback(.selection, trigger: decisionId)
         .sheet(isPresented: $showAddDecisionSheet) {
-            DecisionAddView()
+//            DecisionAddView()
+            TemplateList(showSheet: $showAddDecisionSheet)
         }
     }
 
@@ -119,7 +120,9 @@ struct DecisionListView: View {
 
     private func decisionInfo(for decision: Decision) -> some View {
         VStack(alignment: .leading) {
-            Text(decision.title).fontWeight(.bold)
+            Text(decision.title)
+                .fontWeight(.semibold)
+                .foregroundStyle(.netureBlack)
             Text("\(decision.choices.count)个选项")
                 .foregroundStyle(.secondary)
                 .font(.caption)

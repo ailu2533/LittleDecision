@@ -17,7 +17,7 @@ struct Item: Identifiable {
     // 被抽中的权重
     let weight: CGFloat
     let title: String
-    let selected: Bool
+    let enabled: Bool
     // 数据在转盘中的圆弧对应角度范围, 单位弧度制
     let startAngle: CGFloat
     let endAngle: CGFloat
@@ -51,16 +51,16 @@ class MathCalculation {
     let innerRadius: CGFloat
     let outerRadius: CGFloat
 
-    let weights: [CGFloat]
-    let titles: [String]
-    let selected: [Bool]
 
-    init(innerRadius: CGFloat, outerRadius: CGFloat, weights: [CGFloat], titles: [String], selected: [Bool]) {
+
+    let rawItems: [SpinCellRawItem]
+
+    init(innerRadius: CGFloat, outerRadius: CGFloat, rawItems: [SpinCellRawItem]) {
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
-        self.weights = weights
-        self.titles = titles
-        self.selected = selected
+        self.rawItems = rawItems
+
+        let weights = rawItems.map { $0.weight }
 
         items = calculateItemsByWeights(weights)
     }
@@ -73,15 +73,15 @@ class MathCalculation {
         var startAngle: CGFloat = 0
         var calculatedItems: [Item] = []
 
-        for (index, weight) in weights.enumerated() {
-            let sweepAngle = (weight / totalWeight) * 2 * .pi
+        for (index, rawItem) in rawItems.enumerated() {
+            let sweepAngle = (rawItem.weight / totalWeight) * 2 * .pi
             let endAngle = startAngle + sweepAngle
 
             let item = Item(
                 index: index,
-                weight: weight,
-                title: titles[index],
-                selected: selected[index],
+                weight: rawItem.weight,
+                title: rawItem.title,
+                enabled: rawItem.enabled,
                 startAngle: startAngle,
                 endAngle: endAngle
             )

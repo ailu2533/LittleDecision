@@ -20,8 +20,13 @@ class Decision {
     // 已经保存
     var saved: Bool = false
 
+    var displayModel: Int = DecisionDisplayMode.wheel.rawValue
+
     var createDate: Date
     var updateDate: Date
+
+    @Transient
+    var wheelVersion: Int = 0
 
     init(uuid: UUID = UUID(), title: String, choices: [Choice], saved: Bool = false) {
         self.uuid = uuid

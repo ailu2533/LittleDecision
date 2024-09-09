@@ -26,19 +26,22 @@ enum SectionFill {
     case linearGradient(colors: [Color], startPoint: UnitPoint = .top, endPoint: UnitPoint = .bottom)
     case solidFill(Color)
 
-    func gradient(in size: CGSize) -> any ShapeStyle {
+    func gradient(in radius: CGFloat?) -> AnyShapeStyle {
         switch self {
         case let .radialGradient(colors, center, startRadius, endRadiusRatio):
-            let endRadius = min(size.width, size.height) / 2 * endRadiusRatio
-            return RadialGradient(colors: colors, center: center, startRadius: startRadius, endRadius: endRadius)
+            if let radius {
+                let endRadius = radius * endRadiusRatio
+                return AnyShapeStyle(RadialGradient(colors: colors, center: center, startRadius: startRadius, endRadius: endRadius))
+            }
+            return AnyShapeStyle(colors[0])
+
         case let .linearGradient(colors, startPoint, endPoint):
-            return LinearGradient(colors: colors, startPoint: startPoint, endPoint: endPoint)
+            return AnyShapeStyle(LinearGradient(colors: colors, startPoint: startPoint, endPoint: endPoint))
         case let .solidFill(color):
-            return color
+            return AnyShapeStyle(color)
         }
     }
 }
-
 
 extension WheelTheme {
     static let `default` = WheelTheme(

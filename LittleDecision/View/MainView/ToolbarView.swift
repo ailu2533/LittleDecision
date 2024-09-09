@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/8/31.
 //
 
+import Defaults
 import Foundation
 import SwiftUI
 
@@ -14,6 +15,8 @@ struct ToolbarView: ToolbarContent {
 //    @Binding var isSkinListPresented: Bool
 
     @Binding var activeSheet: ActiveSheet?
+
+    @Default(.decisionDisplayMode) private var decisionDisplayMode
 
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {

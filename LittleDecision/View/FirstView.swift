@@ -62,7 +62,6 @@ struct FirstView: View {
             mainContentView
             Spacer()
         }
-        .mainBackground()
     }
 
     private var decisionTitleView: some View {

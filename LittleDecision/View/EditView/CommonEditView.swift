@@ -26,27 +26,36 @@ struct ChoiceTip: Tip {
 struct CommonEditView: View {
     @Bindable var decision: Decision
     @Environment(DecisionViewModel.self) private var viewModel
+    @FocusState private var focus
 
     private let tip = ChoiceTip()
 
     var body: some View {
-        GeometryReader { _ in
-            Form {
-                decisionTitleSection
-                choicesSection
-            }
-            .contentMargins(16, for: .scrollContent)
-            .scrollIndicators(.hidden)
-            .safeAreaInset(edge: .bottom) {
-                VStack(spacing: 12) {
-                    AddChoiceButton(decision: decision)
-                    BatchAddChoiceButton(decision: decision)
+        Form {
+            decisionTitleSection
+
+            Picker("显示模式", selection: Binding(
+                get: { DecisionDisplayMode(rawValue: decision.displayModel) ?? .wheel },
+                set: { decision.displayModel = $0.rawValue }
+            )) {
+                ForEach(DecisionDisplayMode.allCases, id: \.self) { mode in
+                    Text(mode.text).tag(mode)
                 }
             }
-            .ignoresSafeArea(.keyboard)
-            .scrollContentBackground(.hidden)
-            .mainBackground()
+
+            choicesSection
         }
+        .contentMargins(16, for: .scrollContent)
+        .scrollIndicators(.hidden)
+        .safeAreaInset(edge: .bottom) {
+            VStack(spacing: 12) {
+                AddChoiceButton(decision: decision)
+                BatchAddChoiceButton(decision: decision)
+            }
+        }
+        .ignoresSafeArea(.keyboard)
+        .scrollContentBackground(.hidden)
+        .mainBackground()
     }
 
     private var decisionTitleSection: some View {
@@ -58,11 +67,28 @@ struct CommonEditView: View {
                 .background(.accent)
                 .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 
-            TextField("输入让你犹豫不决的事情", text: $decision.title)
-                .font(.title2)
-                .fontWeight(.bold)
+            TextField("输入让你犹豫不决的事情", text: $decision.title, axis: .vertical)
+                .focused($focus)
+                .foregroundStyle(.netureBlack)
+                .font(.title3)
+                .fontWeight(.semibold)
                 .fontDesign(.rounded)
-                .submitLabel(.done)
+//                .submitLabel(.done)
+                .lineLimit(3)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        HStack {
+                            Spacer()
+
+                            Button(action: {
+                                focus = false
+                            }, label: {
+                                Label("收起键盘", systemImage: "keyboard.chevron.compact.down")
+                                    .labelStyle(.iconOnly)
+                            })
+                        }
+                    }
+                }
         }
     }
 
@@ -70,9 +96,9 @@ struct CommonEditView: View {
         Section {
             ForEach(decision.sortedChoices) { choice in
                 NavigationLink {
-                    ChoiceEditorView(choice: choice, totalWeight: decision.totalWeight)
+                    ChoiceEditorView(choice: choice, totalWeight: 0)
                 } label: {
-                    ChoiceRow(choice: choice, totalWeight: decision.totalWeight)
+                    ChoiceRow(choice: choice, totalWeight: 0)
                 }
                 .buttonStyle(.plain)
                 .listRowSeparator(.hidden)

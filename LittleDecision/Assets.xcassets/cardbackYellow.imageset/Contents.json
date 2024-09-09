@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "34371814_tp194-audi-09-e.svg",
+      "filename" : "cardbackYellow.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,8 +17,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }

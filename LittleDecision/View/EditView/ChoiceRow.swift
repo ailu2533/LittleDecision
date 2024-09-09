@@ -21,7 +21,7 @@ struct ChoiceRow: View {
         HStack(spacing: 10) {
             Image(systemName: "tag.fill")
                 .font(.system(.body, design: .rounded))
-                .foregroundColor(.accentColor)
+                .foregroundColor(.choiceOrange)
                 .frame(width: 24, height: 24)
 
             Text(choice.title)
@@ -29,9 +29,9 @@ struct ChoiceRow: View {
 
             Spacer()
 
-            Text(probability(choice.weight, totalWeight))
-                .font(.caption)
-                .foregroundColor(.secondary)
+//            Text(probability(choice.weight, totalWeight))
+//                .font(.caption)
+//                .foregroundColor(.secondary)
         }
     }
 }

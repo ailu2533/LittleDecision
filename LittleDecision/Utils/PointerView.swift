@@ -13,8 +13,8 @@ struct PointerView: View {
         ZStack {
             PointerShape()
                 .fill(RadialGradient(colors: [.pink2, .white], center: .center, startRadius: 0, endRadius: 150))
-                .shadow(radius: 5, x: 2, y: 2)
-
+                .shadow(radius: 1)
+//                .shadow(radius: 3)
             Text("开始")
                 .font(customStartFont)
                 .minimumScaleFactor(0.5)

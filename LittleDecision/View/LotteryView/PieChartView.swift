@@ -46,7 +46,7 @@ struct PieChartView: View {
                 .buttonStyle(PointerViewButtonStyle())
 
             })
-            .id(currentDecision.hashValue)
+            .id(currentDecision.hashValue & equalWeight.hashValue)
 
             Spacer()
 
@@ -63,7 +63,7 @@ struct PieChartView: View {
     private var pointerView: some View {
         PointerShape()
             .fill(.pink1)
-            .stroke(.black, style: .init(lineWidth: 2))
+            .stroke(.black, style: .init(lineWidth: 1))
             .overlay {
                 PointerShape()
                     .fill(Material.thin)
@@ -76,7 +76,6 @@ struct PieChartView: View {
                     .minimumScaleFactor(0.5)
                     .foregroundStyle(.black)
             }
-
     }
 
     private func restore() {
@@ -89,6 +88,7 @@ struct PieChartView: View {
             rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
             currentDecision.choices.forEach { $0.enable = true }
         }
+        currentDecision.wheelVersion += 1
         rotateAngle = 0
     }
 
@@ -112,7 +112,10 @@ struct PieChartView: View {
 
             } completion: {
                 selection = choice
-                if noRepeat { selection?.enable = false }
+                if noRepeat {
+                    selection?.decision?.updateDate = Date()
+                    selection?.enable = false
+                }
 
                 isRunning = false
 

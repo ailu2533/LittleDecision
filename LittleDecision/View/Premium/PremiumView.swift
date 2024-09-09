@@ -13,32 +13,43 @@ struct PremiumView: View {
     var body: some View {
         HStack {
             Spacer()
-            Group {
-                if isPremium {
-                    Image(.smile)
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    Image(.cry)
-                        .resizable()
-                        .scaledToFit()
-                }
-            }
-            .frame(width: 80, height: 80)
+            Image(isPremium ? .smile : .cry)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
             Spacer()
             VStack(spacing: 12) {
-                Text(isPremium ? "高贵的会员" : "您还不是会员")
+                Text(isPremium ? "您是高贵的会员" : "您还不是会员")
                     .fontWeight(.bold)
                     .font(.title2)
                     .foregroundColor(.netureWhite)
-                Text("支持一下")
-                    .fontWeight(.semibold)
-                    .font(.headline)
-                    .foregroundColor(.netureWhite)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
+                if isPremium {
+                    HStack(spacing: 8) {
+                        Image(systemName: "crown.fill")
+                            .foregroundStyle(.yellow)
+                            .font(.headline)
+                            .padding(.leading)
+
+                        Text("终身会员")
+                            .fontWeight(.semibold)
+                            .font(.headline)
+                            .foregroundColor(.netureWhite)
+                            .padding(.trailing, 16)
+                            .padding(.vertical, 8)
+                    }
                     .background(.orange)
                     .clipShape(Capsule())
+
+                } else {
+                    Text("支持一下")
+                        .fontWeight(.semibold)
+                        .font(.headline)
+                        .foregroundColor(.netureWhite)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 8)
+                        .background(.orange)
+                        .clipShape(Capsule())
+                }
             }
             Spacer()
         }
@@ -58,6 +69,8 @@ struct PremiumView: View {
 
         VStack {
             PremiumView(isPremium: false)
+                .padding(16)
+            PremiumView(isPremium: true)
                 .padding(16)
             Spacer()
         }
