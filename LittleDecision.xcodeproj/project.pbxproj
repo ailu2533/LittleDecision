@@ -92,7 +92,6 @@
 		8DE2A5142C8ED99D002BC37F /* LemonForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5132C8ED99D002BC37F /* LemonForm.swift */; };
 		8DE2A5172C8EDB62002BC37F /* DecisionListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5162C8EDB62002BC37F /* DecisionListContentView.swift */; };
 		8DE2A5192C8EDBA1002BC37F /* DecisionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5182C8EDBA1002BC37F /* DecisionRow.swift */; };
-		8DE2A51B2C8EDBCF002BC37F /* SelectionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51A2C8EDBCF002BC37F /* SelectionIcon.swift */; };
 		8DE2A51D2C8EDCAE002BC37F /* DeleteDecisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51C2C8EDCAE002BC37F /* DeleteDecisionButton.swift */; };
 		8DE2A51F2C8EDDE1002BC37F /* DecisionListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */; };
 		8DE2A5222C8EE20E002BC37F /* DecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5212C8EE20E002BC37F /* DecisionView.swift */; };
@@ -184,7 +183,6 @@
 		8DE2A5132C8ED99D002BC37F /* LemonForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LemonForm.swift; sourceTree = "<group>"; };
 		8DE2A5162C8EDB62002BC37F /* DecisionListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListContentView.swift; sourceTree = "<group>"; };
 		8DE2A5182C8EDBA1002BC37F /* DecisionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionRow.swift; sourceTree = "<group>"; };
-		8DE2A51A2C8EDBCF002BC37F /* SelectionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionIcon.swift; sourceTree = "<group>"; };
 		8DE2A51C2C8EDCAE002BC37F /* DeleteDecisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDecisionButton.swift; sourceTree = "<group>"; };
 		8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListRowLabel.swift; sourceTree = "<group>"; };
 		8DE2A5212C8EE20E002BC37F /* DecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionView.swift; sourceTree = "<group>"; };
@@ -451,7 +449,6 @@
 				27DB357D2BCCD73000019054 /* DecisionListView.swift */,
 				8DE2A5162C8EDB62002BC37F /* DecisionListContentView.swift */,
 				8DE2A5182C8EDBA1002BC37F /* DecisionRow.swift */,
-				8DE2A51A2C8EDBCF002BC37F /* SelectionIcon.swift */,
 				8DE2A51C2C8EDCAE002BC37F /* DeleteDecisionButton.swift */,
 				8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */,
 			);
@@ -630,7 +627,6 @@
 				8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */,
 				8DE2A5192C8EDBA1002BC37F /* DecisionRow.swift in Sources */,
 				8DE2A5222C8EE20E002BC37F /* DecisionView.swift in Sources */,
-				8DE2A51B2C8EDBCF002BC37F /* SelectionIcon.swift in Sources */,
 				8DE2A5072C8EB6D7002BC37F /* UseDecisionTip.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
 				8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */,
@@ -799,6 +795,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_APP_SANDBOX = NO;

@@ -19,6 +19,8 @@ struct SpinWheel: View {
 
     private let mcalc: MathCalculation
 
+    @State private var items: [Item] = []
+
     init(rawItems: [SpinCellRawItem], size: CGSize, configuration: SpinWheelConfiguration) {
         self.rawItems = rawItems
         self.size = size
@@ -33,7 +35,7 @@ struct SpinWheel: View {
 
     var body: some View {
         ZStack {
-            ForEach(mcalc.items) { item in
+            ForEach(items) { item in
                 SpinWheelCell(item: item,
                               innerRadius: innerRadius,
                               outerRadius: radius,
@@ -41,6 +43,10 @@ struct SpinWheel: View {
                               configuration: configuration
                 )
             }
+        }
+
+        .task {
+            items = await mcalc.calculateItemsByWeights(mcalc.rawItems.map({ $0.weight }))
         }
     }
 }

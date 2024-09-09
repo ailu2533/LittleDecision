@@ -13,17 +13,29 @@ struct ChartItemText: View {
     let outerRadius: CGFloat
     let trailingPadding: CGFloat
 
+    @State private var size: CGSize?
+
     var body: some View {
-        let size = item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
-        return Text(item.title)
-            .font(customBodyFont)
-            .foregroundStyle(item.enabled ? .primary : .secondary)
-            .padding(.trailing, trailingPadding)
-            .multilineTextAlignment(.trailing)
-            .minimumScaleFactor(0.3)
-            .lineLimit(3)
-            .frame(width: size.width, height: size.height, alignment: .trailing)
-            .offset(x: innerRadius + size.width / 2)
-            .rotationEffect(.radians(item.rotationDegrees))
+        Group {
+            if let size {
+                Text(item.title)
+                    .font(customBodyFont)
+                    .foregroundStyle(item.enabled ? .primary : .secondary)
+                    .padding(.trailing, trailingPadding)
+                    .multilineTextAlignment(.trailing)
+                    .minimumScaleFactor(0.3)
+                    .lineLimit(3)
+                    .frame(width: size.width, height: size.height, alignment: .trailing)
+                    .offset(x: innerRadius + size.width / 2)
+                    .rotationEffect(.radians(item.rotationDegrees))
+            } else {
+                Text("")
+            }
+        }
+        .task {
+            size = await Task {
+                item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
+            }.value
+        }
     }
 }

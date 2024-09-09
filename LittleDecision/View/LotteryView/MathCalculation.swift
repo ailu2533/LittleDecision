@@ -75,43 +75,45 @@ class MathCalculation {
     let innerRadius: CGFloat
     let outerRadius: CGFloat
 
-    let rawItems: [SpinCellRawItem]
+    var rawItems: [SpinCellRawItem]
 
     init(innerRadius: CGFloat, outerRadius: CGFloat, rawItems: [SpinCellRawItem]) {
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
         self.rawItems = rawItems
-
-        let weights = rawItems.map { $0.weight }
-
-        items = calculateItemsByWeights(weights)
+//
+//        let weights = rawItems.map { $0.weight }
+//
+//        items = calculateItemsByWeights(weights)
     }
 
     // 根据weights计算出每个weiht所在的比例
-    var items: [Item] = []
+//    var items: [Item] = []
 
-    private func calculateItemsByWeights(_ weights: [CGFloat]) -> [Item] {
-        let totalWeight = weights.reduce(0, +)
-        var startAngle: CGFloat = 0
-        var calculatedItems: [Item] = []
+    func calculateItemsByWeights(_ weights: [CGFloat]) async -> [Item] {
+        return await Task.detached(priority: .userInitiated) {
+            var calculatedItems: [Item] = []
+            let totalWeight = weights.reduce(0, +)
+            var startAngle: CGFloat = 0
 
-        for (index, rawItem) in rawItems.enumerated() {
-            let sweepAngle = (rawItem.weight / totalWeight) * 2 * .pi
-            let endAngle = startAngle + sweepAngle
+            for (index, rawItem) in self.rawItems.enumerated() {
+                let sweepAngle = (rawItem.weight / totalWeight) * 2 * .pi
+                let endAngle = startAngle + sweepAngle
 
-            let item = Item(
-                index: index,
-                weight: rawItem.weight,
-                title: rawItem.title,
-                enabled: rawItem.enabled,
-                startAngle: startAngle,
-                endAngle: endAngle
-            )
+                let item = Item(
+                    index: index,
+                    weight: rawItem.weight,
+                    title: rawItem.title,
+                    enabled: rawItem.enabled,
+                    startAngle: startAngle,
+                    endAngle: endAngle
+                )
 
-            calculatedItems.append(item)
-            startAngle = endAngle
-        }
+                calculatedItems.append(item)
+                startAngle = endAngle
+            }
 
-        return calculatedItems
+            return calculatedItems
+        }.value
     }
 }

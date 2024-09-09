@@ -11,6 +11,8 @@ struct DecisionView: View {
     var currentDecision: Decision
 
     var body: some View {
+        let _ = Self._printChanges()
+
         switch currentDecision.displayModeEnum {
         case .wheel:
             FirstView()

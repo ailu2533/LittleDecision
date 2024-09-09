@@ -26,6 +26,8 @@ struct DeckModeView: View {
     }
 
     var body: some View {
+        let _ = Self._printChanges()
+
         DeckCardView(items: items)
             .mainBackground()
             .id(decisionId)

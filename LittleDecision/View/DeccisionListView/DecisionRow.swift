@@ -10,16 +10,25 @@ import SwiftUI
 
 struct DecisionRow: View {
     let decision: Decision
-
+    let isSelected: Bool
+    let selectAction: () -> Void
+    
     var body: some View {
         HStack {
-            SelectionIcon(decision: decision)
+            selectionButton
             NavigationLink(destination: DecisionEditorView(decision: decision)) {
                 DecisionListRowLabel(decision: decision)
             }
         }
-        .swipeActions {
-            DeleteDecisionButton(decision: decision)
+    }
+    
+    private var selectionButton: some View {
+        Button(action: selectAction) {
+            Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                .imageScale(.large)
+                .fontWeight(.semibold)
+                .foregroundColor(.accentColor)
         }
+        .buttonStyle(PlainButtonStyle())
     }
 }
