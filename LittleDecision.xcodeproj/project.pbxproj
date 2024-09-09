@@ -95,6 +95,8 @@
 		8DE2A51B2C8EDBCF002BC37F /* SelectionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51A2C8EDBCF002BC37F /* SelectionIcon.swift */; };
 		8DE2A51D2C8EDCAE002BC37F /* DeleteDecisionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51C2C8EDCAE002BC37F /* DeleteDecisionButton.swift */; };
 		8DE2A51F2C8EDDE1002BC37F /* DecisionListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */; };
+		8DE2A5222C8EE20E002BC37F /* DecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5212C8EE20E002BC37F /* DecisionView.swift */; };
+		8DE2A5242C8EE4DC002BC37F /* Decision+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5232C8EE4DC002BC37F /* Decision+.swift */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -185,6 +187,8 @@
 		8DE2A51A2C8EDBCF002BC37F /* SelectionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionIcon.swift; sourceTree = "<group>"; };
 		8DE2A51C2C8EDCAE002BC37F /* DeleteDecisionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDecisionButton.swift; sourceTree = "<group>"; };
 		8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListRowLabel.swift; sourceTree = "<group>"; };
+		8DE2A5212C8EE20E002BC37F /* DecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionView.swift; sourceTree = "<group>"; };
+		8DE2A5232C8EE4DC002BC37F /* Decision+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decision+.swift"; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +221,7 @@
 				8D1931EE2C6BB5EC00F9D2A4 /* Defaults.swift */,
 				8D1932612C6E435700F9D2A4 /* PreloadData.swift */,
 				8DE2A4BF2C8C163C002BC37F /* DecisionDisplayMode.swift */,
+				8DE2A5232C8EE4DC002BC37F /* Decision+.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				2754AA0F2BC6CA37000073FB /* MainView.swift */,
 				8DDB821B2C82CBD1005152BE /* ToolbarView.swift */,
 				8DDB821D2C82CCA4005152BE /* SkinListView.swift */,
+				8DE2A5212C8EE20E002BC37F /* DecisionView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 				8DDB82102C821866005152BE /* SubscriptionInfo.swift in Sources */,
 				8DDB82022C81C7CF005152BE /* PurchaseManager.swift in Sources */,
 				8DE2A4BC2C8B1D9C002BC37F /* DeckModeView.swift in Sources */,
+				8DE2A5242C8EE4DC002BC37F /* Decision+.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
@@ -622,6 +629,7 @@
 				8DE2A5052C8EB688002BC37F /* ChoiceTip.swift in Sources */,
 				8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */,
 				8DE2A5192C8EDBA1002BC37F /* DecisionRow.swift in Sources */,
+				8DE2A5222C8EE20E002BC37F /* DecisionView.swift in Sources */,
 				8DE2A51B2C8EDBCF002BC37F /* SelectionIcon.swift in Sources */,
 				8DE2A5072C8EB6D7002BC37F /* UseDecisionTip.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,

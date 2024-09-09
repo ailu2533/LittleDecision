@@ -11,11 +11,17 @@ import SwiftUI
 import TipKit
 
 struct DecisionListView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext)
+    private var modelContext
+
+    @Environment(\.dismiss)
+    private var dismiss
+
+    @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)])
+    private var decisions: [Decision] = []
+
     @Default(.decisionId) private var decisionId
     @State private var showAddDecisionSheet = false
-    @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)]) private var decisions: [Decision] = []
 
     var savedDecisions: [Decision] {
         decisions.filter { $0.saved }

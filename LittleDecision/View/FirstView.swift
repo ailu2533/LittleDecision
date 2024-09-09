@@ -86,7 +86,6 @@ struct FirstView: View {
             if decision.choices.isEmpty {
                 Text("还没有选项哦，试着添加一些吧")
                     .fontWeight(.bold)
-//                    .foregroundStyle(Color.)
                     .padding(.bottom)
             }
         }

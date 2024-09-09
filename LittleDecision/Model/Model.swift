@@ -58,6 +58,12 @@ class Decision {
     }
 }
 
+extension Decision {
+    var displayModeEnum: DecisionDisplayMode {
+        return .init(rawValue: displayModel) ?? .wheel
+    }
+}
+
 extension Decision: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
