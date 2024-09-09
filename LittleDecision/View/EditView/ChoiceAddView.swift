@@ -23,12 +23,11 @@ struct ChoiceAddView: View {
     }
 
     var body: some View {
-        Form {
+        LemonForm {
             choiceDetailsSection
             weightInfoSection
             addMoreSection
         }
-        .scrollContentBackground(.hidden)
         .mainBackground()
     }
 

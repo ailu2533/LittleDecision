@@ -31,7 +31,7 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationStack {
-            Form {
+            LemonForm {
                 Button(action: {
                     showPaywall = true
                 }, label: {
@@ -47,7 +47,6 @@ struct SettingsView: View {
                 contactSection
 //                    .listRowSeparator(.hidden)
             }
-            .scrollContentBackground(.hidden)
             .settingsBackground()
             .navigationTitle("设置")
             .navigationBarTitleDisplayMode(.inline)

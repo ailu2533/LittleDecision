@@ -16,7 +16,7 @@ struct CommonEditView: View {
     private let tip = ChoiceTip()
 
     var body: some View {
-        Form {
+        LemonForm {
             EditDecisionTitleView(title: $decision.title)
 
             HStack {
@@ -42,7 +42,6 @@ struct CommonEditView: View {
             }.padding(.trailing, 16)
         }
         .ignoresSafeArea(.keyboard)
-        .scrollContentBackground(.hidden)
         .mainBackground()
     }
 }

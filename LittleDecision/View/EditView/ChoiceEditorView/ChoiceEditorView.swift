@@ -8,6 +8,7 @@
 import LemonViews
 import SwiftUI
 
+
 struct ChoiceEditorView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -20,7 +21,7 @@ struct ChoiceEditorView: View {
     }
 
     var body: some View {
-        Form {
+        LemonForm {
             ChoiceDetailsSection(choice: choice)
             WeightInfoSection(choice: choice)
 
@@ -29,7 +30,6 @@ struct ChoiceEditorView: View {
                 .listRowInsets(EdgeInsets())
                 .listRowBackground(Color.clear)
         }
-        .scrollContentBackground(.hidden)
         .mainBackground()
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {

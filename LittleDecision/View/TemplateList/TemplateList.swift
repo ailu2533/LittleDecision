@@ -64,7 +64,7 @@ struct TemplateList: View {
                     Text(item)
                 }
 
-                List {
+                LemonList {
                     ForEach(data.decisions.indices, id: \.self) { index in
                         let temp = data.decisions[index]
                         PlaceHolderView(
@@ -75,8 +75,6 @@ struct TemplateList: View {
                             .listRowSeparator(.hidden)
                     }
                 }
-                .contentMargins(.vertical, 2)
-                .scrollContentBackground(.hidden)
                 .padding(.bottom, 16)
 
                 Button(action: {
@@ -108,7 +106,6 @@ struct TemplateList: View {
                     Logging.shared.error("\(error)")
                     return
                 }
-
             }
         }
     }
