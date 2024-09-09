@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/8/15.
 //
 
+import LemonViews
 import SwiftUI
 
 struct ChoiceAddView: View {
@@ -29,26 +30,12 @@ struct ChoiceAddView: View {
         }
         .scrollContentBackground(.hidden)
         .mainBackground()
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: {
-                    saveAndDismiss()
-                }, label: {
-                    Text("保存")
-                })
-            }
-        }
     }
 
     private var choiceDetailsSection: some View {
         Section {
-            LabeledContent("选项名") {
-                TextField("选项名", text: $title)
-                    .multilineTextAlignment(.trailing)
-            }
-            Picker("权重", selection: $weight) {
-                ForEach(weightRange, id: \.self) { Text("\($0)") }
-            }
+            ChoiceTitleView(title: $title)
+            ChoiceWeightView(weight: $weight)
         }
     }
 
@@ -62,11 +49,22 @@ struct ChoiceAddView: View {
     private var addMoreSection: some View {
         Section {
             Button(action: {
+                saveAndDismiss()
+            }, label: {
+                Text("保存")
+            })
+            .buttonStyle(FullWidthButtonStyle())
+
+            Button(action: {
                 addNewChoice()
             }, label: {
-                Text("继续增加新选项")
+                Text("继续添加")
             })
+            .buttonStyle(FullWidthButtonStyle())
         }
+        .listRowBackground(Color.clear)
+        .listRowInsets(EdgeInsets())
+        .listRowSeparator(.hidden)
     }
 
     private func addNewChoice() {

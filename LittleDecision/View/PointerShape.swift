@@ -22,4 +22,3 @@ struct PointerShape: Shape {
         return path.union(trianglePath)
     }
 }
-

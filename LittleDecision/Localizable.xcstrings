@@ -675,6 +675,9 @@
     "分享App给好友" : {
 
     },
+    "删除" : {
+
+    },
     "删除决定" : {
       "localizations" : {
         "de" : {
@@ -2449,6 +2452,7 @@
 
     },
     "继续增加新选项" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2517,6 +2521,9 @@
           }
         }
       }
+    },
+    "继续添加" : {
+
     },
     "编辑决定" : {
       "localizations" : {

@@ -27,7 +27,7 @@ struct ChoiceRow: View {
 
             Spacer()
 
-            Text(probability(choice.weight, 1000))
+            Text(probability(choice.weight, totalWeight))
                 .font(.caption)
                 .foregroundColor(.secondary)
         }

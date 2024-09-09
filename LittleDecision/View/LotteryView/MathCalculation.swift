@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Item: Identifiable {
     var id: Int {
@@ -22,6 +23,15 @@ struct Item: Identifiable {
     let startAngle: CGFloat
     let endAngle: CGFloat
 
+    func calculateTextSize(text: String, font: UIFont, maxWidth: CGFloat) -> CGSize {
+        let constraintRect = CGSize(width: maxWidth, height: .greatestFiniteMagnitude)
+        let boundingBox = text.boundingRect(with: constraintRect,
+                                            options: .usesLineFragmentOrigin,
+                                            attributes: [.font: font],
+                                            context: nil)
+        return boundingBox.size
+    }
+
     public func rectSize(innerRadius: CGFloat, outerRadius: CGFloat) -> CGSize {
         var alpha = endAngle - startAngle
 
@@ -33,6 +43,20 @@ struct Item: Identifiable {
         // 计算width，并确保它不是负数
         let squaredDifference = max(outerRadius * outerRadius - halfHeight * halfHeight, 0)
         let width = sqrt(squaredDifference) - innerRadius
+
+//        let textSize = calculateTextSize(text: title, font: customBodyUIFont, maxWidth: width)
+//        if textSize.height > max(2 * halfHeight, 0) {
+//            let half = textSize.height / 2
+//
+//            let squaredDifference = max(outerRadius * outerRadius - half * half, 0)
+//            let width = sqrt(squaredDifference) - innerRadius
+//
+//            // 使用max函数确保width和height都不小于0
+//            return CGSize(
+//                width: max(width, 0),
+//                height: max(2 * half, 0)
+//            )
+//        }
 
         // 使用max函数确保width和height都不小于0
         return CGSize(
@@ -50,8 +74,6 @@ struct Item: Identifiable {
 class MathCalculation {
     let innerRadius: CGFloat
     let outerRadius: CGFloat
-
-
 
     let rawItems: [SpinCellRawItem]
 

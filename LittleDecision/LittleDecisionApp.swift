@@ -11,7 +11,6 @@ import SwiftData
 import SwiftUI
 import TipKit
 
-// appl_MHQLRbFiJoJSOTPSEtTvRzTnYnV
 
 func setupAudioSession() {
     do {
@@ -27,7 +26,7 @@ struct LittleDecisionApp: App {
     let iapService: IAPService
 //    @State var premiumSubscriptionInfo: SubscriptionInfo?
 
-    @State var premiumSubscriptionViewModel = SubscriptionViewModel(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
+    @State private var premiumSubscriptionViewModel = SubscriptionViewModel(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
 
     init() {
         vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
