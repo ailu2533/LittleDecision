@@ -28,7 +28,7 @@ struct ChoiceEditorView: View {
         .scrollContentBackground(.hidden)
         .mainBackground()
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItemGroup(placement: .topBarTrailing) {
                 Button(action: {
                     saveAndDismiss()
                 }, label: {
@@ -37,13 +37,29 @@ struct ChoiceEditorView: View {
             }
         }
     }
+    
+    @FocusState private var focused
 
     private var choiceDetailsSection: some View {
         Section {
             TextField("选项名", text: $choice.title, axis: .vertical)
-                .lineLimit(5)
+                .lineLimit(3)
                 .fontWeight(.semibold)
                 .font(.title3)
+                .focused($focused)
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                focused = false
+                            }, label: {
+                                Label("收起键盘", systemImage: "keyboard.chevron.compact.down")
+                            })
+                        }
+                    }
+                }
+            
             Picker("权重", selection: $choice.weight) {
                 ForEach(1 ... 100, id: \.self) { Text("\($0)") }
             }

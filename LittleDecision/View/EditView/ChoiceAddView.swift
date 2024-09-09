@@ -22,20 +22,20 @@ struct ChoiceAddView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            Form {
-                choiceDetailsSection
-                weightInfoSection
-                addMoreSection
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        saveAndDismiss()
-                    }, label: {
-                        Text("保存")
-                    })
-                }
+        Form {
+            choiceDetailsSection
+            weightInfoSection
+            addMoreSection
+        }
+        .scrollContentBackground(.hidden)
+        .mainBackground()
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: {
+                    saveAndDismiss()
+                }, label: {
+                    Text("保存")
+                })
             }
         }
     }

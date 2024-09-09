@@ -52,11 +52,11 @@ struct DecisionListView: View {
             .mainBackground()
             .navigationTitle("决定列表")
             .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .primaryAction) {
-//                    addButton
-//                }
-//            }
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    addButton
+                }
+            }
         }
         .sensoryFeedback(.selection, trigger: decisionId)
         .sheet(isPresented: $showAddDecisionSheet) {

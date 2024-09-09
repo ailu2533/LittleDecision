@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/8/14.
 //
 
+import LemonViews
 import SwiftUI
 
 /// 表示单个选项的视图。
@@ -19,19 +20,16 @@ struct ChoiceRow: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Image(systemName: "tag.fill")
-                .font(.system(.body, design: .rounded))
-                .foregroundColor(.choiceOrange)
-                .frame(width: 24, height: 24)
+            SettingIconView(icon: .system(icon: "tag.fill", foregroundColor: .choiceOrange, backgroundColor: .white))
 
             Text(choice.title)
                 .lineLimit(1)
 
             Spacer()
 
-//            Text(probability(choice.weight, totalWeight))
-//                .font(.caption)
-//                .foregroundColor(.secondary)
+            Text(probability(choice.weight, 1000))
+                .font(.caption)
+                .foregroundColor(.secondary)
         }
     }
 }

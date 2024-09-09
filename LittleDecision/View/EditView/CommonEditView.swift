@@ -5,6 +5,7 @@
 //  Created by ailu on 2024/6/8.
 //
 
+import LemonViews
 import SwiftUI
 import TipKit
 
@@ -34,12 +35,15 @@ struct CommonEditView: View {
         Form {
             decisionTitleSection
 
-            Picker("显示模式", selection: Binding(
-                get: { DecisionDisplayMode(rawValue: decision.displayModel) ?? .wheel },
-                set: { decision.displayModel = $0.rawValue }
-            )) {
-                ForEach(DecisionDisplayMode.allCases, id: \.self) { mode in
-                    Text(mode.text).tag(mode)
+            HStack {
+                SettingIconView(icon: .system(icon: "slider.horizontal.3", foregroundColor: .white, backgroundColor: .accent))
+                Picker("显示模式", selection: Binding(
+                    get: { DecisionDisplayMode(rawValue: decision.displayModel) ?? .wheel },
+                    set: { decision.displayModel = $0.rawValue }
+                )) {
+                    ForEach(DecisionDisplayMode.allCases, id: \.self) { mode in
+                        Text(mode.text).tag(mode)
+                    }
                 }
             }
 
@@ -60,20 +64,13 @@ struct CommonEditView: View {
 
     private var decisionTitleSection: some View {
         HStack {
-            Image(systemName: "arrow.triangle.branch")
-                .font(.system(.body, design: .rounded))
-                .foregroundColor(.white)
-                .frame(width: 30, height: 30)
-                .background(.accent)
-                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+            SettingIconView(icon: .system(icon: "arrow.triangle.branch", foregroundColor: .white, backgroundColor: .accent))
 
             TextField("输入让你犹豫不决的事情", text: $decision.title, axis: .vertical)
                 .focused($focus)
                 .foregroundStyle(.netureBlack)
-                .font(.title3)
                 .fontWeight(.semibold)
                 .fontDesign(.rounded)
-//                .submitLabel(.done)
                 .lineLimit(3)
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
