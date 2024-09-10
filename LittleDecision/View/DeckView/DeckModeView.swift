@@ -29,8 +29,6 @@ struct DeckModeView: View {
     var body: some View {
         let _ = Self._printChanges()
         VStack {
-            DecisionTitle(currentDecisionTitle: currentDecision?.title)
-
             DeckCardView(items: items)
                 .mainBackground()
                 .id(decisionId)

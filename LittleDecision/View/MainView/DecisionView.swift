@@ -13,11 +13,14 @@ struct DecisionView: View {
     var body: some View {
         let _ = Self._printChanges()
 
-        switch currentDecision.displayModeEnum {
-        case .wheel:
-            FirstView()
-        case .stackedCards:
-            DeckModeView()
+        VStack {
+            DecisionTitle(decision: currentDecision)
+            switch currentDecision.displayModeEnum {
+            case .wheel:
+                FirstView()
+            case .stackedCards:
+                DeckModeView()
+            }
         }
     }
 }

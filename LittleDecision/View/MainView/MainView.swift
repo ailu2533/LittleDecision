@@ -39,12 +39,12 @@ struct MainView: View {
 
     var body: some View {
         let _ = Self._printChanges()
-        let decisions = currentDecision
+        let decision = currentDecision
 
         NavigationStack {
             Group {
-                if let decisions {
-                    DecisionView(currentDecision: decisions)
+                if let decision {
+                    DecisionView(currentDecision: decision)
                 } else {
                     ContentUnavailableView("没有数据", image: "plus")
                 }

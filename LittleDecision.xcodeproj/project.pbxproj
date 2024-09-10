@@ -100,6 +100,8 @@
 		8DE2A5282C8F3E34002BC37F /* riffle-shuffle-46706.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2A5272C8F3E34002BC37F /* riffle-shuffle-46706.mp3 */; };
 		8DE2A52B2C8FC2CF002BC37F /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A52A2C8FC2CF002BC37F /* CardItem.swift */; };
 		8DE2A52D2C8FC2EB002BC37F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A52C2C8FC2EB002BC37F /* CardView.swift */; };
+		8DE2A5302C8FE4C1002BC37F /* DecisionChoiceTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A52F2C8FE4C1002BC37F /* DecisionChoiceTitleView.swift */; };
+		8DE2A5322C8FE4E6002BC37F /* DecisionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5312C8FE4E6002BC37F /* DecisionTitle.swift */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -195,6 +197,8 @@
 		8DE2A5272C8F3E34002BC37F /* riffle-shuffle-46706.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "riffle-shuffle-46706.mp3"; sourceTree = "<group>"; };
 		8DE2A52A2C8FC2CF002BC37F /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 		8DE2A52C2C8FC2EB002BC37F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8DE2A52F2C8FE4C1002BC37F /* DecisionChoiceTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionChoiceTitleView.swift; sourceTree = "<group>"; };
+		8DE2A5312C8FE4E6002BC37F /* DecisionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionTitle.swift; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,6 +286,7 @@
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DE2A52E2C8FE4B5002BC37F /* FirstView */,
 				8DE2A5292C8FC2AB002BC37F /* DeckView */,
 				8DE2A5152C8EDB3B002BC37F /* DeccisionListView */,
 				8DE2A5032C8EB66A002BC37F /* Tips */,
@@ -475,6 +480,15 @@
 			path = DeckView;
 			sourceTree = "<group>";
 		};
+		8DE2A52E2C8FE4B5002BC37F /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				8DE2A52F2C8FE4C1002BC37F /* DecisionChoiceTitleView.swift */,
+				8DE2A5312C8FE4E6002BC37F /* DecisionTitle.swift */,
+			);
+			path = FirstView;
+			sourceTree = "<group>";
+		};
 		8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +630,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE2A5302C8FE4C1002BC37F /* DecisionChoiceTitleView.swift in Sources */,
 				2754AA0E2BC3DD32000073FB /* DecisionViewModel.swift in Sources */,
 				273ADCF62C1409CE006AC677 /* Logging.swift in Sources */,
 				8D1932622C6E435700F9D2A4 /* PreloadData.swift in Sources */,
@@ -664,6 +679,7 @@
 				8DDB82262C82D3FF005152BE /* ChartItemText.swift in Sources */,
 				8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */,
 				8DE2A50C2C8EBA42002BC37F /* WeightInfoSection.swift in Sources */,
+				8DE2A5322C8FE4E6002BC37F /* DecisionTitle.swift in Sources */,
 				8DDB82122C821878005152BE /* SubscriptionState.swift in Sources */,
 				8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartView.swift in Sources */,
