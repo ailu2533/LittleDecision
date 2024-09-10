@@ -29,5 +29,3 @@ extension Defaults.Keys {
     // 决策展示模式：转盘或堆叠卡片
     static let decisionDisplayMode = Key<DecisionDisplayMode>("decisionDisplayMode", default: .wheel)
 }
-
-

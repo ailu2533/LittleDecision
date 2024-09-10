@@ -9,21 +9,30 @@ import Defaults
 import SwiftData
 import SwiftUI
 
+struct DecisionTitle: View {
+    let decision: Decision?
+    var currentDecisionTitle: String?
+
+    var body: some View {
+        Text(currentDecisionTitle ?? String(localized: "没有决定"))
+
+            .font(customTitleFont)
+            .minimumScaleFactor(0.5)
+            .foregroundStyle(.black)
+
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity)
+    }
+}
+
 struct DecisionTitleView: View {
     var currentDecisionTitle: String?
     var selectedChoiceTitle: String?
 
     var body: some View {
         VStack(spacing: 12) {
-            Text(currentDecisionTitle ?? String(localized: "没有决定"))
-
-                .font(customTitleFont)
-                .minimumScaleFactor(0.5)
-                .foregroundStyle(.black)
-
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-                .frame(maxWidth: .infinity)
+            DecisionTitle(decision: nil, currentDecisionTitle: currentDecisionTitle)
 
             Group {
                 if let selectedChoiceTitle {

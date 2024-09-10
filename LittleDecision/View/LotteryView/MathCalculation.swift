@@ -32,7 +32,24 @@ struct Item: Identifiable {
         return boundingBox.size
     }
 
+    public func idealSize(innerRadius: CGFloat, outerRadius: CGFloat) -> CGSize? {
+        let textSize = calculateTextSize(text: title, font: customBodyUIFont, maxWidth: outerRadius)
+        let halfHeight = textSize.height / 2
+        // 计算width，并确保它不是负数
+        let squaredDifference = max(outerRadius * outerRadius - halfHeight * halfHeight, 0)
+        let width = sqrt(squaredDifference) - innerRadius
+        if width >= textSize.width {
+            return .init(width: width, height: textSize.height)
+        }
+
+        return nil
+    }
+
     public func rectSize(innerRadius: CGFloat, outerRadius: CGFloat) -> CGSize {
+//        if let isize = idealSize(innerRadius: innerRadius, outerRadius: outerRadius) {
+//            return isize
+//        }
+
         var alpha = endAngle - startAngle
 
         // 限制alpha的范围

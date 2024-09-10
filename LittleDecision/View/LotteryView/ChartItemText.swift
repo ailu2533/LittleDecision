@@ -21,10 +21,11 @@ struct ChartItemText: View {
                 Text(item.title)
                     .font(customBodyFont)
                     .foregroundStyle(item.enabled ? .primary : .secondary)
-                    .padding(.trailing, trailingPadding)
+//                    .padding(.trailing, trailingPadding)
                     .multilineTextAlignment(.trailing)
-                    .minimumScaleFactor(0.3)
+                    .minimumScaleFactor(0.5)
                     .lineLimit(3)
+//                    .background(.blue)
                     .frame(width: size.width, height: size.height, alignment: .trailing)
                     .offset(x: innerRadius + size.width / 2)
                     .rotationEffect(.radians(item.rotationDegrees))
@@ -34,7 +35,7 @@ struct ChartItemText: View {
         }
         .task {
             size = await Task {
-                item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius)
+                item.rectSize(innerRadius: innerRadius, outerRadius: outerRadius - trailingPadding)
             }.value
         }
     }

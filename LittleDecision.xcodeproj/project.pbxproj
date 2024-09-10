@@ -96,6 +96,10 @@
 		8DE2A51F2C8EDDE1002BC37F /* DecisionListRowLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */; };
 		8DE2A5222C8EE20E002BC37F /* DecisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5212C8EE20E002BC37F /* DecisionView.swift */; };
 		8DE2A5242C8EE4DC002BC37F /* Decision+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5232C8EE4DC002BC37F /* Decision+.swift */; };
+		8DE2A5262C8F3C89002BC37F /* flipcard-91468.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2A5252C8F3C89002BC37F /* flipcard-91468.mp3 */; };
+		8DE2A5282C8F3E34002BC37F /* riffle-shuffle-46706.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2A5272C8F3E34002BC37F /* riffle-shuffle-46706.mp3 */; };
+		8DE2A52B2C8FC2CF002BC37F /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A52A2C8FC2CF002BC37F /* CardItem.swift */; };
+		8DE2A52D2C8FC2EB002BC37F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A52C2C8FC2EB002BC37F /* CardView.swift */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -187,6 +191,10 @@
 		8DE2A51E2C8EDDE1002BC37F /* DecisionListRowLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionListRowLabel.swift; sourceTree = "<group>"; };
 		8DE2A5212C8EE20E002BC37F /* DecisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionView.swift; sourceTree = "<group>"; };
 		8DE2A5232C8EE4DC002BC37F /* Decision+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decision+.swift"; sourceTree = "<group>"; };
+		8DE2A5252C8F3C89002BC37F /* flipcard-91468.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "flipcard-91468.mp3"; sourceTree = "<group>"; };
+		8DE2A5272C8F3E34002BC37F /* riffle-shuffle-46706.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "riffle-shuffle-46706.mp3"; sourceTree = "<group>"; };
+		8DE2A52A2C8FC2CF002BC37F /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
+		8DE2A52C2C8FC2EB002BC37F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +282,7 @@
 		2754AA022BC3D0C6000073FB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DE2A5292C8FC2AB002BC37F /* DeckView */,
 				8DE2A5152C8EDB3B002BC37F /* DeccisionListView */,
 				8DE2A5032C8EB66A002BC37F /* Tips */,
 				8DE2A4C12C8C5731002BC37F /* TemplateList */,
@@ -286,8 +295,6 @@
 				2754AA052BC3D1BD000073FB /* PointerShape.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
 				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
-				8DE2A4BB2C8B1D9C002BC37F /* DeckModeView.swift */,
-				8DE2A4BD2C8B1E41002BC37F /* DeckCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */,
+				8DE2A5272C8F3E34002BC37F /* riffle-shuffle-46706.mp3 */,
+				8DE2A5252C8F3C89002BC37F /* flipcard-91468.mp3 */,
 				8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */,
 				8D1932632C6E43EC00F9D2A4 /* data.zh.json */,
 				8D1932652C6E44B000F9D2A4 /* data.en.json */,
@@ -455,6 +464,17 @@
 			path = DeccisionListView;
 			sourceTree = "<group>";
 		};
+		8DE2A5292C8FC2AB002BC37F /* DeckView */ = {
+			isa = PBXGroup;
+			children = (
+				8DE2A4BB2C8B1D9C002BC37F /* DeckModeView.swift */,
+				8DE2A4BD2C8B1E41002BC37F /* DeckCardView.swift */,
+				8DE2A52A2C8FC2CF002BC37F /* CardItem.swift */,
+				8DE2A52C2C8FC2EB002BC37F /* CardView.swift */,
+			);
+			path = DeckView;
+			sourceTree = "<group>";
+		};
 		8DF0AA6F2C7F6D1F00F4FD27 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +570,7 @@
 			files = (
 				8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */,
 				8DDB82082C820710005152BE /* StoreKitTestCertificate.cer in Resources */,
+				8DE2A5282C8F3E34002BC37F /* riffle-shuffle-46706.mp3 in Resources */,
 				8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */,
 				273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */,
 				8DE2A4CA2C8DE953002BC37F /* frequentUsed.json in Resources */,
@@ -560,6 +581,7 @@
 				8D19326B2C6E47D000F9D2A4 /* data.de.json in Resources */,
 				8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */,
 				8D19326C2C6E47D000F9D2A4 /* data.en.json in Resources */,
+				8DE2A5262C8F3C89002BC37F /* flipcard-91468.mp3 in Resources */,
 				8DDB822E2C8408C6005152BE /* Yuzu DecideEasy.storekit in Resources */,
 				8D19326D2C6E47D000F9D2A4 /* data.jp.json in Resources */,
 				8D19326E2C6E47D000F9D2A4 /* data.kr.json in Resources */,
@@ -652,11 +674,13 @@
 				8DE2A5022C8EB626002BC37F /* ChoicesSection.swift in Sources */,
 				8DDB822A2C83F0F2005152BE /* PremiumIcon.swift in Sources */,
 				8DDB81FB2C81B1E3005152BE /* BackgroundContainer.swift in Sources */,
+				8DE2A52B2C8FC2CF002BC37F /* CardItem.swift in Sources */,
 				8D1931EF2C6BB5EC00F9D2A4 /* Defaults.swift in Sources */,
 				273ADDA12C16B38B006AC677 /* LotteryLogic.swift in Sources */,
 				273ADD112C153431006AC677 /* SettingsView.swift in Sources */,
 				8DDB82282C83247F005152BE /* SpinWheelConfiguration.swift in Sources */,
 				8DDB821E2C82CCA4005152BE /* SkinListView.swift in Sources */,
+				8DE2A52D2C8FC2EB002BC37F /* CardView.swift in Sources */,
 				8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */,
 				8DDB820A2C8217CF005152BE /* RCConstant.swift in Sources */,
 				8DDB82192C82C1DA005152BE /* ContactSection.swift in Sources */,

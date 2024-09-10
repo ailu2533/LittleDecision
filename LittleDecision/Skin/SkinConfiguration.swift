@@ -9,7 +9,7 @@ import Defaults
 import Foundation
 
 enum SkinKind: String, Codable, Defaults.Serializable, CaseIterable, Identifiable {
-    case pinkBlue, pinkWhite, blue
+    case pinkBlue, blueWhite, pinkWhite, blue
 
     var id: String {
         rawValue
@@ -30,10 +30,19 @@ struct SkinManager {
             skinKind: .pinkBlue,
             fills: [
                 .radialGradient(colors: [.pink1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
-                .solidFill(.white)
+                .radialGradient(colors: [.blue1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
             ],
             isPremium: false
         ),
+        .blueWhite: SpinWheelConfiguration(
+            skinKind: .blueWhite,
+            fills: [
+                .radialGradient(colors: [.blue1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
+                .solidFill(.white),
+            ],
+            isPremium: false
+        ),
+
         .pinkWhite: SpinWheelConfiguration(
             skinKind: .pinkWhite,
             fills: [.radialGradient(colors: [.pink1, .pink2], center: .center, startRadius: 0, endRadiusRatio: 1)],
@@ -46,5 +55,3 @@ struct SkinManager {
         ),
     ]
 }
-
-

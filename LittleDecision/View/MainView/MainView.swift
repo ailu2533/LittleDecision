@@ -20,7 +20,9 @@ struct MainView: View {
     @State private var activeSheet: ActiveSheet?
 
     @Default(.decisionId) private var decisionId
-    @Environment(\.modelContext) private var modelContext
+
+    @Environment(\.modelContext)
+    private var modelContext
 
     private var currentDecision: Decision? {
         let predicate = #Predicate<Decision> { $0.uuid == decisionId }
@@ -28,7 +30,6 @@ struct MainView: View {
 
         do {
             let res = try modelContext.fetch(descriptor).first
-            Logging.shared.debug("currentDecision: \(res.debugDescription)  isNil \(res == nil)")
             return res
         } catch {
             Logging.shared.error("currentDecision: \(error)")
@@ -48,6 +49,7 @@ struct MainView: View {
                     ContentUnavailableView("没有数据", image: "plus")
                 }
             }
+            .ignoresSafeArea(.keyboard)
             .mainBackground()
             .toolbar {
                 ToolbarView(activeSheet: $activeSheet)

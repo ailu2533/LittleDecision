@@ -59,7 +59,7 @@ struct TemplateList: View {
                 HorizontalSelectionPicker(pickerId: kPickerId,
                                           items: ["热门", "恋爱", "答案之书", "真心话", "大冒险", "学校生活"],
                                           selectedItem: $selected,
-                                          backgroundColor: .white.opacity(0.8),
+                                          backgroundColor: .buttonBackground,
                                           verticalPadding: 8) { item in
                     Text(item)
                 }
@@ -72,7 +72,7 @@ struct TemplateList: View {
                                 item.content
                             })),
                             path: $path)
-                            .listRowSeparator(.hidden)
+//                            .listRowSeparator(.hidden)
                     }
                 }
                 .padding(.bottom, 16)
@@ -84,6 +84,7 @@ struct TemplateList: View {
                 })
                 .buttonStyle(FullWidthButtonStyle(verticalPadding: 12))
                 .padding(.horizontal, 16)
+                .padding(.bottom, 16)
             }
             .navigationDestination(for: DecisionTemplate.self) { template in
                 DecisionAddView(showSheet: $showSheet, template: template)

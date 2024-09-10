@@ -28,18 +28,14 @@ extension View {
     // 设置页面的背景
     func settingsBackground() -> some View {
         customBackground {
-            LinearGradient(colors: [.accent.opacity(0.5), .accent.opacity(0.4), .accent.opacity(0.2)],
-                           startPoint: .top,
-                           endPoint: .bottom)
+            Color.mainBackground
         }
     }
 
     // 主页面的背景
     func mainBackground() -> some View {
         customBackground {
-            LinearGradient(colors: [.accent.opacity(0.3), .accent.opacity(0.2), .accent.opacity(0.01)],
-                           startPoint: .top,
-                           endPoint: .bottom)
+            Color.mainBackground
         }
     }
 }

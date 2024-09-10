@@ -25,8 +25,9 @@ struct CommonEditView: View {
         .safeAreaInset(edge: .bottom) {
             VStack(spacing: 12) {
                 AddChoiceButton(decision: decision)
-                BatchAddChoiceButton(decision: decision)
+//                BatchAddChoiceButton(decision: decision)
             }.padding(.trailing, 16)
+                .padding(.bottom, 16)
         }
         .ignoresSafeArea(.keyboard)
         .mainBackground()

@@ -31,6 +31,6 @@ struct SpinWheelConfiguration: Identifiable {
 
     func trailingPadding(size: CGSize) -> CGFloat {
         let radius = radius(size: size)
-        return max(radius / 10, 12)
+        return min(max(radius / 12, 10), 20)
     }
 }

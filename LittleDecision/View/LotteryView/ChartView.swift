@@ -10,6 +10,7 @@ struct ChartView: View {
 
     var body: some View {
         ZStack {
+            let _ = Self._printChanges()
             CircleBackground(lineWidth: 1)
             ChartContent(currentDecision: currentDecision, colors: colors)
                 .padding(12)
