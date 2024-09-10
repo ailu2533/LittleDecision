@@ -34,6 +34,14 @@ struct SkinManager {
             ],
             isPremium: false
         ),
+        .pinkWhite: SpinWheelConfiguration(
+            skinKind: .pinkBlue,
+            fills: [
+                .radialGradient(colors: [.pink1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
+                .solidFill(.white),
+            ],
+            isPremium: false
+        ),
         .blueWhite: SpinWheelConfiguration(
             skinKind: .blueWhite,
             fills: [
@@ -43,11 +51,6 @@ struct SkinManager {
             isPremium: false
         ),
 
-        .pinkWhite: SpinWheelConfiguration(
-            skinKind: .pinkWhite,
-            fills: [.radialGradient(colors: [.pink1, .pink2], center: .center, startRadius: 0, endRadiusRatio: 1)],
-            isPremium: true
-        ),
         .blue: SpinWheelConfiguration(
             skinKind: .blue,
             fills: [.radialGradient(colors: [.blue1, .blue2], center: .center, startRadius: 0, endRadiusRatio: 1)],
