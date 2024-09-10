@@ -30,11 +30,9 @@ struct CardView: View {
                         .scaledToFill()
                 }
             })
-
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .font(.title)
             .fontWeight(.semibold)
             .shadow(radius: 1)
     }
 }
-

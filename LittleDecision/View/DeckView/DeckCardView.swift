@@ -62,7 +62,7 @@ struct DeckCardView: View {
                                 size: size)
                                 .aspectRatio(0.65, contentMode: .fit)
                         }
-                    )
+                    ).deckViewConfiguration(.init(itemDisplayCount: 4))
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
