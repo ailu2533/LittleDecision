@@ -11,104 +11,99 @@ import SwiftUI
 
 struct DecisionTemplate: Hashable {
     let title: String
+    let tags: [TemplateKind]
     let choices: [String]
-}
-
-struct PlaceHolderView: View {
-    var template: DecisionTemplate = DecisionTemplate(title: "情侣真心话大冒险", choices: ["1", "2", "3"])
-    @Binding var path: NavigationPath
-
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(template.title)
-                    .font(.headline)
-                Text("\(template.choices.count)个选项")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            Spacer()
-
-            Button(action: {
-                path.append(template)
-            }, label: {
-                Image(systemName: "plus.circle.fill")
-                    .imageScale(.large)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.accentColor)
-            })
-            .buttonStyle(PlainButtonStyle())
-        }
-    }
 }
 
 let kPickerId = UUID()
 
 struct TemplateList: View {
-    @State private var selected = "热门"
-
+    @State private var selected = TemplateKind.hot
     @State private var path = NavigationPath()
-
     @Binding var showSheet: Bool
-
     @State private var data = DecisionData(decisions: [])
 
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                HorizontalSelectionPicker(pickerId: kPickerId,
-                                          items: ["热门", "恋爱", "答案之书", "真心话", "大冒险", "学校生活"],
-                                          selectedItem: $selected,
-                                          backgroundColor: .buttonBackground,
-                                          verticalPadding: 8) { item in
-                    Text(item)
-                }
-
-                LemonList {
-                    ForEach(data.decisions.indices, id: \.self) { index in
-                        let temp = data.decisions[index]
-                        PlaceHolderView(
-                            template: DecisionTemplate(title: temp.title, choices: temp.choices.map({ item in
-                                item.content
-                            })),
-                            path: $path)
-//                            .listRowSeparator(.hidden)
-                    }
-                }
-                .padding(.bottom, 16)
-
-                Button(action: {
-                    path.append(DecisionTemplate(title: "", choices: []))
-                }, label: {
-                    Text("自定义新转盘")
-                })
-                .buttonStyle(FullWidthButtonStyle(verticalPadding: 12))
-                .padding(.horizontal, 16)
-                .padding(.bottom, 16)
+                CategoryPicker(selected: $selected)
+                TemplateListView(data: data, selected: selected, path: $path)
+                CustomWheelButton(path: $path)
             }
             .navigationDestination(for: DecisionTemplate.self) { template in
                 DecisionAddView(showSheet: $showSheet, template: template)
             }
             .mainBackground()
-
             .navigationTitle("选取模板")
             .navigationBarTitleDisplayMode(.inline)
-            .task {
-                // 读取 JSON 文件
-                guard let url = Bundle.main.url(forResource: "frequentUsed.json", withExtension: nil) else {
-                    Logging.shared.error("url empty")
-                    return
-                }
+            .task { await loadData() }
+        }
+    }
+    
+    private func loadData() async {
+        // 读取 JSON 文件
+        guard let url = Bundle.main.url(forResource: "frequentUsed.json", withExtension: nil) else {
+            Logging.shared.error("url empty")
+            return
+        }
 
-                do {
-                    let content = try Data(contentsOf: url)
-                    data = try JSONDecoder().decode(DecisionData.self, from: content)
-                } catch {
-                    Logging.shared.error("\(error)")
-                    return
+        do {
+            let content = try Data(contentsOf: url)
+            data = try JSONDecoder().decode(DecisionData.self, from: content)
+        } catch {
+            Logging.shared.error("\(error)")
+            return
+        }
+    }
+}
+
+struct CategoryPicker: View {
+    @Binding var selected: TemplateKind
+    
+    var body: some View {
+        HorizontalSelectionPicker(pickerId: kPickerId,
+                                  items: TemplateKind.allCases,
+                                  selectedItem: $selected,
+                                  backgroundColor: .buttonBackground,
+                                  verticalPadding: 8) { item in
+            Text(item.text)
+        }
+    }
+}
+
+struct TemplateListView: View {
+    let data: DecisionData
+    let selected: TemplateKind
+    @Binding var path: NavigationPath
+    
+    var body: some View {
+        LemonList {
+            ForEach(data.decisions.indices, id: \.self) { index in
+                let temp = data.decisions[index]
+                if temp.tags.contains(where: { $0 == selected }) {
+                    PlaceHolderView(
+                        template: DecisionTemplate(title: temp.title, tags: [], choices: temp.choices.map { $0.content }),
+                        path: $path
+                    )
                 }
             }
         }
+        .padding(.bottom, 16)
+    }
+}
+
+struct CustomWheelButton: View {
+    @Binding var path: NavigationPath
+    
+    var body: some View {
+        Button(action: {
+            path.append(DecisionTemplate(title: "", tags: [], choices: []))
+        }) {
+            Text("自定义新转盘")
+        }
+        .buttonStyle(FullWidthButtonStyle(verticalPadding: 12))
+        .padding(.horizontal, 16)
+        .padding(.bottom, 16)
     }
 }
 

@@ -37,7 +37,7 @@ struct DecisionAddView: View {
 //                        dismiss()
                         showSheet = false
                     }, label: {
-                        Text("完成")
+                        Text("保存")
                     })
                 }
             }).onAppearOnce {
@@ -52,6 +52,13 @@ struct DecisionAddView: View {
                     modelContext.delete(decision)
                     Logging.shared.debug("delete not saved ")
                 }
+
+                do {
+                    try modelContext.save()
+                } catch {
+                    Logging.shared.error("\(error)")
+                }
+
             })
     }
 }

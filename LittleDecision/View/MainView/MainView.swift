@@ -46,7 +46,7 @@ struct MainView: View {
                 if let decision {
                     DecisionView(currentDecision: decision)
                 } else {
-                    ContentUnavailableView("没有数据", image: "plus")
+                    ContentUnavailableView("没有数据", systemImage: "envelope.open")
                 }
             }
             .ignoresSafeArea(.keyboard)

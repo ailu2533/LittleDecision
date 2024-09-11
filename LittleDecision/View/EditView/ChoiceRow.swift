@@ -23,7 +23,7 @@ struct ChoiceRow: View {
             SettingIconView(icon: .system(icon: "tag.fill", foregroundColor: .choiceOrange, backgroundColor: .white))
 
             Text(choice.title)
-                .lineLimit(1)
+                .lineLimit(3)
 
             Spacer()
 

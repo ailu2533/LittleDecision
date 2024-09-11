@@ -28,6 +28,8 @@ struct LittleDecisionApp: App {
 
     @State private var premiumSubscriptionViewModel = SubscriptionViewModel(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
 
+    
+    
     init() {
         vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
         try? Tips.configure()

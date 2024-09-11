@@ -10,34 +10,18 @@ import SwiftData
 import SwiftUI
 
 struct FirstView: View {
-    @Default(.decisionId) private var decisionId
-    
     @Environment(\.modelContext)
     private var modelContext
 
-    @State private var selectedChoice: Choice?
+    let currentDecision: Decision
+
+    @Binding var selectedChoice: Choice?
 
     var body: some View {
         VStack {
             Spacer()
-            decisionTitleView
+            decisionContentView(for: currentDecision)
             Spacer()
-            mainContentView
-            Spacer()
-        }
-    }
-
-    private var decisionTitleView: some View {
-        DecisionChoiceTitleView(selectedChoiceTitle: selectedChoice?.title)
-    }
-
-    private var mainContentView: some View {
-        Group {
-            if let currentDecision = currentDecision {
-                decisionContentView(for: currentDecision)
-            } else {
-                noDecisionView
-            }
         }
     }
 
@@ -51,26 +35,6 @@ struct FirstView: View {
                     .fontWeight(.bold)
                     .padding(.bottom)
             }
-        }
-    }
-
-    private var noDecisionView: some View {
-        ContentUnavailableView {
-            Label("请在决定Tab添加决定", systemImage: "tray.fill")
-        }
-    }
-
-    private var currentDecision: Decision? {
-        let predicate = #Predicate<Decision> { $0.uuid == decisionId }
-        let descriptor = FetchDescriptor(predicate: predicate)
-
-        do {
-            let res = try modelContext.fetch(descriptor).first
-            Logging.shared.debug("currentDecision: \(res.debugDescription)  isNil \(res == nil)")
-            return res
-        } catch {
-            Logging.shared.error("currentDecision: \(error)")
-            return nil
         }
     }
 }

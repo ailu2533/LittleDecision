@@ -18,14 +18,21 @@ struct DecisionTitle: View {
             if let decision {
                 Button(action: {
                     showSheet = true
-                    print("hello world")
                 }, label: {
-                    Text(decision.title)
-                        .font(customTitleFont)
-                        .minimumScaleFactor(0.5)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                        .frame(maxWidth: .infinity)
+                    Label(
+                        title: {
+                            Text(decision.title)
+                                .font(customTitleFont)
+                                .lineLimit(2)
+                                .minimumScaleFactor(0.5)
+                                .multilineTextAlignment(.center)
+
+                        },
+                        icon: { Image(systemName: "pencil.and.outline").fontWeight(.bold) }
+                    )
+                    .labelStyle(.titleAndIcon)
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity)
                 })
 
             } else {
