@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 enum ThemeID: String, CaseIterable, Identifiable, Codable, Defaults.Serializable {
-    case pink, pastel, neon, monochrome
+    case pink, pastel, neon, monochromeBlue
     var id: String { rawValue }
 }
 
@@ -78,8 +78,8 @@ class ThemeManager {
             return .pastel
         case .neon:
             return .neon
-        case .monochrome:
-            return .monochrome
+        case .monochromeBlue:
+            return .monochromeBlue
         }
     }
 }
@@ -97,7 +97,7 @@ extension WheelTheme {
 
     // 定义其他主题...
     static let pastel = WheelTheme(
-        id: .pink,
+        id: .pastel,
         sectorFillStyles: [
             SectionFill.radialGradient(colors: [.pink1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
             SectionFill.solidFill(.white),
@@ -106,7 +106,7 @@ extension WheelTheme {
         outerColor: .pink1
     )
     static let neon = WheelTheme(
-        id: .pink,
+        id: .neon,
         sectorFillStyles: [
             SectionFill.radialGradient(colors: [.pink1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
             SectionFill.solidFill(.white),
@@ -114,8 +114,8 @@ extension WheelTheme {
         pointerView: AnyView(PointerView()),
         outerColor: .pink1
     )
-    static let monochrome = WheelTheme(
-        id: .pink,
+    static let monochromeBlue = WheelTheme(
+        id: .monochromeBlue,
         sectorFillStyles: [
             SectionFill.radialGradient(colors: [.pink1, .white], center: .center, startRadius: 0, endRadiusRatio: 1),
             SectionFill.solidFill(.white),

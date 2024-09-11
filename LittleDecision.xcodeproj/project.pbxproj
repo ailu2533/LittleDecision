@@ -102,6 +102,7 @@
 		8DE2A5452C913986002BC37F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5442C913986002BC37F /* SoundPlayer.swift */; };
 		8DE2A5472C914AE4002BC37F /* TemplateKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5462C914AE4002BC37F /* TemplateKind.swift */; };
 		8DE2A5492C914B0E002BC37F /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5482C914B0E002BC37F /* PlaceHolderView.swift */; };
+		8DE2A54B2C917BB2002BC37F /* frequentUsed.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2A54A2C917BB2002BC37F /* frequentUsed.en.json */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -200,6 +201,7 @@
 		8DE2A5442C913986002BC37F /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		8DE2A5462C914AE4002BC37F /* TemplateKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateKind.swift; sourceTree = "<group>"; };
 		8DE2A5482C914B0E002BC37F /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
+		8DE2A54A2C917BB2002BC37F /* frequentUsed.en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = frequentUsed.en.json; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -367,6 +369,7 @@
 				8D1932672C6E453000F9D2A4 /* data.jp.json */,
 				8D1932682C6E455100F9D2A4 /* data.kr.json */,
 				8DE2A4C92C8DE953002BC37F /* frequentUsed.json */,
+				8DE2A54A2C917BB2002BC37F /* frequentUsed.en.json */,
 				8D1932692C6E45F100F9D2A4 /* data.de.json */,
 				8D1932702C6E4E5300F9D2A4 /* extract_translation.py */,
 			);
@@ -585,6 +588,7 @@
 				8D19326A2C6E47D000F9D2A4 /* data.zh.json in Resources */,
 				8D19326B2C6E47D000F9D2A4 /* data.de.json in Resources */,
 				8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */,
+				8DE2A54B2C917BB2002BC37F /* frequentUsed.en.json in Resources */,
 				8D19326C2C6E47D000F9D2A4 /* data.en.json in Resources */,
 				8DE2A5262C8F3C89002BC37F /* flipcard-91468.mp3 in Resources */,
 				8DDB822E2C8408C6005152BE /* Yuzu DecideEasy.storekit in Resources */,
