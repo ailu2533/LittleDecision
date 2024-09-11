@@ -39,10 +39,10 @@ struct TemplateList: View {
             .task { await loadData() }
         }
     }
-    
+
     private func loadData() async {
         // 读取 JSON 文件
-        guard let url = Bundle.main.url(forResource: "frequentUsed.json", withExtension: nil) else {
+        guard let url = Bundle.main.url(forResource: getLocalizedTemplateFileName(), withExtension: nil) else {
             Logging.shared.error("url empty")
             return
         }
@@ -59,7 +59,7 @@ struct TemplateList: View {
 
 struct CategoryPicker: View {
     @Binding var selected: TemplateKind
-    
+
     var body: some View {
         HorizontalSelectionPicker(pickerId: kPickerId,
                                   items: TemplateKind.allCases,
@@ -75,7 +75,7 @@ struct TemplateListView: View {
     let data: DecisionData
     let selected: TemplateKind
     @Binding var path: NavigationPath
-    
+
     var body: some View {
         LemonList {
             ForEach(data.decisions.indices, id: \.self) { index in
@@ -94,7 +94,7 @@ struct TemplateListView: View {
 
 struct CustomWheelButton: View {
     @Binding var path: NavigationPath
-    
+
     var body: some View {
         Button(action: {
             path.append(DecisionTemplate(title: "", tags: [], choices: []))
@@ -109,4 +109,14 @@ struct CustomWheelButton: View {
 
 #Preview {
     TemplateList(showSheet: .constant(true))
+}
+
+private func getLocalizedTemplateFileName() -> String {
+    let locale = Locale.current
+    let languageCode = locale.language.languageCode?.identifier ?? "en"
+
+    switch languageCode {
+    case "zh": return "frequentUsed.json"
+    default: return "frequentUsed.en.json"
+    }
 }
