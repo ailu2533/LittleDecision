@@ -30,7 +30,7 @@ struct ChartItemText: View {
                     .offset(x: innerRadius + size.width / 2)
                     .rotationEffect(.radians(item.rotationDegrees))
             } else {
-                Text("")
+                Text(verbatim: "")
             }
         }
         .task {

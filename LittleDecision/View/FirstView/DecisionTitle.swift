@@ -53,7 +53,7 @@ struct DecisionTitle: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
             } else {
-                Text("")
+                Text(verbatim: "")
             }
         })
     }

@@ -16,7 +16,7 @@ struct DecisionChoiceTitleView: View {
                 if let selectedChoiceTitle {
                     Text(selectedChoiceTitle)
                 } else {
-                    Text("")
+                    Text(verbatim: "")
                 }
             }
 
