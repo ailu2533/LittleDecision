@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LemonViews
 
 struct AddChoiceButton: View {
     let decision: Decision

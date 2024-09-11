@@ -29,7 +29,7 @@ struct CommonEditView: View {
             }.padding(.trailing, 16)
                 .padding(.bottom, 16)
         }
-        .ignoresSafeArea(.keyboard)
+//        .ignoresSafeArea(.keyboard)
         .mainBackground()
     }
 }
