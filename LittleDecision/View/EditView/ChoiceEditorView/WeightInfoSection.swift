@@ -15,12 +15,12 @@ struct WeightInfoSection: View {
     var body: some View {
         Section {
             HStack {
-                SettingIconView(icon: .system(icon: "scalemass.fill", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent))
+                SettingIconView(icon: .system(icon: "scalemass.fill", foregroundColor: .primary, backgroundColor: .secondaryAccent))
                 LabeledContent("总权重", value: "\(totalWeight)")
             }
 
             HStack {
-                SettingIconView(icon: .system(icon: "percent", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent))
+                SettingIconView(icon: .system(icon: "percent", foregroundColor: .primary, backgroundColor: .secondaryAccent))
                 LabeledContent("当前选项概率", value: probability(choice.weight, totalWeight))
             }
         }

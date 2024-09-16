@@ -50,7 +50,7 @@ struct SpinWheel: View {
                 )
             }
         }
-        .task(id: rawItems.hashValue) {
+        .task(id: rawItems) {
             items = await mcalc.calculateItemsByWeights(mcalc.rawItems.map({ $0.weight }))
             Logging.shared.debug("SpinWheel task items \(items)")
         }

@@ -28,15 +28,12 @@ struct ChartItemText: View {
 
         Group {
             if let size {
-                Text(item.title)
-                    .font(customBodyFont)
-                    .foregroundStyle(item.enabled ? Color(.black) : Color(.gray))
-                    .multilineTextAlignment(.trailing)
-                    .minimumScaleFactor(0.5)
-                    .lineLimit(3)
-                    .frame(width: size.width, height: size.height, alignment: .trailing)
-                    .offset(x: innerRadius + size.width / 2)
-                    .rotationEffect(.radians(item.rotationDegrees))
+                ChartItemTextView(
+                    item: item,
+                    size: size,
+                    innerRadius: innerRadius,
+                    customBodyFont: customBodyFont
+                )
             } else {
                 Text(verbatim: "")
             }
@@ -48,3 +45,5 @@ struct ChartItemText: View {
         }
     }
 }
+
+

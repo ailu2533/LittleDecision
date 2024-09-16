@@ -56,6 +56,7 @@
 		8D350ECE2C97FA6000813F2A /* WheelTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECD2C97FA6000813F2A /* WheelTheme.swift */; };
 		8D350ED02C98170900813F2A /* SpinCellRawItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECF2C98170900813F2A /* SpinCellRawItem+.swift */; };
 		8D350ED32C981C6B00813F2A /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 8D350ED22C981C6B00813F2A /* CustomDump */; };
+		8D350ED52C98233000813F2A /* ChartItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ED42C98233000813F2A /* ChartItemTextView.swift */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
@@ -169,6 +170,7 @@
 		8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WheelTheme+.swift"; sourceTree = "<group>"; };
 		8D350ECD2C97FA6000813F2A /* WheelTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelTheme.swift; sourceTree = "<group>"; };
 		8D350ECF2C98170900813F2A /* SpinCellRawItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpinCellRawItem+.swift"; sourceTree = "<group>"; };
+		8D350ED42C98233000813F2A /* ChartItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItemTextView.swift; sourceTree = "<group>"; };
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
 		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				8DDB82272C83247F005152BE /* SpinWheelConfiguration.swift */,
 				8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */,
 				8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */,
+				8D350ED42C98233000813F2A /* ChartItemTextView.swift */,
 			);
 			path = SpinWheel;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				8DDB82282C83247F005152BE /* SpinWheelConfiguration.swift in Sources */,
 				8DDB821E2C82CCA4005152BE /* SkinListView.swift in Sources */,
 				8D19325C2C6E12F400F9D2A4 /* ChoiceAddView.swift in Sources */,
+				8D350ED52C98233000813F2A /* ChartItemTextView.swift in Sources */,
 				8DDB820A2C8217CF005152BE /* RCConstant.swift in Sources */,
 				8DDB82192C82C1DA005152BE /* ContactSection.swift in Sources */,
 				8DE2A5492C914B0E002BC37F /* PlaceHolderView.swift in Sources */,
