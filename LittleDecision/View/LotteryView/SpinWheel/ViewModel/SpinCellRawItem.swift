@@ -19,3 +19,4 @@ struct SpinCellRawItem: Identifiable {
         self.enabled = enabled
     }
 }
+

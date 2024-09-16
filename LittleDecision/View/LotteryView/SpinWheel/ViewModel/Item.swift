@@ -23,6 +23,17 @@ struct Item: Identifiable {
     let startAngle: CGFloat
     let endAngle: CGFloat
 
+    init(index: Int, weight: CGFloat, title: String, enabled: Bool, startAngle: CGFloat, endAngle: CGFloat) {
+        self.index = index
+        self.weight = weight
+        self.title = title
+        self.enabled = enabled
+        self.startAngle = startAngle
+        self.endAngle = endAngle
+
+        Logging.shared.debug("Item \(title) \(startAngle) \(endAngle) \(enabled)")
+    }
+
     func calculateTextSize(text: String, font: UIFont, maxWidth: CGFloat) -> CGSize {
         let constraintRect = CGSize(width: maxWidth, height: .greatestFiniteMagnitude)
         let boundingBox = text.boundingRect(with: constraintRect,
@@ -60,20 +71,6 @@ struct Item: Identifiable {
         // 计算width，并确保它不是负数
         let squaredDifference = max(outerRadius * outerRadius - halfHeight * halfHeight, 0)
         let width = sqrt(squaredDifference) - innerRadius
-
-//        let textSize = calculateTextSize(text: title, font: customBodyUIFont, maxWidth: width)
-//        if textSize.height > max(2 * halfHeight, 0) {
-//            let half = textSize.height / 2
-//
-//            let squaredDifference = max(outerRadius * outerRadius - half * half, 0)
-//            let width = sqrt(squaredDifference) - innerRadius
-//
-//            // 使用max函数确保width和height都不小于0
-//            return CGSize(
-//                width: max(width, 0),
-//                height: max(2 * half, 0)
-//            )
-//        }
 
         // 使用max函数确保width和height都不小于0
         return CGSize(

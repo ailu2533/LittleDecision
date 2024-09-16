@@ -5,18 +5,20 @@ import SwiftUI
 struct ChartContent: View {
     var currentDecision: Decision
     var colors: [Color]
+    var rawItems: [SpinCellRawItem]
 
-    @Default(.selectedSkinConfiguration)
-    private var selectedSkinConfiguration
+    init(currentDecision: Decision, colors: [Color]) {
+        self.currentDecision = currentDecision
+        self.colors = colors
+        Logging.shared.debug("ChartContent init")
 
-    var rawItems: [SpinCellRawItem] {
-        _ = currentDecision.wheelVersion
-
-        Logging.shared.debug("rawItems \(currentDecision.title)")
-        return currentDecision.sortedChoices.map { choice in
+        rawItems = currentDecision.sortedChoices.map { choice in
             SpinCellRawItem(title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
         }
     }
+
+    @Default(.selectedSkinConfiguration)
+    private var selectedSkinConfiguration
 
     var configuration: SpinWheelConfiguration {
         SkinManager.shared.getSkinConfiguration(skinKind: selectedSkinConfiguration)
