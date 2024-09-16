@@ -28,9 +28,8 @@ struct PieChartView: View {
     @State private var deg: CGFloat = 0
 
     var body: some View {
-        
         let _ = Self._printChanges()
-        
+
         VStack {
             RotatingView(angle: rotateAngle) {
                 ChartView(currentDecision: currentDecision, selection: selection)

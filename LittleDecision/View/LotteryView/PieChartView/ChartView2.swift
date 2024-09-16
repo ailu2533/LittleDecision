@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/9/16.
 //
 
+import Defaults
 import Foundation
 import SwiftUI
 
@@ -12,7 +13,8 @@ struct ChartView: View {
     var currentDecision: Decision
     var selection: Choice?
 
-    var colors: [Color] = [Color.pink1, Color.white]
+    @Default(.equalWeight)
+    private var equalWeight
 
     var body: some View {
         ZStack {
@@ -20,5 +22,6 @@ struct ChartView: View {
             ChartContent(currentDecision: currentDecision)
                 .padding(12)
         }
+        .id(equalWeight)
     }
 }

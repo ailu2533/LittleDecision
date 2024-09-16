@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/9/16.
 //
 
+import Defaults
 import Foundation
 import SwiftUI
 
@@ -14,10 +15,21 @@ struct ChartItemTextView: View {
     let innerRadius: CGFloat
     let customBodyFont: Font
 
+    @Default(.noRepeat)
+    private var noRepeat
+
+    var fontColor: Color {
+        if noRepeat {
+            return item.enabled ? Color(.black) : Color(.gray)
+        }
+
+        return Color(.black)
+    }
+
     var body: some View {
         Text(item.title)
             .font(customBodyFont)
-            .foregroundStyle(item.enabled ? Color(.black) : Color(.gray))
+            .foregroundStyle(fontColor)
             .multilineTextAlignment(.trailing)
             .minimumScaleFactor(0.5)
             .lineLimit(3)

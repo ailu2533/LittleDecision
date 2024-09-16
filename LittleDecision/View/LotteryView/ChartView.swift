@@ -5,17 +5,15 @@ import SwiftUI
 struct ChartContent: View {
     var currentDecision: Decision
 
-    @Default(.equalWeight)
-    private var equalWeight
+    
 
-    var rawItems: [SpinCellRawItem] {
-        currentDecision.sortedChoices.map { choice in
-            SpinCellRawItem(title: choice.title, weight: CGFloat(equalWeight ? 1 : choice.weight), enabled: choice.enable)
-        }
-    }
+    var rawItems: [SpinCellRawItem]
 
     init(currentDecision: Decision) {
         self.currentDecision = currentDecision
+        rawItems = currentDecision.sortedChoices.map { choice in
+            SpinCellRawItem(title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
+        }
     }
 
     @Default(.selectedSkinConfiguration)
