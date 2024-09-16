@@ -19,7 +19,7 @@ struct SpinWheelCell: View {
         let fills = configuration.fills
         SpinWheelCellShape(startAngle: .radians(item.startAngle), endAngle: .radians(item.endAngle))
             .fill(fills[item.index % fills.count].gradient(in: outerRadius))
-            .stroke(Color.netureBlack, style: .init(lineWidth: configuration.cellLineWidth, lineJoin: .round))
+            .stroke(Color.black, style: .init(lineWidth: configuration.cellLineWidth, lineJoin: .round))
             .overlay {
                 ChartItemText(item: item, innerRadius: innerRadius, outerRadius: outerRadius, trailingPadding: trailingPadding)
             }

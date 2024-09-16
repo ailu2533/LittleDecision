@@ -15,7 +15,7 @@ struct DecisionListRowLabel: View {
         VStack(alignment: .leading) {
             Text(decision.title)
                 .font(.headline)
-                .foregroundStyle(.netureBlack)
+                .foregroundStyle(.primary)
             Text("\(decision.choices.count)个选项")
                 .foregroundStyle(.secondary)
                 .font(.caption)

@@ -8,7 +8,6 @@
 import LemonViews
 import SwiftUI
 
-
 struct ChoiceEditorView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -25,10 +24,14 @@ struct ChoiceEditorView: View {
             ChoiceDetailsSection(choice: choice)
             WeightInfoSection(choice: choice)
 
-            Button("保存", action: saveAndDismiss)
-                .buttonStyle(FullWidthButtonStyle())
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.clear)
+            Button(action: {
+                saveAndDismiss()
+            }, label: {
+                Text("保存")
+            })
+            .buttonStyle(FullWidthButtonStyle())
+            .listRowInsets(EdgeInsets())
+            .listRowBackground(Color.clear)
         }
         .mainBackground()
         .toolbar {

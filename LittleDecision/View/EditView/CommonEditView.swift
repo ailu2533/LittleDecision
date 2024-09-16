@@ -39,7 +39,7 @@ struct DecisionDisplayModePickerView: View {
 
     var body: some View {
         HStack {
-            SettingIconView(icon: .system(icon: "slider.horizontal.3", foregroundColor: .white, backgroundColor: .accent))
+            SettingIconView(icon: .system(icon: "slider.horizontal.3", foregroundColor: .systemBackground, backgroundColor: .accent))
             Picker("显示模式", selection: Binding(
                 get: { decision.displayModeEnum },
                 set: {

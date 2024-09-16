@@ -29,15 +29,19 @@ struct DecisionAddView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("保存") {
+                    Button(action: {
                         decision.saved = true
                         showSheet = false
-                    }
+                    }, label: {
+                        Text("保存")
+                    })
                 }
                 ToolbarItem(placement: .topBarLeading) {
-                    Button("取消") {
+                    Button(action: {
                         showingConfirmation = true
-                    }
+                    }, label: {
+                        Text("取消")
+                    })
                 }
             }
             .navigationBarBackButtonHidden(true) // 1

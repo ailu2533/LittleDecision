@@ -15,11 +15,11 @@ struct EditDecisionTitleView: View {
 
     var body: some View {
         HStack {
-            SettingIconView(icon: .system(icon: "arrow.triangle.branch", foregroundColor: .white, backgroundColor: .accent))
+            SettingIconView(icon: .system(icon: "arrow.triangle.branch", foregroundColor: .systemBackground, backgroundColor: .accent))
 
             TextField("输入让你犹豫不决的事情", text: $title, axis: .vertical)
                 .focused($focus)
-                .foregroundStyle(.netureBlack)
+                .foregroundStyle(.primary)
                 .fontWeight(.semibold)
                 .fontDesign(.rounded)
                 .lineLimit(3)

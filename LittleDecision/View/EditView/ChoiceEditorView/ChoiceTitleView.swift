@@ -15,7 +15,7 @@ struct ChoiceTitleView: View {
 
     var body: some View {
         HStack {
-            SettingIconView(icon: .system(icon: "doc.text", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent))
+            SettingIconView(icon: .system(icon: "doc.text", foregroundColor: .primary, backgroundColor: .secondaryAccent))
 
             TextField("选项名", text: $title, axis: .vertical)
                 .lineLimit(3)

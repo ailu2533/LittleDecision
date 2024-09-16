@@ -53,7 +53,11 @@ struct SkinListView: View {
             .mainBackground()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("关闭", action: dismiss.callAsFunction)
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        Text("关闭")
+                    })
                 }
             }
         }

@@ -11,7 +11,6 @@ import SwiftData
 import SwiftUI
 import TipKit
 
-
 func setupAudioSession() {
     do {
         try AVAudioSession.sharedInstance().setCategory(.ambient)
@@ -28,8 +27,6 @@ struct LittleDecisionApp: App {
 
     @State private var premiumSubscriptionViewModel = SubscriptionViewModel(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
 
-    
-    
     init() {
         vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
         try? Tips.configure()
@@ -43,6 +40,8 @@ struct LittleDecisionApp: App {
     var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
 
     var vm: DecisionViewModel
+
+
 
     var body: some Scene {
         WindowGroup {
@@ -62,8 +61,10 @@ struct LittleDecisionApp: App {
                         Logging.iapService.error("Error on handling customer info updates: \(error, privacy: .public)")
                     }
                 }
+         
         }
         .modelContainer(sharedModelContainer)
         .environment(vm)
     }
+
 }

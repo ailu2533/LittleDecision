@@ -22,7 +22,7 @@ struct PremiumView: View {
                 Text(isPremium ? "您是高贵的会员" : "您还不是会员")
                     .fontWeight(.bold)
                     .font(.title2)
-                    .foregroundColor(.netureWhite)
+                    .foregroundColor(.systemBackground)
                 if isPremium {
                     HStack(spacing: 8) {
                         Image(systemName: "crown.fill")
@@ -33,7 +33,7 @@ struct PremiumView: View {
                         Text("终身会员")
                             .fontWeight(.semibold)
                             .font(.headline)
-                            .foregroundColor(.netureWhite)
+                            .foregroundColor(.systemBackground)
                             .padding(.trailing, 16)
                             .padding(.vertical, 8)
                     }
@@ -44,7 +44,7 @@ struct PremiumView: View {
                     Text("支持一下")
                         .fontWeight(.semibold)
                         .font(.headline)
-                        .foregroundColor(.netureWhite)
+                        .foregroundColor(.systemBackground)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
                         .background(.orange)
@@ -54,10 +54,10 @@ struct PremiumView: View {
             Spacer()
         }
         .padding(.vertical, 12)
-        .background(LinearGradient(colors: [.accent.opacity(0.8), .accent.opacity(0.6), .accent.opacity(0.4)], startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(colors: [.orange1, .orange2, .orange3, .orange4], startPoint: .top, endPoint: .bottom))
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .padding(6)
-        .background(.white)
+        .background(.systemBackground)
         .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }

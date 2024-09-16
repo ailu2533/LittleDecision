@@ -20,7 +20,7 @@ struct ChoiceRow: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            SettingIconView(icon: .system(icon: "tag.fill", foregroundColor: .choiceOrange, backgroundColor: .white))
+            SettingIconView(icon: .system(icon: "tag.fill", foregroundColor: .choiceOrange, backgroundColor: Color(.systemBackground)))
 
             Text(choice.title)
                 .lineLimit(3)

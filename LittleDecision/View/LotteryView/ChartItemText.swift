@@ -20,7 +20,7 @@ struct ChartItemText: View {
             if let size {
                 Text(item.title)
                     .font(customBodyFont)
-                    .foregroundStyle(item.enabled ? .primary : .secondary)
+                    .foregroundStyle(item.enabled ? Color(.black) : Color(.gray))
 //                    .padding(.trailing, trailingPadding)
                     .multilineTextAlignment(.trailing)
                     .minimumScaleFactor(0.5)

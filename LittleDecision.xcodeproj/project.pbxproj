@@ -103,6 +103,7 @@
 		8DE2A5472C914AE4002BC37F /* TemplateKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5462C914AE4002BC37F /* TemplateKind.swift */; };
 		8DE2A5492C914B0E002BC37F /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A5482C914B0E002BC37F /* PlaceHolderView.swift */; };
 		8DE2A54B2C917BB2002BC37F /* frequentUsed.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DE2A54A2C917BB2002BC37F /* frequentUsed.en.json */; };
+		8DE2A54D2C91D71E002BC37F /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE2A54C2C91D71E002BC37F /* Bundle+AppVersion.swift */; };
 		8DF0AA752C8083B800F4FD27 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AA742C8083B800F4FD27 /* CustomFont.swift */; };
 		8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
@@ -202,6 +203,7 @@
 		8DE2A5462C914AE4002BC37F /* TemplateKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateKind.swift; sourceTree = "<group>"; };
 		8DE2A5482C914B0E002BC37F /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
 		8DE2A54A2C917BB2002BC37F /* frequentUsed.en.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = frequentUsed.en.json; sourceTree = "<group>"; };
+		8DE2A54C2C91D71E002BC37F /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
 		8DF0AA742C8083B800F4FD27 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,6 +254,7 @@
 				8DE2A5382C9016A3002BC37F /* DiceView.swift */,
 				8DE2A5402C909194002BC37F /* DeckCardView2.swift */,
 				8DE2A5442C913986002BC37F /* SoundPlayer.swift */,
+				8DE2A54C2C91D71E002BC37F /* Bundle+AppVersion.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				8DE2A5242C8EE4DC002BC37F /* Decision+.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
+				8DE2A54D2C91D71E002BC37F /* Bundle+AppVersion.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
 				8DE2A4C02C8C163C002BC37F /* DecisionDisplayMode.swift in Sources */,
 				8DDB820E2C82184A005152BE /* IAPError.swift in Sources */,
@@ -830,7 +834,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
@@ -868,7 +872,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
 				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_APP_SANDBOX = NO;

@@ -31,7 +31,7 @@ struct RestoreButtonStyle: ButtonStyle {
 //            .fontWeight(.semibold)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .background(Color.white)
+            .background(Color.systemBackground)
             .clipShape(Capsule())
             .foregroundColor(.accentColor)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)

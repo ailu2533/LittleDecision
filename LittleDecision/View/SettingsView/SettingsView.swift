@@ -58,11 +58,11 @@ struct SettingsView: View {
 
     private var settingsSection: some View {
         Section {
-            SettingToggle(isOn: $noRepeat, icon: "repeat", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent, title: "不重复抽取", description: "已经被抽中的选项不会被抽中")
+            SettingToggle(isOn: $noRepeat, icon: "repeat", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "不重复抽取", description: "已经被抽中的选项不会被抽中")
 
-            SettingToggle(isOn: $equalWeight, icon: "equal.square", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent, title: "等概率抽取", description: "抽取时忽略选项的权重")
+            SettingToggle(isOn: $equalWeight, icon: "equal.square", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "等概率抽取", description: "抽取时忽略选项的权重")
 
-            SettingToggle(isOn: $enableSound, icon: "speaker.wave.3", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent, title: "声音", description: nil)
+            SettingToggle(isOn: $enableSound, icon: "speaker.wave.3", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "声音", description: nil)
 
             rotationTimePicker
         }
@@ -74,7 +74,7 @@ struct SettingsView: View {
 
     private var rotationTimePicker: some View {
         HStack {
-            SettingIconView(icon: .system(icon: "stopwatch", foregroundColor: .netureBlack, backgroundColor: .secondaryAccent))
+            SettingIconView(icon: .system(icon: "stopwatch", foregroundColor: .primary, backgroundColor: .secondaryAccent))
 
             Picker("转盘旋转时长", selection: $rotationTime) {
                 ForEach([2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0], id: \.self) { duration in
