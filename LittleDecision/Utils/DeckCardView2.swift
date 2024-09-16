@@ -1,4 +1,5 @@
 import SwiftUI
+import LemonViews
 
 struct CardFront: View {
     let text: String
@@ -239,7 +240,7 @@ struct DeckView: View {
                 }, label: {
                     Label("还原", systemImage: "arrow.clockwise")
                 })
-                .buttonStyle(RestoreButtonStyle())
+                .buttonStyle(FloatingButtonStyle())
                 .padding()
             }
         }

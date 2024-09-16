@@ -45,21 +45,26 @@ struct ChoiceAddView: View {
         }
     }
 
+    @ViewBuilder
     private var addMoreSection: some View {
         Section {
-            Button(action: {
-                saveAndDismiss()
-            }, label: {
-                Text("保存")
-            })
-            .buttonStyle(FullWidthButtonStyle())
+            
+            HStack {
+                Button(action: {
+                    saveAndDismiss()
+                }, label: {
+                    Text("保存")
+                })
+                .buttonStyle(FullWidthButtonStyle())
 
-            Button(action: {
-                addNewChoice()
-            }, label: {
-                Text("继续添加")
-            })
-            .buttonStyle(FullWidthButtonStyle())
+                Button(action: {
+                    addNewChoice()
+                }, label: {
+                    Text("继续添加")
+                })
+                .buttonStyle(FullWidthButtonStyle())
+            }
+            
         }
         .listRowBackground(Color.clear)
         .listRowInsets(EdgeInsets())

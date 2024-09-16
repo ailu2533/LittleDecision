@@ -8,21 +8,16 @@
 import LemonViews
 import SwiftUI
 
+
+
 struct AddChoiceButton: View {
     let decision: Decision
 
     var body: some View {
         NavigationLink(destination: ChoiceAddView(decision: decision)) {
             Label("新选项", systemImage: "plus.circle.fill")
-                .font(.system(size: 16, weight: .semibold, design: .rounded))
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-                .background(.systemBackground)
-                .clipShape(Capsule())
-                .foregroundStyle(.accent)
-                .shadow(radius: 1)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(FloatingButtonStyle())
 
         .frame(maxWidth: .infinity, alignment: .trailing)
     }

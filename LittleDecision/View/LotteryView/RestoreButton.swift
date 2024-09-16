@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LemonViews
 
 struct RestoreButton: View {
     let action: () -> Void
@@ -18,7 +19,7 @@ struct RestoreButton: View {
         }) {
             Label("还原", systemImage: "arrow.clockwise")
         }
-        .buttonStyle(RestoreButtonStyle())
+        .buttonStyle(FloatingButtonStyle())
         .animation(.spring(), value: tapCount)
     }
 }
