@@ -1,19 +1,14 @@
 import Charts
 import Defaults
+import SpinWheel
 import SwiftUI
 
 struct ChartContent: View {
     var currentDecision: Decision
-
-    var rawItems: [SpinCellItem]
-
     let radius: CGFloat
 
     init(currentDecision: Decision, radius: CGFloat) {
         self.currentDecision = currentDecision
-        rawItems = currentDecision.sortedChoices.map { choice in
-            SpinCellItem(id: choice.uuid, title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
-        }
         Logging.shared.debug("ChartContent init")
         self.radius = radius
     }
@@ -21,14 +16,25 @@ struct ChartContent: View {
     @Default(.selectedSkinConfiguration)
     private var selectedSkinConfiguration
 
+    @Default(.equalWeight)
+    private var equalWeight
+
     var configuration: SpinWheelConfiguration {
         SkinManager.shared.getSkinConfiguration(skinKind: selectedSkinConfiguration)
+    }
+
+    var spinCellItems: [SpinCellItem] {
+        _ = currentDecision.wheelVersion
+        _ = equalWeight
+        return currentDecision.sortedChoices.map { choice in
+            SpinCellItem(id: choice.uuid, title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
+        }
     }
 
     var body: some View {
         let _ = Self._printChanges()
 
-        SpinWheel(rawItems: rawItems,
+        SpinWheel(rawItems: spinCellItems,
                   size: CGSize(width: radius, height: radius),
                   configuration: configuration
         )

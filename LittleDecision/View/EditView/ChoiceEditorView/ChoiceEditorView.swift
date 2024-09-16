@@ -52,7 +52,7 @@ struct ChoiceEditorView: View {
 
     private func saveAndDismiss() {
         do {
-            choice.decision?.updateDate = Date()
+            choice.decision?.incWheelVersion()
             try modelContext.save()
             dismiss()
         } catch {

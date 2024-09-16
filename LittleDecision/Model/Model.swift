@@ -25,8 +25,11 @@ class Decision {
     var createDate: Date
     var updateDate: Date
 
-    @Transient
     var wheelVersion: Int = 0
+
+    func incWheelVersion() {
+        wheelVersion = (wheelVersion + 1) % 65536
+    }
 
     init(uuid: UUID = UUID(), title: String, choices: [Choice], saved: Bool = false) {
         self.uuid = uuid

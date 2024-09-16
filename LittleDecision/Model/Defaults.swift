@@ -8,6 +8,7 @@
 import Defaults
 import Foundation
 import SwiftUI
+import SpinWheel
 
 extension Defaults.Keys {
     static let noRepeat = Key<Bool>("noRepeat", default: false)

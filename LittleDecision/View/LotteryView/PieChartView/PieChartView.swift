@@ -50,7 +50,6 @@ struct PieChartView: View {
                 })
                 .frame(width: radius, height: radius, alignment: .center)
             }
-//            .padding(8)
 
             Spacer()
 
@@ -98,7 +97,7 @@ struct PieChartView: View {
             } completion: {
                 selection = choice
                 if noRepeat {
-                    selection?.decision?.updateDate = Date()
+                    selection?.decision?.incWheelVersion()
                     selection?.enable = false
                 }
 
