@@ -31,6 +31,7 @@ struct DecisionView: View {
                     DecisionChoiceTitleView(selectedChoiceTitle: selectedChoice?.title)
                 }
             }
+            .padding(.top, 32)
 
             VStack {
                 switch currentDecision.displayModeEnum {

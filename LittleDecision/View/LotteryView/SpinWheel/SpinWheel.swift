@@ -14,17 +14,17 @@ struct SpinWheel: View {
     private let trailingPadding: CGFloat
 
     let size: CGSize
-    let rawItems: [SpinCellRawItem]
+    let spinCellItems: [SpinCellItem]
     let configuration: SpinWheelConfiguration
 
     private let mcalc: MathCalculation
 
     @State private var items: [Item] = []
 
-    init(rawItems: [SpinCellRawItem],
+    init(rawItems: [SpinCellItem],
          size: CGSize,
          configuration: SpinWheelConfiguration) {
-        self.rawItems = rawItems
+        self.spinCellItems = rawItems
         self.size = size
         self.configuration = configuration
 
@@ -50,7 +50,7 @@ struct SpinWheel: View {
                 )
             }
         }
-        .task(id: rawItems) {
+        .task(id: spinCellItems) {
             items = await mcalc.calculateItemsByWeights(mcalc.rawItems.map({ $0.weight }))
             Logging.shared.debug("SpinWheel task items \(items)")
         }

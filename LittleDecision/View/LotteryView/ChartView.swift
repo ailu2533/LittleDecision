@@ -5,15 +5,17 @@ import SwiftUI
 struct ChartContent: View {
     var currentDecision: Decision
 
-    
+    var rawItems: [SpinCellItem]
 
-    var rawItems: [SpinCellRawItem]
+    let radius: CGFloat
 
-    init(currentDecision: Decision) {
+    init(currentDecision: Decision, radius: CGFloat) {
         self.currentDecision = currentDecision
         rawItems = currentDecision.sortedChoices.map { choice in
-            SpinCellRawItem(title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
+            SpinCellItem(id: choice.uuid, title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
         }
+        Logging.shared.debug("ChartContent init")
+        self.radius = radius
     }
 
     @Default(.selectedSkinConfiguration)
@@ -26,23 +28,20 @@ struct ChartContent: View {
     var body: some View {
         let _ = Self._printChanges()
 
-        GeometryReader { proxy in
-
-            SpinWheel(rawItems: rawItems,
-                      size: proxy.size,
-                      configuration: configuration
-            )
-        }
+        SpinWheel(rawItems: rawItems,
+                  size: CGSize(width: radius, height: radius),
+                  configuration: configuration
+        )
     }
 }
 
-let rawItems: [SpinCellRawItem] = [
-    .init(title: "item 1"),
-    .init(title: "item 2"),
-    .init(title: "item 3"),
-    .init(title: "item 4"),
-    .init(title: "item 5"),
-    .init(title: "item 6"),
-    .init(title: "item 7"),
-    .init(title: "item 8"),
+let rawItems: [SpinCellItem] = [
+    .init(id: UUID(), title: "item 1"),
+    .init(id: UUID(), title: "item 2"),
+    .init(id: UUID(), title: "item 3"),
+    .init(id: UUID(), title: "item 4"),
+    .init(id: UUID(), title: "item 5"),
+    .init(id: UUID(), title: "item 6"),
+    .init(id: UUID(), title: "item 7"),
+    .init(id: UUID(), title: "item 8"),
 ]

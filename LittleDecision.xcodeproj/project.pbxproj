@@ -49,14 +49,14 @@
 		8D350EBD2C97F4F600813F2A /* CircleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBC2C97F4F600813F2A /* CircleBackground.swift */; };
 		8D350EBF2C97F51400813F2A /* SpinWheelPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */; };
 		8D350EC12C97F53100813F2A /* RotatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC02C97F53100813F2A /* RotatingView.swift */; };
-		8D350EC52C97F97000813F2A /* SpinCellRawItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC42C97F97000813F2A /* SpinCellRawItem.swift */; };
+		8D350EC52C97F97000813F2A /* SpinCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC42C97F97000813F2A /* SpinCellItem.swift */; };
 		8D350EC72C97F9B700813F2A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC62C97F9B700813F2A /* Item.swift */; };
 		8D350ECA2C97FA0900813F2A /* SectionFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC92C97FA0900813F2A /* SectionFill.swift */; };
 		8D350ECC2C97FA3300813F2A /* WheelTheme+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */; };
 		8D350ECE2C97FA6000813F2A /* WheelTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECD2C97FA6000813F2A /* WheelTheme.swift */; };
-		8D350ED02C98170900813F2A /* SpinCellRawItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECF2C98170900813F2A /* SpinCellRawItem+.swift */; };
 		8D350ED32C981C6B00813F2A /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 8D350ED22C981C6B00813F2A /* CustomDump */; };
 		8D350ED52C98233000813F2A /* ChartItemTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ED42C98233000813F2A /* ChartItemTextView.swift */; };
+		8D350ED72C983AC900813F2A /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ED62C983AC900813F2A /* PieChartViewModel.swift */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
@@ -164,13 +164,13 @@
 		8D350EBC2C97F4F600813F2A /* CircleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBackground.swift; sourceTree = "<group>"; };
 		8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelPreview.swift; sourceTree = "<group>"; };
 		8D350EC02C97F53100813F2A /* RotatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingView.swift; sourceTree = "<group>"; };
-		8D350EC42C97F97000813F2A /* SpinCellRawItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinCellRawItem.swift; sourceTree = "<group>"; };
+		8D350EC42C97F97000813F2A /* SpinCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinCellItem.swift; sourceTree = "<group>"; };
 		8D350EC62C97F9B700813F2A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		8D350EC92C97FA0900813F2A /* SectionFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFill.swift; sourceTree = "<group>"; };
 		8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WheelTheme+.swift"; sourceTree = "<group>"; };
 		8D350ECD2C97FA6000813F2A /* WheelTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelTheme.swift; sourceTree = "<group>"; };
-		8D350ECF2C98170900813F2A /* SpinCellRawItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpinCellRawItem+.swift"; sourceTree = "<group>"; };
 		8D350ED42C98233000813F2A /* ChartItemTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartItemTextView.swift; sourceTree = "<group>"; };
+		8D350ED62C983AC900813F2A /* PieChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
 		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
@@ -407,6 +407,7 @@
 				8D350EBC2C97F4F600813F2A /* CircleBackground.swift */,
 				8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */,
 				8D350EC02C97F53100813F2A /* RotatingView.swift */,
+				8D350ED62C983AC900813F2A /* PieChartViewModel.swift */,
 			);
 			path = PieChartView;
 			sourceTree = "<group>";
@@ -428,9 +429,8 @@
 			isa = PBXGroup;
 			children = (
 				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
-				8D350EC42C97F97000813F2A /* SpinCellRawItem.swift */,
+				8D350EC42C97F97000813F2A /* SpinCellItem.swift */,
 				8D350EC62C97F9B700813F2A /* Item.swift */,
-				8D350ECF2C98170900813F2A /* SpinCellRawItem+.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -722,14 +722,13 @@
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				8DE2A54D2C91D71E002BC37F /* Bundle+AppVersion.swift in Sources */,
-				8D350ED02C98170900813F2A /* SpinCellRawItem+.swift in Sources */,
 				8D350ECE2C97FA6000813F2A /* WheelTheme.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
 				8DE2A4C02C8C163C002BC37F /* DecisionDisplayMode.swift in Sources */,
 				8DDB820E2C82184A005152BE /* IAPError.swift in Sources */,
 				8DE2A5122C8ED5FB002BC37F /* EditDecisionTitleView.swift in Sources */,
 				8DE2A51F2C8EDDE1002BC37F /* DecisionListRowLabel.swift in Sources */,
-				8D350EC52C97F97000813F2A /* SpinCellRawItem.swift in Sources */,
+				8D350EC52C97F97000813F2A /* SpinCellItem.swift in Sources */,
 				8DE2A5142C8ED99D002BC37F /* LemonForm.swift in Sources */,
 				8DE2A5052C8EB688002BC37F /* ChoiceTip.swift in Sources */,
 				8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */,
@@ -754,6 +753,7 @@
 				8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */,
 				8DE2A50C2C8EBA42002BC37F /* WeightInfoSection.swift in Sources */,
 				8DE2A5322C8FE4E6002BC37F /* DecisionTitle.swift in Sources */,
+				8D350ED72C983AC900813F2A /* PieChartViewModel.swift in Sources */,
 				8DE2A5452C913986002BC37F /* SoundPlayer.swift in Sources */,
 				8D350ECA2C97FA0900813F2A /* SectionFill.swift in Sources */,
 				8DDB82122C821878005152BE /* SubscriptionState.swift in Sources */,

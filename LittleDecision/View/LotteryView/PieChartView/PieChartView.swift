@@ -31,20 +31,26 @@ struct PieChartView: View {
         let _ = Self._printChanges()
 
         VStack {
-            RotatingView(angle: rotateAngle) {
-                ChartView(currentDecision: currentDecision, selection: selection)
-            }
-            .overlay({
-                Button(action: {
-                    tapCount += 1
-                    startSpinning()
-                }, label: {
-                    PointerView()
+            GeometryReader { proxy in
+                let radius = min(proxy.size.width, proxy.size.height)
+
+                RotatingView(angle: rotateAngle) {
+                    ChartView(currentDecision: currentDecision, radius: radius)
+                }
+                .overlay({
+                    Button(action: {
+                        tapCount += 1
+                        startSpinning()
+                    }, label: {
+                        PointerView()
+                    })
+
+                    .buttonStyle(PointerViewButtonStyle())
+
                 })
-
-                .buttonStyle(PointerViewButtonStyle())
-
-            })
+                .frame(width: radius, height: radius, alignment: .center)
+            }
+//            .padding(8)
 
             Spacer()
 
@@ -68,7 +74,6 @@ struct PieChartView: View {
             rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
             currentDecision.choices.forEach { $0.enable = true }
         }
-        currentDecision.wheelVersion += 1
         rotateAngle = 0
     }
 

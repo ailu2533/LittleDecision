@@ -45,7 +45,7 @@ class Decision {
             return $0.createDate < $1.createDate
         })
 
-        Logging.shared.debug("sorted \(res)")
+//        Logging.shared.debug("sorted \(res)")
 
         return res
     }

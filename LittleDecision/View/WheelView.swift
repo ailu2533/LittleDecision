@@ -10,9 +10,6 @@ import SwiftData
 import SwiftUI
 
 struct WheelView: View {
-    @Environment(\.modelContext)
-    private var modelContext
-
     let currentDecision: Decision
 
     @Binding var selectedChoice: Choice?
@@ -22,12 +19,22 @@ struct WheelView: View {
 
         VStack {
             Spacer()
-            decisionContentView(for: currentDecision)
+            DecisionContentView(decision: currentDecision, selectedChoice: $selectedChoice)
             Spacer()
         }
     }
+}
 
-    private func decisionContentView(for decision: Decision) -> some View {
+struct DecisionContentView: View {
+    let decision: Decision
+    @Binding var selectedChoice: Choice?
+
+    init(decision: Decision, selectedChoice: Binding<Choice?>) {
+        self.decision = decision
+        _selectedChoice = selectedChoice
+    }
+
+    var body: some View {
         VStack {
             PieChartView(selection: $selectedChoice, currentDecision: decision)
                 .padding(.horizontal, 12)

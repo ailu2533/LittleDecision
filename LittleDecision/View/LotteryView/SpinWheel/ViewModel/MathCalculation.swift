@@ -12,9 +12,9 @@ class MathCalculation {
     let innerRadius: CGFloat
     let outerRadius: CGFloat
 
-    var rawItems: [SpinCellRawItem]
+    var rawItems: [SpinCellItem]
 
-    init(innerRadius: CGFloat, outerRadius: CGFloat, rawItems: [SpinCellRawItem]) {
+    init(innerRadius: CGFloat, outerRadius: CGFloat, rawItems: [SpinCellItem]) {
         self.innerRadius = innerRadius
         self.outerRadius = outerRadius
         self.rawItems = rawItems

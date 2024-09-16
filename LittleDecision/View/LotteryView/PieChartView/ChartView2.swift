@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ChartView: View {
     var currentDecision: Decision
-    var selection: Choice?
+    let radius: CGFloat
 
     @Default(.equalWeight)
     private var equalWeight
@@ -19,7 +19,7 @@ struct ChartView: View {
     var body: some View {
         ZStack {
             CircleBackground(lineWidth: 1)
-            ChartContent(currentDecision: currentDecision)
+            ChartContent(currentDecision: currentDecision, radius: radius)
                 .padding(12)
         }
         .id(equalWeight)
