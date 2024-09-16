@@ -55,6 +55,7 @@
 		8D350ECC2C97FA3300813F2A /* WheelTheme+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */; };
 		8D350ECE2C97FA6000813F2A /* WheelTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECD2C97FA6000813F2A /* WheelTheme.swift */; };
 		8D350ED02C98170900813F2A /* SpinCellRawItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECF2C98170900813F2A /* SpinCellRawItem+.swift */; };
+		8D350ED32C981C6B00813F2A /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 8D350ED22C981C6B00813F2A /* CustomDump */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
@@ -236,6 +237,7 @@
 				8DE2A4C62C8C692B002BC37F /* HorizontalPicker in Frameworks */,
 				8DDB81FE2C81C71B005152BE /* RevenueCat in Frameworks */,
 				8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */,
+				8D350ED32C981C6B00813F2A /* CustomDump in Frameworks */,
 				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
 				8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */,
 				8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */,
@@ -583,6 +585,7 @@
 				8DDB81FD2C81C71B005152BE /* RevenueCat */,
 				8DDB81FF2C81C71B005152BE /* RevenueCatUI */,
 				8DE2A4C52C8C692B002BC37F /* HorizontalPicker */,
+				8D350ED22C981C6B00813F2A /* CustomDump */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -626,6 +629,7 @@
 				8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */,
 				8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */,
+				8D350ED12C981C6B00813F2A /* XCRemoteSwiftPackageReference "swift-custom-dump" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -1015,6 +1019,14 @@
 				kind = branch;
 			};
 		};
+		8D350ED12C981C6B00813F2A /* XCRemoteSwiftPackageReference "swift-custom-dump" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-custom-dump.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.3;
+			};
+		};
 		8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/Subsonic.git";
@@ -1051,6 +1063,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
+		};
+		8D350ED22C981C6B00813F2A /* CustomDump */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D350ED12C981C6B00813F2A /* XCRemoteSwiftPackageReference "swift-custom-dump" */;
+			productName = CustomDump;
 		};
 		8D66ED062C7B5BA4003557C2 /* Subsonic */ = {
 			isa = XCSwiftPackageProductDependency;

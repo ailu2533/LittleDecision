@@ -14,6 +14,17 @@ struct SpinWheelCell: View {
     let outerRadius: CGFloat
     let trailingPadding: CGFloat
     let configuration: SpinWheelConfiguration
+    
+    init(item: Item, innerRadius: CGFloat, outerRadius: CGFloat, trailingPadding: CGFloat, configuration: SpinWheelConfiguration) {
+        self.item = item
+        self.innerRadius = innerRadius
+        self.outerRadius = outerRadius
+        self.trailingPadding = trailingPadding
+        self.configuration = configuration
+        
+        Logging.shared.debug("SpinWheelCell init \(item)")
+        
+    }
 
     var body: some View {
         let _ = Self._printChanges()

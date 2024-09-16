@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/9/16.
 //
 
+import CustomDump
 import Foundation
 import UIKit
 
@@ -57,11 +58,8 @@ struct Item: Identifiable {
     }
 
     public func rectSize(innerRadius: CGFloat, outerRadius: CGFloat) -> CGSize {
-//        if let isize = idealSize(innerRadius: innerRadius, outerRadius: outerRadius) {
-//            return isize
-//        }
-
         var alpha = endAngle - startAngle
+        Logging.shared.debug("rectSize \(title) \(startAngle) \(endAngle)")
 
         // 限制alpha的范围
         alpha = min(max(alpha, 0), .pi / 2)
@@ -82,5 +80,31 @@ struct Item: Identifiable {
     var rotationDegrees: CGFloat {
         let avgAngle = (startAngle + endAngle) / 2
         return avgAngle
+    }
+}
+
+extension Item: CustomStringConvertible {
+    var description: String {
+        return """
+        Item(
+            index: \(index),
+            weight: \(weight),
+            title: "\(title)",
+            enabled: \(enabled),
+            startAngle: \(startAngle),
+            endAngle: \(endAngle)
+        )
+        """
+    }
+}
+
+extension Item: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.index == rhs.index &&
+            lhs.weight == rhs.weight &&
+            lhs.title == rhs.title &&
+            lhs.enabled == rhs.enabled &&
+            lhs.startAngle == rhs.startAngle &&
+            lhs.endAngle == rhs.endAngle
     }
 }
