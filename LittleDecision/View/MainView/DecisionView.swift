@@ -21,6 +21,10 @@ struct DecisionView: View {
     let currentDecision: Decision
 
     var body: some View {
+        
+        let _ = Self._printChanges()
+
+        
         VStack {
             Spacer()
             VStack {
@@ -33,14 +37,14 @@ struct DecisionView: View {
             VStack {
                 switch currentDecision.displayModeEnum {
                 case .wheel:
-                    FirstView(currentDecision: currentDecision, selectedChoice: $selectedChoice)
+                    WheelView(currentDecision: currentDecision, selectedChoice: $selectedChoice)
                 case .stackedCards:
 
                     let choices = currentDecision.choices.map { $0.title }
                     DeckView(choices: choices)
                 }
             }
-            .id(currentDecision.hashValue & equalWeight.hashValue)
+//            .id(currentDecision.hashValue & equalWeight.hashValue)
 
             Spacer()
         }

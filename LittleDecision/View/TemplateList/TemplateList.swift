@@ -64,7 +64,7 @@ struct CategoryPicker: View {
         HorizontalSelectionPicker(pickerId: kPickerId,
                                   items: TemplateKind.allCases,
                                   selectedItem: $selected,
-                                  backgroundColor: .buttonBackground,
+                                  backgroundColor: Color(.systemBackground),
                                   verticalPadding: 8) { item in
             Text(item.text)
         }

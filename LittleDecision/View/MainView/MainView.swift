@@ -23,8 +23,7 @@ struct MainView: View {
 
     @Environment(\.modelContext)
     private var modelContext
-    
-    
+
     /// An identifier for the three-step process the person completes before this app chooses to request a review.
     @AppStorage("processCompletedCount") var processCompletedCount = 0
 
@@ -32,9 +31,10 @@ struct MainView: View {
     @AppStorage("lastVersionPromptedForReview") var lastVersionPromptedForReview = ""
 
     @Environment(\.requestReview) private var requestReview
-    
 
-    private var currentDecision: Decision? {
+    @State private var currentDecision: Decision?
+
+    private func fetchDecision() -> Decision? {
         let predicate = #Predicate<Decision> { $0.uuid == decisionId }
         let descriptor = FetchDescriptor(predicate: predicate)
 
@@ -49,12 +49,12 @@ struct MainView: View {
 
     var body: some View {
         let _ = Self._printChanges()
-        let decision = currentDecision
+//        let decision = currentDecision
 
         NavigationStack {
             Group {
-                if let decision {
-                    DecisionView(currentDecision: decision)
+                if let currentDecision {
+                    DecisionView(currentDecision: currentDecision)
                 } else {
                     ContentUnavailableView("没有数据", systemImage: "envelope.open")
                 }
@@ -74,7 +74,7 @@ struct MainView: View {
                     SkinListView()
                 }
             }
-            
+
             .onAppear {
                 processCompletedCount += 1
             }
@@ -82,7 +82,7 @@ struct MainView: View {
                 guard let currentAppVersion = Bundle.currentAppVersion else {
                     return
                 }
-                
+
                 Logging.shared.debug("processCompletedCount \(processCompletedCount)")
 
                 if processCompletedCount >= 5, currentAppVersion != lastVersionPromptedForReview {
@@ -92,11 +92,12 @@ struct MainView: View {
                     lastVersionPromptedForReview = currentAppVersion
                 }
             }
-            
+        }
+        .task(id: decisionId) {
+            currentDecision = fetchDecision()
         }
     }
-    
-    
+
     /// Presents the rating and review request view after a two-second delay.
     private func presentReview() {
         Task {
@@ -105,5 +106,4 @@ struct MainView: View {
             await requestReview()
         }
     }
-    
 }

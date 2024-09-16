@@ -9,7 +9,7 @@ import Defaults
 import SwiftData
 import SwiftUI
 
-struct FirstView: View {
+struct WheelView: View {
     @Environment(\.modelContext)
     private var modelContext
 
@@ -18,6 +18,8 @@ struct FirstView: View {
     @Binding var selectedChoice: Choice?
 
     var body: some View {
+        let _ = Self._printChanges()
+
         VStack {
             Spacer()
             decisionContentView(for: currentDecision)

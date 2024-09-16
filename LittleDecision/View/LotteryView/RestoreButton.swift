@@ -5,8 +5,8 @@
 //  Created by Lu Ai on 2024/8/15.
 //
 
-import SwiftUI
 import LemonViews
+import SwiftUI
 
 struct RestoreButton: View {
     let action: () -> Void
@@ -24,26 +24,7 @@ struct RestoreButton: View {
     }
 }
 
-struct RestoreButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration
-            .label
-            .font(customBodyFont)
-//            .fontWeight(.semibold)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
-            .background(Color.systemBackground)
-            .clipShape(Capsule())
-            .foregroundColor(.accentColor)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
-//            .shadow(radius: 0.5)
-            .contentShape(Rectangle())
-    }
-}
-
-
 #Preview {
     RestoreButton(action: {
-        
     }, tapCount: .constant(2))
 }

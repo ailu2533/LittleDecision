@@ -1,8 +1,8 @@
 //
-//  MathCalculation.swift
+//  Item.swift
 //  LittleDecision
 //
-//  Created by Lu Ai on 2024/8/24.
+//  Created by Lu Ai on 2024/9/16.
 //
 
 import Foundation
@@ -85,52 +85,5 @@ struct Item: Identifiable {
     var rotationDegrees: CGFloat {
         let avgAngle = (startAngle + endAngle) / 2
         return avgAngle
-    }
-}
-
-class MathCalculation {
-    let innerRadius: CGFloat
-    let outerRadius: CGFloat
-
-    var rawItems: [SpinCellRawItem]
-
-    init(innerRadius: CGFloat, outerRadius: CGFloat, rawItems: [SpinCellRawItem]) {
-        self.innerRadius = innerRadius
-        self.outerRadius = outerRadius
-        self.rawItems = rawItems
-//
-//        let weights = rawItems.map { $0.weight }
-//
-//        items = calculateItemsByWeights(weights)
-    }
-
-    // 根据weights计算出每个weiht所在的比例
-//    var items: [Item] = []
-
-    func calculateItemsByWeights(_ weights: [CGFloat]) async -> [Item] {
-        return await Task.detached(priority: .userInitiated) {
-            var calculatedItems: [Item] = []
-            let totalWeight = weights.reduce(0, +)
-            var startAngle: CGFloat = 0
-
-            for (index, rawItem) in self.rawItems.enumerated() {
-                let sweepAngle = (rawItem.weight / totalWeight) * 2 * .pi
-                let endAngle = startAngle + sweepAngle
-
-                let item = Item(
-                    index: index,
-                    weight: rawItem.weight,
-                    title: rawItem.title,
-                    enabled: rawItem.enabled,
-                    startAngle: startAngle,
-                    endAngle: endAngle
-                )
-
-                calculatedItems.append(item)
-                startAngle = endAngle
-            }
-
-            return calculatedItems
-        }.value
     }
 }

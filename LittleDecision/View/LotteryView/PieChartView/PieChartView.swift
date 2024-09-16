@@ -23,14 +23,14 @@ struct PieChartView: View {
     @Default(.noRepeat) private var noRepeat
     @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
-
     @Default(.enableSound) private var enableSound
-
-    @Default(.selectedThemeID) private var selectedThemeID
 
     @State private var deg: CGFloat = 0
 
     var body: some View {
+        
+        let _ = Self._printChanges()
+        
         VStack {
             RotatingView(angle: rotateAngle) {
                 ChartView(currentDecision: currentDecision, selection: selection)
@@ -46,7 +46,6 @@ struct PieChartView: View {
                 .buttonStyle(PointerViewButtonStyle())
 
             })
-            .id(currentDecision.hashValue & equalWeight.hashValue)
 
             Spacer()
 
@@ -56,26 +55,8 @@ struct PieChartView: View {
                     .padding()
             }
         }
-        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
-        .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
-    }
-
-    private var pointerView: some View {
-        PointerShape()
-            .fill(.pink1)
-            .stroke(.black, style: .init(lineWidth: 1))
-            .overlay {
-                PointerShape()
-                    .fill(Material.thin)
-            }
-
-            .frame(width: 150, height: 150)
-            .overlay(alignment: .center) {
-                Text("开始")
-                    .font(customStartFont)
-                    .minimumScaleFactor(0.5)
-                    .foregroundStyle(.black)
-            }
+//        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
+//        .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
     }
 
     private func restore() {
@@ -127,30 +108,5 @@ struct PieChartView: View {
             restore()
             isRunning = false
         }
-    }
-}
-
-struct RotatingView<Content: View>: View {
-    let angle: Double
-    let content: () -> Content
-
-    var body: some View {
-        content()
-            .modifier(RotationModifier(angle: angle))
-    }
-}
-
-struct RotationModifier: AnimatableModifier {
-    var angle: Double
-
-    var animatableData: Double {
-        get { angle }
-        set {
-            angle = newValue
-        }
-    }
-
-    func body(content: Content) -> some View {
-        content.rotationEffect(.degrees(angle))
     }
 }

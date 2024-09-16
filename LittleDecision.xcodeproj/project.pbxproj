@@ -12,7 +12,7 @@
 		273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCF82C141193006AC677 /* DecisionEditorView.swift */; };
 		273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFA2C1411A6006AC677 /* DecisionAddView.swift */; };
 		273ADCFD2C141AEB006AC677 /* CommonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFC2C141AEB006AC677 /* CommonEditView.swift */; };
-		273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFE2C144C6C006AC677 /* FirstView.swift */; };
+		273ADCFF2C144C6C006AC677 /* WheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADCFE2C144C6C006AC677 /* WheelView.swift */; };
 		273ADD112C153431006AC677 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD102C153431006AC677 /* SettingsView.swift */; };
 		273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */; };
 		273ADD162C157830006AC677 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273ADD152C157830006AC677 /* PieChartView.swift */; };
@@ -45,6 +45,15 @@
 		8D19326E2C6E47D000F9D2A4 /* data.kr.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932682C6E455100F9D2A4 /* data.kr.json */; };
 		8D19326F2C6E47D000F9D2A4 /* data.tw.json in Resources */ = {isa = PBXBuildFile; fileRef = 8D1932662C6E44F100F9D2A4 /* data.tw.json */; };
 		8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1932832C70490C00F9D2A4 /* Constants.swift */; };
+		8D350EBB2C97F4D900813F2A /* ChartView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBA2C97F4D900813F2A /* ChartView2.swift */; };
+		8D350EBD2C97F4F600813F2A /* CircleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBC2C97F4F600813F2A /* CircleBackground.swift */; };
+		8D350EBF2C97F51400813F2A /* SpinWheelPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */; };
+		8D350EC12C97F53100813F2A /* RotatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC02C97F53100813F2A /* RotatingView.swift */; };
+		8D350EC52C97F97000813F2A /* SpinCellRawItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC42C97F97000813F2A /* SpinCellRawItem.swift */; };
+		8D350EC72C97F9B700813F2A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC62C97F9B700813F2A /* Item.swift */; };
+		8D350ECA2C97FA0900813F2A /* SectionFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC92C97FA0900813F2A /* SectionFill.swift */; };
+		8D350ECC2C97FA3300813F2A /* WheelTheme+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */; };
+		8D350ECE2C97FA6000813F2A /* WheelTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350ECD2C97FA6000813F2A /* WheelTheme.swift */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ECC32C79EA84003557C2 /* MathCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66ECC22C79EA84003557C2 /* MathCalculation.swift */; };
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
@@ -114,7 +123,7 @@
 		273ADCF82C141193006AC677 /* DecisionEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionEditorView.swift; sourceTree = "<group>"; };
 		273ADCFA2C1411A6006AC677 /* DecisionAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionAddView.swift; sourceTree = "<group>"; };
 		273ADCFC2C141AEB006AC677 /* CommonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonEditView.swift; sourceTree = "<group>"; };
-		273ADCFE2C144C6C006AC677 /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		273ADCFE2C144C6C006AC677 /* WheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelView.swift; sourceTree = "<group>"; };
 		273ADD102C153431006AC677 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		273ADD122C1554BD006AC677 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		273ADD152C157830006AC677 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -148,6 +157,15 @@
 		8D1932692C6E45F100F9D2A4 /* data.de.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.de.json; sourceTree = "<group>"; };
 		8D1932702C6E4E5300F9D2A4 /* extract_translation.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = extract_translation.py; sourceTree = "<group>"; };
 		8D1932832C70490C00F9D2A4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8D350EBA2C97F4D900813F2A /* ChartView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView2.swift; sourceTree = "<group>"; };
+		8D350EBC2C97F4F600813F2A /* CircleBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBackground.swift; sourceTree = "<group>"; };
+		8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelPreview.swift; sourceTree = "<group>"; };
+		8D350EC02C97F53100813F2A /* RotatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingView.swift; sourceTree = "<group>"; };
+		8D350EC42C97F97000813F2A /* SpinCellRawItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinCellRawItem.swift; sourceTree = "<group>"; };
+		8D350EC62C97F9B700813F2A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		8D350EC92C97FA0900813F2A /* SectionFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFill.swift; sourceTree = "<group>"; };
+		8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WheelTheme+.swift"; sourceTree = "<group>"; };
+		8D350ECD2C97FA6000813F2A /* WheelTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelTheme.swift; sourceTree = "<group>"; };
 		8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8D66ECC22C79EA84003557C2 /* MathCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCalculation.swift; sourceTree = "<group>"; };
 		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
@@ -243,11 +261,11 @@
 		273ADCF42C1409AC006AC677 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8D350EC82C97F9F800813F2A /* ThemeManager */,
 				8DDB820B2C821832005152BE /* IAPManaging */,
 				273ADCF52C1409CE006AC677 /* Logging.swift */,
 				8D1932592C6E0F0E00F9D2A4 /* Utils.swift */,
 				8DF0AA742C8083B800F4FD27 /* CustomFont.swift */,
-				8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */,
 				8DDB81F32C816467005152BE /* PointerView.swift */,
 				8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */,
 				8DE2A5132C8ED99D002BC37F /* LemonForm.swift */,
@@ -278,15 +296,11 @@
 		273ADD142C157809006AC677 /* LotteryView */ = {
 			isa = PBXGroup;
 			children = (
-				273ADD152C157830006AC677 /* PieChartView.swift */,
+				8D350EC22C97F59300813F2A /* SpinWheel */,
+				8D350EB92C97F41F00813F2A /* PieChartView */,
 				273ADDA22C16B3B9006AC677 /* ChartView.swift */,
 				8D19325F2C6E1E3C00F9D2A4 /* RestoreButton.swift */,
-				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
-				8DDB821F2C82D2CD005152BE /* SpinWheel.swift */,
-				8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */,
-				8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */,
 				8DDB82252C82D3FF005152BE /* ChartItemText.swift */,
-				8DDB82272C83247F005152BE /* SpinWheelConfiguration.swift */,
 			);
 			path = LotteryView;
 			sourceTree = "<group>";
@@ -306,7 +320,7 @@
 				2754AA092BC3DCB8000073FB /* ModelUtil.swift */,
 				2754AA052BC3D1BD000073FB /* PointerShape.swift */,
 				271DE96A2BD93549005C6405 /* DecisionListItem.swift */,
-				273ADCFE2C144C6C006AC677 /* FirstView.swift */,
+				273ADCFE2C144C6C006AC677 /* WheelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +391,51 @@
 				8D1932702C6E4E5300F9D2A4 /* extract_translation.py */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8D350EB92C97F41F00813F2A /* PieChartView */ = {
+			isa = PBXGroup;
+			children = (
+				273ADD152C157830006AC677 /* PieChartView.swift */,
+				8D350EBA2C97F4D900813F2A /* ChartView2.swift */,
+				8D350EBC2C97F4F600813F2A /* CircleBackground.swift */,
+				8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */,
+				8D350EC02C97F53100813F2A /* RotatingView.swift */,
+			);
+			path = PieChartView;
+			sourceTree = "<group>";
+		};
+		8D350EC22C97F59300813F2A /* SpinWheel */ = {
+			isa = PBXGroup;
+			children = (
+				8D350EC32C97F95D00813F2A /* ViewModel */,
+				8DDB821F2C82D2CD005152BE /* SpinWheel.swift */,
+				8DDB82272C83247F005152BE /* SpinWheelConfiguration.swift */,
+				8DDB82212C82D2F1005152BE /* SpinWheelCell.swift */,
+				8DDB82232C82D3C4005152BE /* SpinWheelCellShape.swift */,
+			);
+			path = SpinWheel;
+			sourceTree = "<group>";
+		};
+		8D350EC32C97F95D00813F2A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D66ECC22C79EA84003557C2 /* MathCalculation.swift */,
+				8D350EC42C97F97000813F2A /* SpinCellRawItem.swift */,
+				8D350EC62C97F9B700813F2A /* Item.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8D350EC82C97F9F800813F2A /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				8DF0AAAC2C80C11100F4FD27 /* ThemeManager.swift */,
+				8D350EC92C97FA0900813F2A /* SectionFill.swift */,
+				8D350ECB2C97FA3300813F2A /* WheelTheme+.swift */,
+				8D350ECD2C97FA6000813F2A /* WheelTheme.swift */,
+			);
+			path = ThemeManager;
 			sourceTree = "<group>";
 		};
 		8DDB81F52C817A44005152BE /* Premium */ = {
@@ -636,12 +695,13 @@
 				2754AA0A2BC3DCB8000073FB /* ModelUtil.swift in Sources */,
 				2754AA062BC3D1BD000073FB /* PointerShape.swift in Sources */,
 				8DE2A4C32C8C5947002BC37F /* TemplateList.swift in Sources */,
+				8D350EC72C97F9B700813F2A /* Item.swift in Sources */,
 				8DDB82222C82D2F1005152BE /* SpinWheelCell.swift in Sources */,
 				8DE2A5102C8ED3FD002BC37F /* ChoiceWeightView.swift in Sources */,
 				8DDB822D2C83F893005152BE /* SkinConfiguration.swift in Sources */,
 				8DE2A51D2C8EDCAE002BC37F /* DeleteDecisionButton.swift in Sources */,
 				8DE2A50E2C8ED2C0002BC37F /* ChoiceTitleView.swift in Sources */,
-				273ADCFF2C144C6C006AC677 /* FirstView.swift in Sources */,
+				273ADCFF2C144C6C006AC677 /* WheelView.swift in Sources */,
 				8D1932582C6DB42F00F9D2A4 /* ChoiceEditorView.swift in Sources */,
 				271DE96B2BD93549005C6405 /* DecisionListItem.swift in Sources */,
 				8DDB81F42C816467005152BE /* PointerView.swift in Sources */,
@@ -652,16 +712,19 @@
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				8DE2A54D2C91D71E002BC37F /* Bundle+AppVersion.swift in Sources */,
+				8D350ECE2C97FA6000813F2A /* WheelTheme.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
 				8DE2A4C02C8C163C002BC37F /* DecisionDisplayMode.swift in Sources */,
 				8DDB820E2C82184A005152BE /* IAPError.swift in Sources */,
 				8DE2A5122C8ED5FB002BC37F /* EditDecisionTitleView.swift in Sources */,
 				8DE2A51F2C8EDDE1002BC37F /* DecisionListRowLabel.swift in Sources */,
+				8D350EC52C97F97000813F2A /* SpinCellRawItem.swift in Sources */,
 				8DE2A5142C8ED99D002BC37F /* LemonForm.swift in Sources */,
 				8DE2A5052C8EB688002BC37F /* ChoiceTip.swift in Sources */,
 				8DDB82242C82D3C4005152BE /* SpinWheelCellShape.swift in Sources */,
 				8DE2A5192C8EDBA1002BC37F /* DecisionRow.swift in Sources */,
 				8DE2A5222C8EE20E002BC37F /* DecisionView.swift in Sources */,
+				8D350EC12C97F53100813F2A /* RotatingView.swift in Sources */,
 				8DE2A5072C8EB6D7002BC37F /* UseDecisionTip.swift in Sources */,
 				273ADCF92C141193006AC677 /* DecisionEditorView.swift in Sources */,
 				8D1932602C6E1E3C00F9D2A4 /* RestoreButton.swift in Sources */,
@@ -681,12 +744,17 @@
 				8DE2A50C2C8EBA42002BC37F /* WeightInfoSection.swift in Sources */,
 				8DE2A5322C8FE4E6002BC37F /* DecisionTitle.swift in Sources */,
 				8DE2A5452C913986002BC37F /* SoundPlayer.swift in Sources */,
+				8D350ECA2C97FA0900813F2A /* SectionFill.swift in Sources */,
 				8DDB82122C821878005152BE /* SubscriptionState.swift in Sources */,
+				8D350ECC2C97FA3300813F2A /* WheelTheme+.swift in Sources */,
+				8D350EBF2C97F51400813F2A /* SpinWheelPreview.swift in Sources */,
 				8DF0AAAD2C80C11100F4FD27 /* ThemeManager.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartView.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
+				8D350EBD2C97F4F600813F2A /* CircleBackground.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */,
+				8D350EBB2C97F4D900813F2A /* ChartView2.swift in Sources */,
 				8DE2A50A2C8EBA07002BC37F /* ChoiceDetailsSection.swift in Sources */,
 				8DE2A5022C8EB626002BC37F /* ChoicesSection.swift in Sources */,
 				8DDB822A2C83F0F2005152BE /* PremiumIcon.swift in Sources */,

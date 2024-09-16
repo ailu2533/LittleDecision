@@ -14,18 +14,29 @@ struct ChartItemText: View {
     let trailingPadding: CGFloat
 
     @State private var size: CGSize?
+    
+    
+    init(item: Item, innerRadius: CGFloat, outerRadius: CGFloat, trailingPadding: CGFloat) {
+        self.item = item
+        self.innerRadius = innerRadius
+        self.outerRadius = outerRadius
+        self.trailingPadding = trailingPadding
+        Logging.shared.debug("ChartItemText init")
+    }
+    
 
     var body: some View {
+        
+        let _ = Self._printChanges()
+        
         Group {
             if let size {
                 Text(item.title)
                     .font(customBodyFont)
                     .foregroundStyle(item.enabled ? Color(.black) : Color(.gray))
-//                    .padding(.trailing, trailingPadding)
                     .multilineTextAlignment(.trailing)
                     .minimumScaleFactor(0.5)
                     .lineLimit(3)
-//                    .background(.blue)
                     .frame(width: size.width, height: size.height, alignment: .trailing)
                     .offset(x: innerRadius + size.width / 2)
                     .rotationEffect(.radians(item.rotationDegrees))
