@@ -4,17 +4,18 @@ import SwiftUI
 
 struct ChartContent: View {
     var currentDecision: Decision
-    var colors: [Color]
-    var rawItems: [SpinCellRawItem]
 
-    init(currentDecision: Decision, colors: [Color]) {
-        self.currentDecision = currentDecision
-        self.colors = colors
-        Logging.shared.debug("ChartContent init")
+    @Default(.equalWeight)
+    private var equalWeight
 
-        rawItems = currentDecision.sortedChoices.map { choice in
-            SpinCellRawItem(title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
+    var rawItems: [SpinCellRawItem] {
+        currentDecision.sortedChoices.map { choice in
+            SpinCellRawItem(title: choice.title, weight: CGFloat(equalWeight ? 1 : choice.weight), enabled: choice.enable)
         }
+    }
+
+    init(currentDecision: Decision) {
+        self.currentDecision = currentDecision
     }
 
     @Default(.selectedSkinConfiguration)

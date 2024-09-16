@@ -17,7 +17,7 @@ struct ChartView: View {
     var body: some View {
         ZStack {
             CircleBackground(lineWidth: 1)
-            ChartContent(currentDecision: currentDecision, colors: colors)
+            ChartContent(currentDecision: currentDecision)
                 .padding(12)
         }
     }

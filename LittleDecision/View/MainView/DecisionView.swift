@@ -21,10 +21,8 @@ struct DecisionView: View {
     let currentDecision: Decision
 
     var body: some View {
-        
         let _ = Self._printChanges()
 
-        
         VStack {
             Spacer()
             VStack {
@@ -44,7 +42,6 @@ struct DecisionView: View {
                     DeckView(choices: choices)
                 }
             }
-//            .id(currentDecision.hashValue & equalWeight.hashValue)
 
             Spacer()
         }

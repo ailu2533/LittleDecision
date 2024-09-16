@@ -41,7 +41,7 @@ struct ChoiceAddView: View {
     private var weightInfoSection: some View {
         Section {
             LabeledContent("总权重", value: "\(decision.totalWeight + weight)")
-            LabeledContent("当前选项概率", value: probability(weight, decision.totalWeight + weight))
+            LabeledContent("概率", value: probability(weight, decision.totalWeight + weight))
         }
     }
 

@@ -21,7 +21,7 @@ struct WeightInfoSection: View {
 
             HStack {
                 SettingIconView(icon: .system(icon: "percent", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-                LabeledContent("当前选项概率", value: probability(choice.weight, totalWeight))
+                LabeledContent("概率", value: probability(choice.weight, totalWeight))
             }
         }
         .task(id: choice.weight) {
