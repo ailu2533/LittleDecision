@@ -46,6 +46,9 @@ struct DecisionView: View {
 
             Spacer()
         }
+        .onChange(of: decisionId) { _, _ in
+            selectedChoice = nil
+        }
     }
 
     private var noDecisionView: some View {

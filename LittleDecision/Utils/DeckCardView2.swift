@@ -1,5 +1,5 @@
-import SwiftUI
 import LemonViews
+import SwiftUI
 
 struct CardFront: View {
     let text: String

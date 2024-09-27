@@ -96,7 +96,7 @@ struct SettingsView: View {
 
                 Text("字体大小")
                 Spacer()
-                Text("\(Int(fontSize))")
+                Text(verbatim: "\(Int(fontSize))")
             }
 
             Slider(value: $fontSize, in: 12 ... 24, step: 1)
@@ -104,5 +104,3 @@ struct SettingsView: View {
         }
     }
 }
-
-

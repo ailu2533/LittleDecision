@@ -14,7 +14,7 @@ struct UseDecisionTip: Tip {
     }
 
     var message: Text? {
-        Text("点击**方框**使用决定\n向左滑动删除决定")
+        Text("点击**单选框**使用决定\n向左滑动删除决定")
     }
 
     var image: Image? {

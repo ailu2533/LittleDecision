@@ -59,8 +59,8 @@ struct PieChartView: View {
                     .padding()
             }
         }
-//        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
-//        .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
+        .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
     }
 
     private func restore() {

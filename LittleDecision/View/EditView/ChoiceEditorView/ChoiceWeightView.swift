@@ -15,7 +15,7 @@ struct ChoiceWeightView: View {
         HStack {
             SettingIconView(icon: .system(icon: "scalemass", foregroundColor: .primary, backgroundColor: .secondaryAccent))
             Picker("权重", selection: $weight) {
-                ForEach(1 ... 100, id: \.self) { Text("\($0)") }
+                ForEach(1 ... 100, id: \.self) { Text(verbatim: "\($0)") }
             }
         }
     }

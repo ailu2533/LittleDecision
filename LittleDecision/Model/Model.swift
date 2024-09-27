@@ -11,7 +11,7 @@ import SwiftUI
 
 @Model
 class Decision {
-    let uuid: UUID
+    var uuid: UUID
     var title: String
 
     @Relationship(inverse: \Choice.decision)

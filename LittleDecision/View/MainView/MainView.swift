@@ -89,6 +89,7 @@ struct MainView: View {
 
                     // The app already displayed the rating and review request view. Store this current version.
                     lastVersionPromptedForReview = currentAppVersion
+                    processCompletedCount = 0
                 }
             }
         }

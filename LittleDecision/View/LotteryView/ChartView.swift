@@ -19,6 +19,9 @@ struct ChartContent: View {
     @Default(.equalWeight)
     private var equalWeight
 
+    @Default(.noRepeat)
+    private var noRepeat
+
     var configuration: SpinWheelConfiguration {
         SkinManager.shared.getSkinConfiguration(skinKind: selectedSkinConfiguration)
     }
@@ -38,6 +41,13 @@ struct ChartContent: View {
                   size: CGSize(width: radius, height: radius),
                   configuration: configuration
         )
+        .onChange(of: noRepeat) { _, _ in
+            currentDecision.choices.forEach {
+                $0.enable = true
+            }
+
+            currentDecision.incWheelVersion()
+        }
     }
 }
 

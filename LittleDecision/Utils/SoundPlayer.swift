@@ -10,7 +10,7 @@ import Subsonic
 
 // 创建一个单独的 SoundPlayer 类来管理声音
 
-class SoundPlayer {
+final class SoundPlayer: Sendable {
     static let shared = SoundPlayer()
 
     private init() {}
