@@ -40,9 +40,7 @@ struct DecisionView: View {
                     WheelView(currentDecision: currentDecision, selectedChoice: $selectedChoice)
                 case .stackedCards:
 
-                    let choices = currentDecision.choices.map { CardChoiceItem(content: $0.title, weight: $0.weight) }
-                    DeckView(choices: choices, noRepeat: noRepeat)
-//                        .id(currentDecision.uuid)
+                    DeckHelperView(currentDecision: currentDecision)
                 }
             }
 
@@ -57,5 +55,23 @@ struct DecisionView: View {
         ContentUnavailableView {
             Label("请在决定Tab添加决定", systemImage: "tray.fill")
         }
+    }
+}
+
+struct DeckHelperView: View {
+    var currentDecision: Decision
+
+    @Default(.equalWeight) private var equalWeight
+    @Default(.noRepeat) private var noRepeat
+
+    var choices: [CardChoiceItem] {
+        _ = currentDecision.wheelVersion
+        _ = equalWeight
+
+        return currentDecision.choices.map { CardChoiceItem(content: $0.title, weight: $0.weight4calc) }
+    }
+
+    var body: some View {
+        DeckView(choices: choices, noRepeat: noRepeat)
     }
 }

@@ -10,20 +10,21 @@ import SwiftUI
 
 @Observable
 class CardViewModel {
-    var backDegree: CGFloat = 0
-    var frontDegree: CGFloat = -90
+    private(set) var backDegree: CGFloat = 0
+    private(set) var frontDegree: CGFloat = -90
 
-    var isScaled = false
-    var isFlipped = false
-    var xOffset: CGFloat = 0
+    private(set) var isScaled = false
+    private(set) var isFlipped = false
+    private(set) var xOffset: CGFloat = 0
+    private(set) var enableWiggle: Bool = false
 
-    var showMask: Bool = false
-    var text: String = ""
+    private(set) var showMask: Bool = false
+    private(set) var text: String = ""
 
-    var items: [CardChoiceItem]
-    var choices: [CardChoiceItem]
+    private var items: [CardChoiceItem]
+    private var choices: [CardChoiceItem]
 
-    let noRepeat: Bool
+    private let noRepeat: Bool
 
     init(items: [CardChoiceItem], noRepeat: Bool) {
         self.items = items
@@ -31,12 +32,10 @@ class CardViewModel {
         self.noRepeat = noRepeat
     }
 
-    var enableWiggle: Bool = false
+//    @ObservationIgnored
+    private var isFliping = false
 
-    @ObservationIgnored
-    var isFliping = false
-
-    var tapCount = 0
+    private(set) var tapCount = 0
 
     public func flip() {
         if isFliping {
@@ -147,6 +146,8 @@ class CardViewModel {
         guard !weightedItems.isEmpty else {
             return nil
         }
+
+        Logging.shared.debug("drawWeightedItem \(weightedItems.count) \(weightedItems)")
 
         let totalWeight = weightedItems.reduce(0) { $0 + $1.weight }
         let randomNumber = Int.random(in: 1 ... totalWeight)

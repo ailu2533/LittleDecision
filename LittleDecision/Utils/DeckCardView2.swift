@@ -14,7 +14,6 @@ struct DeckView: View {
     let noRepeat: Bool
 
     init(choices: [CardChoiceItem], noRepeat: Bool) {
-        _cardViewModel = State(wrappedValue: CardViewModel(items: choices, noRepeat: noRepeat))
         self.choices = choices
         self.noRepeat = noRepeat
 
@@ -56,6 +55,9 @@ struct DeckView: View {
             }
         }
         .padding(.horizontal, 12)
+        .onAppear {
+            cardViewModel = CardViewModel(items: choices, noRepeat: noRepeat)
+        }
         .onChange(of: choices) { _, newValue in
             cardViewModel = CardViewModel(items: newValue, noRepeat: noRepeat)
         }
