@@ -1,5 +1,5 @@
 {
-  "originHash" : "09e2bf1aaf655482729a6746d20cb7c92add81948cf69a9e934ff264dea065c6",
+  "originHash" : "5998ffb6f6277c1d0c0088bea3c312f2e770656be29b1e2df0811ec098af5056",
   "pins" : [
     {
       "identity" : "defaults",
@@ -38,6 +38,15 @@
       }
     },
     {
+      "identity" : "spinwheel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ailu2533/SpinWheel.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "897f1ff8ca143dcc717d8d4b4b5aa865dde81983"
+      }
+    },
+    {
       "identity" : "subsonic",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/twostraws/Subsonic.git",
@@ -56,30 +65,12 @@
       }
     },
     {
-      "identity" : "swift-custom-dump",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/swift-custom-dump.git",
-      "state" : {
-        "revision" : "82645ec760917961cfa08c9c0c7104a57a0fa4b1",
-        "version" : "1.3.3"
-      }
-    },
-    {
       "identity" : "swiftuix",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftUIX/SwiftUIX",
       "state" : {
         "revision" : "cdc902f828e8c457f601e744cc7607148dcdb91a",
         "version" : "0.2.2"
-      }
-    },
-    {
-      "identity" : "xctest-dynamic-overlay",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/pointfreeco/xctest-dynamic-overlay",
-      "state" : {
-        "revision" : "bc2a151366f2cd0e347274544933bc2acb00c9fe",
-        "version" : "1.4.0"
       }
     }
   ],

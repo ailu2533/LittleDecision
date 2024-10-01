@@ -14,6 +14,7 @@ struct DecisionView: View {
     @Default(.decisionId) private var decisionId
 
     @Default(.equalWeight) private var equalWeight
+    @Default(.noRepeat) private var noRepeat
 
     @Environment(\.modelContext)
     private var modelContext
@@ -39,8 +40,9 @@ struct DecisionView: View {
                     WheelView(currentDecision: currentDecision, selectedChoice: $selectedChoice)
                 case .stackedCards:
 
-                    let choices = currentDecision.choices.map { $0.title }
-                    DeckView(choices: choices)
+                    let choices = currentDecision.choices.map { CardChoiceItem(content: $0.title, weight: $0.weight) }
+                    DeckView(choices: choices, noRepeat: noRepeat)
+//                        .id(currentDecision.uuid)
                 }
             }
 

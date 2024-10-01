@@ -3,6 +3,16 @@
     {
       "filename" : "35481337_v915-wit-005-b.svg",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "35481337_v915-wit-005-b 1.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

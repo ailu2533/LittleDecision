@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,11 +48,16 @@
 		8D350EBD2C97F4F600813F2A /* CircleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBC2C97F4F600813F2A /* CircleBackground.swift */; };
 		8D350EBF2C97F51400813F2A /* SpinWheelPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EBE2C97F51400813F2A /* SpinWheelPreview.swift */; };
 		8D350EC12C97F53100813F2A /* RotatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D350EC02C97F53100813F2A /* RotatingView.swift */; };
-		8D350ED32C981C6B00813F2A /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = 8D350ED22C981C6B00813F2A /* CustomDump */; };
 		8D66ECBC2C798442003557C2 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */; };
 		8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */; };
 		8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */; };
 		8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = 8D66ED062C7B5BA4003557C2 /* Subsonic */; };
+		8D8109A42CABFDE5000FB1FB /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 8D8109A32CABFDE5000FB1FB /* SwiftUIX */; };
+		8D8109A82CAC46B8000FB1FB /* CardFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8109A72CAC46B8000FB1FB /* CardFront.swift */; };
+		8D8109AA2CAC46CD000FB1FB /* CardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8109A92CAC46CD000FB1FB /* CardBack.swift */; };
+		8D8109AC2CAC46EC000FB1FB /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8109AB2CAC46EC000FB1FB /* CardViewModel.swift */; };
+		8D8109AE2CAC4716000FB1FB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8109AD2CAC4716000FB1FB /* Card.swift */; };
+		8D8109B02CAC4736000FB1FB /* CardChoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8109AF2CAC4736000FB1FB /* CardChoiceItem.swift */; };
 		8DC1AC722C98668800BB3645 /* SpinWheel in Frameworks */ = {isa = PBXBuildFile; productRef = 8DC1AC712C98668800BB3645 /* SpinWheel */; };
 		8DDB81F42C816467005152BE /* PointerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F32C816467005152BE /* PointerView.swift */; };
 		8DDB81F72C817A5E005152BE /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB81F62C817A5E005152BE /* PremiumView.swift */; };
@@ -61,7 +66,6 @@
 		8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8DDB81FF2C81C71B005152BE /* RevenueCatUI */; };
 		8DDB82022C81C7CF005152BE /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82012C81C7CF005152BE /* PurchaseManager.swift */; };
 		8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDB82042C8204F7005152BE /* StoreKit.framework */; };
-		8DDB82082C820710005152BE /* StoreKitTestCertificate.cer in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB82072C820710005152BE /* StoreKitTestCertificate.cer */; };
 		8DDB820A2C8217CF005152BE /* RCConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB82092C8217CF005152BE /* RCConstant.swift */; };
 		8DDB820E2C82184A005152BE /* IAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB820D2C82184A005152BE /* IAPError.swift */; };
 		8DDB82102C821866005152BE /* SubscriptionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDB820F2C821866005152BE /* SubscriptionInfo.swift */; };
@@ -152,13 +156,17 @@
 		8D66ED002C7B21EA003557C2 /* ChillRoundM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChillRoundM.otf; sourceTree = "<group>"; };
 		8D66ED022C7B2231003557C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D66ED032C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3"; sourceTree = "<group>"; };
+		8D8109A72CAC46B8000FB1FB /* CardFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFront.swift; sourceTree = "<group>"; };
+		8D8109A92CAC46CD000FB1FB /* CardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBack.swift; sourceTree = "<group>"; };
+		8D8109AB2CAC46EC000FB1FB /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		8D8109AD2CAC4716000FB1FB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		8D8109AF2CAC4736000FB1FB /* CardChoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoiceItem.swift; sourceTree = "<group>"; };
 		8DDB81F32C816467005152BE /* PointerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointerView.swift; sourceTree = "<group>"; };
 		8DDB81F62C817A5E005152BE /* PremiumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		8DDB81FA2C81B1E3005152BE /* BackgroundContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundContainer.swift; sourceTree = "<group>"; };
 		8DDB82012C81C7CF005152BE /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		8DDB82042C8204F7005152BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8DDB82062C82052C005152BE /* Yuzu DecideEasy.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Yuzu DecideEasy.storekit"; sourceTree = "<group>"; };
-		8DDB82072C820710005152BE /* StoreKitTestCertificate.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = StoreKitTestCertificate.cer; path = ../../Downloads/StoreKitTestCertificate.cer; sourceTree = "<group>"; };
 		8DDB82092C8217CF005152BE /* RCConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCConstant.swift; sourceTree = "<group>"; };
 		8DDB820D2C82184A005152BE /* IAPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPError.swift; sourceTree = "<group>"; };
 		8DDB820F2C821866005152BE /* SubscriptionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionInfo.swift; sourceTree = "<group>"; };
@@ -205,10 +213,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8109A42CABFDE5000FB1FB /* SwiftUIX in Frameworks */,
 				8DE2A4C62C8C692B002BC37F /* HorizontalPicker in Frameworks */,
 				8DDB81FE2C81C71B005152BE /* RevenueCat in Frameworks */,
 				8D66ED072C7B5BA4003557C2 /* Subsonic in Frameworks */,
-				8D350ED32C981C6B00813F2A /* CustomDump in Frameworks */,
 				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
 				8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */,
 				8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */,
@@ -237,6 +245,11 @@
 		273ADCF42C1409AC006AC677 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8D8109AF2CAC4736000FB1FB /* CardChoiceItem.swift */,
+				8D8109AD2CAC4716000FB1FB /* Card.swift */,
+				8D8109AB2CAC46EC000FB1FB /* CardViewModel.swift */,
+				8D8109A92CAC46CD000FB1FB /* CardBack.swift */,
+				8D8109A72CAC46B8000FB1FB /* CardFront.swift */,
 				8DDB820B2C821832005152BE /* IAPManaging */,
 				273ADCF52C1409CE006AC677 /* Logging.swift */,
 				8D1932592C6E0F0E00F9D2A4 /* Utils.swift */,
@@ -301,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				8DDB82062C82052C005152BE /* Yuzu DecideEasy.storekit */,
-				8DDB82072C820710005152BE /* StoreKitTestCertificate.cer */,
 				8D66ECBB2C798442003557C2 /* Launch Screen.storyboard */,
 				27FCEFA52BBC6DAF002518E0 /* LittleDecision */,
 				27FCEFA42BBC6DAF002518E0 /* Products */,
@@ -510,8 +522,8 @@
 				8DDB81FD2C81C71B005152BE /* RevenueCat */,
 				8DDB81FF2C81C71B005152BE /* RevenueCatUI */,
 				8DE2A4C52C8C692B002BC37F /* HorizontalPicker */,
-				8D350ED22C981C6B00813F2A /* CustomDump */,
 				8DC1AC712C98668800BB3645 /* SpinWheel */,
+				8D8109A32CABFDE5000FB1FB /* SwiftUIX */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -556,8 +568,8 @@
 				8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */,
 				8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */,
 				8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */,
-				8D350ED12C981C6B00813F2A /* XCRemoteSwiftPackageReference "swift-custom-dump" */,
-				8DC1AC702C98668700BB3645 /* XCLocalSwiftPackageReference "../AppCodeProjects/SpinWheel" */,
+				8D8109A12CABFDAF000FB1FB /* XCRemoteSwiftPackageReference "SpinWheel" */,
+				8D8109A22CABFDE5000FB1FB /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -574,7 +586,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D66ED042C7B5AD2003557C2 /* 8bit-canon-giulio-fazio-main-version-30900-02-48.mp3 in Resources */,
-				8DDB82082C820710005152BE /* StoreKitTestCertificate.cer in Resources */,
 				8DE2A5282C8F3E34002BC37F /* riffle-shuffle-46706.mp3 in Resources */,
 				8D66ED012C7B21F6003557C2 /* ChillRoundM.otf in Resources */,
 				273ADD132C1554BD006AC677 /* InfoPlist.xcstrings in Resources */,
@@ -640,13 +651,16 @@
 				8DDB82102C821866005152BE /* SubscriptionInfo.swift in Sources */,
 				8DDB82022C81C7CF005152BE /* PurchaseManager.swift in Sources */,
 				8DE2A5242C8EE4DC002BC37F /* Decision+.swift in Sources */,
+				8D8109AA2CAC46CD000FB1FB /* CardBack.swift in Sources */,
 				8D1932842C70490C00F9D2A4 /* Constants.swift in Sources */,
 				2754AA102BC6CA37000073FB /* MainView.swift in Sources */,
 				8DE2A54D2C91D71E002BC37F /* Bundle+AppVersion.swift in Sources */,
 				8DDB82152C821FF9005152BE /* SubscriptionViewModel.swift in Sources */,
+				8D8109B02CAC4736000FB1FB /* CardChoiceItem.swift in Sources */,
 				8DE2A4C02C8C163C002BC37F /* DecisionDisplayMode.swift in Sources */,
 				8DDB820E2C82184A005152BE /* IAPError.swift in Sources */,
 				8DE2A5122C8ED5FB002BC37F /* EditDecisionTitleView.swift in Sources */,
+				8D8109AC2CAC46EC000FB1FB /* CardViewModel.swift in Sources */,
 				8DE2A51F2C8EDDE1002BC37F /* DecisionListRowLabel.swift in Sources */,
 				8DE2A5142C8ED99D002BC37F /* LemonForm.swift in Sources */,
 				8DE2A5052C8EB688002BC37F /* ChoiceTip.swift in Sources */,
@@ -669,11 +683,13 @@
 				8DE2A50C2C8EBA42002BC37F /* WeightInfoSection.swift in Sources */,
 				8DE2A5322C8FE4E6002BC37F /* DecisionTitle.swift in Sources */,
 				8DE2A5452C913986002BC37F /* SoundPlayer.swift in Sources */,
+				8D8109A82CAC46B8000FB1FB /* CardFront.swift in Sources */,
 				8DDB82122C821878005152BE /* SubscriptionState.swift in Sources */,
 				8D350EBF2C97F51400813F2A /* SpinWheelPreview.swift in Sources */,
 				273ADD162C157830006AC677 /* PieChartView.swift in Sources */,
 				27DB357E2BCCD73000019054 /* DecisionListView.swift in Sources */,
 				8D350EBD2C97F4F600813F2A /* CircleBackground.swift in Sources */,
+				8D8109AE2CAC4716000FB1FB /* Card.swift in Sources */,
 				273ADDA32C16B3B9006AC677 /* ChartView.swift in Sources */,
 				273ADCFB2C1411A6006AC677 /* DecisionAddView.swift in Sources */,
 				8D350EBB2C97F4D900813F2A /* ChartView2.swift in Sources */,
@@ -915,13 +931,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		8DC1AC702C98668700BB3645 /* XCLocalSwiftPackageReference "../AppCodeProjects/SpinWheel" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../AppCodeProjects/SpinWheel;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -939,20 +948,28 @@
 				kind = branch;
 			};
 		};
-		8D350ED12C981C6B00813F2A /* XCRemoteSwiftPackageReference "swift-custom-dump" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-custom-dump.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.3;
-			};
-		};
 		8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/Subsonic.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.2.0;
+			};
+		};
+		8D8109A12CABFDAF000FB1FB /* XCRemoteSwiftPackageReference "SpinWheel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ailu2533/SpinWheel.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8D8109A22CABFDE5000FB1FB /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
 			};
 		};
 		8DDB81FC2C81C71B005152BE /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
@@ -984,15 +1001,15 @@
 			package = 8D1931EB2C6BB12D00F9D2A4 /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
 		};
-		8D350ED22C981C6B00813F2A /* CustomDump */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8D350ED12C981C6B00813F2A /* XCRemoteSwiftPackageReference "swift-custom-dump" */;
-			productName = CustomDump;
-		};
 		8D66ED062C7B5BA4003557C2 /* Subsonic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */;
 			productName = Subsonic;
+		};
+		8D8109A32CABFDE5000FB1FB /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8D8109A22CABFDE5000FB1FB /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 		8DC1AC712C98668800BB3645 /* SpinWheel */ = {
 			isa = XCSwiftPackageProductDependency;
