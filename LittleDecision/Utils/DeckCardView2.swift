@@ -43,6 +43,12 @@ struct DeckView: View {
 
             Spacer()
 
+//            #if DEBUG
+//
+//                Text("deckStatus \(cardViewModel.deckStatus) isFilped \(cardViewModel.isFlipped)")
+//            Text("number of card \(cardViewModel.items.count)")
+//            #endif
+            
             HStack {
                 Spacer()
                 Button(action: {

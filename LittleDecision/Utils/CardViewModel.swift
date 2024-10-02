@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
+enum DeckStatus: String {
+    case isFlipping
+    case isRestoring
+    case none
+}
+
 @Observable
 class CardViewModel {
     private(set) var backDegree: CGFloat = 0
@@ -21,10 +27,12 @@ class CardViewModel {
     private(set) var showMask: Bool = false
     private(set) var text: String = ""
 
-    private var items: [CardChoiceItem]
-    private var choices: [CardChoiceItem]
+    private(set) var items: [CardChoiceItem]
+    private let choices: [CardChoiceItem]
 
     private let noRepeat: Bool
+
+    var deckStatus: DeckStatus = .none
 
     init(items: [CardChoiceItem], noRepeat: Bool) {
         self.items = items
@@ -33,16 +41,26 @@ class CardViewModel {
     }
 
 //    @ObservationIgnored
-    private var isFliping = false
+//    var isFliping = false
+//    var isRestoring = false
+
+    private func restoreAllStatus() {
+        deckStatus = .none
+//        showMask = false
+//        xOffset = 0
+//        isScaled = false
+        isFlipped = false
+//        enableWiggle = false
+    }
 
     private(set) var tapCount = 0
 
     public func flip() {
-        if isFliping {
+        if deckStatus != .none {
             return
         }
 
-        isFliping = true
+        deckStatus = .isFlipping
 
         tapCount += 1
         isFlipped.toggle()
@@ -55,6 +73,12 @@ class CardViewModel {
     }
 
     public func restore() {
+        if deckStatus != .none {
+            return
+        }
+
+        deckStatus = .isRestoring
+
         if isFlipped {
             let animation = Animation.linear(duration: scaleDurationAndDelay)
 
@@ -76,13 +100,20 @@ class CardViewModel {
                 enableWiggle.toggle()
             } completion: {
                 self.enableWiggle = false
+
+                self.restoreAllStatus()
+                self.deckStatus = .none
             }
 
         } else {
             withAnimation(.easeInOut(duration: 0.05).repeatCount(6)) {
                 enableWiggle.toggle()
             } completion: {
+                self.items = self.choices.shuffled()
                 self.enableWiggle = false
+
+                self.restoreAllStatus()
+                self.deckStatus = .none
             }
         }
 
@@ -97,17 +128,8 @@ class CardViewModel {
         withAnimation(animation) {
             showMask = true
             isScaled = true
-        } completion: {
-            if !self.items.isEmpty {
-                if let item = self.draw2() {
-                    self.text = item.content
-                } else {
-                    self.text = String(localized: "未知错误")
-                }
-
-            } else {
-                self.text = String(localized: "没有了，请按\"还原\"按钮")
-            }
+        } completion: { [self] in
+            updateCardText()
         }
 
         withAnimation(animation.delay(scaleDurationAndDelay)) {
@@ -117,7 +139,15 @@ class CardViewModel {
         withAnimation(animation.delay(scaleDurationAndDelay * 2)) {
             frontDegree = 0
         } completion: {
-            self.isFliping = false
+            self.deckStatus = .none
+        }
+    }
+
+    private func updateCardText() {
+        if !items.isEmpty {
+            text = draw()?.content ?? String(localized: "未知错误")
+        } else {
+            text = String(localized: "没有了，请按\"还原\"按钮")
         }
     }
 
@@ -136,7 +166,7 @@ class CardViewModel {
             self.frontDegree = -90
             self.xOffset = .zero
 
-            self.isFliping = false
+            self.deckStatus = .none
         }
     }
 
@@ -163,7 +193,7 @@ class CardViewModel {
         return weightedItems.last
     }
 
-    public func draw2() -> CardChoiceItem? {
+    private func draw() -> CardChoiceItem? {
         if let item = drawWeightedItem() {
             if noRepeat {
                 items.removeAll {

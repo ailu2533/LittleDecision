@@ -3,6 +3,16 @@
     {
       "filename" : "cardbackYellow.png",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "pattern_flower-6_1_2_0-0_0_1__hsla(0, 0%, 0%, 1)_hsla(47, 81%, 25%, 1).png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
