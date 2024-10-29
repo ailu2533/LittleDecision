@@ -37,16 +37,11 @@ struct PieChartView: View {
                     .buttonStyle(PointerViewButtonStyle())
 
                 })
-                .frame(width: radius, height: radius, alignment: .center)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            Spacer()
-
-            HStack {
-                Spacer()
-                RestoreButton(action: restore, tapCount: $tapCount)
-                    .padding()
-            }
+            RestoreButton(action: restore, tapCount: $tapCount)
+                .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
         .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
@@ -61,11 +56,8 @@ struct PieChartView: View {
     @StateObject private var sound = SubsonicPlayer(sound: "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3")
 
     @Default(.noRepeat) private var noRepeat
-    @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
     @Default(.enableSound) private var enableSound
-
-    @State private var deg: CGFloat = 0
 }
 
 extension PieChartView {

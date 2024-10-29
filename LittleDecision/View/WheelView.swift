@@ -27,11 +27,9 @@ struct DecisionContentView: View {
             PieChartView(selection: $selectedChoice, currentDecision: decision)
                 .padding(.horizontal, 12)
 
-            if let choices = decision.choices, choices.isEmpty {
-                Text("还没有选项哦，试着添加一些吧")
-                    .fontWeight(.bold)
-                    .padding(.bottom)
-            }
+            Text("还没有选项哦，试着添加一些吧")
+                .padding(.bottom)
+                .opacity(decision.unwrappedChoices.isEmpty ? 1 : 0)
         }
     }
 }

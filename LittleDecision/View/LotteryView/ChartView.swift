@@ -4,8 +4,7 @@ import SpinWheel
 import SwiftUI
 
 struct ChartContent: View {
-    var currentDecision: Decision
-    let radius: CGFloat
+    // MARK: Lifecycle
 
     init(currentDecision: Decision, radius: CGFloat) {
         self.currentDecision = currentDecision
@@ -13,40 +12,34 @@ struct ChartContent: View {
         self.radius = radius
     }
 
+    // MARK: Internal
+
+    var currentDecision: Decision
+    let radius: CGFloat
+
+    var body: some View {
+        SpinWheel(
+            rawItems: spinCellItems,
+            size: CGSize(width: radius, height: radius),
+            configuration: configuration
+        )
+    }
+
+    // MARK: Private
+
     @Default(.selectedSkinConfiguration)
     private var selectedSkinConfiguration
 
-    @Default(.equalWeight)
-    private var equalWeight
-
-    @Default(.noRepeat)
-    private var noRepeat
-
-    var configuration: SpinWheelConfiguration {
+    private var configuration: SpinWheelConfiguration {
         SkinManager.shared.getSkinConfiguration(skinKind: selectedSkinConfiguration)
     }
 
-    var spinCellItems: [SpinCellItem] {
-        _ = currentDecision.wheelVersion
-        _ = equalWeight
+    // equalWeight
+    // choice的改变，增加，删除，改变权重
+    // decision改变
+    private var spinCellItems: [SpinCellItem] {
         return currentDecision.sortedChoices.map { choice in
             SpinCellItem(id: choice.uuid, title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
-        }
-    }
-
-    var body: some View {
-        let _ = Self._printChanges()
-
-        SpinWheel(rawItems: spinCellItems,
-                  size: CGSize(width: radius, height: radius),
-                  configuration: configuration
-        )
-        .onChange(of: noRepeat) { _, _ in
-            currentDecision.choices?.forEach {
-                $0.enable = true
-            }
-
-            currentDecision.incWheelVersion()
         }
     }
 }
