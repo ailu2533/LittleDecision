@@ -40,9 +40,17 @@ struct ChoicesSection: View {
         }
     }
 
+    func deleteChoices(from decision: Decision, at offsets: IndexSet) {
+        let choicesToDelete = offsets.map { decision.sortedChoices[$0] }
+        choicesToDelete.forEach { modelContext.delete($0) }
+        decision.choices?.removeAll { choice in
+            choicesToDelete.contains { $0.uuid == choice.uuid }
+        }
+    }
+
     // MARK: Private
 
-    @Environment(DecisionViewModel.self) private var viewModel
+    @Environment(\.modelContext) private var modelContext
 
     @State private var totalWeight = 0
     private let tip = ChoiceTip()
@@ -56,7 +64,7 @@ struct ChoicesSection: View {
     }
 
     private func deleteChoices(at indexSet: IndexSet) {
-        viewModel.deleteChoices(from: decision, at: indexSet)
+        deleteChoices(from: decision, at: indexSet)
         totalWeight = decision.totalWeight
     }
 }

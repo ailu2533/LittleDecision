@@ -4965,6 +4965,7 @@
       }
     },
     "请在决定Tab添加决定" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

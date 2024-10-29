@@ -9,7 +9,6 @@ import Defaults
 import Foundation
 import SwiftData
 
-// swiftlint:disable:next function_body_length
 func insertData(ctx: ModelContext) {
     guard !Defaults[.hasData] else { return }
 

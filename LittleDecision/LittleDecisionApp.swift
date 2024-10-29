@@ -11,26 +11,15 @@ import SwiftData
 import SwiftUI
 import TipKit
 
-func setupAudioSession() {
-    do {
-        try AVAudioSession.sharedInstance().setCategory(.ambient)
-        try AVAudioSession.sharedInstance().setActive(true)
-    } catch {
-        Logging.shared.error("Failed to set audio session category. \(error)")
-    }
-}
 
 @main
 struct LittleDecisionApp: App {
     // MARK: Lifecycle
 
     init() {
-        self._vm = State(wrappedValue: DecisionViewModel(modelContext: sharedModelContainer.mainContext))
         try? Tips.configure()
-
         RevenueCatService.configOnLaunch()
         iapService = RevenueCatService()
-
         setupAudioSession()
     }
 
@@ -44,13 +33,27 @@ struct LittleDecisionApp: App {
                     insertData(ctx: sharedModelContainer.mainContext)
                 }
                 .task {
-                    await  updateIapViewModel()
+                    await updateIapViewModel()
                 }
         }
         .modelContainer(sharedModelContainer)
-        .environment(vm)
     }
 
+    // MARK: Private
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
+    private let iapService: IAPService
+    private var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
+
+    @State private var premiumSubscriptionViewModel = SubscriptionViewModel(
+        canAccessContent: false,
+        isEligibleForTrial: true,
+        subscriptionState: .notSubscribed
+    )
+}
+
+extension LittleDecisionApp {
     // MARK: Fileprivate
 
     fileprivate func updateIapViewModel() async {
@@ -64,19 +67,14 @@ struct LittleDecisionApp: App {
             Logging.iapService.error("Error on handling customer info updates: \(error, privacy: .public)")
         }
     }
+    
+    func setupAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.ambient)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            Logging.shared.error("Failed to set audio session category. \(error)")
+        }
+    }
 
-    // MARK: Private
-
-    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-
-    private let iapService: IAPService
-    private var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
-
-    @State private var vm: DecisionViewModel
-
-    @State private var premiumSubscriptionViewModel = SubscriptionViewModel(
-        canAccessContent: false,
-        isEligibleForTrial: true,
-        subscriptionState: .notSubscribed
-    )
 }

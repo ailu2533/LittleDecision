@@ -11,21 +11,10 @@ import Subsonic
 import SwiftUI
 
 struct PieChartView: View {
+    // MARK: Internal
+
     @Binding var selection: Choice?
     var currentDecision: Decision
-
-    @State private var rotateAngle: Double = 0.0
-    @State private var tapCount = 0
-    @State private var isRunning = false
-
-    @StateObject private var sound = SubsonicPlayer(sound: "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3")
-
-    @Default(.noRepeat) private var noRepeat
-    @Default(.equalWeight) private var equalWeight
-    @Default(.rotationTime) private var rotationTime
-    @Default(.enableSound) private var enableSound
-
-    @State private var deg: CGFloat = 0
 
     var body: some View {
         let _ = Self._printChanges()
@@ -63,6 +52,23 @@ struct PieChartView: View {
         .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
     }
 
+    // MARK: Private
+
+    @State private var rotateAngle: Double = 0.0
+    @State private var tapCount = 0
+    @State private var isRunning = false
+
+    @StateObject private var sound = SubsonicPlayer(sound: "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3")
+
+    @Default(.noRepeat) private var noRepeat
+    @Default(.equalWeight) private var equalWeight
+    @Default(.rotationTime) private var rotationTime
+    @Default(.enableSound) private var enableSound
+
+    @State private var deg: CGFloat = 0
+}
+
+extension PieChartView {
     private func restore() {
         if isRunning {
             return

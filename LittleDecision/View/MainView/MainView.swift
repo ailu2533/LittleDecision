@@ -31,23 +31,12 @@ struct MainView: View {
                     processCompletedCount += 1
                 }
                 .onChange(of: processCompletedCount) { _, _ in
-                    guard let currentAppVersion = Bundle.currentAppVersion else {
-                        return
-                    }
-
-                    Logging.shared.debug("processCompletedCount \(processCompletedCount)")
-
-                    if processCompletedCount >= 5, currentAppVersion != lastVersionPromptedForReview {
-                        presentReview()
-
-                        // The app already displayed the rating and review request view. Store this current version.
-                        lastVersionPromptedForReview = currentAppVersion
-                        processCompletedCount = 0
-                    }
+                    requestReviewHandler()
                 }
         }
         .task(id: decisionID) {
             currentDecision = fetchDecision()
+            selectedChoice = nil
         }
     }
 
@@ -65,11 +54,12 @@ struct MainView: View {
     @Environment(\.requestReview) private var requestReview
 
     @State private var currentDecision: Decision?
+    @State private var selectedChoice: Choice?
 
     @ViewBuilder
     private var mainContent: some View {
         if let currentDecision {
-            DecisionView(currentDecision: currentDecision)
+            DecisionView(selectedChoice: $selectedChoice, currentDecision: currentDecision)
         } else {
             ContentUnavailableView("没有数据", systemImage: "envelope.open")
         }
@@ -96,6 +86,22 @@ extension MainView {
             // Delay for two seconds to avoid interrupting the person using the app.
             try await Task.sleep(for: .seconds(2))
             await requestReview()
+        }
+    }
+
+    private func requestReviewHandler() {
+        guard let currentAppVersion = Bundle.currentAppVersion else {
+            return
+        }
+
+        Logging.shared.debug("processCompletedCount \(processCompletedCount)")
+
+        if processCompletedCount >= 5, currentAppVersion != lastVersionPromptedForReview {
+            presentReview()
+
+            // The app already displayed the rating and review request view. Store this current version.
+            lastVersionPromptedForReview = currentAppVersion
+            processCompletedCount = 0
         }
     }
 }
