@@ -42,7 +42,7 @@ struct ChartContent: View {
                   configuration: configuration
         )
         .onChange(of: noRepeat) { _, _ in
-            currentDecision.choices.forEach {
+            currentDecision.choices?.forEach {
                 $0.enable = true
             }
 

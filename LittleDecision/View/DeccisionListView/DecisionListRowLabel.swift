@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct DecisionListRowLabel: View {
     let decision: Decision
 
@@ -16,7 +15,7 @@ struct DecisionListRowLabel: View {
             Text(decision.title)
                 .font(.headline)
                 .foregroundStyle(.primary)
-            Text("\(decision.choices.count)个选项")
+            Text("\(decision.choices?.count ?? 0)个选项")
                 .foregroundStyle(.secondary)
                 .font(.caption)
         }

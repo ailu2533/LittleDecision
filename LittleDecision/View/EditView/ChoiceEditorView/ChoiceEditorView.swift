@@ -20,7 +20,7 @@ struct ChoiceEditorView: View {
     }
 
     var body: some View {
-        LemonForm {
+        Form {
             ChoiceDetailsSection(choice: choice)
             WeightInfoSection(choice: choice)
 
@@ -46,7 +46,7 @@ struct ChoiceEditorView: View {
 
     private func deleteChoice() {
         modelContext.delete(choice)
-        choice.decision?.choices.removeAll { $0.uuid == choice.uuid }
+        choice.decision?.choices?.removeAll { $0.uuid == choice.uuid }
         saveAndDismiss()
     }
 

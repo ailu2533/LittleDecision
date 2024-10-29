@@ -9,10 +9,12 @@ import Defaults
 import SwiftUI
 
 struct DecisionRow: View {
+    // MARK: Internal
+
     let decision: Decision
     let isSelected: Bool
     let selectAction: () -> Void
-    
+
     var body: some View {
         HStack {
             selectionButton
@@ -21,7 +23,9 @@ struct DecisionRow: View {
             }
         }
     }
-    
+
+    // MARK: Private
+
     private var selectionButton: some View {
         Button(action: selectAction) {
             Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")

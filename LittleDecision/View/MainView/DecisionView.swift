@@ -11,7 +11,7 @@ import SwiftUI
 
 struct DecisionView: View {
     @State private var selectedChoice: Choice?
-    @Default(.decisionId) private var decisionId
+    @Default(.decisionID) private var decisionID
 
     @Default(.equalWeight) private var equalWeight
     @Default(.noRepeat) private var noRepeat
@@ -37,7 +37,10 @@ struct DecisionView: View {
             VStack {
                 switch currentDecision.displayModeEnum {
                 case .wheel:
-                    WheelView(currentDecision: currentDecision, selectedChoice: $selectedChoice)
+                    
+                    DecisionContentView(decision: currentDecision, selectedChoice: $selectedChoice)
+                        .frame(maxHeight: .infinity)
+                    
                 case .stackedCards:
 
                     DeckHelperView(currentDecision: currentDecision)
@@ -46,7 +49,7 @@ struct DecisionView: View {
 
             Spacer()
         }
-        .onChange(of: decisionId) { _, _ in
+        .onChange(of: decisionID) { _, _ in
             selectedChoice = nil
         }
     }
@@ -59,19 +62,25 @@ struct DecisionView: View {
 }
 
 struct DeckHelperView: View {
-    var currentDecision: Decision
+    // MARK: Internal
 
-    @Default(.equalWeight) private var equalWeight
-    @Default(.noRepeat) private var noRepeat
+    var currentDecision: Decision
 
     var choices: [CardChoiceItem] {
         _ = currentDecision.wheelVersion
         _ = equalWeight
 
-        return currentDecision.choices.map { CardChoiceItem(content: $0.title, weight: $0.weight4calc) }
+        guard let choices = currentDecision.choices else { return [] }
+
+        return choices.map { CardChoiceItem(content: $0.title, weight: $0.weight4calc) }
     }
 
     var body: some View {
         DeckView(choices: choices, noRepeat: noRepeat)
     }
+
+    // MARK: Private
+
+    @Default(.equalWeight) private var equalWeight
+    @Default(.noRepeat) private var noRepeat
 }

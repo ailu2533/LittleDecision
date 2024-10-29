@@ -1,4 +1,14 @@
 {
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
   "identifier" : "A355DBF1",
   "nonRenewingSubscriptions" : [
 
@@ -88,7 +98,7 @@
     "privateKey" : "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgmr90MAsmB9WaytAXLNLx1nHBdD4g2zuMi3cC3DSaAoGgCgYIKoZIzj0DAQehRANCAATTy5uZ/SRa46xk3mJLb++PzxuPbIOdnmYQ3XT9PM8OwXfU6OYPAgd/1jnKMA19PNe54YAo+dWCcqNw5JAAZO9+"
   },
   "version" : {
-    "major" : 3,
+    "major" : 4,
     "minor" : 0
   }
 }

@@ -11,17 +11,7 @@ import SwiftUI
 import TipKit
 
 struct DecisionListView: View {
-    @Environment(\.modelContext)
-    private var modelContext
-
-    @Environment(\.dismiss)
-    private var dismiss
-
-    @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)])
-    private var decisions: [Decision] = []
-
-    @Default(.decisionId) private var decisionId
-    @State private var showAddDecisionSheet = false
+    // MARK: Internal
 
     var savedDecisions: [Decision] {
         decisions.filter { $0.saved }
@@ -45,11 +35,25 @@ struct DecisionListView: View {
                 }
             }
         }
-        .sensoryFeedback(.selection, trigger: decisionId)
+        .sensoryFeedback(.selection, trigger: decisionID)
         .sheet(isPresented: $showAddDecisionSheet) {
             TemplateList(showSheet: $showAddDecisionSheet)
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.modelContext)
+    private var modelContext
+
+    @Environment(\.dismiss)
+    private var dismiss
+
+    @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)])
+    private var decisions: [Decision] = []
+
+    @Default(.decisionID) private var decisionID
+    @State private var showAddDecisionSheet = false
 }
 
 struct EmptyContentView: View {

@@ -9,19 +9,17 @@ import SwiftUI
 import SwiftUIX
 
 struct DecisionAddView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
-    @Binding var showSheet: Bool
-    @State private var showingConfirmation = false
-
-    let template: DecisionTemplate
-
-    @State private var decision: Decision = .init(title: "", choices: [])
+    // MARK: Lifecycle
 
     init(showSheet: Binding<Bool>, template: DecisionTemplate) {
         _showSheet = showSheet
         self.template = template
     }
+
+    // MARK: Internal
+
+    @Binding var showSheet: Bool
+    let template: DecisionTemplate
 
     var body: some View {
         CommonEditView(decision: decision)
@@ -78,4 +76,12 @@ struct DecisionAddView: View {
             }
             .interactiveDismissDisabled(true)
     }
+
+    // MARK: Private
+
+    @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
+    @State private var showingConfirmation = false
+
+    @State private var decision: Decision = .init(title: "", choices: [])
 }

@@ -7,19 +7,11 @@
 
 import Defaults
 import RevenueCatUI
-import SwiftUI
 import SpinWheel
+import SwiftUI
 
 struct SkinListView: View {
-    @Environment(\.dismiss)
-    private var dismiss
-
-    @Default(.selectedSkinConfiguration) private var selectedSkinConfiguration
-
-    @Environment(SubscriptionViewModel.self)
-    private var subscriptionViewModel
-
-    @State private var showPaywall = false
+    // MARK: Internal
 
     var body: some View {
         NavigationStack {
@@ -63,15 +55,28 @@ struct SkinListView: View {
             }
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.dismiss)
+    private var dismiss
+
+    @Default(.selectedSkinConfiguration) private var selectedSkinConfiguration
+
+    @Environment(SubscriptionViewModel.self)
+    private var subscriptionViewModel
+
+    @State private var showPaywall = false
 }
 
 struct SkinPreviewItem: View {
+    // MARK: Internal
+
     let skinKind: SkinKind
+
     var isPremium: Bool {
         return SkinManager.shared.getSkinConfiguration(skinKind: skinKind).isPremium
     }
-
-    @Default(.selectedSkinConfiguration) private var selectedSkinConfiguration
 
     var body: some View {
         HStack {
@@ -96,4 +101,8 @@ struct SkinPreviewItem: View {
             Spacer()
         }
     }
+
+    // MARK: Private
+
+    @Default(.selectedSkinConfiguration) private var selectedSkinConfiguration
 }

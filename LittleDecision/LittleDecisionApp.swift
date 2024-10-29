@@ -22,13 +22,10 @@ func setupAudioSession() {
 
 @main
 struct LittleDecisionApp: App {
-    let iapService: IAPService
-//    @State var premiumSubscriptionInfo: SubscriptionInfo?
-
-    @State private var premiumSubscriptionViewModel = SubscriptionViewModel(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
+    // MARK: Lifecycle
 
     init() {
-        vm = DecisionViewModel(modelContext: sharedModelContainer.mainContext)
+        self._vm = State(wrappedValue: DecisionViewModel(modelContext: sharedModelContainer.mainContext))
         try? Tips.configure()
 
         RevenueCatService.configOnLaunch()
@@ -37,11 +34,7 @@ struct LittleDecisionApp: App {
         setupAudioSession()
     }
 
-    var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
-
-    var vm: DecisionViewModel
-
-
+    // MARK: Internal
 
     var body: some Scene {
         WindowGroup {
@@ -51,20 +44,39 @@ struct LittleDecisionApp: App {
                     insertData(ctx: sharedModelContainer.mainContext)
                 }
                 .task {
-                    do {
-                        try await iapService.monitoringSubscriptionInfoUpdates { premiumSubscriptionInfo in
-                            premiumSubscriptionViewModel.canAccessContent = premiumSubscriptionInfo.canAccessContent
-                            premiumSubscriptionViewModel.isEligibleForTrial = premiumSubscriptionInfo.isEligibleForTrial
-                            premiumSubscriptionViewModel.subscriptionState = premiumSubscriptionInfo.subscriptionState
-                        }
-                    } catch {
-                        Logging.iapService.error("Error on handling customer info updates: \(error, privacy: .public)")
-                    }
+                    await  updateIapViewModel()
                 }
-         
         }
         .modelContainer(sharedModelContainer)
         .environment(vm)
     }
 
+    // MARK: Fileprivate
+
+    fileprivate func updateIapViewModel() async {
+        do {
+            try await iapService.monitoringSubscriptionInfoUpdates { premiumSubscriptionInfo in
+                premiumSubscriptionViewModel.canAccessContent = premiumSubscriptionInfo.canAccessContent
+                premiumSubscriptionViewModel.isEligibleForTrial = premiumSubscriptionInfo.isEligibleForTrial
+                premiumSubscriptionViewModel.subscriptionState = premiumSubscriptionInfo.subscriptionState
+            }
+        } catch {
+            Logging.iapService.error("Error on handling customer info updates: \(error, privacy: .public)")
+        }
+    }
+
+    // MARK: Private
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+
+    private let iapService: IAPService
+    private var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
+
+    @State private var vm: DecisionViewModel
+
+    @State private var premiumSubscriptionViewModel = SubscriptionViewModel(
+        canAccessContent: false,
+        isEligibleForTrial: true,
+        subscriptionState: .notSubscribed
+    )
 }

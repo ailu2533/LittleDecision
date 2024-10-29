@@ -13,7 +13,7 @@ struct DecisionListContentView: View {
     let savedDecisions: [Decision]
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    @Default(.decisionId) private var decisionId
+    @Default(.decisionID) private var decisionID
 
     let tip = UseDecisionTip()
 
@@ -26,7 +26,7 @@ struct DecisionListContentView: View {
 
     private var decisionList: some View {
         ForEach(savedDecisions) { decision in
-            DecisionRow(decision: decision, isSelected: decisionId == decision.uuid, selectAction: { selectDecision(decision) })
+            DecisionRow(decision: decision, isSelected: decisionID == decision.uuid, selectAction: { selectDecision(decision) })
                 .swipeActions { DeleteDecisionButton(decision: decision) }
         }
     }
@@ -39,7 +39,7 @@ struct DecisionListContentView: View {
     }
 
     private func selectDecision(_ decision: Decision) {
-        decisionId = decision.uuid
+        decisionID = decision.uuid
         dismiss()
     }
 }

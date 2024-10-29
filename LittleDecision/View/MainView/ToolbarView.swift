@@ -10,13 +10,13 @@ import Foundation
 import SwiftUI
 
 struct ToolbarView: ToolbarContent {
+    // MARK: Internal
+
 //    @Binding var isSettingsPresented: Bool
 //    @Binding var isDecisionListPresented: Bool
 //    @Binding var isSkinListPresented: Bool
 
     @Binding var activeSheet: ActiveSheet?
-
-    @Default(.decisionDisplayMode) private var decisionDisplayMode
 
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
@@ -60,4 +60,8 @@ struct ToolbarView: ToolbarContent {
             })
         }
     }
+
+    // MARK: Private
+
+    @Default(.decisionDisplayMode) private var decisionDisplayMode
 }

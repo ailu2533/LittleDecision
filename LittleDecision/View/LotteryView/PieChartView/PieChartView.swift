@@ -71,7 +71,7 @@ struct PieChartView: View {
         withAnimation {
             selection = nil
             rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
-            currentDecision.choices.forEach { $0.enable = true }
+            currentDecision.choices?.forEach { $0.enable = true }
         }
         rotateAngle = 0
     }

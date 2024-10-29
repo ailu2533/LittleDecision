@@ -9,16 +9,15 @@ import SwiftUI
 import TipKit
 
 struct ChoicesSection: View {
-    @Environment(DecisionViewModel.self) private var viewModel
-
-    var decision: Decision
-
-    @State private var totalWeight = 0
-    private let tip = ChoiceTip()
+    // MARK: Lifecycle
 
     init(decision: Decision) {
         self.decision = decision
     }
+
+    // MARK: Internal
+
+    var decision: Decision
 
     var body: some View {
         Section {
@@ -32,7 +31,7 @@ struct ChoicesSection: View {
             }
             .onDelete(perform: deleteChoices)
 
-            if !decision.choices.isEmpty {
+            if let choices = decision.choices, !choices.isEmpty {
                 tipView
             }
         }
@@ -40,6 +39,13 @@ struct ChoicesSection: View {
             totalWeight = decision.totalWeight
         }
     }
+
+    // MARK: Private
+
+    @Environment(DecisionViewModel.self) private var viewModel
+
+    @State private var totalWeight = 0
+    private let tip = ChoiceTip()
 
     private var tipView: some View {
         TipView(tip, arrowEdge: .top)

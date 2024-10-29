@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct DecisionEditorView: View {
-    var decision: Decision
+    // MARK: Lifecycle
 
     init(decision: Decision) {
         self.decision = decision
     }
+
+    // MARK: Internal
+
+    var decision: Decision
 
     var body: some View {
         CommonEditView(decision: decision)

@@ -12,6 +12,8 @@ enum DecisionDisplayMode: Int, Identifiable, Codable, CaseIterable, Defaults.Ser
     case wheel = 1 // 转盘模式
     case stackedCards = 2 // 堆叠卡片模式
 
+    // MARK: Internal
+
     var id: Int {
         rawValue
     }

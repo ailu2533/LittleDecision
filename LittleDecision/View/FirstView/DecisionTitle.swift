@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DecisionTitle: View {
+    // MARK: Internal
+
     let decision: Decision?
     var currentDecisionTitle: String?
-
-    @State private var showSheet = false
 
     var body: some View {
         Group {
@@ -57,4 +57,8 @@ struct DecisionTitle: View {
             }
         })
     }
+
+    // MARK: Private
+
+    @State private var showSheet = false
 }

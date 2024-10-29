@@ -10,13 +10,17 @@ import SwiftUI
 
 /// 表示单个选项的视图。
 struct ChoiceRow: View {
-    let choice: Choice
-    let totalWeight: Int
+    // MARK: Lifecycle
 
     init(choice: Choice, totalWeight: Int) {
         self.choice = choice
         self.totalWeight = totalWeight
     }
+
+    // MARK: Internal
+
+    let choice: Choice
+    let totalWeight: Int
 
     var body: some View {
         HStack(spacing: 10) {

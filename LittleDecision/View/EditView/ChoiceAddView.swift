@@ -23,7 +23,7 @@ struct ChoiceAddView: View {
     }
 
     var body: some View {
-        LemonForm {
+        Form {
             choiceDetailsSection
             weightInfoSection
             addMoreSection
@@ -84,7 +84,7 @@ struct ChoiceAddView: View {
     private func saveChoice() {
         do {
             let choice = Choice(content: title, weight: weight)
-            decision.choices.append(choice)
+            decision.choices?.append(choice)
             try modelContext.save()
         } catch {
             Logging.shared.error("\(error)")

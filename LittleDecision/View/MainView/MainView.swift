@@ -6,36 +6,79 @@
 //
 
 import Defaults
-import SceneKit
+// import SceneKit
 import SwiftData
 import SwiftUI
 
-enum ActiveSheet: Identifiable {
-    case decisionList, settings, skinList
-
-    var id: Self { self }
-}
-
 struct MainView: View {
+    // MARK: Internal
+
+    var body: some View {
+        let _ = Self._printChanges()
+
+        NavigationStack {
+            mainContent
+                .ignoresSafeArea(.keyboard)
+                .mainBackground()
+                .toolbar {
+                    ToolbarView(activeSheet: $activeSheet)
+                }
+                .sheet(item: $activeSheet) { item in
+                    item
+                }
+
+                .onAppear {
+                    processCompletedCount += 1
+                }
+                .onChange(of: processCompletedCount) { _, _ in
+                    guard let currentAppVersion = Bundle.currentAppVersion else {
+                        return
+                    }
+
+                    Logging.shared.debug("processCompletedCount \(processCompletedCount)")
+
+                    if processCompletedCount >= 5, currentAppVersion != lastVersionPromptedForReview {
+                        presentReview()
+
+                        // The app already displayed the rating and review request view. Store this current version.
+                        lastVersionPromptedForReview = currentAppVersion
+                        processCompletedCount = 0
+                    }
+                }
+        }
+        .task(id: decisionID) {
+            currentDecision = fetchDecision()
+        }
+    }
+
+    // MARK: Private
+
     @State private var activeSheet: ActiveSheet?
 
-    @Default(.decisionId) private var decisionId
+    @Default(.decisionID) private var decisionID
+    @Default(.processCompletedCount) private var processCompletedCount
+    @Default(.lastVersionPromptedForReview) private var lastVersionPromptedForReview
 
     @Environment(\.modelContext)
     private var modelContext
-
-    /// An identifier for the three-step process the person completes before this app chooses to request a review.
-    @AppStorage("processCompletedCount") var processCompletedCount = 0
-
-    /// The most recent app version that prompts for a review.
-    @AppStorage("lastVersionPromptedForReview") var lastVersionPromptedForReview = ""
 
     @Environment(\.requestReview) private var requestReview
 
     @State private var currentDecision: Decision?
 
+    @ViewBuilder
+    private var mainContent: some View {
+        if let currentDecision {
+            DecisionView(currentDecision: currentDecision)
+        } else {
+            ContentUnavailableView("没有数据", systemImage: "envelope.open")
+        }
+    }
+}
+
+extension MainView {
     private func fetchDecision() -> Decision? {
-        let predicate = #Predicate<Decision> { $0.uuid == decisionId }
+        let predicate = #Predicate<Decision> { $0.uuid == decisionID }
         let descriptor = FetchDescriptor(predicate: predicate)
 
         do {
@@ -44,57 +87,6 @@ struct MainView: View {
         } catch {
             Logging.shared.error("currentDecision: \(error)")
             return nil
-        }
-    }
-
-    var body: some View {
-        let _ = Self._printChanges()
-
-        NavigationStack {
-            Group {
-                if let currentDecision {
-                    DecisionView(currentDecision: currentDecision)
-                } else {
-                    ContentUnavailableView("没有数据", systemImage: "envelope.open")
-                }
-            }
-            .ignoresSafeArea(.keyboard)
-            .mainBackground()
-            .toolbar {
-                ToolbarView(activeSheet: $activeSheet)
-            }
-            .sheet(item: $activeSheet) { item in
-                switch item {
-                case .decisionList:
-                    DecisionListView()
-                case .settings:
-                    SettingsView()
-                case .skinList:
-                    SkinListView()
-                }
-            }
-
-            .onAppear {
-                processCompletedCount += 1
-            }
-            .onChange(of: processCompletedCount) { _, _ in
-                guard let currentAppVersion = Bundle.currentAppVersion else {
-                    return
-                }
-
-                Logging.shared.debug("processCompletedCount \(processCompletedCount)")
-
-                if processCompletedCount >= 5, currentAppVersion != lastVersionPromptedForReview {
-                    presentReview()
-
-                    // The app already displayed the rating and review request view. Store this current version.
-                    lastVersionPromptedForReview = currentAppVersion
-                    processCompletedCount = 0
-                }
-            }
-        }
-        .task(id: decisionId) {
-            currentDecision = fetchDecision()
         }
     }
 

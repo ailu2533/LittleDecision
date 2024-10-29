@@ -1,5 +1,5 @@
 {
-  "originHash" : "5998ffb6f6277c1d0c0088bea3c312f2e770656be29b1e2df0811ec098af5056",
+  "originHash" : "17568dbe4ec9ae235648251fb69352ddceb6dbfc7b3e697ca3bafb1b38ee724d",
   "pins" : [
     {
       "identity" : "defaults",
@@ -16,7 +16,7 @@
       "location" : "https://github.com/ailu2533/HorizontalPicker.git",
       "state" : {
         "branch" : "main",
-        "revision" : "ad9b5b8b411201eb98b61f671e2dc9013987b85a"
+        "revision" : "4c049fae917f3032618198c68d8bbab8639314a5"
       }
     },
     {
@@ -35,6 +35,15 @@
       "state" : {
         "revision" : "4c0006aec5994bee99a5e4c9b91043d7a920b110",
         "version" : "5.3.0"
+      }
+    },
+    {
+      "identity" : "sentry-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getsentry/sentry-cocoa/",
+      "state" : {
+        "revision" : "0b8ba88f5fd70062887d55f87a970c59b1ceebcf",
+        "version" : "8.39.0"
       }
     },
     {

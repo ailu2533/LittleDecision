@@ -15,8 +15,6 @@ struct DecisionTemplate: Hashable {
     let choices: [String]
 }
 
-let kPickerId = UUID()
-
 struct TemplateList: View {
     @State private var selected = TemplateKind.hot
     @State private var path = NavigationPath()
@@ -61,11 +59,12 @@ struct CategoryPicker: View {
     @Binding var selected: TemplateKind
 
     var body: some View {
-        HorizontalSelectionPicker(pickerId: kPickerId,
-                                  items: TemplateKind.allCases,
-                                  selectedItem: $selected,
-                                  backgroundColor: Color(.systemBackground),
-                                  verticalPadding: 8) { item in
+        HorizontalSelectionPicker(
+            items: TemplateKind.allCases,
+            selectedItem: $selected,
+            backgroundColor: Color(.systemBackground),
+            verticalPadding: 8
+        ) { item in
             Text(item.text)
         }
     }
@@ -76,19 +75,21 @@ struct TemplateListView: View {
     let selected: TemplateKind
     @Binding var path: NavigationPath
 
+    var decisions: [DecisionItem] {
+        data.decisions.filter { decision in
+            decision.tags.contains(where: { $0 == selected })
+        }
+    }
+
     var body: some View {
         LemonList {
-            ForEach(data.decisions.indices, id: \.self) { index in
-                let temp = data.decisions[index]
-                if temp.tags.contains(where: { $0 == selected }) {
-                    PlaceHolderView(
-                        template: DecisionTemplate(title: temp.title, tags: [], choices: temp.choices.map { $0.content }),
-                        path: $path
-                    )
-                }
+            ForEach(decisions) { temp in
+                PlaceHolderView(
+                    template: DecisionTemplate(title: temp.title, tags: [], choices: temp.choices.map { $0.content }),
+                    path: $path
+                )
             }
         }
-        .padding(.bottom, 16)
     }
 }
 

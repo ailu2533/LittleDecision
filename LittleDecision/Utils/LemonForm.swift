@@ -16,7 +16,7 @@ struct LemonForm<Content: View>: View {
             content()
         }
         .scrollContentBackground(.hidden)
-        .contentMargins(.vertical, 2)
+        .contentMargins(.vertical, 16)
     }
 }
 
@@ -28,7 +28,7 @@ struct LemonList<Content: View>: View {
         List {
             content()
         }
-        .contentMargins(.vertical, 2)
+        .contentMargins(.vertical, 16)
         .scrollContentBackground(.hidden)
     }
 }

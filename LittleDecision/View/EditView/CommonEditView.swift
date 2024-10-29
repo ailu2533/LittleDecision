@@ -20,16 +20,10 @@ struct CommonEditView: View {
 
             ChoicesSection(decision: decision)
         }
-        .contentMargins(16, for: .scrollContent)
-        .scrollIndicators(.hidden)
         .safeAreaInset(edge: .bottom) {
-            VStack(spacing: 12) {
-                AddChoiceButton(decision: decision)
-//                BatchAddChoiceButton(decision: decision)
-            }.padding(.trailing, 16)
-                .padding(.bottom, 16)
+            AddChoiceButton(decision: decision)
+                .padding(16)
         }
-//        .ignoresSafeArea(.keyboard)
         .mainBackground()
     }
 }

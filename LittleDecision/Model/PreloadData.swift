@@ -62,7 +62,7 @@ private func insertDecisionsFromJSON(_ json: DecisionData, into ctx: ModelContex
     }
 
     if let firstDecisionUUID {
-        Defaults[.decisionId] = firstDecisionUUID
+        Defaults[.decisionID] = firstDecisionUUID
     }
 }
 
@@ -109,16 +109,8 @@ struct DecisionData: Codable {
     let decisions: [DecisionItem]
 }
 
-struct DecisionItem: Codable {
-    let title: String
-    let tags: [TemplateKind]
-    let choices: [ChoiceItem]
-
-    enum CodingKeys: String, CodingKey {
-        case title
-        case tags
-        case choices
-    }
+struct DecisionItem: Codable, Identifiable {
+    // MARK: Lifecycle
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -129,6 +121,20 @@ struct DecisionItem: Codable {
         // 如果 tags 不存在或解码失败，则使用默认值
         tags = try container.decodeIfPresent([TemplateKind].self, forKey: .tags) ?? []
     }
+
+    // MARK: Internal
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case tags
+        case choices
+    }
+
+    var id: UUID = UUID()
+
+    let title: String
+    let tags: [TemplateKind]
+    let choices: [ChoiceItem]
 }
 
 struct ChoiceItem: Codable {
