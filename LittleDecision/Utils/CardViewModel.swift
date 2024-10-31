@@ -27,14 +27,14 @@ class CardViewModel {
     private(set) var showMask: Bool = false
     private(set) var text: String = ""
 
-    private(set) var items: [CardChoiceItem]
-    private let choices: [CardChoiceItem]
+    private(set) var items: [ChoiceItem]
+    private let choices: [ChoiceItem]
 
     private let noRepeat: Bool
 
     var deckStatus: DeckStatus = .none
 
-    init(items: [CardChoiceItem], noRepeat: Bool) {
+    init(items: [ChoiceItem], noRepeat: Bool) {
         self.items = items
         choices = items
         self.noRepeat = noRepeat
@@ -170,7 +170,7 @@ class CardViewModel {
         }
     }
 
-    private func drawWeightedItem() -> CardChoiceItem? {
+    private func drawWeightedItem() -> ChoiceItem? {
         let weightedItems = items
 
         guard !weightedItems.isEmpty else {
@@ -193,7 +193,7 @@ class CardViewModel {
         return weightedItems.last
     }
 
-    private func draw() -> CardChoiceItem? {
+    private func draw() -> ChoiceItem? {
         if let item = drawWeightedItem() {
             if noRepeat {
                 items.removeAll {

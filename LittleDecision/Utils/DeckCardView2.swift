@@ -10,10 +10,10 @@ let kScale: CGFloat = 0.85
 struct DeckView: View {
     @State private var cardViewModel: CardViewModel = CardViewModel(items: [], noRepeat: false)
 
-    let choices: [CardChoiceItem]
+    let choices: [ChoiceItem]
     let noRepeat: Bool
 
-    init(choices: [CardChoiceItem], noRepeat: Bool) {
+    init(choices: [ChoiceItem], noRepeat: Bool) {
         self.choices = choices
         self.noRepeat = noRepeat
 

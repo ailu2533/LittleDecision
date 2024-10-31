@@ -11,12 +11,15 @@ import SwiftData
 import SwiftUI
 import TipKit
 
-
 @main
 struct LittleDecisionApp: App {
     // MARK: Lifecycle
 
     init() {
+        let modelContainer = getModelContainer(isStoredInMemoryOnly: false)
+        self.sharedModelContainer = modelContainer
+        self._globalViewModel = State(wrappedValue: GlobalViewModel(modelContext: modelContainer.mainContext))
+
         try? Tips.configure()
         RevenueCatService.configOnLaunch()
         iapService = RevenueCatService()
@@ -37,6 +40,7 @@ struct LittleDecisionApp: App {
                 }
         }
         .modelContainer(sharedModelContainer)
+        .environment(globalViewModel)
     }
 
     // MARK: Private
@@ -44,13 +48,15 @@ struct LittleDecisionApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     private let iapService: IAPService
-    private var sharedModelContainer: ModelContainer = getModelContainer(isStoredInMemoryOnly: false)
+    private var sharedModelContainer: ModelContainer
 
     @State private var premiumSubscriptionViewModel = SubscriptionViewModel(
         canAccessContent: false,
         isEligibleForTrial: true,
         subscriptionState: .notSubscribed
     )
+
+    @State private var globalViewModel: GlobalViewModel
 }
 
 extension LittleDecisionApp {
@@ -67,7 +73,7 @@ extension LittleDecisionApp {
             Logging.iapService.error("Error on handling customer info updates: \(error, privacy: .public)")
         }
     }
-    
+
     func setupAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.ambient)
@@ -76,5 +82,4 @@ extension LittleDecisionApp {
             Logging.shared.error("Failed to set audio session category. \(error)")
         }
     }
-
 }

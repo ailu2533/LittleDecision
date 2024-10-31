@@ -6,16 +6,12 @@ import SwiftUI
 struct ChartContent: View {
     // MARK: Lifecycle
 
-    init(currentDecision: Decision, radius: CGFloat) {
-        self.currentDecision = currentDecision
-        Logging.shared.debug("ChartContent init")
+    init(choiceItems: [ChoiceItem], radius: CGFloat) {
+        self.choiceItems = choiceItems
         self.radius = radius
     }
 
     // MARK: Internal
-
-    var currentDecision: Decision
-    let radius: CGFloat
 
     var body: some View {
         SpinWheel(
@@ -27,6 +23,9 @@ struct ChartContent: View {
 
     // MARK: Private
 
+    private var choiceItems: [ChoiceItem]
+    private var radius: CGFloat
+
     @Default(.selectedSkinConfiguration)
     private var selectedSkinConfiguration
 
@@ -34,12 +33,9 @@ struct ChartContent: View {
         SkinManager.shared.getSkinConfiguration(skinKind: selectedSkinConfiguration)
     }
 
-    // equalWeight
-    // choice的改变，增加，删除，改变权重
-    // decision改变
     private var spinCellItems: [SpinCellItem] {
-        return currentDecision.sortedChoices.map { choice in
-            SpinCellItem(id: choice.uuid, title: choice.title, weight: CGFloat(choice.weight4calc), enabled: choice.enable)
+        return choiceItems.map { choice in
+            SpinCellItem(id: choice.uuid, title: choice.content, weight: CGFloat(choice.weight), enabled: true)
         }
     }
 }

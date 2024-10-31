@@ -136,7 +136,3 @@ struct DecisionItem: Codable, Identifiable {
     let choices: [ChoiceItem]
 }
 
-struct ChoiceItem: Codable {
-    let content: String
-    let weight: Int
-}

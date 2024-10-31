@@ -25,6 +25,9 @@ struct SettingsView: View {
     @Environment(SubscriptionViewModel.self)
     private var subscriptionViewModel
 
+    @Environment(GlobalViewModel.self)
+    private var globalViewModel
+
     @State private var showPaywall = false
 
     @State private var isPremium = false
@@ -56,7 +59,9 @@ struct SettingsView: View {
         }
     }
 
+    @ViewBuilder
     private var settingsSection: some View {
+
         Section {
             SettingToggle(isOn: $noRepeat, icon: "repeat", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "不重复抽取", description: "已经被抽中的选项不会被抽中")
 

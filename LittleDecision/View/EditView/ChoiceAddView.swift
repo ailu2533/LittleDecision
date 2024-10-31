@@ -9,6 +9,28 @@ import LemonViews
 import SwiftUI
 
 struct ChoiceAddView: View {
+    // MARK: Lifecycle
+
+    init(decision: Decision) {
+        self.decision = decision
+    }
+
+    // MARK: Internal
+
+    var body: some View {
+        Form {
+            choiceDetailsSection
+            weightInfoSection
+            addMoreSection
+        }
+        .mainBackground()
+        .task {
+            totalWeight = await decision.totalWeight
+        }
+    }
+
+    // MARK: Private
+
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
 
@@ -18,18 +40,7 @@ struct ChoiceAddView: View {
     private let decision: Decision
     private let weightRange = 1 ... 100
 
-    init(decision: Decision) {
-        self.decision = decision
-    }
-
-    var body: some View {
-        Form {
-            choiceDetailsSection
-            weightInfoSection
-            addMoreSection
-        }
-        .mainBackground()
-    }
+    @State private var totalWeight = 0
 
     private var choiceDetailsSection: some View {
         Section {
@@ -40,15 +51,14 @@ struct ChoiceAddView: View {
 
     private var weightInfoSection: some View {
         Section {
-            LabeledContent("总权重", value: "\(decision.totalWeight + weight)")
-            LabeledContent("概率", value: probability(weight, decision.totalWeight + weight))
+            LabeledContent("总权重", value: "\(totalWeight + weight)")
+            LabeledContent("概率", value: probability(weight, totalWeight + weight))
         }
     }
 
     @ViewBuilder
     private var addMoreSection: some View {
         Section {
-            
             HStack {
                 Button(action: {
                     saveAndDismiss()
@@ -64,7 +74,6 @@ struct ChoiceAddView: View {
                 })
                 .buttonStyle(FullWidthButtonStyle())
             }
-            
         }
         .listRowBackground(Color.clear)
         .listRowInsets(EdgeInsets())

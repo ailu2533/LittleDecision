@@ -9,7 +9,6 @@ import LemonViews
 import SwiftUI
 
 
-
 struct AddChoiceButton: View {
     let decision: Decision
 
@@ -43,7 +42,9 @@ struct BatchAddChoiceView: View {
     }
 
     private func batchAddChoices(choiceString: String) {
-        let choices = choiceString.split(separator: "\n").map { Choice(content: String($0), weight: 1) }
+        let choices = choiceString.split(separator: "\n").map {
+            Choice(content: String($0), weight: 1)
+        }
         decision.choices?.append(contentsOf: choices)
     }
 }

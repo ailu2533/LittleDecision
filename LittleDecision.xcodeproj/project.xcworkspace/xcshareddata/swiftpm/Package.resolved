@@ -1,5 +1,5 @@
 {
-  "originHash" : "17568dbe4ec9ae235648251fb69352ddceb6dbfc7b3e697ca3bafb1b38ee724d",
+  "originHash" : "3de126ff8bc4fbc44667716ae26ea849e10a12f49a06868c7b2ba43fdeaac3a3",
   "pins" : [
     {
       "identity" : "defaults",
@@ -44,15 +44,6 @@
       "state" : {
         "revision" : "0b8ba88f5fd70062887d55f87a970c59b1ceebcf",
         "version" : "8.39.0"
-      }
-    },
-    {
-      "identity" : "spinwheel",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ailu2533/SpinWheel.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "897f1ff8ca143dcc717d8d4b4b5aa865dde81983"
       }
     },
     {

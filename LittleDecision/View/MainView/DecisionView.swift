@@ -18,21 +18,22 @@ struct DecisionView: View {
 
         VStack {
             VStack {
-                DecisionTitle(decision: currentDecision)
-                DecisionChoiceTitleView(selectedChoiceTitle: selectedChoice?.title).opacity(currentDecision.displayModeEnum == .wheel ? 1 : 0)
+                MainViewDecisionTitle(decision: currentDecision)
+//                DecisionChoiceTitleView(selectedChoiceTitle: selectedChoice?.title).opacity(currentDecision.displayModeEnum == .wheel ? 1 : 0)
             }
             .padding(.top, 32)
 
             switch currentDecision.displayModeEnum {
             case .wheel:
-                DecisionContentView(decision: currentDecision, selectedChoice: $selectedChoice)
-                    .frame(maxHeight: .infinity)
+//                DecisionContentView(decision: currentDecision, selectedChoice: $selectedChoice)
+//                    .frame(maxHeight: .infinity)
+                Text("PieChartView")
 
             case .stackedCards:
                 DeckHelperView(currentDecision: currentDecision)
             }
         }
-        .frame(maxHeight: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
@@ -41,13 +42,13 @@ struct DeckHelperView: View {
 
     var currentDecision: Decision
 
-    var choices: [CardChoiceItem] {
-        _ = currentDecision.wheelVersion
-        _ = equalWeight
+    var choices: [ChoiceItem] {
+//        _ = currentDecision.wheelVersion
+//        _ = equalWeight
 
         guard let choices = currentDecision.choices else { return [] }
 
-        return choices.map { CardChoiceItem(content: $0.title, weight: $0.weight4calc) }
+        return choices.map { ChoiceItem(content: $0.title, weight: $0.weight4calc) }
     }
 
     var body: some View {
@@ -56,6 +57,36 @@ struct DeckHelperView: View {
 
     // MARK: Private
 
-    @Default(.equalWeight) private var equalWeight
+//    @Default(.equalWeight) private var equalWeight
     @Default(.noRepeat) private var noRepeat
+}
+
+
+
+struct DeckHelperViewRefactor: View {
+//
+//    var currentDecision: Decision
+//
+//    var choices: [ChoiceItem] {
+//        _ = currentDecision.wheelVersion
+    ////        _ = equalWeight
+//
+//        guard let choices = currentDecision.choices else { return [] }
+//
+//        return choices.map { ChoiceItem(content: $0.title, weight: $0.weight4calc) }
+//    }
+//
+//    var body: some View {
+//        DeckView(choices: choices, noRepeat: noRepeat)
+//    }
+//
+//
+    ////    @Default(.equalWeight) private var equalWeight
+//    @Default(.noRepeat) private var noRepeat
+
+    var globalViewModel: GlobalViewModel
+
+    var body: some View {
+        Text("DeckHelperViewRefactor")
+    }
 }

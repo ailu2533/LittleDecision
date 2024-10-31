@@ -13,8 +13,7 @@ import SwiftUI
 struct PieChartView: View {
     // MARK: Internal
 
-    @Binding var selection: Choice?
-    var currentDecision: Decision
+    var globalViewModel: GlobalViewModel
 
     var body: some View {
         let _ = Self._printChanges()
@@ -24,7 +23,11 @@ struct PieChartView: View {
                 let radius = min(proxy.size.width, proxy.size.height)
 
                 RotatingView(angle: rotateAngle) {
-                    ChartView(currentDecision: currentDecision, radius: radius)
+                    ZStack {
+                        CircleBackground(lineWidth: 1)
+                        ChartContent(choiceItems: globalViewModel.items, radius: radius)
+                            .padding(12)
+                    }
                 }
                 .overlay({
                     Button(action: {
@@ -52,12 +55,6 @@ struct PieChartView: View {
     @State private var rotateAngle: Double = 0.0
     @State private var tapCount = 0
     @State private var isRunning = false
-
-    @StateObject private var sound = SubsonicPlayer(sound: "8bit-canon-giulio-fazio-main-version-30900-02-48.mp3")
-
-    @Default(.noRepeat) private var noRepeat
-    @Default(.rotationTime) private var rotationTime
-    @Default(.enableSound) private var enableSound
 }
 
 extension PieChartView {
@@ -67,43 +64,32 @@ extension PieChartView {
         }
 
         withAnimation {
-            selection = nil
+//            selection = nil
+            globalViewModel.selectedChoice = nil
             rotateAngle -= rotateAngle.truncatingRemainder(dividingBy: 360)
-            currentDecision.choices?.forEach { $0.enable = true }
+//            currentDecision.unwrappedChoices.forEach { $0.enable = true }
         }
         rotateAngle = 0
     }
 
     private func startSpinning() {
         guard !isRunning else { return }
-
-        selection = nil
-
-        if let (choice, angle) = LotteryViewModel.select(from: currentDecision.sortedChoices) {
-            let extraRotation = rotationTime * 360.0
+//
+//        selection = nil
+        globalViewModel.selectedChoice = nil
+//
+        if let (choice, angle) = LotteryViewModel.select(from: globalViewModel.items) {
+            let extraRotation = Defaults[.rotationTime] * 360.0
             let targetAngle = (270 - angle + 360 - rotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
 
             isRunning = true
 
-            if enableSound {
-                sound.play()
-            }
-
-            withAnimation(.easeInOut(duration: rotationTime)) {
+            withAnimation(.easeInOut(duration: 3)) {
                 rotateAngle += targetAngle
 
             } completion: {
-                selection = choice
-                if noRepeat {
-                    selection?.decision?.incWheelVersion()
-                    selection?.enable = false
-                }
-
+                globalViewModel.selectedChoice = choice
                 isRunning = false
-
-                if sound.isPlaying {
-                    sound.stop()
-                }
             }
         } else {
             restore()

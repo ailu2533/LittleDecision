@@ -32,39 +32,33 @@ struct ChoicesSection: View {
             .onDelete(perform: deleteChoices)
 
             if let choices = decision.choices, !choices.isEmpty {
-                tipView
+                TipView(tip, arrowEdge: .top)
             }
         }
-        .onAppear {
-            totalWeight = decision.totalWeight
+        .task(id: trigger) {
+            totalWeight = await decision.totalWeight
         }
     }
 
-    func deleteChoices(from decision: Decision, at offsets: IndexSet) {
-        let choicesToDelete = offsets.map { decision.sortedChoices[$0] }
-        choicesToDelete.forEach { modelContext.delete($0) }
-        decision.choices?.removeAll { choice in
-            choicesToDelete.contains { $0.uuid == choice.uuid }
+    var showFooter: Bool {
+        if let choices = decision.choices, !choices.isEmpty {
+            return true
         }
+        return false
     }
 
     // MARK: Private
 
-    @Environment(\.modelContext) private var modelContext
+    @Environment(GlobalViewModel.self) private var globalViewModel
 
+    @State private var trigger = 0
     @State private var totalWeight = 0
     private let tip = ChoiceTip()
+}
 
-    private var tipView: some View {
-        TipView(tip, arrowEdge: .top)
-            .tipBackground(Color.clear)
-            .listRowBackground(Color.accentColor.opacity(0.1))
-            .listSectionSpacing(0)
-            .listRowSpacing(0)
-    }
-
+extension ChoicesSection {
     private func deleteChoices(at indexSet: IndexSet) {
-        deleteChoices(from: decision, at: indexSet)
-        totalWeight = decision.totalWeight
+        globalViewModel.deleteChoices(from: decision, at: indexSet)
+        trigger += 1
     }
 }

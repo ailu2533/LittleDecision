@@ -451,6 +451,12 @@
         }
       }
     },
+    "DeckHelperViewRefactor" : {
+
+    },
+    "PieChartView" : {
+
+    },
     "不重复抽取" : {
       "localizations" : {
         "de" : {
@@ -1108,6 +1114,7 @@
       }
     },
     "删除当前选项" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3325,6 +3332,7 @@
       }
     },
     "没有数据" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -5458,6 +5466,7 @@
       }
     },
     "还没有选项哦，试着添加一些吧" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

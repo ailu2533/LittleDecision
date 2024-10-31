@@ -79,8 +79,3 @@ struct AddButton: View {
     }
 }
 
-extension ModelContext {
-    var fetchedDecisions: [Decision] {
-        (try? fetch(FetchDescriptor<Decision>(sortBy: [SortDescriptor(\Decision.createDate, order: .reverse)]))) ?? []
-    }
-}

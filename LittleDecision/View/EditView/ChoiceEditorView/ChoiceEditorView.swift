@@ -9,15 +9,15 @@ import LemonViews
 import SwiftUI
 
 struct ChoiceEditorView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
-
-    @Bindable var choice: Choice
-    @State private var totalWeight: Int = 0
+    // MARK: Lifecycle
 
     init(choice: Choice) {
         self.choice = choice
     }
+
+    // MARK: Internal
+
+    @Bindable var choice: Choice
 
     var body: some View {
         Form {
@@ -25,7 +25,14 @@ struct ChoiceEditorView: View {
             WeightInfoSection(choice: choice)
 
             Button(action: {
-                saveAndDismiss()
+                guard let context = choice.modelContext else {
+                    dismiss()
+                    return
+                }
+
+                try? context.save()
+                dismiss()
+
             }, label: {
                 Text("保存")
             })
@@ -36,37 +43,29 @@ struct ChoiceEditorView: View {
         .mainBackground()
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
-                Button("删除", role: .destructive, action: deleteChoice)
+                Button(role: .destructive) {
+                    globalViewModel.deleteChoice(choice)
+                    dismiss()
+
+                } label: {
+                    Text("删除")
+                }
             }
         }
         .task(id: choice.weight) {
-            totalWeight = choice.decision?.totalWeight ?? 0
+            guard let decision = choice.decision else {
+                totalWeight = 0
+                return
+            }
+
+            totalWeight = await decision.totalWeight
         }
     }
 
-    private func deleteChoice() {
-        modelContext.delete(choice)
-        choice.decision?.choices?.removeAll { $0.uuid == choice.uuid }
-        saveAndDismiss()
-    }
+    // MARK: Private
 
-    private func saveAndDismiss() {
-        do {
-            choice.decision?.incWheelVersion()
-            try modelContext.save()
-            dismiss()
-        } catch {
-            Logging.shared.error("\(error)")
-        }
-    }
-}
+    @Environment(GlobalViewModel.self) private var globalViewModel
+    @Environment(\.dismiss) private var dismiss
 
-struct DeleteSection: View {
-    let deleteAction: () -> Void
-
-    var body: some View {
-        Section {
-            Button("删除当前选项", role: .destructive, action: deleteAction)
-        }
-    }
+    @State private var totalWeight: Int = 0
 }

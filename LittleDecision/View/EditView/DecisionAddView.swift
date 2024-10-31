@@ -26,37 +26,11 @@ struct DecisionAddView: View {
             .navigationTitle("新增决定")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: {
-                        decision.saved = true
-                        showSheet = false
-                    }, label: {
-                        Text("保存")
-                    })
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button(action: {
-                        showingConfirmation = true
-                    }, label: {
-                        Text("取消")
-                    })
-                }
+                DecisionAddViewToolbar(decision: decision, showSheet: $showSheet, showingConfirmation: $showingConfirmation)
             }
             .navigationBarBackButtonHidden(true) // 1
             .onAppearOnce {
-                decision.title = template.title
-                decision.choices = template.choices.map({ choice in
-                    Choice(content: choice)
-                })
-
-                modelContext.insert(decision)
-            }
-            .onDisappear {
-                do {
-                    try modelContext.save()
-                } catch {
-                    Logging.shared.error("\(error)")
-                }
+                postInitDecision()
             }
             .confirmationDialog("确定要取消吗？", isPresented: $showingConfirmation) {
                 Button("确定", role: .destructive) {
@@ -84,4 +58,39 @@ struct DecisionAddView: View {
     @State private var showingConfirmation = false
 
     @State private var decision: Decision = .init(title: "", choices: [])
+}
+
+extension DecisionAddView {
+    func postInitDecision() {
+        decision.title = template.title
+        decision.choices = template.choices.map({ choice in
+            Choice(content: choice)
+        })
+
+        modelContext.insert(decision)
+    }
+}
+
+struct DecisionAddViewToolbar: ToolbarContent {
+    var decision: Decision
+    @Binding var showSheet: Bool
+    @Binding var showingConfirmation: Bool
+
+    var body: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button(action: {
+                decision.saved = true
+                showSheet = false
+            }, label: {
+                Text("保存")
+            })
+        }
+        ToolbarItem(placement: .topBarLeading) {
+            Button(action: {
+                showingConfirmation = true
+            }, label: {
+                Text("取消")
+            })
+        }
+    }
 }

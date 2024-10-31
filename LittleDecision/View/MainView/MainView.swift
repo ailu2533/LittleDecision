@@ -17,7 +17,7 @@ struct MainView: View {
         let _ = Self._printChanges()
 
         NavigationStack {
-            mainContent
+            DecisionViewRefactor()
                 .ignoresSafeArea(.keyboard)
                 .mainBackground()
                 .toolbar {
@@ -26,7 +26,6 @@ struct MainView: View {
                 .sheet(item: $activeSheet) { item in
                     item
                 }
-
                 .onAppear {
                     processCompletedCount += 1
                 }
@@ -34,51 +33,36 @@ struct MainView: View {
                     requestReviewHandler()
                 }
         }
-        .task(id: decisionID) {
-            currentDecision = fetchDecision()
-            selectedChoice = nil
-        }
     }
 
     // MARK: Private
 
+//
     @State private var activeSheet: ActiveSheet?
+    @AppStorage("processCompletedCount") private var processCompletedCount = 0
+    @AppStorage("lastVersionPromptedForReview") private var lastVersionPromptedForReview = ""
 
-    @Default(.decisionID) private var decisionID
-    @Default(.processCompletedCount) private var processCompletedCount
-    @Default(.lastVersionPromptedForReview) private var lastVersionPromptedForReview
-
+//    @Default(.decisionID) private var decisionID
     @Environment(\.modelContext)
     private var modelContext
-
     @Environment(\.requestReview) private var requestReview
 
-    @State private var currentDecision: Decision?
-    @State private var selectedChoice: Choice?
 
-    @ViewBuilder
-    private var mainContent: some View {
-        if let currentDecision {
-            DecisionView(selectedChoice: $selectedChoice, currentDecision: currentDecision)
-        } else {
-            ContentUnavailableView("没有数据", systemImage: "envelope.open")
-        }
-    }
 }
 
 extension MainView {
-    private func fetchDecision() -> Decision? {
-        let predicate = #Predicate<Decision> { $0.uuid == decisionID }
-        let descriptor = FetchDescriptor(predicate: predicate)
-
-        do {
-            let res = try modelContext.fetch(descriptor).first
-            return res
-        } catch {
-            Logging.shared.error("currentDecision: \(error)")
-            return nil
-        }
-    }
+//    private func fetchDecision() -> Decision? {
+//        let predicate = #Predicate<Decision> { $0.uuid == decisionID }
+//        let descriptor = FetchDescriptor(predicate: predicate)
+//
+//        do {
+//            let res = try modelContext.fetch(descriptor).first
+//            return res
+//        } catch {
+//            Logging.shared.error("currentDecision: \(error)")
+//            return nil
+//        }
+//    }
 
     /// Presents the rating and review request view after a two-second delay.
     private func presentReview() {

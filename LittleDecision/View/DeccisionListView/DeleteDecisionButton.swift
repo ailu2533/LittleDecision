@@ -15,17 +15,7 @@ struct DeleteDecisionButton: View {
 
     var body: some View {
         Button(role: .destructive) {
-            modelContext.delete(decision)
-
-            if decision.uuid == decisionID {
-                decisionID = modelContext.fetchedDecisions.first?.uuid ?? UUID()
-            }
-
-            do {
-                try modelContext.save()
-            } catch {
-                Logging.shared.error("save")
-            }
+            globalViewModel.deleteDecision(decision)
         } label: {
             Label("删除决定", systemImage: "trash.fill")
         }
@@ -33,6 +23,8 @@ struct DeleteDecisionButton: View {
 
     // MARK: Private
 
-    @Environment(\.modelContext) private var modelContext
-    @Default(.decisionID) private var decisionID
+    @Environment(GlobalViewModel.self) private var globalViewModel
+
+//    @Environment(\.modelContext) private var modelContext
+//    @Default(.decisionID) private var decisionID
 }

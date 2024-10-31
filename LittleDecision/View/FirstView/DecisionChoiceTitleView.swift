@@ -7,28 +7,21 @@
 
 import SwiftUI
 
-struct DecisionChoiceTitleView: View {
-    var selectedChoiceTitle: String?
+struct MainViewChoiceTitleView: View {
+    var selectedChoice: ChoiceItem?
 
     var body: some View {
         VStack(spacing: 12) {
-            Group {
-                if let selectedChoiceTitle {
-                    Text(selectedChoiceTitle)
-                } else {
-                    Text(verbatim: "")
-                }
-            }
+            Text(selectedChoice?.content ?? "")
+                .font(customSubtitleFont)
+                .minimumScaleFactor(0.5)
+                .foregroundStyle(.secondary)
 
-            .font(customSubtitleFont)
-            .minimumScaleFactor(0.5)
-            .foregroundStyle(.secondary)
-
-            .foregroundColor(.secondary)
-            .multilineTextAlignment(.center)
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity)
-            .frame(height: 50)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
+                .frame(height: 50)
         }
 
         .padding(.horizontal)

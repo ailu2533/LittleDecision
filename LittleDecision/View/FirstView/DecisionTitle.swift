@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DecisionTitle: View {
+struct MainViewDecisionTitle: View {
     // MARK: Internal
 
     let decision: Decision?
