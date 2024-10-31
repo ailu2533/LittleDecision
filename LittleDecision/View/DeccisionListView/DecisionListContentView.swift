@@ -27,11 +27,17 @@ struct DecisionListContentView: View {
 
     private var decisionList: some View {
         ForEach(savedDecisions) { decision in
-            DecisionRow(decision: decision, isSelected: decisionID == decision.uuid, selectAction: {
-                globalViewModel.selectDecision(decision)
-                dismiss()
-            })
-            .swipeActions { DeleteDecisionButton(decision: decision) }
+            DecisionRow(
+                decision: decision,
+                isSelected: decisionID == decision.uuid,
+                selectAction: {
+                    globalViewModel.selectDecision(decision)
+                    dismiss()
+                }
+            )
+            .swipeActions {
+                DeleteDecisionButton(decision: decision)
+            }
         }
     }
 }
