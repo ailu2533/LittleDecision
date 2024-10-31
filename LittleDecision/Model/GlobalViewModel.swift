@@ -18,7 +18,7 @@ class GlobalViewModel {
 
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
-        subject.debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+        subject.debounce(for: .seconds(0.2), scheduler: DispatchQueue.main)
             .sink { [weak self] action in
                 guard let self else { return }
                 handleAction(action: action)
@@ -138,6 +138,20 @@ extension GlobalViewModel {
         }
 
         try? modelContext.save()
+
+        send(.decisionEdited(decision.uuid))
+    }
+
+    func saveChoice(_ choice: Choice) {
+        guard let context = choice.modelContext else {
+            return
+        }
+
+        guard let decision = choice.decision else {
+            return
+        }
+
+        try? context.save()
 
         send(.decisionEdited(decision.uuid))
     }

@@ -13,29 +13,27 @@ import TipKit
 struct DecisionListView: View {
     // MARK: Internal
 
-    var savedDecisions: [Decision] {
-        decisions.filter { $0.saved }
-    }
-
     var body: some View {
         NavigationStack {
-            Group {
-                if savedDecisions.isEmpty {
-                    EmptyContentView()
-                } else {
-                    DecisionListContentView(savedDecisions: savedDecisions)
+            DecisionListContentView(decisions: decisions)
+                .overlay {
+                    if decisions.isEmpty {
+                        EmptyContentView()
+                    }
                 }
-            }
-            .mainBackground()
-            .navigationTitle("决定列表")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItemGroup(placement: .primaryAction) {
-                    AddButton(showAddDecisionSheet: $showAddDecisionSheet)
+                .mainBackground()
+                .navigationTitle("决定列表")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        Button(action: {
+                            showAddDecisionSheet = true
+                        }, label: {
+                            Label("新增决定", systemImage: "plus.circle.fill")
+                        })
+                    }
                 }
-            }
         }
-        .sensoryFeedback(.selection, trigger: decisionID)
         .sheet(isPresented: $showAddDecisionSheet) {
             TemplateList(showSheet: $showAddDecisionSheet)
         }
@@ -43,16 +41,14 @@ struct DecisionListView: View {
 
     // MARK: Private
 
-    @Environment(\.modelContext)
-    private var modelContext
+    @Query(
+        filter: #Predicate<Decision> { decision in
+            decision.saved == true
+        },
+        sort: [SortDescriptor(\Decision.createDate, order: .reverse)]
+    )
+    private var decisions: [Decision]
 
-    @Environment(\.dismiss)
-    private var dismiss
-
-    @Query(sort: [SortDescriptor(\Decision.createDate, order: .reverse)])
-    private var decisions: [Decision] = []
-
-    @Default(.decisionID) private var decisionID
     @State private var showAddDecisionSheet = false
 }
 
@@ -66,16 +62,3 @@ struct EmptyContentView: View {
         })
     }
 }
-
-struct AddButton: View {
-    @Binding var showAddDecisionSheet: Bool
-
-    var body: some View {
-        Button(action: {
-            showAddDecisionSheet = true
-        }, label: {
-            Label("新增决定", systemImage: "plus.circle.fill")
-        })
-    }
-}
-

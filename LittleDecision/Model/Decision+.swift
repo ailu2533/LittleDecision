@@ -10,11 +10,13 @@ import Foundation
 extension Decision {
     func save() {
         if let modelContext {
-            do {
-                try modelContext.save()
-            } catch {
-                Logging.shared.error("\(error)")
-            }
+//            do {
+//                try modelContext.save()
+//            } catch {
+//                Logging.shared.error("\(error)")
+//            }
+
+            try? modelContext.save()
         }
     }
 }

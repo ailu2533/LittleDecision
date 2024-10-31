@@ -8,7 +8,6 @@
 import LemonViews
 import SwiftUI
 
-
 struct AddChoiceButton: View {
     let decision: Decision
 
@@ -17,7 +16,6 @@ struct AddChoiceButton: View {
             Label("新选项", systemImage: "plus.circle.fill")
         }
         .buttonStyle(FloatingButtonStyle())
-
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
 }

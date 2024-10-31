@@ -10,13 +10,9 @@ import SwiftUI
 import TipKit
 
 struct DecisionListContentView: View {
-    let savedDecisions: [Decision]
-    @Environment(\.dismiss) private var dismiss
-    @Default(.decisionID) private var decisionID
+    // MARK: Internal
 
-    @Environment(GlobalViewModel.self) private var globalViewModel
-
-    let tip = UseDecisionTip()
+    let decisions: [Decision]
 
     var body: some View {
         LemonList {
@@ -25,8 +21,18 @@ struct DecisionListContentView: View {
         }
     }
 
+    // MARK: Private
+
+    @Default(.decisionID) private var decisionID
+
+    @Environment(\.dismiss) private var dismiss
+
+    @Environment(GlobalViewModel.self) private var globalViewModel
+
+    private let tip = UseDecisionTip()
+
     private var decisionList: some View {
-        ForEach(savedDecisions) { decision in
+        ForEach(decisions) { decision in
             DecisionRow(
                 decision: decision,
                 isSelected: decisionID == decision.uuid,
@@ -36,7 +42,11 @@ struct DecisionListContentView: View {
                 }
             )
             .swipeActions {
-                DeleteDecisionButton(decision: decision)
+                Button(role: .destructive) {
+                    globalViewModel.deleteDecision(decision)
+                } label: {
+                    Label("删除决定", systemImage: "trash.fill")
+                }
             }
         }
     }

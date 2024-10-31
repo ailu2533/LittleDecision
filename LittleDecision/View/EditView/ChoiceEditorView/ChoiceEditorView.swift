@@ -20,25 +20,19 @@ struct ChoiceEditorView: View {
     @Bindable var choice: Choice
 
     var body: some View {
-        Form {
+        LemonForm {
             ChoiceDetailsSection(choice: choice)
             WeightInfoSection(choice: choice)
 
-            Button(action: {
-                guard let context = choice.modelContext else {
-                    dismiss()
-                    return
-                }
-
-                try? context.save()
-                dismiss()
-
-            }, label: {
-                Text("保存")
-            })
-            .buttonStyle(FullWidthButtonStyle())
-            .listRowInsets(EdgeInsets())
-            .listRowBackground(Color.clear)
+//            Button(action: {
+//                globalViewModel.saveChoice(choice)
+//                dismiss()
+//            }, label: {
+//                Text("保存")
+//            })
+//            .buttonStyle(FullWidthButtonStyle())
+//            .listRowInsets(EdgeInsets())
+//            .listRowBackground(Color.clear)
         }
         .mainBackground()
         .toolbar {

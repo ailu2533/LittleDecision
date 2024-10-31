@@ -56,16 +56,11 @@ class Decision {
     // 总权重
     var totalWeight: Int {
         get async {
-            await Task.detached(priority: .userInitiated) { [weak self] in
+            guard let choices else { return 0 }
 
-                guard let self else { return 0 }
-
-                guard let choices else { return 0 }
-
-                return choices.reduce(0) { partialResult, choice in
-                    partialResult + choice.weight
-                }
-            }.value
+            return choices.reduce(0) { partialResult, choice in
+                partialResult + choice.weight
+            }
         }
     }
 }
