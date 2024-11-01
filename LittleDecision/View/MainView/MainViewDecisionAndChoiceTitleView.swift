@@ -16,15 +16,11 @@ struct MainViewDecisionAndChoiceTitleView: View {
                 .frame(height: 48)
                 .padding(.horizontal, 32)
 
-            Text(choiceTitle)
+            Text(globalViewModel.choiceTitle)
                 .multilineTextAlignment(.center)
                 .truncationMode(.middle)
                 .fontWeight(.bold)
                 .frame(height: 48)
         }
-    }
-
-    var choiceTitle: String {
-        globalViewModel.selectedChoice?.content ?? ""
     }
 }

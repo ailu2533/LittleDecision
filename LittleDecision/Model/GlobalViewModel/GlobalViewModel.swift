@@ -35,8 +35,6 @@ class GlobalViewModel {
 
     private(set) var items: [ChoiceItem] = []
 
-    let modelContext: ModelContext
-
     private(set) var status: Status = .none
 
     // MARK: spin wheel prop
@@ -52,7 +50,14 @@ class GlobalViewModel {
     private(set) var deckEnableWiggle: Bool = false
     private(set) var deckText: String = ""
 
-//    private(set) var deckStatus: DeckStatus = .none
+    var choiceTitle: String {
+        switch decisionDisplayMode {
+        case .wheel:
+            return selectedChoice?.content ?? ""
+        case .stackedCards:
+            return ""
+        }
+    }
 
     // MARK: restore
 
@@ -65,7 +70,14 @@ class GlobalViewModel {
         }
     }
 
+    // Mark refreshItems
+    func refreshItems() {
+        items = selectedDecision?.sortedChoices.map { ChoiceItem(choice: $0) } ?? []
+    }
+
     // MARK: Private
+
+    private let modelContext: ModelContext
 
     private let subject = CurrentValueSubject<ChangeAction, Never>(.decisionUUID(Defaults[.decisionID]))
 
@@ -114,7 +126,7 @@ extension GlobalViewModel {
         try? modelContext.save()
 
         selectedChoice = nil
-        items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+        refreshItems()
 
         withAnimation {
             spinWheelRotateAngle -= spinWheelRotateAngle.truncatingRemainder(dividingBy: 360)
@@ -142,16 +154,16 @@ extension GlobalViewModel {
                 return
             }
 
-            items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+            refreshItems()
 
         case let .decisionUUID(decisionUUID):
             selectedDecision = fetchDecision(decisionID: decisionUUID)
             selectedChoice = nil
-            items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+            refreshItems()
         case .userDefaultsEqualWeight:
-            items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+            refreshItems()
         case .userDefaultsNoRepeat:
-            items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+            refreshItems()
         }
     }
 
@@ -175,7 +187,7 @@ extension GlobalViewModel {
 
         try? modelContext.save()
 
-        items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+        refreshItems()
     }
 }
 
@@ -241,8 +253,7 @@ extension GlobalViewModel {
         try? modelContext.save()
 
         selectedChoice = nil
-        items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
-
+        refreshItems()
         status = .none
         deckIsFlipped = false
     }
@@ -267,17 +278,6 @@ extension GlobalViewModel {
         }
     }
 
-    // MARK: updateCardText
-
-    private func updateCardText() {
-        if let (choice, _) = LotteryViewModel.select(from: items), let choice {
-            deckText = choice.content
-            setSelectedChoice(choice)
-        } else {
-            deckText = String(localized: "选项用完了，点击还原继续")
-        }
-    }
-
     // MARK: flipToBack
 
     private func flipToBack() {
@@ -292,6 +292,17 @@ extension GlobalViewModel {
         } completion: { [weak self] in
             guard let self else { return }
             status = .none
+        }
+    }
+
+    // MARK: updateCardText
+
+    private func updateCardText() {
+        if let (choice, _) = LotteryViewModel.select(from: items), let choice {
+            deckText = choice.content
+            setSelectedChoice(choice)
+        } else {
+            deckText = String(localized: "选项用完了，点击还原继续")
         }
     }
 }
@@ -373,5 +384,45 @@ extension GlobalViewModel {
         try? modelContext.save()
 
         send(.decisionEdited(decision.uuid))
+    }
+}
+
+// MARK: GlobalViewModel + Decision
+
+extension GlobalViewModel {
+    public func deleteDecision(_ decision: Decision) {
+        if decision.uuid == selectedDecision?.uuid {
+            setSelectedDecision(nil)
+            setSelectedChoice(nil)
+
+            modelContext.delete(decision)
+            try? modelContext.save()
+
+            let decisionID = fetchFirstDecision()?.uuid ?? UUID()
+            Defaults[.decisionID] = decisionID
+
+            send(.decisionUUID(decisionID))
+        } else {
+            modelContext.delete(decision)
+            try? modelContext.save()
+        }
+    }
+
+    public func selectDecision(_ decision: Decision) {
+        Defaults[.decisionID] = decision.uuid
+        send(.decisionUUID(decision.uuid))
+    }
+
+    func fetchFirstDecision() -> Decision? {
+        var fetchDescriptor = FetchDescriptor<Decision>(
+            sortBy: [
+                SortDescriptor(\Decision.createDate, order: .reverse),
+                SortDescriptor(\Decision.uuid, order: .reverse),
+            ]
+        )
+
+        fetchDescriptor.fetchLimit = 1
+
+        return try? modelContext.fetch(fetchDescriptor).first
     }
 }
