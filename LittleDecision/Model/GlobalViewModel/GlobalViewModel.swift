@@ -258,11 +258,11 @@ extension GlobalViewModel {
     // MARK: updateCardText
 
     private func updateCardText() {
-        let text = String(localized: "没有了，请按'还原'按钮")
-        if let (choice, angle) = LotteryViewModel.select(from: items) {
-            deckText = choice?.content ?? text
+        if let (choice, _) = LotteryViewModel.select(from: items), let choice {
+            deckText = choice.content
+            setSelectedChoice(choice)
         } else {
-            deckText = text
+            deckText = String(localized: "没有了，请按'还原'按钮")
         }
     }
 

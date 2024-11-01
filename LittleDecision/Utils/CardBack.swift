@@ -12,7 +12,7 @@ struct CardBack: View {
     let size: CGSize
 
     var body: some View {
-        Image(.cardbackYellow)
+        Image(.cardBack)
             .resizable()
             .scaledToFill()
             .frame(width: size.width, height: size.height)

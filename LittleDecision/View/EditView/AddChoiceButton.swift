@@ -56,7 +56,7 @@ struct BatchAddChoiceButton: View {
                 .font(.system(size: 16, weight: .semibold, design: .rounded))
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
-                .background(.biege)
+//                .background(.biege)
                 .clipShape(Capsule())
                 .foregroundStyle(.accent)
                 .shadow(radius: 1)

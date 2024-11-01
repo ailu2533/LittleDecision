@@ -16,10 +16,8 @@ struct CardFront: View {
         Text(text)
             .padding()
             .frame(width: size.width, height: size.height)
-//            .font(customBodyFont)
-//            .foregroundStyle(Color.black)
             .background {
-                Image(.background)
+                Image(.cardFront)
                     .resizable()
                     .scaledToFill()
             }

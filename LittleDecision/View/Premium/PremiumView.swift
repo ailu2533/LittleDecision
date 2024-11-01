@@ -37,7 +37,7 @@ struct PremiumView: View {
                             .padding(.trailing, 16)
                             .padding(.vertical, 8)
                     }
-                    .background(.orange)
+                    .background(.orange.gradient)
                     .clipShape(Capsule())
 
                 } else {
@@ -54,7 +54,7 @@ struct PremiumView: View {
             Spacer()
         }
         .padding(.vertical, 12)
-        .background(LinearGradient(colors: [.orange1, .orange2, .orange3, .orange4], startPoint: .top, endPoint: .bottom))
+        .background(Color.orange1.gradient)
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .padding(6)
         .background(.systemBackground)
