@@ -39,7 +39,7 @@ struct ChartContent: View {
             SpinCellItem(
                 id: choice.uuid,
                 title: choice.content,
-                weight: CGFloat(choice.weight),
+                weight: choice.weight,
                 enabled: choice.enable
             )
         }

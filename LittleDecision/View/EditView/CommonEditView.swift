@@ -8,6 +8,8 @@
 import LemonViews
 import SwiftUI
 
+// MARK: - CommonEditView
+
 /// 主视图，用于编辑决策和其选项。
 struct CommonEditView: View {
     @Bindable var decision: Decision
@@ -26,7 +28,11 @@ struct CommonEditView: View {
     }
 }
 
+// MARK: - DecisionDisplayModePickerView
+
 struct DecisionDisplayModePickerView: View {
+    // MARK: Internal
+
     var decision: Decision
 
     var body: some View {
@@ -55,6 +61,11 @@ struct DecisionDisplayModePickerView: View {
         } set: {
             decision.displayModel = $0.rawValue
             decision.save()
+            globalViewModel.restore()
         }
     }
+
+    // MARK: Private
+
+    @Environment(GlobalViewModel.self) private var globalViewModel
 }

@@ -13,14 +13,14 @@ struct MainViewDecisionAndChoiceTitleView: View {
     var body: some View {
         VStack {
             MainViewDecisionTitle(decision: globalViewModel.selectedDecision)
-                .frame(height: 48)
+                .frame(height: 64)
                 .padding(.horizontal, 32)
 
             Text(globalViewModel.choiceTitle)
                 .multilineTextAlignment(.center)
                 .truncationMode(.middle)
                 .fontWeight(.bold)
-                .frame(height: 48)
+                .frame(height: 64)
         }
     }
 }

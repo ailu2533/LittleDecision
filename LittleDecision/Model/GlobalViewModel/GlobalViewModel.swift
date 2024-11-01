@@ -231,14 +231,14 @@ extension GlobalViewModel {
             withAnimation(animation.delay(kDurationAndDelay)) {
                 deckBackDegree = 0
             } completion: {
-                self.restoreAllStatus()
+                self.restoreDeckStatus()
             }
 
         } else {
             withAnimation(.easeInOut(duration: 0.05).repeatCount(6)) {
                 deckEnableWiggle.toggle()
             } completion: {
-                self.restoreAllStatus()
+                self.restoreDeckStatus()
             }
         }
     }
@@ -247,7 +247,7 @@ extension GlobalViewModel {
 
     // MARK: restoreAllStatus
 
-    private func restoreAllStatus() {
+    private func restoreDeckStatus() {
         selectedDecision?.unwrappedChoices.forEach { $0.enable = true }
 
         try? modelContext.save()
@@ -356,14 +356,6 @@ extension GlobalViewModel {
         send(.decisionEdited(decision.uuid))
     }
 
-    func saveChoice(decision: Decision, title: String, weight: Int) {
-        let choice = Choice(content: title, weight: weight)
-        choice.decision = decision
-        try? modelContext.save()
-
-        send(.decisionEdited(decision.uuid))
-    }
-
     func saveChoice(_ choice: Choice) {
         guard let context = choice.modelContext else {
             return
@@ -381,6 +373,7 @@ extension GlobalViewModel {
     func addChoice(for decision: Decision, title: String, weight: Int) {
         let choice = Choice(content: title, weight: weight)
         choice.decision = decision
+        decision.choices?.append(choice)
         try? modelContext.save()
 
         send(.decisionEdited(decision.uuid))
