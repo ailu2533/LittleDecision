@@ -11,11 +11,20 @@ struct MainViewDecisionAndChoiceTitleView: View {
     var globalViewModel: GlobalViewModel
 
     var body: some View {
-        MainViewDecisionTitle(decision: globalViewModel.selectedDecision)
-            .frame(height: 50)
+        VStack {
+            MainViewDecisionTitle(decision: globalViewModel.selectedDecision)
+                .frame(height: 48)
+                .padding(.horizontal, 32)
 
-        MainViewChoiceTitleView(selectedChoice: globalViewModel.selectedChoice)
-            .frame(height: 50)
+            Text(choiceTitle)
+                .multilineTextAlignment(.center)
+                .truncationMode(.middle)
+                .fontWeight(.bold)
+                .frame(height: 48)
+        }
+    }
 
+    var choiceTitle: String {
+        globalViewModel.selectedChoice?.content ?? ""
     }
 }

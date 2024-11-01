@@ -10,14 +10,14 @@ import SwiftUI
 struct MainViewChoiceTitleView: View {
     var selectedChoice: ChoiceItem?
 
+    var choiceTitle: String {
+        selectedChoice?.content ?? ""
+    }
+
     var body: some View {
-        VStack(spacing: 12) {
-            Text(selectedChoice?.content ?? "")
-                .font(customSubtitleFont)
-                .minimumScaleFactor(0.5)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-        }
+        Text(choiceTitle)
+            .foregroundStyle(.secondary)
+            .multilineTextAlignment(.center)
+            .frame(maxWidth: .infinity)
     }
 }

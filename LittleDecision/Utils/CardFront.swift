@@ -16,7 +16,7 @@ struct CardFront: View {
         Text(text)
             .padding()
             .frame(width: size.width, height: size.height)
-            .font(customBodyFont)
+//            .font(customBodyFont)
 //            .foregroundStyle(Color.black)
             .background {
                 Image(.background)
@@ -28,7 +28,8 @@ struct CardFront: View {
 
             .rotation3DEffect(
                 .degrees(rotationDegree),
-                axis: (x: 0.0, y: 1.0, z: 0.0001)
+                axis: (x: 0.0, y: 1.0, z: 0.001),
+                perspective: 0
             )
     }
 }

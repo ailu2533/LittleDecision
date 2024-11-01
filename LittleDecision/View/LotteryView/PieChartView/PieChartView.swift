@@ -12,28 +12,29 @@ import SwiftUI
 
 struct PieChartView: View {
     var globalViewModel: GlobalViewModel
+    var size: CGSize
+
+    var radius: CGFloat {
+        return min(size.width, size.height)
+    }
 
     var body: some View {
         let _ = Self._printChanges()
 
-        GeometryReader { proxy in
-            let radius = min(proxy.size.width, proxy.size.height)
-
-            RotatingView(angle: globalViewModel.spinWheelRotateAngle) {
-                ZStack {
-                    CircleBackground(lineWidth: 1)
-                    ChartContent(choiceItems: globalViewModel.items, radius: radius)
-                        .padding(12)
-                }
+        RotatingView(angle: globalViewModel.spinWheelRotateAngle) {
+            ZStack {
+                CircleBackground(lineWidth: 1)
+                ChartContent(choiceItems: globalViewModel.items, radius: radius)
+                    .padding(12)
             }
-            .overlay {
-                Button {
-                    globalViewModel.startSpinning()
-                } label: {
-                    PointerView()
-                }
-                .buttonStyle(PointerViewButtonStyle())
+        }
+        .overlay {
+            Button {
+                globalViewModel.startSpinning()
+            } label: {
+                PointerView()
             }
+            .buttonStyle(PointerViewButtonStyle())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)

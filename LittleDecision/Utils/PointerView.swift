@@ -6,23 +6,27 @@
 //
 
 import Foundation
-import SwiftUI
 import SpinWheel
+import SwiftUI
+
+// MARK: - PointerView
 
 struct PointerView: View {
     var body: some View {
         ZStack {
             PointerShape()
-                .fill(RadialGradient(colors: [.pink2, .white], center: .center, startRadius: 0, endRadius: 150))
                 .shadow(radius: 1)
-            Text("开始")
-                .font(customStartFont)
-                .minimumScaleFactor(0.5)
-                .foregroundColor(.black)
+                .foregroundStyle(.white)
+            Text(verbatim: "Go")
+                .fontDesign(.rounded)
+                .fontWeight(.bold)
+                .foregroundStyle(.black)
         }
         .frame(width: 150, height: 150)
     }
 }
+
+// MARK: - PointerViewButtonStyle
 
 struct PointerViewButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {

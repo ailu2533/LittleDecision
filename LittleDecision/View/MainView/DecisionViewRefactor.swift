@@ -37,11 +37,14 @@ struct DecisionViewRefactor: View {
 
     @ViewBuilder
     private var content: some View {
-        switch globalViewModel.decisionDisplayMode {
-        case .wheel:
-            PieChartView(globalViewModel: globalViewModel)
-        case .stackedCards:
-            DeckHelperViewRefactor(globalViewModel: globalViewModel)
+        GeometryReader { proxy in
+            let size = proxy.size
+            switch globalViewModel.decisionDisplayMode {
+            case .wheel:
+                PieChartView(globalViewModel: globalViewModel, size: size)
+            case .stackedCards:
+                DeckView(globalViewModel: globalViewModel, size: size)
+            }
         }
     }
 }

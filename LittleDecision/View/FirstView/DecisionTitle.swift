@@ -36,13 +36,12 @@ struct MainViewDecisionTitle: View {
         Label(
             title: {
                 Text(decision.title)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.5)
                     .multilineTextAlignment(.center)
-
+                    .truncationMode(.middle)
+                    .font(.headline)
             },
             icon: {
-                Image(systemName: "pencil.and.outline").fontWeight(.bold)
+                Image(systemName: "pencil.and.outline")
             }
         )
         .labelStyle(.titleAndIcon)

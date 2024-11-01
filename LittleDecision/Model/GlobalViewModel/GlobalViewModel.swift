@@ -43,21 +43,14 @@ class GlobalViewModel {
     private(set) var spinWheelRotateAngle: Double = 0.0
     private(set) var spinWheelIsRunning = false
 
-    var decisionDisplayMode: DecisionDisplayMode {
-        selectedDecision?.displayModeEnum ?? .wheel
-    }
+    // MARK: deck
 
-    func setSelectedChoice(_ choice: ChoiceItem?) {
-        self.selectedChoice = choice
-
-        if let choice {
-            selectedChoice(choice)
-        }
-    }
-
-    func setSelectedDecision(_ decision: Decision?) {
-        self.selectedDecision = decision
-    }
+    private(set) var deckBackDegree: CGFloat = 0
+    private(set) var deckFrontDegree: CGFloat = -90
+    private(set) var deckIsFlipped = false
+    private(set) var deckEnableWiggle: Bool = false
+    private(set) var deckText: String = ""
+    private(set) var deckStatus: DeckStatus = .none
 
     // MARK: Private
 
@@ -161,5 +154,204 @@ extension GlobalViewModel {
         try? modelContext.save()
 
         items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+    }
+}
+
+// GlobalViewModel + Card
+extension GlobalViewModel {
+    // MARK: Public
+
+    public func flip() {
+        if deckStatus != .none {
+            return
+        }
+
+        deckStatus = .isFlipping
+
+//        tapCount += 1
+        deckIsFlipped.toggle()
+
+        if deckIsFlipped {
+            flipToFront()
+        } else {
+            flipToBack()
+        }
+    }
+
+    public func restoreDeck() {
+        if deckStatus != .none {
+            return
+        }
+
+        deckStatus = .isRestoring
+
+        if deckIsFlipped {
+            let animation = Animation.linear(duration: kDurationAndDelay)
+
+            withAnimation(animation) {
+                self.deckFrontDegree = -90
+            }
+
+            withAnimation(animation.delay(kDurationAndDelay)) {
+                deckBackDegree = 0
+            } completion: {
+//                self.items = self.choices.shuffled()
+                self.deckIsFlipped = false
+            }
+
+//            withAnimation(.easeInOut(duration: 0.05).repeatCount(6).delay(2 * kDurationAndDelay)) {
+//                enableWiggle.toggle()
+//            } completion: {
+//                self.enableWiggle = false
+//
+//                self.restoreAllStatus()
+//                self.deckStatus = .none
+//            }
+
+        } else {
+            withAnimation(.easeInOut(duration: 0.05).repeatCount(6)) {
+                deckEnableWiggle.toggle()
+            } completion: {
+//                self.items = self.choices.shuffled()
+//                self.enableWiggle = false
+
+                self.restoreAllStatus()
+                self.deckStatus = .none
+            }
+        }
+
+//        tapCount += 1
+    }
+
+    // MARK: Private
+
+    private func restoreAllStatus() {
+        deckStatus = .none
+        deckIsFlipped = false
+    }
+
+    // MARK: flipToFront
+
+    private func flipToFront() {
+        updateCardText()
+        SoundPlayer.shared.playFlipCardSound()
+
+        let animation = Animation.linear(duration: kDurationAndDelay)
+
+        withAnimation(animation) {
+            deckBackDegree = 90
+        }
+
+        withAnimation(animation.delay(kDurationAndDelay)) {
+            deckFrontDegree = 0
+        } completion: {
+            self.deckStatus = .none
+        }
+    }
+
+    private func updateCardText() {
+//        if !items.isEmpty {
+//            text = draw()?.content ?? String(localized: "未知错误")
+//        } else {
+//            text = String(localized: "没有了，请按'还原'按钮")
+//        }
+
+        deckText = String(localized: "没有了，请按'还原'按钮")
+    }
+
+    // MARK: flipToBack
+
+    private func flipToBack() {
+        let animation = Animation.linear(duration: kDurationAndDelay)
+
+        withAnimation(animation) {
+            self.deckFrontDegree = -90
+        }
+
+        withAnimation(animation.delay(kDurationAndDelay)) {
+            self.deckBackDegree = 0
+        } completion: {
+            self.deckStatus = .none
+        }
+    }
+}
+
+// MARK: GlobalViewModel + Choice
+
+extension GlobalViewModel {
+    var decisionDisplayMode: DecisionDisplayMode {
+        selectedDecision?.displayModeEnum ?? .wheel
+    }
+
+    // MARK: setSelectedChoice
+
+    func setSelectedChoice(_ choice: ChoiceItem?) {
+        self.selectedChoice = choice
+
+        if let choice {
+            selectedChoice(choice)
+        }
+    }
+
+    func setSelectedDecision(_ decision: Decision?) {
+        self.selectedDecision = decision
+    }
+
+    public func deleteChoice(_ choice: Choice) {
+        if selectedChoice?.uuid == choice.uuid {
+            setSelectedChoice(nil)
+        }
+
+        guard let decision = choice.decision else { return }
+
+        modelContext.delete(choice)
+        try? modelContext.save()
+
+        if decision.uuid == selectedDecision?.uuid {
+            send(.decisionEdited(decision.uuid))
+        }
+    }
+
+    func deleteChoices(from decision: Decision, at offsets: IndexSet) {
+        let choicesToDelete = offsets.map { decision.sortedChoices[$0] }
+        choicesToDelete.forEach { modelContext.delete($0) }
+
+        choicesToDelete.forEach { choice in
+            decision.choices?.removeAll { choice.uuid == $0.uuid }
+        }
+
+        try? modelContext.save()
+
+        send(.decisionEdited(decision.uuid))
+    }
+
+    func saveChoice(decision: Decision, title: String, weight: Int) {
+        let choice = Choice(content: title, weight: weight)
+        choice.decision = decision
+        try? modelContext.save()
+
+        send(.decisionEdited(decision.uuid))
+    }
+
+    func saveChoice(_ choice: Choice) {
+        guard let context = choice.modelContext else {
+            return
+        }
+
+        guard let decision = choice.decision else {
+            return
+        }
+
+        try? context.save()
+
+        send(.decisionEdited(decision.uuid))
+    }
+
+    func addChoice(for decision: Decision, title: String, weight: Int) {
+        let choice = Choice(content: title, weight: weight)
+        choice.decision = decision
+        try? modelContext.save()
+
+        send(.decisionEdited(decision.uuid))
     }
 }
