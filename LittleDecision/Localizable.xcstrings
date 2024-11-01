@@ -1525,6 +1525,7 @@
       }
     },
     "字体大小" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

@@ -5,9 +5,10 @@
 //  Created by Lu Ai on 2024/10/29.
 //
 
-import Defaults
-import SwiftData
+import LemonViews
 import SwiftUI
+
+// MARK: - DecisionViewRefactor
 
 struct DecisionViewRefactor: View {
     // MARK: Internal
@@ -18,16 +19,21 @@ struct DecisionViewRefactor: View {
 
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+            Button {
+                globalViewModel.restore()
+            } label: {
+                Label("还原", systemImage: "arrow.clockwise")
+            }
+            .buttonStyle(FloatingButtonStyle())
+            .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .padding()
-
     }
 
     // MARK: Private
 
     @Environment(GlobalViewModel.self) private var globalViewModel
-
-    @Environment(\.modelContext) private var modelContext
 
     @ViewBuilder
     private var content: some View {
@@ -37,14 +43,5 @@ struct DecisionViewRefactor: View {
         case .stackedCards:
             DeckHelperViewRefactor(globalViewModel: globalViewModel)
         }
-    }
-}
-
-extension DecisionViewRefactor {
-    private func fetchDecision(decisionID: UUID) -> Decision? {
-        let predicate = #Predicate<Decision> { $0.uuid == decisionID }
-        let descriptor = FetchDescriptor(predicate: predicate)
-
-        return try? modelContext.fetch(descriptor).first
     }
 }

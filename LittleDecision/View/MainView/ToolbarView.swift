@@ -10,8 +10,6 @@ import Foundation
 import SwiftUI
 
 struct ToolbarView: ToolbarContent {
-    // MARK: Internal
-
 //    @Binding var isSettingsPresented: Bool
 //    @Binding var isDecisionListPresented: Bool
 //    @Binding var isSkinListPresented: Bool
@@ -20,24 +18,22 @@ struct ToolbarView: ToolbarContent {
 
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
-            Button(action: {
-//                isSettingsPresented = true
-
+            Button {
                 activeSheet = .settings
-
-            }, label: {
+            } label: {
                 Label(
-                    title: { Text("设置") },
-                    icon: { Image(systemName: "gear")
+                    title: {
+                        Text("设置")
+                    },
+                    icon: {
+                        Image(systemName: "gear")
                     }
                 )
-
-            })
+            }
         }
 
         ToolbarItemGroup(placement: .topBarTrailing) {
             Button(action: {
-//                isSkinListPresented = true
                 activeSheet = .skinList
             }, label: {
                 Label(
@@ -48,7 +44,6 @@ struct ToolbarView: ToolbarContent {
             })
 
             Button(action: {
-//                isDecisionListPresented = true
                 activeSheet = .decisionList
             }, label: {
                 Label(
@@ -60,8 +55,4 @@ struct ToolbarView: ToolbarContent {
             })
         }
     }
-
-    // MARK: Private
-
-    @Default(.decisionDisplayMode) private var decisionDisplayMode
 }

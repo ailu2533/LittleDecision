@@ -9,6 +9,8 @@ import Defaults
 import Foundation
 
 class LotteryViewModel {
+    // MARK: selectChoice
+
     static func selectChoice(from choices: [Choice], basedOn rotateAngle: Double) -> Choice? {
         guard !choices.isEmpty else { return nil }
 
@@ -46,6 +48,8 @@ class LotteryViewModel {
 
         return choices.last // 如果没有找到，返回最后一个选项
     }
+
+    // MARK: selectChoice
 
     static func selectChoice(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
         let totalWeight = choices.reduce(0) { $0 + $1.weight4calc }
@@ -85,6 +89,8 @@ class LotteryViewModel {
 
         return (choice, randomAngle)
     }
+
+    // MARK: selectChoiceExcludeDisable
 
     static func selectChoiceExcludeDisable(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
         let filteredTotalWeight = choices.filter(\.enable).reduce(0) { $0 + $1.weight4calc }
@@ -127,6 +133,8 @@ class LotteryViewModel {
         return (choice, randomAngle)
     }
 
+    // MARK: select
+
     static func select(from choices: [Choice]) -> (choice: Choice?, randomAngle: Double)? {
         let noRepeat = Defaults[.noRepeat]
 
@@ -135,6 +143,8 @@ class LotteryViewModel {
         }
         return selectChoice(from: choices)
     }
+
+    // MARK: selectChoice
 
     static func selectChoice(from choices: [ChoiceItem], basedOn rotateAngle: Double) -> ChoiceItem? {
         guard !choices.isEmpty else { return nil }
@@ -214,7 +224,7 @@ class LotteryViewModel {
     }
 
     static func selectChoiceExcludeDisable(from choices: [ChoiceItem]) -> (choice: ChoiceItem?, randomAngle: Double)? {
-        let filteredTotalWeight = choices.reduce(0) { $0 + $1.weight }
+        let filteredTotalWeight = choices.filter(\.enable).reduce(0) { $0 + $1.weight }
         if filteredTotalWeight == 0 { return nil } // 防止除以零的错误
 
         // 随机选择一个choice
@@ -222,7 +232,7 @@ class LotteryViewModel {
         var cumulativeWeight = 0
         var selectedChoice: ChoiceItem?
 
-        for choice in choices {
+        for choice in choices.filter(\.enable) {
             cumulativeWeight += choice.weight
             if randomWeight < cumulativeWeight {
                 selectedChoice = choice

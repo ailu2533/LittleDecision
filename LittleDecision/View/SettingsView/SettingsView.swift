@@ -45,10 +45,8 @@ struct SettingsView: View {
                 .listRowInsets(.zero)
 
                 settingsSection
-//                    .listRowSeparator(.hidden)
 
                 contactSection
-//                    .listRowSeparator(.hidden)
             }
             .settingsBackground()
             .navigationTitle("设置")
@@ -61,7 +59,6 @@ struct SettingsView: View {
 
     @ViewBuilder
     private var settingsSection: some View {
-
         Section {
             SettingToggle(isOn: $noRepeat, icon: "repeat", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "不重复抽取", description: "已经被抽中的选项不会被抽中")
 
@@ -70,6 +67,10 @@ struct SettingsView: View {
             SettingToggle(isOn: $enableSound, icon: "speaker.wave.3", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "声音", description: nil)
 
             rotationTimePicker
+        }.onChange(of: noRepeat) { _, newValue in
+            globalViewModel.send(.userDefaultsNoRepeat(newValue))
+        }.onChange(of: equalWeight) { _, newValue in
+            globalViewModel.send(.userDefaultsEqualWeight(newValue))
         }
     }
 
@@ -89,23 +90,23 @@ struct SettingsView: View {
         }
     }
 
-    private var fontSizeSlider: some View {
-        VStack {
-            HStack {
-                Image(systemName: "textformat.size")
-                    .font(.system(.body, design: .rounded))
-                    .foregroundColor(.white)
-                    .frame(width: 30, height: 30)
-                    .background(.orange)
-                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-
-                Text("字体大小")
-                Spacer()
-                Text(verbatim: "\(Int(fontSize))")
-            }
-
-            Slider(value: $fontSize, in: 12 ... 24, step: 1)
-                .accentColor(.orange)
-        }
-    }
+//    private var fontSizeSlider: some View {
+//        VStack {
+//            HStack {
+//                Image(systemName: "textformat.size")
+//                    .font(.system(.body, design: .rounded))
+//                    .foregroundColor(.white)
+//                    .frame(width: 30, height: 30)
+//                    .background(.orange)
+//                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+//
+//                Text("字体大小")
+//                Spacer()
+//                Text(verbatim: "\(Int(fontSize))")
+//            }
+//
+//            Slider(value: $fontSize, in: 12 ... 24, step: 1)
+//                .accentColor(.orange)
+//        }
+//    }
 }

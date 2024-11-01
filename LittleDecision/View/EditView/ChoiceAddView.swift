@@ -18,7 +18,7 @@ struct ChoiceAddView: View {
     // MARK: Internal
 
     var body: some View {
-        Form {
+        LemonForm {
             choiceDetailsSection
             weightInfoSection
             addMoreSection
@@ -42,6 +42,8 @@ struct ChoiceAddView: View {
 
     @State private var totalWeight = 0
 
+    @Environment(GlobalViewModel.self) private var globalViewModel
+
     private var choiceDetailsSection: some View {
         Section {
             ChoiceTitleView(title: $title)
@@ -51,8 +53,15 @@ struct ChoiceAddView: View {
 
     private var weightInfoSection: some View {
         Section {
-            LabeledContent("总权重", value: "\(totalWeight + weight)")
-            LabeledContent("概率", value: probability(weight, totalWeight + weight))
+            HStack {
+                SettingIconView(icon: .system(icon: "scalemass.fill", foregroundColor: .primary, backgroundColor: .secondaryAccent))
+                LabeledContent("总权重", value: "\(totalWeight + weight)")
+            }
+
+            HStack {
+                SettingIconView(icon: .system(icon: "percent", foregroundColor: .primary, backgroundColor: .secondaryAccent))
+                LabeledContent("概率", value: probability(weight, totalWeight + weight))
+            }
         }
     }
 
@@ -81,23 +90,13 @@ struct ChoiceAddView: View {
     }
 
     private func addNewChoice() {
-        saveChoice()
+        globalViewModel.addChoice(for: decision, title: title, weight: weight)
         resetForm()
     }
 
     private func saveAndDismiss() {
-        saveChoice()
+        globalViewModel.addChoice(for: decision, title: title, weight: weight)
         dismiss()
-    }
-
-    private func saveChoice() {
-        do {
-            let choice = Choice(content: title, weight: weight)
-            decision.choices?.append(choice)
-            try modelContext.save()
-        } catch {
-            Logging.shared.error("\(error)")
-        }
     }
 
     private func resetForm() {

@@ -14,6 +14,7 @@ struct ChartContent: View {
     // MARK: Internal
 
     var body: some View {
+        let _ = Self._printChanges()
         SpinWheel(
             rawItems: spinCellItems,
             size: CGSize(width: radius, height: radius),
@@ -35,7 +36,12 @@ struct ChartContent: View {
 
     private var spinCellItems: [SpinCellItem] {
         return choiceItems.map { choice in
-            SpinCellItem(id: choice.uuid, title: choice.content, weight: CGFloat(choice.weight), enabled: true)
+            SpinCellItem(
+                id: choice.uuid,
+                title: choice.content,
+                weight: CGFloat(choice.weight),
+                enabled: choice.enable
+            )
         }
     }
 }

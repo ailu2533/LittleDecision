@@ -103,10 +103,14 @@ private func handleDecodingError(_ error: Error) {
     }
 }
 
+// MARK: - DecisionData
+
 // 用于解码 JSON 的结构
 struct DecisionData: Codable {
     let decisions: [DecisionItem]
 }
+
+// MARK: - DecisionItem
 
 struct DecisionItem: Codable, Identifiable {
     // MARK: Lifecycle
@@ -135,4 +139,3 @@ struct DecisionItem: Codable, Identifiable {
     let tags: [TemplateKind]
     let choices: [ChoiceItem]
 }
-

@@ -24,15 +24,15 @@ struct ChoiceEditorView: View {
             ChoiceDetailsSection(choice: choice)
             WeightInfoSection(choice: choice)
 
-//            Button(action: {
-//                globalViewModel.saveChoice(choice)
-//                dismiss()
-//            }, label: {
-//                Text("保存")
-//            })
-//            .buttonStyle(FullWidthButtonStyle())
-//            .listRowInsets(EdgeInsets())
-//            .listRowBackground(Color.clear)
+            Button(action: {
+                globalViewModel.saveChoice(choice)
+                dismiss()
+            }, label: {
+                Text("保存")
+            })
+            .buttonStyle(FullWidthButtonStyle())
+            .listRowInsets(EdgeInsets())
+            .listRowBackground(Color.clear)
         }
         .mainBackground()
         .toolbar {

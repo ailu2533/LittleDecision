@@ -5,6 +5,7 @@
 //  Created by Lu Ai on 2024/10/31.
 //
 
+import Defaults
 import Foundation
 import SwiftData
 
@@ -35,9 +36,8 @@ class Choice {
     var choosed: Bool = false
 
     var weight4calc: Int {
-//        let hideWeight = Defaults[.equalWeight]
-//        return hideWeight ? 1 : weight
-        return 1
+        let hideWeight = Defaults[.equalWeight]
+        return hideWeight ? 1 : weight
     }
 }
 
