@@ -11,8 +11,6 @@ struct CardBack: View {
     var rotationDegree: CGFloat = .zero
     let size: CGSize
 
-//    var enableWiggle: Bool
-
     var body: some View {
         Image(.cardbackYellow)
             .resizable()

@@ -8,26 +8,25 @@
 import SwiftUI
 
 struct Card: View {
-//    var cardViewModel: CardViewModel
     let size: CGSize
     var globalViewModel: GlobalViewModel
 
     var body: some View {
-        ZStack {
-            CardFront(
-                text: globalViewModel.deckText,
-                rotationDegree: globalViewModel.deckFrontDegree,
-                size: size
-            )
-            CardBack(
-                rotationDegree: globalViewModel.deckBackDegree,
-                size: size
-            )
-        }
-
-        .onTapGesture {
+        Button {
             globalViewModel.flip()
+        } label: {
+            ZStack {
+                CardFront(
+                    text: globalViewModel.deckText,
+                    rotationDegree: globalViewModel.deckFrontDegree,
+                    size: size
+                )
+                CardBack(
+                    rotationDegree: globalViewModel.deckBackDegree,
+                    size: size
+                )
+            }
         }
-//        .sensoryFeedback(.impact, trigger: cardViewModel.tapCount)
+        .buttonStyle(.plain)
     }
 }

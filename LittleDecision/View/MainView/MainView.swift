@@ -10,14 +10,15 @@ import Defaults
 import SwiftData
 import SwiftUI
 
+// MARK: - MainView
+
 struct MainView: View {
     // MARK: Internal
 
     var body: some View {
-        let _ = Self._printChanges()
-
         NavigationStack {
-            DecisionViewRefactor()
+            DecisionView()
+                .padding()
                 .ignoresSafeArea(.keyboard)
                 .mainBackground()
                 .toolbar {
@@ -46,8 +47,6 @@ struct MainView: View {
     @Environment(\.modelContext)
     private var modelContext
     @Environment(\.requestReview) private var requestReview
-
-
 }
 
 extension MainView {

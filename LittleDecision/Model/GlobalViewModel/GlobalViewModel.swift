@@ -161,6 +161,8 @@ extension GlobalViewModel {
 extension GlobalViewModel {
     // MARK: Public
 
+    // MARK: flip
+
     public func flip() {
         if deckStatus != .none {
             return
@@ -177,6 +179,8 @@ extension GlobalViewModel {
             flipToBack()
         }
     }
+
+    // MARK: restoreDeck
 
     public func restoreDeck() {
         if deckStatus != .none {
@@ -225,6 +229,8 @@ extension GlobalViewModel {
 
     // MARK: Private
 
+    // MARK: restoreAllStatus
+
     private func restoreAllStatus() {
         deckStatus = .none
         deckIsFlipped = false
@@ -249,14 +255,15 @@ extension GlobalViewModel {
         }
     }
 
-    private func updateCardText() {
-//        if !items.isEmpty {
-//            text = draw()?.content ?? String(localized: "未知错误")
-//        } else {
-//            text = String(localized: "没有了，请按'还原'按钮")
-//        }
+    // MARK: updateCardText
 
-        deckText = String(localized: "没有了，请按'还原'按钮")
+    private func updateCardText() {
+        let text = String(localized: "没有了，请按'还原'按钮")
+        if let (choice, angle) = LotteryViewModel.select(from: items) {
+            deckText = choice?.content ?? text
+        } else {
+            deckText = text
+        }
     }
 
     // MARK: flipToBack

@@ -34,10 +34,3 @@ struct PointerViewButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
 }
-
-#Preview {
-    Button(action: {}, label: {
-        PointerView()
-    })
-    .buttonStyle(PointerViewButtonStyle())
-}
