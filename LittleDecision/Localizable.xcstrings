@@ -264,6 +264,24 @@
               }
             }
           }
+        },
+        "el" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld επιλογή"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld επιλογές"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -282,6 +300,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld Sekunden"
+                }
+              }
+            }
+          }
+        },
+        "el" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld δευτερόλεπτο"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld δευτερόλεπτα"
                 }
               }
             }
@@ -2911,22 +2947,6 @@
         }
       }
     },
-    "没有了，请按'还原'按钮" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No more, please press the \"Reset\" button"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有了，请按'还原'按钮"
-          }
-        }
-      }
-    },
     "没有决定" : {
       "localizations" : {
         "de" : {
@@ -5137,6 +5157,88 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選項名"
+          }
+        }
+      }
+    },
+    "选项用完了，点击还原继续" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optionen sind aufgebraucht, klicken Sie auf Wiederherstellen, um fortzufahren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Οι επιλογές εξαντλήθηκαν, κάντε κλικ στην επαναφορά για να συνεχίσετε"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Options are exhausted, click restore to continue"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las opciones se han agotado, haga clic en restaurar para continuar"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las opciones se han agotado, haga clic en restaurar para continuar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les options sont épuisées, cliquez sur restaurer pour continuer"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オプションがなくなりました。続行するには復元をクリックしてください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "옵션이 소진되었습니다. 계속하려면 복원을 클릭하세요"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As opções estão esgotadas, clique em restaurar para continuar"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As opções estão esgotadas, clique em restaurar para continuar"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Các tùy chọn đã hết, nhấp vào khôi phục để tiếp tục"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选项用完了，点击还原继续"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選項用完了，點擊還原繼續"
           }
         }
       }

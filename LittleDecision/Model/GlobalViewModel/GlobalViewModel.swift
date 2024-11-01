@@ -37,11 +37,12 @@ class GlobalViewModel {
 
     let modelContext: ModelContext
 
+    private(set) var status: Status = .none
+
     // MARK: spin wheel prop
 
     private(set) var spinWheelTapCount = 0
     private(set) var spinWheelRotateAngle: Double = 0.0
-    private(set) var spinWheelIsRunning = false
 
     // MARK: deck
 
@@ -50,7 +51,19 @@ class GlobalViewModel {
     private(set) var deckIsFlipped = false
     private(set) var deckEnableWiggle: Bool = false
     private(set) var deckText: String = ""
-    private(set) var deckStatus: DeckStatus = .none
+
+//    private(set) var deckStatus: DeckStatus = .none
+
+    // MARK: restore
+
+    func restore() {
+        switch decisionDisplayMode {
+        case .stackedCards:
+            self.restoreDeck()
+        case .wheel:
+            self.restoreSpinWheel()
+        }
+    }
 
     // MARK: Private
 
@@ -59,9 +72,13 @@ class GlobalViewModel {
     private var cancellables = Set<AnyCancellable>()
 }
 
+// MARK: GlobalViewModel + SpinWheel
+
 extension GlobalViewModel {
+    // MARK: startSpinning
+
     func startSpinning() {
-        guard !spinWheelIsRunning else { return }
+        guard status == .none else { return }
 
         setSelectedChoice(nil)
 
@@ -69,7 +86,7 @@ extension GlobalViewModel {
             let extraRotation = Defaults[.rotationTime] * 360.0
             let targetAngle = (270 - angle + 360 - spinWheelRotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
 
-            spinWheelIsRunning = true
+            status = .isRunning
 
             withAnimation(.easeInOut(duration: 3)) {
                 spinWheelRotateAngle += targetAngle
@@ -77,18 +94,20 @@ extension GlobalViewModel {
             } completion: { [weak self] in
                 guard let self else { return }
                 setSelectedChoice(choice)
-                spinWheelIsRunning = false
+                status = .none
             }
         } else {
-            restore()
-            spinWheelIsRunning = false
+            restoreSpinWheel()
+            status = .none
         }
     }
 
-    func restore() {
-        if spinWheelIsRunning {
-            return
-        }
+    // MARK: restoreSpinWheel
+
+    private func restoreSpinWheel() {
+        guard status == .none else { return }
+
+        status = .isRestoring
 
         selectedDecision?.unwrappedChoices.forEach { $0.enable = true }
 
@@ -99,8 +118,11 @@ extension GlobalViewModel {
 
         withAnimation {
             spinWheelRotateAngle -= spinWheelRotateAngle.truncatingRemainder(dividingBy: 360)
+        } completion: { [weak self] in
+            guard let self else { return }
+            status = .none
+            spinWheelRotateAngle = 0
         }
-        spinWheelRotateAngle = 0
     }
 }
 
@@ -157,20 +179,18 @@ extension GlobalViewModel {
     }
 }
 
-// GlobalViewModel + Card
+// MARK: GlobalViewModel + Card
+
 extension GlobalViewModel {
     // MARK: Public
 
     // MARK: flip
 
     public func flip() {
-        if deckStatus != .none {
-            return
-        }
+        guard status == .none else { return }
 
-        deckStatus = .isFlipping
+        status = .isRunning
 
-//        tapCount += 1
         deckIsFlipped.toggle()
 
         if deckIsFlipped {
@@ -183,11 +203,11 @@ extension GlobalViewModel {
     // MARK: restoreDeck
 
     public func restoreDeck() {
-        if deckStatus != .none {
+        guard status == .none else {
             return
         }
 
-        deckStatus = .isRestoring
+        status = .isRestoring
 
         if deckIsFlipped {
             let animation = Animation.linear(duration: kDurationAndDelay)
@@ -199,32 +219,16 @@ extension GlobalViewModel {
             withAnimation(animation.delay(kDurationAndDelay)) {
                 deckBackDegree = 0
             } completion: {
-//                self.items = self.choices.shuffled()
-                self.deckIsFlipped = false
+                self.restoreAllStatus()
             }
-
-//            withAnimation(.easeInOut(duration: 0.05).repeatCount(6).delay(2 * kDurationAndDelay)) {
-//                enableWiggle.toggle()
-//            } completion: {
-//                self.enableWiggle = false
-//
-//                self.restoreAllStatus()
-//                self.deckStatus = .none
-//            }
 
         } else {
             withAnimation(.easeInOut(duration: 0.05).repeatCount(6)) {
                 deckEnableWiggle.toggle()
             } completion: {
-//                self.items = self.choices.shuffled()
-//                self.enableWiggle = false
-
                 self.restoreAllStatus()
-                self.deckStatus = .none
             }
         }
-
-//        tapCount += 1
     }
 
     // MARK: Private
@@ -232,7 +236,14 @@ extension GlobalViewModel {
     // MARK: restoreAllStatus
 
     private func restoreAllStatus() {
-        deckStatus = .none
+        selectedDecision?.unwrappedChoices.forEach { $0.enable = true }
+
+        try? modelContext.save()
+
+        selectedChoice = nil
+        items = selectedDecision?.unwrappedChoices.map { ChoiceItem(choice: $0) } ?? []
+
+        status = .none
         deckIsFlipped = false
     }
 
@@ -250,8 +261,9 @@ extension GlobalViewModel {
 
         withAnimation(animation.delay(kDurationAndDelay)) {
             deckFrontDegree = 0
-        } completion: {
-            self.deckStatus = .none
+        } completion: { [weak self] in
+            guard let self else { return }
+            status = .none
         }
     }
 
@@ -262,7 +274,7 @@ extension GlobalViewModel {
             deckText = choice.content
             setSelectedChoice(choice)
         } else {
-            deckText = String(localized: "没有了，请按'还原'按钮")
+            deckText = String(localized: "选项用完了，点击还原继续")
         }
     }
 
@@ -277,8 +289,9 @@ extension GlobalViewModel {
 
         withAnimation(animation.delay(kDurationAndDelay)) {
             self.deckBackDegree = 0
-        } completion: {
-            self.deckStatus = .none
+        } completion: { [weak self] in
+            guard let self else { return }
+            status = .none
         }
     }
 }
