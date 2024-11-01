@@ -12,6 +12,10 @@ struct MainViewDecisionAndChoiceTitleView: View {
 
     var body: some View {
         MainViewDecisionTitle(decision: globalViewModel.selectedDecision)
+            .frame(height: 50)
+
         MainViewChoiceTitleView(selectedChoice: globalViewModel.selectedChoice)
+            .frame(height: 50)
+
     }
 }

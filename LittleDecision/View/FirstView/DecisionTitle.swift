@@ -10,52 +10,42 @@ import SwiftUI
 struct MainViewDecisionTitle: View {
     // MARK: Internal
 
-    let decision: Decision?
-    var currentDecisionTitle: String?
+    var decision: Decision?
 
     var body: some View {
-        Group {
-            if let decision {
-                Button(action: {
-                    showSheet = true
-                }, label: {
-                    Label(
-                        title: {
-                            Text(decision.title)
-                                .font(customTitleFont)
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.5)
-                                .multilineTextAlignment(.center)
-
-                        },
-                        icon: { Image(systemName: "pencil.and.outline").fontWeight(.bold) }
-                    )
-                    .labelStyle(.titleAndIcon)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity)
-                })
-
-            } else {
-                Text("没有决定")
-                    .font(customTitleFont)
-                    .minimumScaleFactor(0.5)
-                    .foregroundStyle(.black)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity)
+        if let decision {
+            Button {
+                showSheet = true
+            } label: {
+                label(decision: decision)
             }
-        }
-        .sheet(isPresented: $showSheet, content: {
-            if let decision {
+            .sheet(isPresented: $showSheet) {
                 NavigationStack {
                     CommonEditView(decision: decision)
                         .navigationTitle("编辑决定")
                         .navigationBarTitleDisplayMode(.inline)
                 }
-            } else {
-                Text(verbatim: "")
             }
-        })
+
+        } else {
+            Text("没有决定")
+        }
+    }
+
+    func label(decision: Decision) -> some View {
+        Label(
+            title: {
+                Text(decision.title)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+
+            },
+            icon: {
+                Image(systemName: "pencil.and.outline").fontWeight(.bold)
+            }
+        )
+        .labelStyle(.titleAndIcon)
     }
 
     // MARK: Private

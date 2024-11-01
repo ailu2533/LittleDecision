@@ -16,14 +16,8 @@ struct MainViewChoiceTitleView: View {
                 .font(customSubtitleFont)
                 .minimumScaleFactor(0.5)
                 .foregroundStyle(.secondary)
-
-                .foregroundColor(.secondary)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal)
                 .frame(maxWidth: .infinity)
-                .frame(height: 50)
         }
-
-        .padding(.horizontal)
     }
 }
