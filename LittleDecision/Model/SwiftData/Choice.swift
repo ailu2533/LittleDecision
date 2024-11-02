@@ -9,6 +9,8 @@ import Defaults
 import Foundation
 import SwiftData
 
+// MARK: - Choice
+
 @Model
 class Choice {
     // MARK: Lifecycle
@@ -32,14 +34,9 @@ class Choice {
     var enable: Bool = true
 
     var createDate: Date = Date()
-    // 选中状态
-    var choosed: Bool = false
-
-    var weight4calc: Int {
-        let hideWeight = Defaults[.equalWeight]
-        return hideWeight ? 1 : weight
-    }
 }
+
+// MARK: CustomStringConvertible
 
 extension Choice: CustomStringConvertible {
     var description: String {

@@ -20,13 +20,23 @@ struct DecisionView: View {
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
-            Button {
-                globalViewModel.restore()
-            } label: {
-                Label("还原", systemImage: "arrow.clockwise")
+            HStack {
+//                Button {
+//                    globalViewModel.restore()
+//                } label: {
+//                    Label("连抽", systemImage: "arrow.clockwise")
+//                }
+//                .buttonStyle(FloatingButtonStyle())
+
+                Spacer()
+
+                Button {
+                    globalViewModel.restore()
+                } label: {
+                    Label("还原", systemImage: "arrow.clockwise")
+                }
+                .buttonStyle(FloatingButtonStyle())
             }
-            .buttonStyle(FloatingButtonStyle())
-            .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
 

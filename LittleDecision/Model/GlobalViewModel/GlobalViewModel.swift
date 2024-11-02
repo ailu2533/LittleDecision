@@ -20,7 +20,7 @@ class GlobalViewModel {
 
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
-        subject.debounce(for: .seconds(0.2), scheduler: DispatchQueue.main)
+        subject
             .sink { [weak self] action in
                 guard let self else { return }
                 handleAction(action: action)
@@ -94,7 +94,7 @@ extension GlobalViewModel {
 
         setSelectedChoice(nil)
 
-        if let (choice, angle) = LotteryViewModel.select(from: items) {
+        if let (choice, angle) = LotteryViewModel.select(from: items,noRepeat: Defaults[.noRepeat]) {
             let extraRotation = Defaults[.rotationTime] * 360.0
             let targetAngle = (270 - angle + 360 - spinWheelRotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
 
@@ -298,7 +298,7 @@ extension GlobalViewModel {
     // MARK: updateCardText
 
     private func updateCardText() {
-        if let (choice, _) = LotteryViewModel.select(from: items), let choice {
+        if let (choice, _) = LotteryViewModel.select(from: items,noRepeat: Defaults[.noRepeat]), let choice {
             deckText = choice.content
             setSelectedChoice(choice)
         } else {

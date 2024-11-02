@@ -20,7 +20,8 @@ struct MainViewDecisionAndChoiceTitleView: View {
                 .multilineTextAlignment(.center)
                 .truncationMode(.middle)
                 .fontWeight(.bold)
-                .frame(height: 64)
+                .font(.title2)
+                .frame(height: 72)
         }
     }
 }
