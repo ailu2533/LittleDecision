@@ -16,7 +16,7 @@ extension Defaults.Keys {
     static let rotationTime = Key<Double>("rotationTime", default: 2)
     static let enableSound = Key<Bool>("enableSound", default: false)
 
-    static let hasData = Key<Bool>("hasData", default: false)
+    static let hasData = Key<Bool>("hasData", default: false, iCloud: true)
     static let decisionID = Key<UUID>("decisionId", default: UUID())
 
     static let fontSize = Key<CGFloat>("fontSize", default: 15)

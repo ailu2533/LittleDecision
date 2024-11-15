@@ -1,35 +1,6 @@
 {
   "decisions": [
     {
-      "title": "Weekend Plans",
-      "choices": [
-        {"content": "Study at the library", "weight": 1},
-        {"content": "Play basketball", "weight": 1},
-        {"content": "Study in a quiet room", "weight": 1},
-        {"content": "Go on a date (shopping or movie)", "weight": 1},
-        {"content": "Play video games at home", "weight": 1},
-        {"content": "Binge-watch a TV series", "weight": 1},
-        {"content": "Sleep in", "weight": 1}
-      ]
-    },
-    {
-      "title": "Group Dinner Cuisine",
-      "choices": [
-        {"content": "Italian", "weight": 1},
-        {"content": "Mexican", "weight": 1},
-        {"content": "Chinese", "weight": 1},
-        {"content": "Indian", "weight": 1},
-        {"content": "BBQ", "weight": 1},
-        {"content": "Seafood", "weight": 1},
-        {"content": "Steakhouse", "weight": 1},
-        {"content": "Sushi", "weight": 1},
-        {"content": "Mediterranean", "weight": 1},
-        {"content": "Thai", "weight": 1},
-        {"content": "Korean", "weight": 1},
-        {"content": "Vietnamese", "weight": 1}
-      ]
-    },
-    {
       "title": "Date Ideas",
       "choices": [
         {"content": "Watch a movie", "weight": 1},
@@ -44,58 +15,6 @@
         {"content": "Visit a museum", "weight": 1},
         {"content": "Go to the zoo", "weight": 1},
         {"content": "Explore a botanical garden", "weight": 1}
-      ]
-    },
-    {
-      "title": "Lunch Options",
-      "choices": [
-        {"content": "Burrito bowl", "weight": 1},
-        {"content": "Deli sandwich", "weight": 1},
-        {"content": "Sushi rolls", "weight": 1},
-        {"content": "Salad bar", "weight": 1},
-        {"content": "Pizza slice", "weight": 1},
-        {"content": "Pho", "weight": 1},
-        {"content": "Burger and fries", "weight": 1},
-        {"content": "Greek gyros", "weight": 1}
-      ]
-    },
-    {
-      "title": "Vacation Destinations",
-      "choices": [
-        {"content": "New York City", "weight": 1},
-        {"content": "Los Angeles", "weight": 1},
-        {"content": "San Francisco", "weight": 1},
-        {"content": "Miami", "weight": 1},
-        {"content": "Chicago", "weight": 1},
-        {"content": "Las Vegas", "weight": 1},
-        {"content": "New Orleans", "weight": 1},
-        {"content": "Hawaii", "weight": 1}
-      ]
-    },
-    {
-      "title": "Truth or Dare - Truth Questions",
-      "choices": [
-        {"content": "Have you ever had a secret crush?", "weight": 1},
-        {"content": "What's your biggest fear?", "weight": 1},
-        {"content": "Do you care about your partner's past?", "weight": 1},
-        {"content": "What's the most embarrassing thing you've done?", "weight": 1},
-        {"content": "How old were you when you had your first kiss?", "weight": 1},
-        {"content": "Who was your first crush?", "weight": 1},
-        {"content": "Have you ever been the 'other person' in a relationship?", "weight": 1},
-        {"content": "Do you sleep in the nude?", "weight": 1}
-      ]
-    },
-    {
-      "title": "Truth or Dare - Dare Challenges",
-      "choices": [
-        {"content": "Give a piggyback ride to the person next to you", "weight": 1},
-        {"content": "Make your sexiest face", "weight": 1},
-        {"content": "Order a kids meal at a fast food restaurant", "weight": 1},
-        {"content": "Kiss the person to your right for 10 seconds", "weight": 1},
-        {"content": "Impersonate your favorite movie character", "weight": 1},
-        {"content": "Give everyone in the room a hug", "weight": 1},
-        {"content": "Tell your favorite joke", "weight": 1},
-        {"content": "Do your best dance move", "weight": 1}
       ]
     }
   ]

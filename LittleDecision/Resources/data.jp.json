@@ -1,35 +1,6 @@
 {
   "decisions": [
     {
-      "title": "週末の過ごし方",
-      "choices": [
-        {"content": "図書館で勉強", "weight": 1},
-        {"content": "バスケットボールをする", "weight": 1},
-        {"content": "自習室で勉強", "weight": 1},
-        {"content": "デートに行く（買い物や映画）", "weight": 1},
-        {"content": "寮でゲームをする", "weight": 1},
-        {"content": "家でドラマを見る", "weight": 1},
-        {"content": "朝寝坊する", "weight": 1}
-      ]
-    },
-    {
-      "title": "みんなで食べに行くなら",
-      "choices": [
-        {"content": "焼肉", "weight": 1},
-        {"content": "寿司", "weight": 1},
-        {"content": "ラーメン", "weight": 1},
-        {"content": "イタリアン", "weight": 1},
-        {"content": "中華料理", "weight": 1},
-        {"content": "居酒屋", "weight": 1},
-        {"content": "お好み焼き", "weight": 1},
-        {"content": "カレー", "weight": 1},
-        {"content": "韓国料理", "weight": 1},
-        {"content": "ファミレス", "weight": 1},
-        {"content": "うどん", "weight": 1},
-        {"content": "バイキング", "weight": 1}
-      ]
-    },
-    {
       "title": "明日のデートプラン",
       "choices": [
         {"content": "映画を見る", "weight": 1},
@@ -44,58 +15,6 @@
         {"content": "動物園に行く", "weight": 1},
         {"content": "温泉に行く", "weight": 1},
         {"content": "花見をする（季節による）", "weight": 1}
-      ]
-    },
-    {
-      "title": "今日のランチ",
-      "choices": [
-        {"content": "牛丼", "weight": 1},
-        {"content": "ラーメン", "weight": 1},
-        {"content": "おにぎり", "weight": 1},
-        {"content": "カツ丼", "weight": 1},
-        {"content": "うどん", "weight": 1},
-        {"content": "コンビニ弁当", "weight": 1},
-        {"content": "ハンバーガー", "weight": 1},
-        {"content": "そば", "weight": 1}
-      ]
-    },
-    {
-      "title": "休暇で行きたい都市",
-      "choices": [
-        {"content": "東京", "weight": 1},
-        {"content": "大阪", "weight": 1},
-        {"content": "京都", "weight": 1},
-        {"content": "札幌", "weight": 1},
-        {"content": "福岡", "weight": 1},
-        {"content": "沖縄", "weight": 1},
-        {"content": "神戸", "weight": 1},
-        {"content": "横浜", "weight": 1}
-      ]
-    },
-    {
-      "title": "真実ゲーム：質問",
-      "choices": [
-        {"content": "秘密の片思いをしたことがある？", "weight": 1},
-        {"content": "一番怖いものは何？", "weight": 1},
-        {"content": "相手の過去を気にする？", "weight": 1},
-        {"content": "一番恥ずかしかったことは？", "weight": 1},
-        {"content": "初キスは何歳？", "weight": 1},
-        {"content": "初恋の人の名前は？", "weight": 1},
-        {"content": "浮気をしたことがある？", "weight": 1},
-        {"content": "裸で寝る？", "weight": 1}
-      ]
-    },
-    {
-      "title": "真実ゲーム：チャレンジ",
-      "choices": [
-        {"content": "隣の人をお姫様抱っこする", "weight": 1},
-        {"content": "一番セクシーな表情をする", "weight": 1},
-        {"content": "コンビニでアイスを買ってくる", "weight": 1},
-        {"content": "右隣の人と10秒間キスする", "weight": 1},
-        {"content": "好きな映画のキャラクターのモノマネをする", "weight": 1},
-        {"content": "全員にハグをする", "weight": 1},
-        {"content": "一番好きなジョークを言う", "weight": 1},
-        {"content": "得意なダンスを披露する", "weight": 1}
       ]
     }
   ]

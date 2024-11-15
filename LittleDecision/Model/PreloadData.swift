@@ -35,9 +35,7 @@ private func getLocalizedFileName() -> String {
     let languageCode = locale.language.languageCode?.identifier ?? "en"
 
     switch languageCode {
-    case "de": return "data.de.json"
     case "ja": return "data.jp.json"
-    case "ko": return "data.kr.json"
     case "zh": return locale.region?.identifier == "TW" ? "data.tw.json" : "data.zh.json"
     default: return "data.en.json"
     }

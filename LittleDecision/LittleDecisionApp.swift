@@ -6,10 +6,13 @@
 //
 
 import AVFoundation
+import Defaults
 import RevenueCat
 import SwiftData
 import SwiftUI
 import TipKit
+
+// MARK: - LittleDecisionApp
 
 @main
 struct LittleDecisionApp: App {
@@ -34,6 +37,7 @@ struct LittleDecisionApp: App {
                 .environment(premiumSubscriptionViewModel)
                 .onAppear {
                     insertData(ctx: sharedModelContainer.mainContext)
+                    globalViewModel.send(.decisionUUID(Defaults[.decisionID]))
                 }
                 .task {
                     await updateIapViewModel()

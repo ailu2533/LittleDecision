@@ -1,35 +1,6 @@
 {
   "decisions": [
     {
-      "title": "週末要幹嘛",
-      "choices": [
-        {"content": "圖書館認真讀書", "weight": 1},
-        {"content": "打籃球", "weight": 1},
-        {"content": "去自習室唸書", "weight": 1},
-        {"content": "約人逛街看電影", "weight": 1},
-        {"content": "宿舍打電動", "weight": 1},
-        {"content": "宅在家追劇", "weight": 1},
-        {"content": "睡到自然醒", "weight": 1}
-      ]
-    },
-    {
-      "title": "聚餐吃什麼",
-      "choices": [
-        {"content": "火鍋", "weight": 1},
-        {"content": "燒烤", "weight": 1},
-        {"content": "日本料理", "weight": 1},
-        {"content": "韓式烤肉", "weight": 1},
-        {"content": "義大利麵", "weight": 1},
-        {"content": "熱炒", "weight": 1},
-        {"content": "滷肉飯", "weight": 1},
-        {"content": "牛肉麵", "weight": 1},
-        {"content": "小籠包", "weight": 1},
-        {"content": "港式飲茶", "weight": 1},
-        {"content": "泰式料理", "weight": 1},
-        {"content": "buffet自助餐", "weight": 1}
-      ]
-    },
-    {
       "title": "明天約會去哪裡",
       "choices": [
         {"content": "看電影", "weight": 1},
@@ -44,58 +15,6 @@
         {"content": "逛誠品書店", "weight": 1},
         {"content": "泡溫泉", "weight": 1},
         {"content": "騎YouBike", "weight": 1}
-      ]
-    },
-    {
-      "title": "今天午餐吃什麼",
-      "choices": [
-        {"content": "雞肉飯", "weight": 1},
-        {"content": "牛肉麵", "weight": 1},
-        {"content": "滷肉飯", "weight": 1},
-        {"content": "鐵板燒", "weight": 1},
-        {"content": "麥當勞", "weight": 1},
-        {"content": "7-11便當", "weight": 1},
-        {"content": "水餃", "weight": 1},
-        {"content": "炒飯", "weight": 1}
-      ]
-    },
-    {
-      "title": "假期去哪個城市玩",
-      "choices": [
-        {"content": "台北", "weight": 1},
-        {"content": "高雄", "weight": 1},
-        {"content": "台中", "weight": 1},
-        {"content": "台南", "weight": 1},
-        {"content": "花蓮", "weight": 1},
-        {"content": "宜蘭", "weight": 1},
-        {"content": "墾丁", "weight": 1},
-        {"content": "金門", "weight": 1}
-      ]
-    },
-    {
-      "title": "真心話大冒險之真心話",
-      "choices": [
-        {"content": "你有暗戀過誰嗎？", "weight": 1},
-        {"content": "你最害怕的事情是什麼？", "weight": 1},
-        {"content": "你會在意對方的過去嗎？", "weight": 1},
-        {"content": "你做過最尷尬的事情是什麼？", "weight": 1},
-        {"content": "你幾歲時有初吻？", "weight": 1},
-        {"content": "你第一個喜歡的人叫什麼名字？", "weight": 1},
-        {"content": "你有當過小三嗎？", "weight": 1},
-        {"content": "你喜歡裸睡嗎？", "weight": 1}
-      ]
-    },
-    {
-      "title": "真心話大冒險之大冒險",
-      "choices": [
-        {"content": "公主抱你身邊最近的人", "weight": 1},
-        {"content": "做一個最性感的表情", "weight": 1},
-        {"content": "去全家買一個飯糰", "weight": 1},
-        {"content": "和你右邊的人接吻10秒", "weight": 1},
-        {"content": "模仿一個你喜歡的電影角色", "weight": 1},
-        {"content": "給在場的每個人一個擁抱", "weight": 1},
-        {"content": "講一個你最喜歡的笑話", "weight": 1},
-        {"content": "做一個你最喜歡的運動動作", "weight": 1}
       ]
     }
   ]

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DecisionListRowLabel: View {
-    let decision: Decision
+     var decision: Decision
 
     var body: some View {
         VStack(alignment: .leading) {

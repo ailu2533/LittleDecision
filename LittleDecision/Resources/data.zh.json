@@ -1,35 +1,6 @@
 {
   "decisions": [
     {
-      "title": "周末干点嘛",
-      "choices": [
-        {"content": "图书馆认真看书", "weight": 1},
-        {"content": "打篮球", "weight": 1},
-        {"content": "去自习室自习", "weight": 1},
-        {"content": "约TA去逛街、看电影", "weight": 1},
-        {"content": "宿舍打游戏", "weight": 1},
-        {"content": "宅着追剧", "weight": 1},
-        {"content": "睡懒觉", "weight": 1}
-      ]
-    },
-    {
-      "title": "聚餐去吃什么",
-      "choices": [
-        {"content": "火锅", "weight": 1},
-        {"content": "自助餐", "weight": 1},
-        {"content": "烤鱼", "weight": 1},
-        {"content": "新疆菜", "weight": 1},
-        {"content": "烧烤", "weight": 1},
-        {"content": "东北菜", "weight": 1},
-        {"content": "川菜", "weight": 1},
-        {"content": "粤菜", "weight": 1},
-        {"content": "西餐", "weight": 1},
-        {"content": "日料", "weight": 1},
-        {"content": "韩餐", "weight": 1},
-        {"content": "泰国菜", "weight": 1}
-      ]
-    },
-    {
       "title": "明天约会去干点啥",
       "choices": [
         {"content": "看个电影", "weight": 1},
@@ -44,58 +15,6 @@
         {"content": "去博物馆", "weight": 1},
         {"content": "去动物园", "weight": 1},
         {"content": "去植物园", "weight": 1}
-      ]
-    },
-    {
-      "title": "今天中午吃什么",
-      "choices": [
-        {"content": "黄焖鸡米饭", "weight": 1},
-        {"content": "牛肉拉面", "weight": 1},
-        {"content": "水饺", "weight": 1},
-        {"content": "烤肉饭", "weight": 1},
-        {"content": "牛肉汤", "weight": 1},
-        {"content": "米线", "weight": 1},
-        {"content": "肯德基", "weight": 1},
-        {"content": "麻辣香锅", "weight": 1}
-      ]
-    },
-    {
-      "title": "假期去哪个城市玩",
-      "choices": [
-        {"content": "北京", "weight": 1},
-        {"content": "上海", "weight": 1},
-        {"content": "广州", "weight": 1},
-        {"content": "深圳", "weight": 1},
-        {"content": "杭州", "weight": 1},
-        {"content": "成都", "weight": 1},
-        {"content": "西安", "weight": 1},
-        {"content": "重庆", "weight": 1}
-      ]
-    },
-    {
-      "title": "真心话大冒险之真心话",
-      "choices": [
-        {"content": "你有过暗恋吗？", "weight": 1},
-        {"content": "你最害怕的事情是什么？", "weight": 1},
-        {"content": "你会在意对方的过去吗？", "weight": 1},
-        {"content": "你做过最尴尬的事情是什么？", "weight": 1},
-        {"content": "你的初吻是在几岁？", "weight": 1},
-        {"content": "你第一个喜欢的人叫什么名字？", "weight": 1},
-        {"content": "你有没有当过第三者？", "weight": 1},
-        {"content": "你喜欢裸睡吗？", "weight": 1}
-      ]
-    },
-    {
-      "title": "真心话大冒险之大冒险",
-      "choices": [
-        {"content": "公主抱你身边最近的人", "weight": 1},
-        {"content": "做一个最性感的表情", "weight": 1},
-        {"content": "在肯德基点一份麦旋风", "weight": 1},
-        {"content": "和你右边的人接吻10秒", "weight": 1},
-        {"content": "模仿一个你喜欢的电影角色", "weight": 1},
-        {"content": "给在场的每个人一个拥抱", "weight": 1},
-        {"content": "讲一个你最喜欢的笑话", "weight": 1},
-        {"content": "做一个你最喜欢的运动动作", "weight": 1}
       ]
     }
   ]
