@@ -16,9 +16,15 @@ func insertData(ctx: ModelContext) {
 
     do {
         let json = try loadJSONFile(named: fileName)
-        try insertDecisionsFromJSON(json, into: ctx)
+        let firstDecisionUUID = try insertDecisionsFromJSON(json, into: ctx)
+
         try ctx.save()
-        updateDefaults(with: ctx)
+
+        if let firstDecisionUUID {
+            Defaults[.decisionID] = firstDecisionUUID
+        }
+
+        Defaults[.hasData] = true
     } catch {
         handleError(error, for: fileName)
     }
@@ -46,7 +52,7 @@ private func loadJSONFile(named fileName: String) throws -> DecisionData {
     return try JSONDecoder().decode(DecisionData.self, from: data)
 }
 
-private func insertDecisionsFromJSON(_ json: DecisionData, into ctx: ModelContext) throws {
+private func insertDecisionsFromJSON(_ json: DecisionData, into ctx: ModelContext) throws -> UUID? {
     var firstDecisionUUID: UUID?
 
     for decision in json.decisions {
@@ -60,13 +66,7 @@ private func insertDecisionsFromJSON(_ json: DecisionData, into ctx: ModelContex
         newDecision.choices = decision.choices.map { Choice(content: $0.content, weight: $0.weight) }
     }
 
-    if let firstDecisionUUID {
-        Defaults[.decisionID] = firstDecisionUUID
-    }
-}
-
-private func updateDefaults(with ctx: ModelContext) {
-    Defaults[.hasData] = true
+    return firstDecisionUUID
 }
 
 private func handleError(_ error: Error, for fileName: String) {

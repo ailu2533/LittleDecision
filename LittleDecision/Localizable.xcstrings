@@ -5178,7 +5178,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Options are exhausted, click restore to continue"
+            "value" : "Options are exhausted, click reset to continue"
           }
         },
         "es" : {

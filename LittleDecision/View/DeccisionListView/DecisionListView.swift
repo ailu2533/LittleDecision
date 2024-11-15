@@ -10,6 +10,8 @@ import SwiftData
 import SwiftUI
 import TipKit
 
+// MARK: - DecisionListView
+
 struct DecisionListView: View {
     // MARK: Internal
 
@@ -45,12 +47,15 @@ struct DecisionListView: View {
         filter: #Predicate<Decision> { decision in
             decision.saved == true
         },
-        sort: [SortDescriptor(\Decision.createDate, order: .reverse)]
-    )
-    private var decisions: [Decision]
+        sort: [
+            SortDescriptor(\Decision.createDate, order: .reverse),
+        ]
+    ) private var decisions: [Decision]
 
     @State private var showAddDecisionSheet = false
 }
+
+// MARK: - EmptyContentView
 
 struct EmptyContentView: View {
     var body: some View {

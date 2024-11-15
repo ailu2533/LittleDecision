@@ -14,6 +14,7 @@ import SwiftUI
 
 // MARK: - GlobalViewModel
 
+@MainActor
 @Observable
 class GlobalViewModel {
     // MARK: Lifecycle
@@ -30,6 +31,7 @@ class GlobalViewModel {
 
     // MARK: Internal
 
+    // 每次变化时，selectedChoice整体变化
     private(set) var selectedChoice: ChoiceItem?
     private(set) var selectedDecision: Decision?
 
@@ -39,7 +41,6 @@ class GlobalViewModel {
 
     // MARK: spin wheel prop
 
-    private(set) var spinWheelTapCount = 0
     private(set) var spinWheelRotateAngle: Double = 0.0
 
     // MARK: deck
@@ -47,8 +48,8 @@ class GlobalViewModel {
     private(set) var deckBackDegree: CGFloat = 0
     private(set) var deckFrontDegree: CGFloat = -90
     private(set) var deckIsFlipped = false
+
     private(set) var deckEnableWiggle: Bool = false
-    private(set) var deckText: String = ""
 
     var choiceTitle: String {
         switch decisionDisplayMode {
@@ -94,13 +95,13 @@ extension GlobalViewModel {
 
         setSelectedChoice(nil)
 
-        if let (choice, angle) = LotteryViewModel.select(from: items,noRepeat: Defaults[.noRepeat]) {
+        if let (choice, angle) = LotteryViewModel.select(from: items, noRepeat: Defaults[.noRepeat]) {
             let extraRotation = Defaults[.rotationTime] * 360.0
             let targetAngle = (270 - angle + 360 - spinWheelRotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
 
             status = .isRunning
 
-            withAnimation(.easeInOut(duration: 3)) {
+            withAnimation(.easeInOut(duration: Defaults[.rotationTime])) {
                 spinWheelRotateAngle += targetAngle
 
             } completion: { [weak self] in
@@ -110,7 +111,6 @@ extension GlobalViewModel {
             }
         } else {
             restoreSpinWheel()
-            status = .none
         }
     }
 
@@ -148,6 +148,8 @@ extension GlobalViewModel {
     // MARK: handleAction
 
     private func handleAction(action: ChangeAction) {
+        Logging.shared.debug("handle action \(action)")
+
         switch action {
         case let .decisionEdited(decisionUUID):
             guard decisionUUID == selectedDecision?.uuid else {
@@ -157,8 +159,14 @@ extension GlobalViewModel {
             refreshItems()
 
         case let .decisionUUID(decisionUUID):
+
+            guard let decisionUUID else {
+                setSelectedDecision(nil)
+                refreshItems()
+                return
+            }
+
             selectedDecision = fetchDecision(decisionID: decisionUUID)
-            selectedChoice = nil
             refreshItems()
         case .userDefaultsEqualWeight:
             refreshItems()
@@ -177,18 +185,6 @@ extension GlobalViewModel {
     }
 
     // MARK: selectedChoice
-
-    private func selectedChoice(_ choice: ChoiceItem) {
-        selectedDecision?.choices?.forEach({
-            if $0.uuid == choice.uuid {
-                $0.enable = false
-            }
-        })
-
-        try? modelContext.save()
-
-        refreshItems()
-    }
 }
 
 // MARK: GlobalViewModel + Card
@@ -298,11 +294,10 @@ extension GlobalViewModel {
     // MARK: updateCardText
 
     private func updateCardText() {
-        if let (choice, _) = LotteryViewModel.select(from: items,noRepeat: Defaults[.noRepeat]), let choice {
-            deckText = choice.content
+        if let (choice, _) = LotteryViewModel.select(from: items, noRepeat: Defaults[.noRepeat]), let choice {
             setSelectedChoice(choice)
         } else {
-            deckText = String(localized: "选项用完了，点击还原继续")
+            setSelectedChoice(nil)
         }
     }
 }
@@ -320,7 +315,14 @@ extension GlobalViewModel {
         self.selectedChoice = choice
 
         if let choice {
-            selectedChoice(choice)
+            // 使用 first(where:)
+            if let item = selectedDecision?.choices?.first(where: { $0.uuid == choice.uuid }) {
+                item.enable = false
+            }
+
+            try? modelContext.save()
+
+            refreshItems()
         }
     }
 

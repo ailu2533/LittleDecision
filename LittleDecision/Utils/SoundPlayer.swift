@@ -6,16 +6,18 @@
 //
 
 import Foundation
-import Subsonic
+@preconcurrency import Subsonic
 
 // 创建一个单独的 SoundPlayer 类来管理声音
 
 final class SoundPlayer: Sendable {
-    static let shared = SoundPlayer()
+    // MARK: Lifecycle
 
     private init() {}
 
-    private let flipcardSound = SubsonicPlayer(sound: "flipcard-91468.mp3")
+    // MARK: Internal
+
+    static let shared = SoundPlayer()
 
     var enableSound: Bool {
         // TODO: 从defaults 里面取
@@ -25,4 +27,8 @@ final class SoundPlayer: Sendable {
     func playFlipCardSound() {
         if enableSound { flipcardSound.play() }
     }
+
+    // MARK: Private
+
+    private let flipcardSound = SubsonicPlayer(sound: "flipcard-91468.mp3")
 }

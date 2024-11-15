@@ -50,19 +50,6 @@ struct MainView: View {
 }
 
 extension MainView {
-//    private func fetchDecision() -> Decision? {
-//        let predicate = #Predicate<Decision> { $0.uuid == decisionID }
-//        let descriptor = FetchDescriptor(predicate: predicate)
-//
-//        do {
-//            let res = try modelContext.fetch(descriptor).first
-//            return res
-//        } catch {
-//            Logging.shared.error("currentDecision: \(error)")
-//            return nil
-//        }
-//    }
-
     /// Presents the rating and review request view after a two-second delay.
     private func presentReview() {
         Task {
@@ -79,7 +66,7 @@ extension MainView {
 
         Logging.shared.debug("processCompletedCount \(processCompletedCount)")
 
-        if processCompletedCount >= 5, currentAppVersion != lastVersionPromptedForReview {
+        if processCompletedCount >= 3, currentAppVersion != lastVersionPromptedForReview {
             presentReview()
 
             // The app already displayed the rating and review request view. Store this current version.

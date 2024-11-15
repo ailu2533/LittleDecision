@@ -11,13 +11,17 @@ struct Card: View {
     let size: CGSize
     var globalViewModel: GlobalViewModel
 
+    var text: String {
+        return globalViewModel.selectedChoice?.content ?? String(localized: "选项用完了，点击还原继续")
+    }
+
     var body: some View {
         Button {
             globalViewModel.flip()
         } label: {
             ZStack {
                 CardFront(
-                    text: globalViewModel.deckText,
+                    text: text,
                     rotationDegree: globalViewModel.deckFrontDegree,
                     size: size
                 )
