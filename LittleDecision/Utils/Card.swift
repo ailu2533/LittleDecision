@@ -17,7 +17,7 @@ struct Card: View {
 
     var body: some View {
         Button {
-            globalViewModel.flip()
+            globalViewModel.go()
         } label: {
             ZStack {
                 CardFront(
@@ -27,7 +27,8 @@ struct Card: View {
                 )
                 CardBack(
                     rotationDegree: globalViewModel.deckBackDegree,
-                    size: size
+                    size: size,
+                    enableWiggle: globalViewModel.deckEnableWiggle
                 )
             }
         }

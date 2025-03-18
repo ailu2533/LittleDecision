@@ -24,16 +24,28 @@ struct ChoiceRow: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            SettingIconView(icon: .system(icon: "tag.fill", foregroundColor: .secondaryAccent, backgroundColor: Color(.systemBackground)))
+//            SettingIconView(
+//                icon: .system(
+//                    icon: .tagFill,
+//                    foregroundColor: .secondaryAccent,
+//                    backgroundColor: Color(.systemBackground)
+//                )
+//            )
+//
+//
+//
+//            Spacer()
 
-            Text(choice.title)
-                .lineLimit(3)
+//            Text(probability(choice.weight, totalWeight))
+//                .font(.caption)
+//                .foregroundColor(.secondary)
 
-            Spacer()
-
-            Text(probability(choice.weight, totalWeight))
-                .font(.caption)
-                .foregroundColor(.secondary)
+            LabeledContent {
+                Text(probability(choice.weight, totalWeight), format: .percent.precision(.fractionLength(0 ... 2)))
+            } label: {
+                Text(choice.title)
+                    .lineLimit(3)
+            }
         }
     }
 }

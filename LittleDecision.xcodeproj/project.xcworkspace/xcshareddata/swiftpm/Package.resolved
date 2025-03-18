@@ -1,5 +1,5 @@
 {
-  "originHash" : "3de126ff8bc4fbc44667716ae26ea849e10a12f49a06868c7b2ba43fdeaac3a3",
+  "originHash" : "89652b1b08147be2d97946a578ff4477477726d7398b2ef0a2bf7e6b9a0bd264",
   "pins" : [
     {
       "identity" : "defaults",
@@ -25,7 +25,7 @@
       "location" : "https://github.com/ailu2533/LemonViews.git",
       "state" : {
         "branch" : "main",
-        "revision" : "5caf51fe176030849ed8beab1c3e622ff6627fe4"
+        "revision" : "ba309bf6a2bb4b451d27f55f9ebb1575d248837e"
       }
     },
     {
@@ -47,6 +47,15 @@
       }
     },
     {
+      "identity" : "sfsafesymbols",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SFSafeSymbols/SFSafeSymbols.git",
+      "state" : {
+        "revision" : "e2e28f4e56e1769c2ec3c61c9355fc64eb7a535a",
+        "version" : "5.3.0"
+      }
+    },
+    {
       "identity" : "subsonic",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/twostraws/Subsonic.git",
@@ -62,6 +71,15 @@
       "state" : {
         "revision" : "9bf03ff58ce34478e66aaee630e491823326fd06",
         "version" : "1.1.3"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/swiftui-introspect.git",
+      "state" : {
+        "revision" : "807f73ce09a9b9723f12385e592b4e0aaebd3336",
+        "version" : "1.3.0"
       }
     },
     {

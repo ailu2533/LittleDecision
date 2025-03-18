@@ -10,6 +10,7 @@ import SwiftUI
 struct CardBack: View {
     var rotationDegree: CGFloat = .zero
     let size: CGSize
+    var enableWiggle: Bool
 
     var body: some View {
         Image(.cardBack)
@@ -20,9 +21,9 @@ struct CardBack: View {
             .shadow(radius: 1)
             .rotation3DEffect(
                 .degrees(rotationDegree),
-                axis: (x: 0.0, y: 1.0, z: 0.001),
+                axis: (x: 0.0, y: 1.0, z: 0.01),
                 perspective: 0
             )
-//            .rotationEffect(.degrees(enableWiggle ? 2.5 : 0))
+            .rotationEffect(.degrees(enableWiggle ? 2.5 : 0))
     }
 }

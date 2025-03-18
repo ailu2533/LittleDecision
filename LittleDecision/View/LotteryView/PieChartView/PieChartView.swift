@@ -29,14 +29,12 @@ struct PieChartView: View {
         }
         .overlay {
             Button {
-                globalViewModel.startSpinning()
+                globalViewModel.go()
             } label: {
                 PointerView()
             }
             .buttonStyle(PointerViewButtonStyle())
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .sensoryFeedback(.impact(flexibility: .soft), trigger: tapCount)
-//        .sensoryFeedback(.impact(flexibility: .rigid), trigger: isRunning) { $0 && !$1 }
     }
 }

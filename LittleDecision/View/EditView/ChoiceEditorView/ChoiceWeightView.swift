@@ -12,11 +12,10 @@ struct ChoiceWeightView: View {
     @Binding var weight: Int
 
     var body: some View {
-        HStack {
-            SettingIconView(icon: .system(icon: "scalemass", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-            Picker("权重", selection: $weight) {
-                ForEach(1 ... 100, id: \.self) { Text(verbatim: "\($0)") }
-            }
+        Picker(selection: $weight) {
+            ForEach(1 ... 100, id: \.self) { Text(verbatim: "\($0)") }
+        } label: {
+            Text("权重")
         }
     }
 }

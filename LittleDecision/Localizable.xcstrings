@@ -2373,6 +2373,9 @@
         }
       }
     },
+    "新增" : {
+
+    },
     "新增决定" : {
       "localizations" : {
         "de" : {
@@ -5244,6 +5247,7 @@
       }
     },
     "邮箱" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

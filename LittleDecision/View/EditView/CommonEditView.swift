@@ -36,23 +36,14 @@ struct DecisionDisplayModePickerView: View {
     var decision: Decision
 
     var body: some View {
-        HStack {
-            SettingIconView(
-                icon: .system(
-                    icon: "slider.horizontal.3",
-                    foregroundColor: .systemBackground,
-                    backgroundColor: .accent
-                )
-            )
-            Picker(
-                "显示模式",
-                selection: decsionBinding
-            ) {
-                ForEach(DecisionDisplayMode.allCases) { mode in
-                    Text(mode.text).tag(mode)
-                }
+        Picker(selection: decsionBinding) {
+            ForEach(DecisionDisplayMode.allCases) { mode in
+                Text(mode.text).tag(mode)
             }
+        } label: {
+            Label("显示模式", systemSymbol: .sliderHorizontal3)
         }
+        .labelStyle(SettingsLabelStyle(backgroundColor: .accent))
     }
 
     var decsionBinding: Binding<DecisionDisplayMode> {

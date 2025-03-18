@@ -42,6 +42,13 @@ struct LittleDecisionApp: App {
                 .task {
                     await updateIapViewModel()
                 }
+                .sensoryFeedback(trigger: globalViewModel.status) { oldValue, newValue in
+                    if oldValue == .none && newValue != .none {
+                        return .impact(flexibility: .soft)
+                    }
+                    
+                    return .none
+                }
         }
         .modelContainer(sharedModelContainer)
         .environment(globalViewModel)

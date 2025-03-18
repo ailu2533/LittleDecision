@@ -13,6 +13,8 @@ import SwiftUI
 
 let emailAddress = "im.ailu@outlook.com"
 
+// MARK: - SettingsView
+
 struct SettingsView: View {
     @Default(.noRepeat) private var noRepeat
     @Default(.equalWeight) private var equalWeight
@@ -60,11 +62,41 @@ struct SettingsView: View {
     @ViewBuilder
     private var settingsSection: some View {
         Section {
-            SettingToggle(isOn: $noRepeat, icon: "repeat", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "不重复抽取", description: "已经被抽中的选项不会被抽中")
+            Toggle(isOn: $noRepeat) {
+                Label {
+                    VStack(alignment: .leading) {
+                        Text("不重复抽取")
+                        Text("已经被抽中的选项不会被抽中")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                    }
 
-            SettingToggle(isOn: $equalWeight, icon: "equal.square", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "等概率抽取", description: "抽取时忽略选项的权重")
+                } icon: {
+                    Image(systemSymbol: .repeat)
+                }
+            }
 
-            SettingToggle(isOn: $enableSound, icon: "speaker.wave.3", foregroundColor: .primary, backgroundColor: .secondaryAccent, title: "声音", description: nil)
+            Toggle(isOn: $equalWeight) {
+                Label {
+                    VStack(alignment: .leading) {
+                        Text("等概率抽取")
+                        Text("抽取时忽略选项的权重")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                    }
+
+                } icon: {
+                    Image(systemSymbol: .equalSquare)
+                }
+            }
+
+            Toggle(isOn: $enableSound) {
+                Label {
+                    Text("声音")
+                } icon: {
+                    Image(systemSymbol: .speakerWave3)
+                }
+            }
 
             rotationTimePicker
         }.onChange(of: noRepeat) { _, newValue in
@@ -72,6 +104,7 @@ struct SettingsView: View {
         }.onChange(of: equalWeight) { _, newValue in
             globalViewModel.send(.userDefaultsEqualWeight(newValue))
         }
+        .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
     }
 
     private var contactSection: some View {
@@ -79,34 +112,13 @@ struct SettingsView: View {
     }
 
     private var rotationTimePicker: some View {
-        HStack {
-            SettingIconView(icon: .system(icon: "stopwatch", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-
-            Picker("转盘旋转时长", selection: $rotationTime) {
-                ForEach([2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0], id: \.self) { duration in
-                    Text("\(Int(duration))秒").tag(duration)
-                }
+        Picker(selection: $rotationTime) {
+            ForEach([2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0], id: \.self) { duration in
+                Text("\(Int(duration))秒").tag(duration)
             }
+        } label: {
+            Label("转盘旋转时长", systemSymbol: .stopwatch)
         }
+//        .labelStyle(SettingsLabelStyle())
     }
-
-//    private var fontSizeSlider: some View {
-//        VStack {
-//            HStack {
-//                Image(systemName: "textformat.size")
-//                    .font(.system(.body, design: .rounded))
-//                    .foregroundColor(.white)
-//                    .frame(width: 30, height: 30)
-//                    .background(.orange)
-//                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-//
-//                Text("字体大小")
-//                Spacer()
-//                Text(verbatim: "\(Int(fontSize))")
-//            }
-//
-//            Slider(value: $fontSize, in: 12 ... 24, step: 1)
-//                .accentColor(.orange)
-//        }
-//    }
 }

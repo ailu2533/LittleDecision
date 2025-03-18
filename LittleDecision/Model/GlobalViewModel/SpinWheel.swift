@@ -23,6 +23,8 @@ extension GlobalViewModel {
             let targetAngle = (270 - angle + 360 - spinWheelRotateAngle.truncatingRemainder(dividingBy: 360)) + extraRotation
 
             status = .isRunning
+            
+            SoundPlayer.shared.playSpinWheelSound()
 
             withAnimation(.easeInOut(duration: Defaults[.rotationTime])) {
                 spinWheelRotateAngle += targetAngle
@@ -30,6 +32,8 @@ extension GlobalViewModel {
             } completion: { [weak self] in
                 guard let self else { return }
                 setSelectedChoice(choice)
+                
+                SoundPlayer.shared.stopSpinWheelSound()
                 status = .none
             }
         } else {

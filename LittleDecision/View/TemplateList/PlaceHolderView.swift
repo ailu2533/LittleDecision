@@ -12,25 +12,26 @@ struct PlaceHolderView: View {
     @Binding var path: NavigationPath
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(template.title)
-                    .font(.headline)
-                Text("\(template.choices.count)个选项")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-            }
-            Spacer()
+        Button {
+            path.append(template)
+        } label: {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(template.title)
+                        .font(.headline)
+                    Text("\(template.choices.count)个选项")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
 
-            Button(action: {
-                path.append(template)
-            }, label: {
                 Image(systemName: "plus.circle.fill")
                     .imageScale(.large)
                     .fontWeight(.semibold)
                     .foregroundColor(.accentColor)
-            })
-            .buttonStyle(PlainButtonStyle())
+            }
+
         }
+        .tint(.primary)
     }
 }

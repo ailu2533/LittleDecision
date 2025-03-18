@@ -17,30 +17,29 @@ struct ContactSection: View {
 
     var body: some View {
         Section("联系我们") {
-            SettingsOpenUrlButton(title: "小红书", icon: "person.2.fill", foregroundColor: .red, backgroundColor: .secondaryAccent, urlString: xhsLink)
-
-            SettingsOpenUrlButton(title: "问题反馈", icon: "exclamationmark.circle.fill", foregroundColor: .green, backgroundColor: .secondaryAccent, urlString: problem)
-
-            SettingsOpenUrlButton(title: "给我们提建议", icon: "envelope.fill", foregroundColor: .green, backgroundColor: .secondaryAccent, urlString: problem)
-
-            SettingsOpenUrlButton(title: "给我们好评", icon: "heart.fill", foregroundColor: .red, backgroundColor: .secondaryAccent, urlString: reviewLink)
-
-            if let shareLinkUrl = URL(string: shareLink) {
-                ShareLink(item: shareLinkUrl) {
-                    HStack {
-                        SettingIconView(icon: .system(icon: "square.and.arrow.up.fill", foregroundColor: .blue, backgroundColor: .secondaryAccent))
-
-                        Text("分享App给好友")
-
-                        Spacer()
-                        SettingIconView(icon: .system(icon: "arrowshape.turn.up.right.fill", foregroundColor: .gray, backgroundColor: .clear))
-                    }
-                }
-                .buttonStyle(PlainButtonStyle())
+            Link(destination: URL(string: xhsLink)!) {
+                Label("小红书", systemSymbol: .person2Fill)
             }
 
-            EmailButton(title: "邮箱", foregroundColor: .magenta, backgroundColor: .secondaryAccent)
+            Link(destination: URL(string: problem)!) {
+                Label("问题反馈", systemSymbol: .exclamationmarkCircleFill)
+            }
+
+            Link(destination: URL(string: problem)!) {
+                Label("给我们提建议", systemSymbol: .envelopeFill)
+            }
+
+            Link(destination: URL(string: reviewLink)!) {
+                Label("给我们好评", systemSymbol: .heartFill)
+            }
+
+            ShareLink(item: URL(string: shareLink)!) {
+                Label("分享App给好友", systemSymbol: .squareAndArrowUpFill)
+            }
+//
         }
+        .tint(.primary)
+        .labelStyle(SettingsLabelStyle(backgroundColor: .yellow))
     }
 }
 

@@ -15,6 +15,12 @@ extension GlobalViewModel {
     // MARK: flip
 
     public func flip() {
+        guard status == .none else {
+            return
+        }
+
+        status = .isRunning
+
         deckIsFlipped.toggle()
 
         if deckIsFlipped {
@@ -47,8 +53,9 @@ extension GlobalViewModel {
             }
 
         } else {
+            deckEnableWiggle = true
             withAnimation(.easeInOut(duration: 0.05).repeatCount(6)) {
-                deckEnableWiggle.toggle()
+                deckEnableWiggle = false
             } completion: {
                 self.restoreDeckStatus()
             }
@@ -74,7 +81,7 @@ extension GlobalViewModel {
 
     private func flipToFront() {
         updateCardText()
-//        SoundPlayer.shared.playFlipCardSound()
+        SoundPlayer.shared.playFlipCardSound()
 
         let animation = Animation.linear(duration: kDurationAndDelay)
 
@@ -86,6 +93,8 @@ extension GlobalViewModel {
             deckFrontDegree = 0
         } completion: { [weak self] in
             guard let self else { return }
+            // 不需要手动停止
+//            SoundPlayer.shared.stopFilpCardSound()
             status = .none
         }
     }

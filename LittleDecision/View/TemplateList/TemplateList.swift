@@ -9,11 +9,15 @@ import HorizontalPicker
 import LemonViews
 import SwiftUI
 
+// MARK: - DecisionTemplate
+
 struct DecisionTemplate: Hashable {
     let title: String
     let tags: [TemplateKind]
     let choices: [String]
 }
+
+// MARK: - TemplateList
 
 struct TemplateList: View {
     @State private var selected = TemplateKind.hot
@@ -55,6 +59,8 @@ struct TemplateList: View {
     }
 }
 
+// MARK: - CategoryPicker
+
 struct CategoryPicker: View {
     @Binding var selected: TemplateKind
 
@@ -69,6 +75,8 @@ struct CategoryPicker: View {
         }
     }
 }
+
+// MARK: - TemplateListView
 
 struct TemplateListView: View {
     let data: DecisionData
@@ -93,6 +101,8 @@ struct TemplateListView: View {
     }
 }
 
+// MARK: - CustomWheelButton
+
 struct CustomWheelButton: View {
     @Binding var path: NavigationPath
 
@@ -106,10 +116,6 @@ struct CustomWheelButton: View {
         .padding(.horizontal, 16)
         .padding(.bottom, 16)
     }
-}
-
-#Preview {
-    TemplateList(showSheet: .constant(true))
 }
 
 private func getLocalizedTemplateFileName() -> String {

@@ -53,14 +53,16 @@ struct ChoiceAddView: View {
 
     private var weightInfoSection: some View {
         Section {
-            HStack {
-                SettingIconView(icon: .system(icon: "scalemass.fill", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-                LabeledContent("总权重", value: "\(totalWeight + weight)")
+            LabeledContent {
+                Text(totalWeight + weight, format: .number)
+            } label: {
+                Text("总权重")
             }
 
-            HStack {
-                SettingIconView(icon: .system(icon: "percent", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-                LabeledContent("概率", value: probability(weight, totalWeight + weight))
+            LabeledContent {
+                Text(probability(weight, totalWeight + weight), format: .percent.precision(.fractionLength(0 ... 2)))
+            } label: {
+                Text("概率")
             }
         }
     }

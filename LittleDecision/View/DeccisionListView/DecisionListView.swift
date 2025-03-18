@@ -31,7 +31,7 @@ struct DecisionListView: View {
                         Button(action: {
                             showAddDecisionSheet = true
                         }, label: {
-                            Label("新增决定", systemImage: "plus.circle.fill")
+                            Text("新增")
                         })
                     }
                 }

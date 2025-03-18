@@ -9,23 +9,33 @@ import LemonViews
 import SwiftUI
 
 struct WeightInfoSection: View {
+    // MARK: Internal
+
     let choice: Choice
-    @State private var totalWeight: Int = 0
 
     var body: some View {
         Section {
-            HStack {
-                SettingIconView(icon: .system(icon: "scalemass.fill", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-                LabeledContent("总权重", value: "\(totalWeight)")
+            LabeledContent {
+                Text(totalWeight, format: .number)
+            } label: {
+                Text("总权重")
             }
 
-            HStack {
-                SettingIconView(icon: .system(icon: "percent", foregroundColor: .primary, backgroundColor: .secondaryAccent))
-                LabeledContent("概率", value: probability(choice.weight, totalWeight))
+            LabeledContent {
+                Text(
+                    probability(choice.weight, totalWeight),
+                    format: .percent.precision(.fractionLength(0 ... 2))
+                )
+            } label: {
+                Text("概率")
             }
         }
         .task(id: choice.weight) {
-            totalWeight = choice.decision?.totalWeight ?? 0
+            totalWeight = await choice.decision?.totalWeight ?? 0
         }
     }
+
+    // MARK: Private
+
+    @State private var totalWeight: Int = 0
 }

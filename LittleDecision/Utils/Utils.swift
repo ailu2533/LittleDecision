@@ -15,8 +15,8 @@ let percentFormatter: NumberFormatter = {
     return formatter
 }()
 
-func probability(_ weight: Int, _ total: Int) -> String {
-    guard total > 0 else { return percentFormatter.string(from: 0) ?? "0%" }
+func probability(_ weight: Int, _ total: Int) -> Double {
+    guard total > 0 else { return 0 }
     let percentage = min(1, Double(weight) / Double(total))
-    return percentFormatter.string(from: NSNumber(value: percentage)) ?? "\(percentage * 100)%"
+    return percentage
 }

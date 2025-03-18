@@ -36,7 +36,7 @@ struct ChoiceEditorView: View {
         }
         .mainBackground()
         .toolbar {
-            ToolbarItemGroup(placement: .topBarTrailing) {
+            ToolbarItem(placement: .topBarTrailing) {
                 Button(role: .destructive) {
                     globalViewModel.deleteChoice(choice)
                     dismiss()
