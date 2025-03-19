@@ -15,9 +15,40 @@ struct DecisionListContentView: View {
     let decisions: [Decision]
 
     var body: some View {
-        LemonList {
+        Form {
             decisionList
-            TipView(tip, arrowEdge: .top)
+
+            TipView(tip)
+                .tipBackground(Color.clear)
+                .listRowInsets(EdgeInsets())
+        }
+    }
+
+    @ViewBuilder var decisionList: some View {
+        Section {
+            ForEach(decisions) { decision in
+                DecisionRow(
+                    decision: decision,
+                    isSelected: decisionID == decision.uuid,
+                    selectAction: {
+                        globalViewModel.selectDecision(decision)
+
+                        Task { @MainActor in
+                            try? await Task.sleep(for: .milliseconds(100))
+                            await MainActor.run {
+                                dismiss()
+                            }
+                        }
+                    }
+                )
+                .swipeActions {
+                    Button(role: .destructive) {
+                        globalViewModel.deleteDecision(decision)
+                    } label: {
+                        Label("删除决定", systemImage: "trash.fill")
+                    }
+                }
+            }
         }
     }
 
@@ -30,24 +61,4 @@ struct DecisionListContentView: View {
     @Environment(GlobalViewModel.self) private var globalViewModel
 
     private let tip = UseDecisionTip()
-
-    private var decisionList: some View {
-        ForEach(decisions) { decision in
-            DecisionRow(
-                decision: decision,
-                isSelected: decisionID == decision.uuid,
-                selectAction: {
-                    globalViewModel.selectDecision(decision)
-                    dismiss()
-                }
-            )
-            .swipeActions {
-                Button(role: .destructive) {
-                    globalViewModel.deleteDecision(decision)
-                } label: {
-                    Label("删除决定", systemImage: "trash.fill")
-                }
-            }
-        }
-    }
 }

@@ -32,13 +32,15 @@ struct ChoicesSection: View {
                 .buttonStyle(.plain)
             }
             .onDelete(perform: deleteChoices)
-
-            if let choices = decision.choices, !choices.isEmpty {
-                TipView(tip, arrowEdge: .top)
-            }
         }
         .task(id: trigger) {
             totalWeight = await decision.totalWeight
+        }
+
+        if let choices = decision.choices, !choices.isEmpty {
+            TipView(tip, arrowEdge: .top)
+                .listRowInsets(EdgeInsets())
+                .tipBackground(Color.clear)
         }
     }
 
@@ -83,13 +85,18 @@ struct ChoicesSection2: View {
             ForEach(decision.choices) { choice in
                 NavigationLink {
                     ChoiceEditorView2(decision: decision, choice: choice)
-//                    Text("ChoiceEditView")
                 } label: {
-                    ChoiceRow2(choice: choice, totalWeight: totalWeight)
+                    ChoiceRow2(choice: choice, totalWeight: decision.totalWeight)
                 }
-                .buttonStyle(.plain)
+//                .buttonStyle(.plain)
             }
             .onDelete(perform: deleteChoices)
+
+            NavigationLink {
+                BulkAddChoiceView(decision: decision)
+            } label: {
+                Text("批量新增选项")
+            }
 
 //            if let choices = decision.choices, !choices.isEmpty {
 //                TipView(tip, arrowEdge: .top)
@@ -101,8 +108,8 @@ struct ChoicesSection2: View {
 
 //    @Environment(GlobalViewModel.self) private var globalViewModel
 
-    @State private var trigger = 0
-    @State private var totalWeight = 0
+//    @State private var trigger = 0
+//    @State private var totalWeight = 0
     private let tip = ChoiceTip()
 
     private func deleteChoices(at indexSet: IndexSet) {

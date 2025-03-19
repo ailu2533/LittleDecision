@@ -23,7 +23,7 @@ struct DecisionListView: View {
                         EmptyContentView()
                     }
                 }
-                .mainBackground()
+//                .mainBackground()
                 .navigationTitle("决定列表")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

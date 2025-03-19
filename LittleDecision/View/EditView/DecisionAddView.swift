@@ -34,12 +34,10 @@ struct DecisionAddView: View {
                     showingConfirmation: $showingConfirmation
                 )
             }
-//            .navigationBarBackButtonHidden(true) // 1
             .onAppearOnce {
                 postInitDecision()
             }
-
-//            .interactiveDismissDisabled(true)
+            .interactiveDismissDisabled(true)
     }
 
     // MARK: Private
@@ -66,6 +64,8 @@ extension DecisionAddView {
 // MARK: - DecisionAddViewToolbar
 
 struct DecisionAddViewToolbar: ToolbarContent {
+    // MARK: Internal
+
     var decision: TemporaryDecision
     @Binding var showSheet: Bool
     @Binding var showingConfirmation: Bool
@@ -73,11 +73,24 @@ struct DecisionAddViewToolbar: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button(action: {
-//                decision.saved = true
+                let decisionModel = Decision(title: decision.title, choices: [], saved: true)
 
-                // TODO:
+                modelContext.insert(decisionModel)
+
+                for temporaryChoice in decision.choices {
+                    let choice = Choice(content: temporaryChoice.title, weight: temporaryChoice.weight)
+                    decisionModel.choices?.append(choice)
+                }
+
+                do {
+                    try modelContext.save()
+
+                } catch {
+                    Logging.shared.error("save error: \(error)")
+                }
 
                 showSheet = false
+
             }, label: {
                 Text("保存")
             })
@@ -90,15 +103,7 @@ struct DecisionAddViewToolbar: ToolbarContent {
             })
             .confirmationDialog("确定要取消吗？", isPresented: $showingConfirmation) {
                 Button("确定", role: .destructive) {
-//                    modelContext.delete(decision)
-//
-//                    do {
-//                        try modelContext.save()
-//                    } catch {
-//                        Logging.shared.error("\(error)")
-//                    }
-//
-//                    showSheet = false
+                    showSheet = false
                 }
                 Button("继续编辑", role: .cancel) {}
             } message: {
@@ -106,6 +111,10 @@ struct DecisionAddViewToolbar: ToolbarContent {
             }
         }
     }
+
+    // MARK: Private
+
+    @Environment(\.modelContext) private var modelContext
 }
 
 // MARK: - CommonAddView
@@ -115,7 +124,7 @@ struct CommonAddView: View {
     @Bindable var decision: TemporaryDecision
 
     var body: some View {
-        LemonForm {
+        Form {
             Section {
                 EditDecisionTitleView(title: $decision.title)
 
@@ -128,6 +137,67 @@ struct CommonAddView: View {
             AddChoiceButton2(decision: decision)
                 .padding(16)
         }
-        .mainBackground()
+//        .mainBackground()
+    }
+}
+
+// MARK: - BulkAddChoiceView
+
+struct BulkAddChoiceView: View {
+    @State private var bulkText: String = ""
+    @Environment(\.dismiss) private var dismiss
+    var decision: TemporaryDecision
+
+    @FocusState private var focused
+
+    var body: some View {
+        Form {
+            TextField("选项", text: $bulkText, prompt: Text("每行一个选项"), axis: .vertical)
+                .focused($focused)
+                .toolbar {
+                    ToolbarItem(placement: .keyboard) {
+                        HStack {
+                            Spacer()
+                            Button(action: { focused = false }) {
+                                Label("收起键盘", systemImage: "keyboard.chevron.compact.down")
+                            }
+                        }
+                    }
+                }
+        }
+        .navigationTitle("批量添加选项")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button("取消") {
+                    dismiss()
+                }
+            }
+
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("添加") {
+                    addBulkChoices()
+                    dismiss()
+                }
+                .disabled(bulkText.isEmpty)
+            }
+        }
+        .onAppearOnce {
+            focused = true
+        }
+    }
+
+    private func addBulkChoices() {
+        let lines = bulkText.components(separatedBy: .newlines)
+        let validLines = lines
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+
+        for line in validLines {
+            decision.choices.append(TemporaryChoice(title: line))
+        }
+
+        decision.updateTotalWeight()
     }
 }

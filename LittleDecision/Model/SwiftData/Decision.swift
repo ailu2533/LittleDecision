@@ -93,6 +93,10 @@ final class TemporaryDecision {
     var displayMode: DecisionDisplayMode = .wheel
 
     var totalWeight: Int = 0
+
+    func updateTotalWeight() {
+        totalWeight = choices.map(\.weight).reduce(.zero, +)
+    }
 }
 
 // MARK: - TemporaryChoice

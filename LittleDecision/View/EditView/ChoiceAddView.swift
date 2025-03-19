@@ -20,12 +20,12 @@ struct ChoiceAddView: View {
     // MARK: Internal
 
     var body: some View {
-        LemonForm {
+        Form {
             choiceDetailsSection
             weightInfoSection
             addMoreSection
         }
-        .mainBackground()
+//        .mainBackground()
         .task {
             totalWeight = await decision.totalWeight
         }
@@ -123,12 +123,12 @@ struct ChoiceAddView2: View {
     var decision: TemporaryDecision
 
     var body: some View {
-        LemonForm {
+        Form {
             choiceDetailsSection
             weightInfoSection
             addMoreSection
         }
-        .mainBackground()
+//        .mainBackground()
     }
 
     // MARK: Private

@@ -22,7 +22,7 @@ struct ChoiceEditorView: View {
     @Bindable var choice: Choice
 
     var body: some View {
-        LemonForm {
+        Form {
             ChoiceDetailsSection(choice: choice)
             WeightInfoSection(choice: choice)
 
@@ -75,7 +75,7 @@ struct ChoiceEditorView2: View {
     @Bindable var choice: TemporaryChoice
 
     var body: some View {
-        LemonForm {
+        Form {
             Section {
                 ChoiceTitleView(title: $choice.title)
                 ChoiceWeightView(weight: $choice.weight)

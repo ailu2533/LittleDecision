@@ -16,7 +16,7 @@ struct CommonEditView: View {
     @Bindable var decision: Decision
 
     var body: some View {
-        LemonForm {
+        Form {
             Section {
                 EditDecisionTitleView(title: $decision.title)
                 DecisionDisplayModePickerView(decision: decision)
@@ -28,7 +28,7 @@ struct CommonEditView: View {
             AddChoiceButton(decision: decision)
                 .padding(16)
         }
-        .mainBackground()
+//        .mainBackground()
     }
 }
 
@@ -45,7 +45,8 @@ struct DecisionDisplayModePickerView: View {
                 Text(mode.text).tag(mode)
             }
         } label: {
-            Label("显示模式", systemSymbol: .sliderHorizontal3)
+//            Label("显示模式", systemSymbol: .sliderHorizontal3)
+            Text("显示模式")
         }
         .labelStyle(SettingsLabelStyle(backgroundColor: .accent))
     }
