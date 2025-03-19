@@ -7,6 +7,7 @@
 
 import LemonViews
 import SwiftUI
+import SwiftUIX
 
 // MARK: - CommonEditView
 
@@ -16,8 +17,11 @@ struct CommonEditView: View {
 
     var body: some View {
         LemonForm {
-            EditDecisionTitleView(title: $decision.title)
-            DecisionDisplayModePickerView(decision: decision)
+            Section {
+                EditDecisionTitleView(title: $decision.title)
+                DecisionDisplayModePickerView(decision: decision)
+            }
+
             ChoicesSection(decision: decision)
         }
         .safeAreaInset(edge: .bottom) {

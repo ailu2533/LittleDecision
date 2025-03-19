@@ -28,20 +28,38 @@ struct DecisionListView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                        Button(action: {
-                            showAddDecisionSheet = true
-                        }, label: {
+                        Menu {
+                            Button {
+                                show2 = true
+                            } label: {
+                                Label("创建新决定", systemSymbol: .plusApp)
+                            }
+
+                            Button {
+                                showAddDecisionSheet = true
+                            } label: {
+                                Label("从模板库添加", systemSymbol: .listStar)
+                            }
+
+                        } label: {
                             Text("新增")
-                        })
+                        }
                     }
                 }
         }
         .sheet(isPresented: $showAddDecisionSheet) {
             TemplateList(showSheet: $showAddDecisionSheet)
         }
+        .sheet(isPresented: $show2) {
+            NavigationStack {
+                DecisionAddView(showSheet: $show2, template: DecisionTemplate(title: "", tags: [], choices: []))
+            }
+        }
     }
 
     // MARK: Private
+
+    @State private var show2 = false
 
     @Query(
         filter: #Predicate<Decision> { decision in

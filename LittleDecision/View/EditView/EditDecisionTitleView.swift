@@ -52,6 +52,3 @@ struct EditDecisionTitleView: View {
     }
 }
 
-#Preview {
-    EditDecisionTitleView(title: .constant("hello"))
-}

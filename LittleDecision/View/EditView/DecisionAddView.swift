@@ -71,6 +71,8 @@ extension DecisionAddView {
     }
 }
 
+// MARK: - DecisionAddViewToolbar
+
 struct DecisionAddViewToolbar: ToolbarContent {
     var decision: Decision
     @Binding var showSheet: Bool

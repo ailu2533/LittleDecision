@@ -1,6 +1,3 @@
 project: LittleDecision.xcodeproj
-retain_public: true
 schemes:
-- LittleDecision
-targets:
 - LittleDecision

@@ -30,7 +30,7 @@ struct TemplateList: View {
             VStack {
                 CategoryPicker(selected: $selected)
                 TemplateListView(data: data, selected: selected, path: $path)
-                CustomWheelButton(path: $path)
+//                CustomWheelButton(path: $path)
             }
             .navigationDestination(for: DecisionTemplate.self) { template in
                 DecisionAddView(showSheet: $showSheet, template: template)
