@@ -35,14 +35,3 @@ class Choice {
 
     var createDate: Date = Date()
 }
-
-// MARK: CustomStringConvertible
-
-extension Choice: CustomStringConvertible {
-    var description: String {
-        """
-        Choice: \(title)
-        Weight: \(weight)
-        """
-    }
-}

@@ -20,7 +20,7 @@ struct ChoiceTitleView: View {
             .font(.headline)
             .focused($focused)
             .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
+                ToolbarItem(placement: .keyboard) {
                     HStack {
                         Spacer()
                         Button(action: { focused = false }) {
@@ -37,8 +37,4 @@ struct ChoiceTitleView: View {
     // MARK: Private
 
     @FocusState private var focused
-}
-
-#Preview {
-    ChoiceTitleView(title: .constant("hello world"))
 }

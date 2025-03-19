@@ -2052,6 +2052,7 @@
       }
     },
     "批量添加" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

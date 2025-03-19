@@ -8,6 +8,8 @@
 import Foundation
 import SwiftData
 
+// MARK: - Decision
+
 @Model
 class Decision {
     // MARK: Lifecycle
@@ -71,6 +73,8 @@ extension Decision {
     }
 }
 
+// MARK: Hashable
+
 extension Decision: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
@@ -80,13 +84,37 @@ extension Decision: Hashable {
     }
 }
 
-extension Decision: CustomStringConvertible {
-    var description: String {
-        guard let choices else { return "Decision: \(title)" }
+// MARK: - TemporaryDecision
 
-        return """
-        Decision: \(title)
-        //        Choices: \(choices.map(\.description).joined(separator: "\n"))
-        """
+@Observable
+final class TemporaryDecision {
+    var title: String = "Untitled"
+    var choices: [TemporaryChoice] = []
+    var displayMode: DecisionDisplayMode = .wheel
+
+    var totalWeight: Int = 0
+}
+
+// MARK: - TemporaryChoice
+
+@Observable
+final class TemporaryChoice: Identifiable, Equatable {
+    // MARK: Lifecycle
+
+    init(title: String, weight: Int = 1) {
+        self.title = title
+        self.weight = weight
+    }
+
+    // MARK: Internal
+
+    var id: UUID = UUID()
+    var title: String
+    var weight: Int
+
+    static func == (lhs: TemporaryChoice, rhs: TemporaryChoice) -> Bool {
+        lhs.id == rhs.id &&
+            lhs.title == rhs.title &&
+            lhs.weight == rhs.weight
     }
 }

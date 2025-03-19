@@ -14,41 +14,14 @@ struct EditDecisionTitleView: View {
     @Binding var title: String
 
     var body: some View {
-        HStack {
-            SettingIconView(
-                icon: .system(
-                    icon: .arrowTriangleBranch,
-                    foregroundColor: .systemBackground,
-                    backgroundColor: .accent
-                )
-            )
-
-            TextField("输入让你犹豫不决的事情", text: $title, axis: .vertical)
-                .focused($focus)
-                .foregroundStyle(.primary)
-                .fontWeight(.semibold)
-                .fontDesign(.rounded)
-                .lineLimit(3)
-                .toolbar {
-                    ToolbarItemGroup(placement: .keyboard) {
-                        HStack {
-                            Spacer()
-
-                            Button(action: {
-                                focus = false
-                            }, label: {
-                                Label("收起键盘", systemImage: "keyboard.chevron.compact.down")
-                                    .labelStyle(.iconOnly)
-                            })
-                        }
-                    }
+        TextField("输入让你犹豫不决的事情", text: $title)
+            .fontWeight(.semibold)
+            .focused($focus)
+            .submitLabel(.done)
+            .onAppearOnce {
+                if title.isEmpty {
+                    focus = true
                 }
-        }
-        .onAppearOnce {
-            if title.isEmpty {
-                focus = true
             }
-        }
     }
 }
-

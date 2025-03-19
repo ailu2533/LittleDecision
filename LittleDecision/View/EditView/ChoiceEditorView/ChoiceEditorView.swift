@@ -8,6 +8,8 @@
 import LemonViews
 import SwiftUI
 
+// MARK: - ChoiceEditorView
+
 struct ChoiceEditorView: View {
     // MARK: Lifecycle
 
@@ -59,6 +61,74 @@ struct ChoiceEditorView: View {
     // MARK: Private
 
     @Environment(GlobalViewModel.self) private var globalViewModel
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var totalWeight: Int = 0
+}
+
+// MARK: - ChoiceEditorView2
+
+struct ChoiceEditorView2: View {
+    // MARK: Internal
+
+    var decision: TemporaryDecision
+    @Bindable var choice: TemporaryChoice
+
+    var body: some View {
+        LemonForm {
+            Section {
+                ChoiceTitleView(title: $choice.title)
+                ChoiceWeightView(weight: $choice.weight)
+            }
+
+            Section {
+                LabeledContent {
+                    Text(decision.totalWeight, format: .number)
+                } label: {
+                    Text("总权重")
+                }
+
+                LabeledContent {
+                    Text(
+                        probability(choice.weight, decision.totalWeight),
+                        format: .percent.precision(.fractionLength(0 ... 2))
+                    )
+                } label: {
+                    Text("概率")
+                }
+            }
+
+            Button(action: {
+                dismiss()
+            }, label: {
+                Text("保存")
+            })
+            .buttonStyle(FullWidthButtonStyle())
+            .listRowInsets(EdgeInsets())
+            .listRowBackground(Color.clear)
+        }
+        .mainBackground()
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(role: .destructive) {
+                    decision.choices.removeAll {
+                        choice == $0
+                    }
+
+                    decision.totalWeight = decision.choices.map(\.weight).reduce(.zero, +)
+
+                    dismiss()
+
+                } label: {
+                    Text("删除")
+                }
+            }
+        }
+    }
+
+    // MARK: Private
+
+//    @Environment(GlobalViewModel.self) private var globalViewModel
     @Environment(\.dismiss) private var dismiss
 
     @State private var totalWeight: Int = 0

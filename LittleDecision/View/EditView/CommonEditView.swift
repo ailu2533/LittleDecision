@@ -64,3 +64,19 @@ struct DecisionDisplayModePickerView: View {
 
     @Environment(GlobalViewModel.self) private var globalViewModel
 }
+
+// MARK: - DecisionDisplayModePickerView2
+
+struct DecisionDisplayModePickerView2: View {
+    @Binding var decsionBinding: DecisionDisplayMode
+
+    var body: some View {
+        Picker(selection: $decsionBinding) {
+            ForEach(DecisionDisplayMode.allCases) { mode in
+                Text(mode.text).tag(mode)
+            }
+        } label: {
+            Text("显示模式")
+        }
+    }
+}

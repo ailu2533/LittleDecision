@@ -10,7 +10,6 @@ import SwiftUI
 
 struct ChoiceDetailsSection: View {
     @Bindable var choice: Choice
-    @FocusState var focused: Bool
 
     var body: some View {
         Section {

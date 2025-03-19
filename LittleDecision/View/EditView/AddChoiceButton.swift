@@ -20,6 +20,19 @@ struct AddChoiceButton: View {
     }
 }
 
+struct AddChoiceButton2: View {
+    let decision: TemporaryDecision
+
+    var body: some View {
+        NavigationLink(destination: ChoiceAddView2(decision: decision)) {
+            Label("新选项", systemImage: "plus.circle.fill")
+        }
+        .buttonStyle(FloatingButtonStyle())
+        .frame(maxWidth: .infinity, alignment: .trailing)
+    }
+}
+
+
 struct BatchAddChoiceView: View {
     @State private var choices: String = ""
     let decision: Decision
@@ -44,26 +57,5 @@ struct BatchAddChoiceView: View {
             Choice(content: String($0), weight: 1)
         }
         decision.choices?.append(contentsOf: choices)
-    }
-}
-
-struct BatchAddChoiceButton: View {
-    let decision: Decision
-
-    var body: some View {
-        NavigationLink(destination: BatchAddChoiceView(decision: decision)) {
-            Label("批量添加", systemImage: "plus.circle.fill")
-                .font(.system(size: 16, weight: .semibold, design: .rounded))
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-//                .background(.biege)
-                .clipShape(Capsule())
-                .foregroundStyle(.accent)
-                .shadow(radius: 1)
-        }
-        .buttonStyle(.plain)
-
-        .frame(maxWidth: .infinity, alignment: .trailing)
-//        .padding()
     }
 }
