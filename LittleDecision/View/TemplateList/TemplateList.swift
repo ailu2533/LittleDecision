@@ -33,6 +33,7 @@ struct TemplateList: View {
             }
             .navigationDestination(for: DecisionTemplate.self) { template in
                 DecisionAddView(showSheet: $showSheet, template: template)
+                    .navigationBarBackButtonHidden()
             }
             .mainBackground()
             .navigationTitle("选取模板")

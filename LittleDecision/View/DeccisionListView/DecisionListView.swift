@@ -42,7 +42,8 @@ struct DecisionListView: View {
                             }
 
                         } label: {
-                            Text("新增")
+//                            Text("新增")
+                            Label("新增决定", systemSymbol: .plusCircleFill)
                         }
                     }
                 }

@@ -32,9 +32,6 @@ struct ChoiceEditorView: View {
             }, label: {
                 Text("保存")
             })
-            .buttonStyle(FullWidthButtonStyle())
-            .listRowInsets(EdgeInsets())
-            .listRowBackground(Color.clear)
         }
         .mainBackground()
         .toolbar {

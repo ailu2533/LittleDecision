@@ -18,9 +18,8 @@ struct PlaceHolderView: View {
             HStack {
                 VStack(alignment: .leading) {
                     Text(template.title)
-                        .font(.headline)
                     Text("\(template.choices.count)个选项")
-                        .font(.subheadline)
+                        .font(.callout)
                         .foregroundStyle(.secondary)
                 }
                 Spacer()
@@ -30,7 +29,6 @@ struct PlaceHolderView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.accentColor)
             }
-
         }
         .tint(.primary)
     }

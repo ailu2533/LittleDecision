@@ -30,8 +30,7 @@ struct DecisionAddView: View {
             .toolbar {
                 DecisionAddViewToolbar(
                     decision: temporaryDecision,
-                    showSheet: $showSheet,
-                    showingConfirmation: $showingConfirmation
+                    showSheet: $showSheet
                 )
             }
             .onAppearOnce {
@@ -43,21 +42,14 @@ struct DecisionAddView: View {
     // MARK: Private
 
     @State private var temporaryDecision = TemporaryDecision()
-    @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
-    @State private var showingConfirmation = false
-
-//    @State private var decision: Decision = .init(title: "", choices: [])
 }
 
 extension DecisionAddView {
     func postInitDecision() {
         temporaryDecision.title = template.title
-        temporaryDecision.choices = template.choices.map({ choice in
+        temporaryDecision.choices = template.choices.map { choice in
             TemporaryChoice(title: choice)
-        })
-
-//        modelContext.insert(decision)
+        }
     }
 }
 
@@ -68,7 +60,6 @@ struct DecisionAddViewToolbar: ToolbarContent {
 
     var decision: TemporaryDecision
     @Binding var showSheet: Bool
-    @Binding var showingConfirmation: Bool
 
     var body: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
@@ -114,6 +105,8 @@ struct DecisionAddViewToolbar: ToolbarContent {
 
     // MARK: Private
 
+    @State private var showingConfirmation = false
+
     @Environment(\.modelContext) private var modelContext
 }
 
@@ -128,7 +121,7 @@ struct CommonAddView: View {
             Section {
                 EditDecisionTitleView(title: $decision.title)
 
-                DecisionDisplayModePickerView2(decsionBinding: $decision.displayMode)
+                DecisionDisplayModePickerView(decsionBinding: $decision.displayMode)
             }
 
             ChoicesSection2(decision: decision)

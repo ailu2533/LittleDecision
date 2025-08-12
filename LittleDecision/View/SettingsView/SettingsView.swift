@@ -36,7 +36,7 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationStack {
-            LemonForm {
+            Form {
                 Button(action: {
                     showPaywall = true
                 }, label: {
@@ -50,7 +50,7 @@ struct SettingsView: View {
 
                 contactSection
             }
-            .settingsBackground()
+//            .settingsBackground()
             .navigationTitle("设置")
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $showPaywall, content: {
@@ -119,6 +119,5 @@ struct SettingsView: View {
         } label: {
             Label("转盘旋转时长", systemSymbol: .stopwatch)
         }
-//        .labelStyle(SettingsLabelStyle())
     }
 }

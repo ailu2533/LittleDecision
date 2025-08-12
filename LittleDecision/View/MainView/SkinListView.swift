@@ -10,6 +10,8 @@ import RevenueCatUI
 import SpinWheel
 import SwiftUI
 
+// MARK: - SkinListView
+
 struct SkinListView: View {
     // MARK: Internal
 
@@ -42,6 +44,7 @@ struct SkinListView: View {
             .sheet(isPresented: $showPaywall, content: {
                 PaywallView(displayCloseButton: true)
             })
+            .background(Color(uiColor: UIColor.systemGroupedBackground))
 
             .mainBackground()
             .toolbar {
@@ -68,6 +71,8 @@ struct SkinListView: View {
 
     @State private var showPaywall = false
 }
+
+// MARK: - SkinPreviewItem
 
 struct SkinPreviewItem: View {
     // MARK: Internal

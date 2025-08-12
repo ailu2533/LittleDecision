@@ -13,13 +13,15 @@ import SwiftUIX
 
 /// 主视图，用于编辑决策和其选项。
 struct CommonEditView: View {
+    // MARK: Internal
+
     @Bindable var decision: Decision
 
     var body: some View {
         Form {
             Section {
                 EditDecisionTitleView(title: $decision.title)
-                DecisionDisplayModePickerView(decision: decision)
+                DecisionDisplayModePickerView(decsionBinding: decisionBinding)
             }
 
             ChoicesSection(decision: decision)
@@ -28,30 +30,13 @@ struct CommonEditView: View {
             AddChoiceButton(decision: decision)
                 .padding(16)
         }
-//        .mainBackground()
-    }
-}
-
-// MARK: - DecisionDisplayModePickerView
-
-struct DecisionDisplayModePickerView: View {
-    // MARK: Internal
-
-    var decision: Decision
-
-    var body: some View {
-        Picker(selection: decsionBinding) {
-            ForEach(DecisionDisplayMode.allCases) { mode in
-                Text(mode.text).tag(mode)
-            }
-        } label: {
-//            Label("显示模式", systemSymbol: .sliderHorizontal3)
-            Text("显示模式")
-        }
-        .labelStyle(SettingsLabelStyle(backgroundColor: .accent))
     }
 
-    var decsionBinding: Binding<DecisionDisplayMode> {
+    // MARK: Private
+
+    @Environment(GlobalViewModel.self) private var globalViewModel
+
+    private var decisionBinding: Binding<DecisionDisplayMode> {
         Binding {
             decision.displayModeEnum
         } set: {
@@ -60,15 +45,11 @@ struct DecisionDisplayModePickerView: View {
             globalViewModel.restore()
         }
     }
-
-    // MARK: Private
-
-    @Environment(GlobalViewModel.self) private var globalViewModel
 }
 
-// MARK: - DecisionDisplayModePickerView2
+// MARK: - DecisionDisplayModePickerView
 
-struct DecisionDisplayModePickerView2: View {
+struct DecisionDisplayModePickerView: View {
     @Binding var decsionBinding: DecisionDisplayMode
 
     var body: some View {

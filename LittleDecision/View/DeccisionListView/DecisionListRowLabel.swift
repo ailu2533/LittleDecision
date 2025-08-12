@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct DecisionListRowLabel: View {
-     var decision: Decision
+    var decision: Decision
 
     var body: some View {
         VStack(alignment: .leading) {
             Text(decision.title)
-                .font(.headline)
-                .foregroundStyle(.primary)
             Text("\(decision.choices?.count ?? 0)个选项")
                 .foregroundStyle(.secondary)
-                .font(.caption)
+                .font(.callout)
         }
     }
 }

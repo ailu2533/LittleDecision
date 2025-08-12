@@ -57,13 +57,8 @@ class Decision {
 
     // 总权重
     var totalWeight: Int {
-        get async {
-            guard let choices else { return 0 }
-
-            return choices.reduce(0) { partialResult, choice in
-                partialResult + choice.weight
-            }
-        }
+        guard let choices else { return 0 }
+        return choices.map(\.weight).reduce(.zero, +)
     }
 }
 
