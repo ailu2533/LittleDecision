@@ -32,7 +32,6 @@ struct AddChoiceButton2: View {
     }
 }
 
-
 struct BatchAddChoiceView: View {
     @State private var choices: String = ""
     let decision: Decision

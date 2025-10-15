@@ -14,7 +14,7 @@ enum SubscriptionState {
 }
 
 extension SubscriptionState: CustomStringConvertible {
-    public var description: String {
+    var description: String {
         switch self {
         case .notSubscribed: "未訂閱"
         case let .inTrial(endDate): "試用期至 \(endDate.formatted(date: .abbreviated, time: .shortened))"

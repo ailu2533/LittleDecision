@@ -1,5 +1,5 @@
 //
-//  PremiumButton.swift
+//  PremiumView.swift
 //  LittleDecision
 //
 //  Created by Lu Ai on 2024/8/30.

@@ -23,7 +23,6 @@ struct CardFront: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(radius: 1)
-
             .rotation3DEffect(
                 .degrees(rotationDegree),
                 axis: (x: 0.0, y: 1.0, z: 0.001),

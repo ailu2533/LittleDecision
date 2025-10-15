@@ -17,32 +17,32 @@ struct ChoiceItem: Codable {
         self.uuid = uuid
         self.content = content
         self.weight = weight
-        self.enable = true
+        enable = true
     }
 
     init(choice: Choice) {
-        self.uuid = choice.uuid
-        self.content = choice.title
+        uuid = choice.uuid
+        content = choice.title
 
         if Defaults[.equalWeight] {
-            self.weight = 1
+            weight = 1
         } else {
-            self.weight = choice.weight
+            weight = choice.weight
         }
 
         if Defaults[.noRepeat] {
-            self.enable = choice.enable
+            enable = choice.enable
         } else {
-            self.enable = true
+            enable = true
         }
     }
 
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.uuid = try container.decodeIfPresent(UUID.self, forKey: .uuid) ?? UUID()
-        self.content = try container.decode(String.self, forKey: .content)
-        self.weight = try container.decode(Int.self, forKey: .weight)
-        self.enable = true
+        uuid = try container.decodeIfPresent(UUID.self, forKey: .uuid) ?? UUID()
+        content = try container.decode(String.self, forKey: .content)
+        weight = try container.decode(Int.self, forKey: .weight)
+        enable = true
     }
 
     // MARK: Internal

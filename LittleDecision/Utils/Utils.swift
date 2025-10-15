@@ -9,6 +9,5 @@ import Foundation
 
 func probability(_ weight: Int, _ total: Int) -> Double {
     guard total > 0 else { return 0 }
-    let percentage = min(1, Double(weight) / Double(total))
-    return percentage
+    return min(1, Double(weight) / Double(total))
 }

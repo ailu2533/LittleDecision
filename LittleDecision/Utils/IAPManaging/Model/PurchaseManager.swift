@@ -22,7 +22,8 @@ final class RevenueCatService {
 
     init(service: Purchases = .shared,
          didHandleInitialState: Bool = false,
-         entitlement: String = RCConstants.premium) {
+         entitlement: String = RCConstants.premium)
+    {
         self.service = service
         self.didHandleInitialState = didHandleInitialState
         self.entitlement = entitlement
@@ -58,7 +59,7 @@ extension RevenueCatService: IAPService {
 extension RevenueCatService {
     func getInitialSubscriptionInfo(from customerInfo: CustomerInfo) async throws -> SubscriptionInfo {
         guard let state = convertCustomerInfo(customerInfo) else {
-            return .init(canAccessContent: false, isEligibleForTrial: try await checkTrialEligibility(), subscriptionState: .notSubscribed)
+            return try await .init(canAccessContent: false, isEligibleForTrial: checkTrialEligibility(), subscriptionState: .notSubscribed)
         }
         return state
     }
@@ -84,7 +85,8 @@ extension RevenueCatService {
 //        }
 
         guard let entitlement = customerInfo.entitlements[entitlement],
-              entitlement.isActive else {
+              entitlement.isActive
+        else {
             return nil
         }
 
@@ -96,6 +98,6 @@ extension RevenueCatService {
         guard let product = offerings.current?.availablePackages.first?.storeProduct else {
             throw IAPError.noAvailableStoreProduct
         }
-        return (await service.checkTrialOrIntroDiscountEligibility(product: product)).isEligible
+        return await (service.checkTrialOrIntroDiscountEligibility(product: product)).isEligible
     }
 }

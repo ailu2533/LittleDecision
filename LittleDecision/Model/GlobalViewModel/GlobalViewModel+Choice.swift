@@ -1,12 +1,11 @@
 //
-//  Choice.swift
+//  GlobalViewModel+Choice.swift
 //  LittleDecision
 //
 //  Created by Lu Ai on 2024/11/15.
 //
 
 import Foundation
-
 
 // MARK: GlobalViewModel + Choice
 
@@ -18,7 +17,7 @@ extension GlobalViewModel {
     // MARK: setSelectedChoice
 
     func setSelectedChoice(_ choice: ChoiceItem?) {
-        self.selectedChoice = choice
+        selectedChoice = choice
 
         if let choice {
             // 使用 first(where:)
@@ -33,7 +32,7 @@ extension GlobalViewModel {
     }
 
     func setSelectedDecision(_ decision: Decision?) {
-        self.selectedDecision = decision
+        selectedDecision = decision
     }
 
     public func deleteChoice(_ choice: Choice) {
@@ -55,7 +54,7 @@ extension GlobalViewModel {
         let choicesToDelete = offsets.map { decision.sortedChoices[$0] }
         choicesToDelete.forEach { modelContext.delete($0) }
 
-        choicesToDelete.forEach { choice in
+        for choice in choicesToDelete {
             decision.choices?.removeAll { choice.uuid == $0.uuid }
         }
 

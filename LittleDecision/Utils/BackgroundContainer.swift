@@ -21,7 +21,7 @@ struct BackgroundViewModifier<Background: View>: ViewModifier {
 }
 
 extension View {
-    func customBackground<Background: View>(@ViewBuilder _ background: @escaping () -> Background) -> some View {
+    func customBackground(@ViewBuilder _ background: @escaping () -> some View) -> some View {
         modifier(BackgroundViewModifier(background: background))
     }
 

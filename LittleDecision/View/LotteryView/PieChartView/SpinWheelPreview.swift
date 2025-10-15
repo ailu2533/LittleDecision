@@ -18,7 +18,6 @@ struct SpinWheelPreview: View {
 
     var body: some View {
         GeometryReader { proxy in
-
             let width = min(proxy.size.width, proxy.size.height)
             let size = CGSize(width: width, height: width)
 
@@ -26,9 +25,8 @@ struct SpinWheelPreview: View {
                 Spacer()
                 SpinWheel(rawItems: rawItems,
                           size: size,
-                          configuration: configuration
-                )
-                .frame(width: width, height: width, alignment: .center)
+                          configuration: configuration)
+                    .frame(width: width, height: width, alignment: .center)
                 Spacer()
             }
         }

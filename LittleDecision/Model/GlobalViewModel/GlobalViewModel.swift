@@ -31,27 +31,27 @@ class GlobalViewModel {
 
     // MARK: Public
 
-    public func send(_ action: ChangeAction) {
+    func send(_ action: ChangeAction) {
         subject.send(action)
     }
 
     // MARK: restore
 
-    public func restore() {
+    func restore() {
         switch decisionDisplayMode {
         case .stackedCards:
-            self.restoreDeck()
+            restoreDeck()
         case .wheel:
-            self.restoreSpinWheel()
+            restoreSpinWheel()
         }
     }
 
-    public func go() {
+    func go() {
         switch decisionDisplayMode {
         case .stackedCards:
-            self.flip()
+            flip()
         case .wheel:
-            self.startSpinning()
+            startSpinning()
         }
     }
 
@@ -81,9 +81,9 @@ class GlobalViewModel {
     var choiceTitle: String {
         switch decisionDisplayMode {
         case .wheel:
-            return selectedChoice?.content ?? ""
+            selectedChoice?.content ?? ""
         case .stackedCards:
-            return ""
+            ""
         }
     }
 

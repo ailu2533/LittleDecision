@@ -7,16 +7,15 @@
 
 import Foundation
 
-
 extension Bundle {
     /// Fetches the current bundle version of the app.
     static var currentAppVersion: String? {
         #if os(macOS)
-        let infoDictionaryKey = "CFBundleShortVersionString"
+            let infoDictionaryKey = "CFBundleShortVersionString"
         #else
-        let infoDictionaryKey = "CFBundleVersion"
+            let infoDictionaryKey = "CFBundleVersion"
         #endif
-        
+
         return Bundle.main.object(forInfoDictionaryKey: infoDictionaryKey) as? String
     }
 }

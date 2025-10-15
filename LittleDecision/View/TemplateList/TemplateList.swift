@@ -93,7 +93,7 @@ struct TemplateListView: View {
         LemonList {
             ForEach(decisions) { temp in
                 PlaceHolderView(
-                    template: DecisionTemplate(title: temp.title, tags: [], choices: temp.choices.map { $0.content }),
+                    template: DecisionTemplate(title: temp.title, tags: [], choices: temp.choices.map(\.content)),
                     path: $path
                 )
             }

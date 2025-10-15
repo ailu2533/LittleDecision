@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 struct RotatingView<Content: View>: View {
     let angle: Double
     let content: () -> Content

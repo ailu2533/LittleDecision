@@ -20,16 +20,16 @@ enum ChangeAction: CustomStringConvertible {
     var description: String {
         switch self {
         case let .decisionUUID(uuid):
-            return "Changed Decision: \(uuid?.uuidString ?? "nil")"
+            "Changed Decision: \(uuid?.uuidString ?? "nil")"
 
         case let .userDefaultsEqualWeight(isEqual):
-            return "Changed Equal Weight Setting: \(isEqual)"
+            "Changed Equal Weight Setting: \(isEqual)"
 
         case let .userDefaultsNoRepeat(noRepeat):
-            return "Changed No Repeat Setting: \(noRepeat)"
+            "Changed No Repeat Setting: \(noRepeat)"
 
         case let .decisionEdited(uuid):
-            return "Edited Decision: \(uuid.uuidString)"
+            "Edited Decision: \(uuid.uuidString)"
         }
     }
 }

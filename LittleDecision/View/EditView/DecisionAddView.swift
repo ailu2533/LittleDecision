@@ -1,5 +1,5 @@
 //
-//  ChoiceAddView.swift
+//  DecisionAddView.swift
 //  LittleDecision
 //
 //  Created by ailu on 2024/6/8.

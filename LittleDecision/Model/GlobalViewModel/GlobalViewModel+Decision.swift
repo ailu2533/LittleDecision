@@ -1,5 +1,5 @@
 //
-//  Decision.swift
+//  GlobalViewModel+Decision.swift
 //  LittleDecision
 //
 //  Created by Lu Ai on 2024/11/15.
@@ -11,8 +11,8 @@ import SwiftData
 
 // MARK: GlobalViewModel + Decision
 
-extension GlobalViewModel {
-    public func deleteDecision(_ decision: Decision) {
+public extension GlobalViewModel {
+    func deleteDecision(_ decision: Decision) {
         if decision.uuid == selectedDecision?.uuid {
             setSelectedDecision(nil)
             setSelectedChoice(nil)
@@ -30,12 +30,12 @@ extension GlobalViewModel {
         }
     }
 
-    public func selectDecision(_ decision: Decision) {
+    func selectDecision(_ decision: Decision) {
         Defaults[.decisionID] = decision.uuid
         send(.decisionUUID(decision.uuid))
     }
 
-    func fetchFirstDecision() -> Decision? {
+    internal func fetchFirstDecision() -> Decision? {
         var fetchDescriptor = FetchDescriptor<Decision>(
             sortBy: [
                 SortDescriptor(\Decision.createDate, order: .reverse),

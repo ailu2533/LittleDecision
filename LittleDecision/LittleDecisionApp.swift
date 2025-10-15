@@ -20,8 +20,8 @@ struct LittleDecisionApp: App {
 
     init() {
         let modelContainer = getModelContainer(isStoredInMemoryOnly: false)
-        self.sharedModelContainer = modelContainer
-        self._globalViewModel = State(wrappedValue: GlobalViewModel(modelContext: modelContainer.mainContext))
+        sharedModelContainer = modelContainer
+        _globalViewModel = State(wrappedValue: GlobalViewModel(modelContext: modelContainer.mainContext))
 
         try? Tips.configure()
         RevenueCatService.configOnLaunch()
@@ -43,10 +43,10 @@ struct LittleDecisionApp: App {
                     await updateIapViewModel()
                 }
                 .sensoryFeedback(trigger: globalViewModel.status) { oldValue, newValue in
-                    if oldValue == .none && newValue != .none {
+                    if oldValue == .none, newValue != .none {
                         return .impact(flexibility: .soft)
                     }
-                    
+
                     return .none
                 }
         }
@@ -73,7 +73,7 @@ struct LittleDecisionApp: App {
 extension LittleDecisionApp {
     // MARK: Fileprivate
 
-    fileprivate func updateIapViewModel() async {
+    private func updateIapViewModel() async {
         do {
             try await iapService.monitoringSubscriptionInfoUpdates { premiumSubscriptionInfo in
                 premiumSubscriptionViewModel.canAccessContent = premiumSubscriptionInfo.canAccessContent

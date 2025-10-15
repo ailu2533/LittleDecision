@@ -21,7 +21,7 @@ final class SoundPlayer: Sendable {
     static let shared = SoundPlayer()
 
     var enableSound: Bool {
-        return Defaults[.enableSound]
+        Defaults[.enableSound]
     }
 
     func playFlipCardSound() {

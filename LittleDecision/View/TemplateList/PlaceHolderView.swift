@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlaceHolderView: View {
-    var template: DecisionTemplate = DecisionTemplate(title: "情侣真心话大冒险", tags: [], choices: ["1", "2", "3"])
+    var template: DecisionTemplate = .init(title: "情侣真心话大冒险", tags: [], choices: ["1", "2", "3"])
     @Binding var path: NavigationPath
 
     var body: some View {

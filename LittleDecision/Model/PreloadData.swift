@@ -1,5 +1,5 @@
 //
-//  preload.swift
+//  PreloadData.swift
 //  LittleDecision
 //
 //  Created by Lu Ai on 2024/8/15.
@@ -67,7 +67,7 @@ private func insertDecisionsFromJSON(_ json: DecisionData, into ctx: ModelContex
     return firstDecisionUUID
 }
 
-private func handleError(_ error: Error, for fileName: String) {
+private func handleError(_ error: Error, for _: String) {
     if let nsError = error as NSError? {
         switch nsError.code {
         case NSFileReadUnknownError:
@@ -131,7 +131,7 @@ struct DecisionItem: Codable, Identifiable {
         case choices
     }
 
-    var id: UUID = UUID()
+    var id: UUID = .init()
 
     let title: String
     let tags: [TemplateKind]

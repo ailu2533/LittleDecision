@@ -20,11 +20,10 @@ struct SkinListView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     ForEach(SkinKind.allCases) { skinKind in
-
                         Button(action: {
                             let configuration = SkinManager.shared.getSkinConfiguration(skinKind: skinKind)
 
-                            if configuration.isPremium && !subscriptionViewModel.canAccessContent {
+                            if configuration.isPremium, !subscriptionViewModel.canAccessContent {
                                 showPaywall = true
                                 return
                             }
@@ -45,7 +44,6 @@ struct SkinListView: View {
                 PaywallView(displayCloseButton: true)
             })
             .background(Color(uiColor: UIColor.systemGroupedBackground))
-
             .mainBackground()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -80,7 +78,7 @@ struct SkinPreviewItem: View {
     let skinKind: SkinKind
 
     var isPremium: Bool {
-        return SkinManager.shared.getSkinConfiguration(skinKind: skinKind).isPremium
+        SkinManager.shared.getSkinConfiguration(skinKind: skinKind).isPremium
     }
 
     var body: some View {
@@ -92,7 +90,6 @@ struct SkinPreviewItem: View {
                 .background(Material.thick)
                 .clipShape(RoundedRectangle(cornerRadius: 25))
                 .border(cornerRadius: 25, stroke: .init(selectedSkinConfiguration == skinKind ? .green : .clear, lineWidth: 2))
-
                 .shadow(radius: 1)
                 .overlay(alignment: .bottomTrailing) {
                     if isPremium {

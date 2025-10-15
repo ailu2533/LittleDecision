@@ -12,7 +12,7 @@ struct Card: View {
     var globalViewModel: GlobalViewModel
 
     var text: String {
-        return globalViewModel.selectedChoice?.content ?? String(localized: "选项用完了，点击还原继续")
+        globalViewModel.selectedChoice?.content ?? String(localized: "选项用完了，点击还原继续")
     }
 
     var body: some View {

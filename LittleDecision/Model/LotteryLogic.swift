@@ -101,7 +101,6 @@ enum LotteryViewModel {
 
     static func randomStringStream(from array: [ChoiceItem], numOfDraw: Int, repeatDraw: Bool) -> AsyncStream<ChoiceItem> {
         AsyncStream { continuation in
-
             Task {
                 if repeatDraw {
                     for _ in 0 ..< numOfDraw {

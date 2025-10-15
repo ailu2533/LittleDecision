@@ -24,19 +24,19 @@ enum TemplateKind: String, Identifiable, CaseIterable, Codable {
     var text: LocalizedStringKey {
         switch self {
         case .hot:
-            return "热门"
+            "热门"
         case .romance:
-            return "恋爱"
+            "恋爱"
         case .truth:
-            return "真心话"
+            "真心话"
         case .dare:
-            return "大冒险"
+            "大冒险"
         case .school:
-            return "校园生活"
+            "校园生活"
         case .life:
-            return "生活"
+            "生活"
         case .party:
-            return "聚会"
+            "聚会"
         }
     }
 }

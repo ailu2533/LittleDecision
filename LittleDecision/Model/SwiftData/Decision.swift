@@ -64,7 +64,7 @@ class Decision {
 
 extension Decision {
     var displayModeEnum: DecisionDisplayMode {
-        return .init(rawValue: displayModel) ?? .wheel
+        .init(rawValue: displayModel) ?? .wheel
     }
 }
 
@@ -107,7 +107,7 @@ final class TemporaryChoice: Identifiable, Equatable {
 
     // MARK: Internal
 
-    var id: UUID = UUID()
+    var id: UUID = .init()
     var title: String
     var weight: Int
 

@@ -23,9 +23,7 @@ extension GlobalViewModel {
             }
 
             refreshItems()
-
         case let .decisionUUID(decisionUUID):
-
             guard let decisionUUID else {
                 setSelectedDecision(nil)
                 refreshItems()

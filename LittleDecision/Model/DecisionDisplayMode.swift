@@ -21,9 +21,9 @@ enum DecisionDisplayMode: Int, Identifiable, Codable, CaseIterable, Defaults.Ser
     var text: LocalizedStringKey {
         switch self {
         case .wheel:
-            return "转盘模式"
+            "转盘模式"
         case .stackedCards:
-            return "卡片模式"
+            "卡片模式"
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PieChartNoRepeatView.swift
+//  PieChartView.swift
 //  LittleDecision
 //
 //  Created by ailu on 2024/6/9.
@@ -15,11 +15,10 @@ struct PieChartView: View {
     var size: CGSize
 
     var radius: CGFloat {
-        return min(size.width, size.height)
+        min(size.width, size.height)
     }
 
     var body: some View {
-
         RotatingView(angle: globalViewModel.spinWheelRotateAngle) {
             ZStack {
                 CircleBackground(lineWidth: 1)
