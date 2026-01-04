@@ -6,6 +6,22 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		8DE4A1B92F0AA4ED00DEAB5A /* Unused Code */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8DE4A1BA2F0AA4ED00DEAB5A /* Build configuration list for PBXAggregateTarget "Unused Code" */;
+			buildPhases = (
+				8DE4A1BD2F0AA4FB00DEAB5A /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Unused Code";
+			packageProductDependencies = (
+			);
+			productName = "Unused Code";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		847E6533850C4C15BB78FD7A /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 00333968733A48FD9F279F4F /* Sentry */; };
 		8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */ = {isa = PBXBuildFile; productRef = 8D1931E92C6BAA7B00F9D2A4 /* LemonViews */; };
@@ -142,10 +158,13 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					27FCEFA22BBC6DAF002518E0 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					8DE4A1B92F0AA4ED00DEAB5A = {
+						CreatedOnToolsVersion = 26.1;
 					};
 				};
 			};
@@ -182,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				27FCEFA22BBC6DAF002518E0 /* LittleDecision */,
+				8DE4A1B92F0AA4ED00DEAB5A /* Unused Code */,
 			);
 		};
 /* End PBXProject section */
@@ -215,6 +235,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		8DE4A1BD2F0AA4FB00DEAB5A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\n# Run scan:\n/opt/homebrew/bin/periphery scan \\\n  --project \"${PROJECT_DIR}/LittleDecision.xcodeproj\" \\\n  --schemes LittleDecision \\\n  --skip-build \\\n  --index-store-path \"${BUILD_DIR}/../../Index.noindex/DataStore\" \\\n  --format xcode\n";
 		};
 		FA83D731CEF547E2A0281532 /* Upload Debug Symbols to Sentry */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -280,6 +317,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -303,6 +341,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -344,6 +383,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -360,6 +400,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -375,7 +416,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
-				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -415,7 +455,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"LittleDecision/Preview Content\"";
-				DEVELOPMENT_TEAM = S3879FFC37;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -445,6 +484,22 @@
 			};
 			name = Release;
 		};
+		8DE4A1BB2F0AA4ED00DEAB5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8DE4A1BC2F0AA4ED00DEAB5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -462,6 +517,15 @@
 			buildConfigurations = (
 				27FCEFCA2BBC6DB1002518E0 /* Debug */,
 				27FCEFCB2BBC6DB1002518E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DE4A1BA2F0AA4ED00DEAB5A /* Build configuration list for PBXAggregateTarget "Unused Code" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE4A1BB2F0AA4ED00DEAB5A /* Debug */,
+				8DE4A1BC2F0AA4ED00DEAB5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

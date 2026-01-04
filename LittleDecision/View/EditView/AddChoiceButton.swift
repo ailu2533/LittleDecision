@@ -32,29 +32,29 @@ struct AddChoiceButton2: View {
     }
 }
 
-struct BatchAddChoiceView: View {
-    @State private var choices: String = ""
-    let decision: Decision
-
-    @Environment(\.dismiss) private var dismiss
-
-    var body: some View {
-        VStack {
-            TextEditor(text: $choices)
-
-            Button(action: {
-                batchAddChoices(choiceString: choices)
-                dismiss()
-            }, label: {
-                Text("完成")
-            })
-        }
-    }
-
-    private func batchAddChoices(choiceString: String) {
-        let choices = choiceString.split(separator: "\n").map {
-            Choice(content: String($0), weight: 1)
-        }
-        decision.choices?.append(contentsOf: choices)
-    }
-}
+// struct BatchAddChoiceView: View {
+//    @State private var choices: String = ""
+//    let decision: Decision
+//
+//    @Environment(\.dismiss) private var dismiss
+//
+//    var body: some View {
+//        VStack {
+//            TextEditor(text: $choices)
+//
+//            Button(action: {
+//                batchAddChoices(choiceString: choices)
+//                dismiss()
+//            }, label: {
+//                Text("完成")
+//            })
+//        }
+//    }
+//
+//    private func batchAddChoices(choiceString: String) {
+//        let choices = choiceString.split(separator: "\n").map {
+//            Choice(content: String($0), weight: 1)
+//        }
+//        decision.choices?.append(contentsOf: choices)
+//    }
+// }

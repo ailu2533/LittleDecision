@@ -103,20 +103,20 @@ struct TemplateListView: View {
 
 // MARK: - CustomWheelButton
 
-struct CustomWheelButton: View {
-    @Binding var path: NavigationPath
-
-    var body: some View {
-        Button(action: {
-            path.append(DecisionTemplate(title: "", tags: [], choices: []))
-        }) {
-            Text("自定义新转盘")
-        }
-        .buttonStyle(FullWidthButtonStyle(verticalPadding: 12))
-        .padding(.horizontal, 16)
-        .padding(.bottom, 16)
-    }
-}
+// struct CustomWheelButton: View {
+//    @Binding var path: NavigationPath
+//
+//    var body: some View {
+//        Button(action: {
+//            path.append(DecisionTemplate(title: "", tags: [], choices: []))
+//        }) {
+//            Text("自定义新转盘")
+//        }
+//        .buttonStyle(FullWidthButtonStyle(verticalPadding: 12))
+//        .padding(.horizontal, 16)
+//        .padding(.bottom, 16)
+//    }
+// }
 
 private func getLocalizedTemplateFileName() -> String {
     let locale = Locale.current

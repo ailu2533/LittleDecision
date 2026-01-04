@@ -26,21 +26,21 @@ struct ChoiceAddView: View {
             addMoreSection
         }
 //        .mainBackground()
-        .task {
-            totalWeight = await decision.totalWeight
+        .onAppear {
+            totalWeight = decision.totalWeight
         }
     }
 
     // MARK: Private
 
-    @Environment(\.modelContext) private var modelContext
+//    @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
 
     @State private var title: String = ""
     @State private var weight: Int = 1
 
     private let decision: Decision
-    private let weightRange = 1 ... 100
+//    private let weightRange = 1 ... 100
 
     @State private var totalWeight = 0
 
@@ -138,9 +138,9 @@ struct ChoiceAddView2: View {
     @State private var title: String = ""
     @State private var weight: Int = 1
 
-    private let weightRange = 1 ... 100
+//    private let weightRange = 1 ... 100
 
-    @State private var totalWeight = 0
+//    @State private var totalWeight = 0
 
     private var choiceDetailsSection: some View {
         Section {

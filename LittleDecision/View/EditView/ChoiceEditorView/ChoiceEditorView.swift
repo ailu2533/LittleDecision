@@ -51,7 +51,7 @@ struct ChoiceEditorView: View {
                 return
             }
 
-            totalWeight = await decision.totalWeight
+            totalWeight = decision.totalWeight
         }
     }
 
@@ -128,5 +128,5 @@ struct ChoiceEditorView2: View {
 //    @Environment(GlobalViewModel.self) private var globalViewModel
     @Environment(\.dismiss) private var dismiss
 
-    @State private var totalWeight: Int = 0
+//    @State private var totalWeight: Int = 0
 }

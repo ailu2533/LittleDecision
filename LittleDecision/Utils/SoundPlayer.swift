@@ -28,11 +28,11 @@ final class SoundPlayer: Sendable {
         if enableSound { flipcardSound.play() }
     }
 
-    func stopFilpCardSound() {
-        if flipcardSound.isPlaying {
-//            flipcardSound.stop()
-        }
-    }
+//    func stopFilpCardSound() {
+//        if flipcardSound.isPlaying {
+    ////            flipcardSound.stop()
+//        }
+//    }
 
     func playSpinWheelSound() {
         if enableSound {

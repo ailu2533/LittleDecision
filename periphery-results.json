@@ -1,0 +1,653 @@
+[
+  {
+    "modules" : [
+      "LittleDecision"
+    ],
+    "ids" : [
+      "s:14LittleDecision18offeringIdentifierSSvp"
+    ],
+    "attributes" : [
+
+    ],
+    "name" : "offeringIdentifier",
+    "modifiers" : [
+
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "kind" : "var.global",
+    "accessibility" : "internal",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Constants.swift:10:5"
+  },
+  {
+    "modifiers" : [
+
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "ids" : [
+      "s:14LittleDecision10ChoiceItemV4uuid7content6weightAC10Foundation4UUIDV_SSSitcfc"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/ChoiceItem.swift:16:5",
+    "name" : "init(uuid:content:weight:)",
+    "attributes" : [
+
+    ],
+    "kind" : "function.constructor",
+    "accessibility" : "internal"
+  },
+  {
+    "ids" : [
+      "s:8DefaultsAAO7_AnyKeyC14LittleDecisionE8fontSizeAB0C0Cy_14CoreFoundation7CGFloatVGvpZ"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/Defaults.swift:22:16",
+    "hints" : [
+      "unused"
+    ],
+    "accessibility" : "internal",
+    "kind" : "var.static",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "fontSize",
+    "modifiers" : [
+      "static"
+    ],
+    "attributes" : [
+
+    ]
+  },
+  {
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/Defaults.swift:24:16",
+    "kind" : "var.static",
+    "name" : "selectedThemeID",
+    "accessibility" : "internal",
+    "attributes" : [
+
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "modifiers" : [
+      "static"
+    ],
+    "ids" : [
+      "s:8DefaultsAAO7_AnyKeyC14LittleDecisionE15selectedThemeIDAB0C0Cy_9SpinWheel0gH0OGvpZ"
+    ]
+  },
+  {
+    "name" : "selectedConfigurationID",
+    "kind" : "var.static",
+    "accessibility" : "internal",
+    "hints" : [
+      "unused"
+    ],
+    "attributes" : [
+
+    ],
+    "modifiers" : [
+      "static"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "ids" : [
+      "s:8DefaultsAAO7_AnyKeyC14LittleDecisionE23selectedConfigurationIDAB0C0Cy_10Foundation4UUIDVSgGvpZ"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/Defaults.swift:26:16"
+  },
+  {
+    "ids" : [
+      "s:8DefaultsAAO7_AnyKeyC14LittleDecisionE21processCompletedCountAB0C0Cy_SiGvpZ"
+    ],
+    "kind" : "var.static",
+    "accessibility" : "internal",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "processCompletedCount",
+    "attributes" : [
+
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/Defaults.swift:38:16",
+    "modifiers" : [
+      "static"
+    ]
+  },
+  {
+    "kind" : "var.static",
+    "name" : "lastVersionPromptedForReview",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "attributes" : [
+
+    ],
+    "modifiers" : [
+      "static"
+    ],
+    "accessibility" : "internal",
+    "ids" : [
+      "s:8DefaultsAAO7_AnyKeyC14LittleDecisionE28lastVersionPromptedForReviewAB0C0Cy_SSGvpZ"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/Defaults.swift:39:16"
+  },
+  {
+    "hints" : [
+      "unused"
+    ],
+    "modifiers" : [
+      "static"
+    ],
+    "name" : "randomStringStream(from:numOfDraw:repeatDraw:)",
+    "accessibility" : "internal",
+    "attributes" : [
+
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Model/LotteryLogic.swift:102:17",
+    "ids" : [
+      "s:14LittleDecision16LotteryViewModelO18randomStringStream4from9numOfDraw06repeatL0ScSyAA10ChoiceItemVGSayAIG_SiSbtFZ"
+    ],
+    "kind" : "function.method.static"
+  },
+  {
+    "kind" : "function.method.instance",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/BackgroundContainer.swift:29:10",
+    "ids" : [
+      "s:7SwiftUI4ViewP14LittleDecisionE18settingsBackgroundQryF"
+    ],
+    "accessibility" : "internal",
+    "name" : "settingsBackground()",
+    "attributes" : [
+
+    ],
+    "modifiers" : [
+
+    ]
+  },
+  {
+    "ids" : [
+      "s:14LittleDecision7DiceNumO4nextACvp"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "accessibility" : "internal",
+    "name" : "next",
+    "modifiers" : [
+
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/DiceView.swift:16:9",
+    "kind" : "var.instance",
+    "attributes" : [
+
+    ]
+  },
+  {
+    "accessibility" : "internal",
+    "name" : "DiceView",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "modifiers" : [
+
+    ],
+    "attributes" : [
+
+    ],
+    "ids" : [
+      "s:14LittleDecision8DiceViewV"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/DiceView.swift:44:8",
+    "kind" : "struct"
+  },
+  {
+    "accessibility" : "internal",
+    "hints" : [
+      "unused"
+    ],
+    "ids" : [
+      "s:14LittleDecision11lifetimeProSSvp"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "lifetimePro",
+    "modifiers" : [
+
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/IAPManaging/Model/PurchaseManager.swift:11:5",
+    "kind" : "var.global",
+    "attributes" : [
+
+    ]
+  },
+  {
+    "hints" : [
+      "unused"
+    ],
+    "accessibility" : "internal",
+    "attributes" : [
+
+    ],
+    "kind" : "function.method.static",
+    "modifiers" : [
+      "static"
+    ],
+    "ids" : [
+      "s:14LittleDecision10IAPServiceP14configOnLaunchyyFZ"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "configOnLaunch()",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/IAPManaging/Model/PurchaseManager.swift:14:17"
+  },
+  {
+    "kind" : "var.static",
+    "modifiers" : [
+      "static"
+    ],
+    "name" : "stubNoAccess",
+    "ids" : [
+      "s:14LittleDecision16SubscriptionInfoV12stubNoAccessACvpZ"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "attributes" : [
+
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "accessibility" : "internal",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/IAPManaging/Model/SubscriptionInfo.swift:18:16"
+  },
+  {
+    "attributes" : [
+
+    ],
+    "accessibility" : "internal",
+    "name" : "stubWithAccess",
+    "ids" : [
+      "s:14LittleDecision16SubscriptionInfoV14stubWithAccessACvpZ"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/IAPManaging/Model/SubscriptionInfo.swift:22:16",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "kind" : "var.static",
+    "modifiers" : [
+      "static"
+    ]
+  },
+  {
+    "accessibility" : "internal",
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/LemonForm.swift:10:8",
+    "kind" : "struct",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "modifiers" : [
+
+    ],
+    "name" : "LemonForm",
+    "attributes" : [
+
+    ],
+    "ids" : [
+      "s:14LittleDecision9LemonFormV"
+    ]
+  },
+  {
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "wheel",
+    "attributes" : [
+
+    ],
+    "ids" : [
+      "s:14LittleDecision7LoggingC5wheel2os6LoggerVvpZ"
+    ],
+    "kind" : "var.static",
+    "modifiers" : [
+      "static"
+    ],
+    "accessibility" : "internal",
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/Logging.swift:15:16"
+  },
+  {
+    "modules" : [
+      "LittleDecision"
+    ],
+    "kind" : "function.method.instance",
+    "name" : "stopFilpCardSound()",
+    "modifiers" : [
+
+    ],
+    "attributes" : [
+
+    ],
+    "accessibility" : "internal",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/Utils/SoundPlayer.swift:31:10",
+    "hints" : [
+      "unused"
+    ],
+    "ids" : [
+      "s:14LittleDecision11SoundPlayerC012stopFilpCardC0yyF"
+    ]
+  },
+  {
+    "modifiers" : [
+
+    ],
+    "name" : "BatchAddChoiceView",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "attributes" : [
+
+    ],
+    "accessibility" : "internal",
+    "ids" : [
+      "s:14LittleDecision18BatchAddChoiceViewV"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/AddChoiceButton.swift:35:8",
+    "kind" : "struct"
+  },
+  {
+    "attributes" : [
+      "Environment"
+    ],
+    "accessibility" : "private",
+    "hints" : [
+      "unused"
+    ],
+    "name" : "modelContext",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/ChoiceAddView.swift:36:46",
+    "ids" : [
+      "s:14LittleDecision13ChoiceAddViewV12modelContext33_42718EA919CD5730329A3764D8CB65F6LL9SwiftData05ModelG0Cvp"
+    ],
+    "kind" : "var.instance",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "modifiers" : [
+      "private"
+    ]
+  },
+  {
+    "name" : "weightRange",
+    "accessibility" : "private",
+    "kind" : "var.instance",
+    "ids" : [
+      "s:14LittleDecision13ChoiceAddViewV11weightRange33_42718EA919CD5730329A3764D8CB65F6LLSNySiGvp"
+    ],
+    "attributes" : [
+
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/ChoiceAddView.swift:43:17",
+    "hints" : [
+      "unused"
+    ],
+    "modifiers" : [
+      "private"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ]
+  },
+  {
+    "modules" : [
+      "LittleDecision"
+    ],
+    "ids" : [
+      "s:14LittleDecision14ChoiceAddView2V11weightRange33_42718EA919CD5730329A3764D8CB65F6LLSNySiGvp"
+    ],
+    "name" : "weightRange",
+    "accessibility" : "private",
+    "attributes" : [
+
+    ],
+    "modifiers" : [
+      "private"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/ChoiceAddView.swift:141:17",
+    "kind" : "var.instance"
+  },
+  {
+    "ids" : [
+      "s:14LittleDecision14ChoiceAddView2V11totalWeight33_42718EA919CD5730329A3764D8CB65F6LLSivp"
+    ],
+    "kind" : "var.instance",
+    "accessibility" : "private",
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/ChoiceAddView.swift:143:24",
+    "name" : "totalWeight",
+    "attributes" : [
+      "State"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "modifiers" : [
+      "private"
+    ]
+  },
+  {
+    "ids" : [
+      "s:14LittleDecision17ChoiceEditorView2V11totalWeight33_72FD7A131C8B7A9A14443BB5B0478EEBLLSivp"
+    ],
+    "modifiers" : [
+      "private"
+    ],
+    "accessibility" : "private",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/ChoiceEditorView/ChoiceEditorView.swift:131:24",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "kind" : "var.instance",
+    "hints" : [
+      "unused"
+    ],
+    "name" : "totalWeight",
+    "attributes" : [
+      "State"
+    ]
+  },
+  {
+    "modifiers" : [
+      "private"
+    ],
+    "ids" : [
+      "s:14LittleDecision15ChoicesSection2V3tip33_D3507CE1E1B0004954BA9D63EB2A7697LLAA9ChoiceTipVvp"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/EditView/ChoicesSection.swift:102:17",
+    "accessibility" : "private",
+    "attributes" : [
+
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "kind" : "var.instance",
+    "name" : "tip"
+  },
+  {
+    "hints" : [
+      "unused"
+    ],
+    "name" : "modelContext",
+    "modifiers" : [
+      "private"
+    ],
+    "ids" : [
+      "s:14LittleDecision8MainViewV12modelContext33_F439150704DE381748B6E33F2CA111B2LL9SwiftData05ModelF0Cvp"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/MainView/MainView.swift:49:17",
+    "attributes" : [
+      "Environment"
+    ],
+    "kind" : "var.instance",
+    "accessibility" : "private",
+    "modules" : [
+      "LittleDecision"
+    ]
+  },
+  {
+    "attributes" : [
+
+    ],
+    "accessibility" : "internal",
+    "name" : "emailAddress",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/SettingsView/SettingsView.swift:14:5",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "ids" : [
+      "s:14LittleDecision12emailAddressSSvp"
+    ],
+    "modifiers" : [
+
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "kind" : "var.global"
+  },
+  {
+    "attributes" : [
+      "Default"
+    ],
+    "accessibility" : "private",
+    "kind" : "var.instance",
+    "hints" : [
+      "unused"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/SettingsView/SettingsView.swift:22:37",
+    "ids" : [
+      "s:14LittleDecision12SettingsViewV8fontSize33_95854E67913DA08AEB1674587256A12BLL14CoreFoundation7CGFloatVvp"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "fontSize",
+    "modifiers" : [
+      "private"
+    ]
+  },
+  {
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/SettingsView/SettingsView.swift:35:24",
+    "modules" : [
+      "LittleDecision"
+    ],
+    "hints" : [
+      "unused"
+    ],
+    "kind" : "var.instance",
+    "modifiers" : [
+      "private"
+    ],
+    "accessibility" : "private",
+    "name" : "isPremium",
+    "attributes" : [
+      "State"
+    ],
+    "ids" : [
+      "s:14LittleDecision12SettingsViewV9isPremium33_95854E67913DA08AEB1674587256A12BLLSbvp"
+    ]
+  },
+  {
+    "attributes" : [
+
+    ],
+    "ids" : [
+      "s:14LittleDecision0B8TemplateV4tagsSayAA0C4KindOGvp"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "modifiers" : [
+
+    ],
+    "kind" : "var.instance",
+    "name" : "tags",
+    "hints" : [
+      "assignOnlyProperty"
+    ],
+    "accessibility" : "internal",
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/TemplateList/TemplateList.swift:16:9"
+  },
+  {
+    "modifiers" : [
+
+    ],
+    "ids" : [
+      "s:14LittleDecision17CustomWheelButtonV"
+    ],
+    "location" : "/Users/luai/Documents/AppCodeProjects/LittleDecision/LittleDecision/View/TemplateList/TemplateList.swift:106:8",
+    "kind" : "struct",
+    "attributes" : [
+
+    ],
+    "accessibility" : "internal",
+    "hints" : [
+      "unused"
+    ],
+    "modules" : [
+      "LittleDecision"
+    ],
+    "name" : "CustomWheelButton"
+  }
+]

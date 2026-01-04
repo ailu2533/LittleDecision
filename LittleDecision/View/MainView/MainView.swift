@@ -45,8 +45,8 @@ struct MainView: View {
     @AppStorage("lastVersionPromptedForReview") private var lastVersionPromptedForReview = ""
 
 //    @Default(.decisionID) private var decisionID
-    @Environment(\.modelContext)
-    private var modelContext
+//    @Environment(\.modelContext)
+//    private var modelContext
     @Environment(\.requestReview) private var requestReview
 }
 

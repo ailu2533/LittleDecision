@@ -33,6 +33,9 @@ struct ChoicesSection: View {
             }
             .onDelete(perform: deleteChoices)
         }
+        .task {
+            totalWeight = decision.totalWeight
+        }
 
         if let choices = decision.choices, !choices.isEmpty {
             TipView(tip, arrowEdge: .top)
@@ -51,8 +54,8 @@ struct ChoicesSection: View {
 
 extension ChoicesSection {
     private func deleteChoices(at indexSet: IndexSet) {
-        self.globalViewModel.deleteChoices(from: self.decision, at: indexSet)
-        self.totalWeight = self.decision.totalWeight
+        globalViewModel.deleteChoices(from: decision, at: indexSet)
+        totalWeight = decision.totalWeight
     }
 }
 
@@ -99,11 +102,11 @@ struct ChoicesSection2: View {
 
 //    @State private var trigger = 0
 //    @State private var totalWeight = 0
-    private let tip = ChoiceTip()
+//    private let tip = ChoiceTip()
 
     private func deleteChoices(at indexSet: IndexSet) {
-        self.decision.choices.remove(atOffsets: indexSet)
-        self.decision.totalWeight = self.decision.choices.map(\.weight).reduce(.zero, +)
+        decision.choices.remove(atOffsets: indexSet)
+        decision.totalWeight = decision.choices.map(\.weight).reduce(.zero, +)
     }
 
 //    var showFooter: Bool {

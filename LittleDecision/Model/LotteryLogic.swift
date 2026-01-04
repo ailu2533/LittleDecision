@@ -99,35 +99,35 @@ enum LotteryViewModel {
         return selectChoice(from: choices)
     }
 
-    static func randomStringStream(from array: [ChoiceItem], numOfDraw: Int, repeatDraw: Bool) -> AsyncStream<ChoiceItem> {
-        AsyncStream { continuation in
-            Task {
-                if repeatDraw {
-                    for _ in 0 ..< numOfDraw {
-                        guard let (choice, _) = selectChoice(from: array), let choice else {
-                            return
-                        }
-
-                        continuation.yield(choice)
-                    }
-
-                } else {
-                    var tmp = array
-
-                    // 生成1万个随机数据
-                    for _ in 0 ..< numOfDraw {
-                        guard let (choice, _) = selectChoice(from: tmp), let choice else {
-                            return
-                        }
-
-                        continuation.yield(choice)
-
-                        tmp.removeAll { choice == $0 }
-                    }
-                }
-
-                continuation.finish()
-            }
-        }
-    }
+//    static func randomStringStream(from array: [ChoiceItem], numOfDraw: Int, repeatDraw: Bool) -> AsyncStream<ChoiceItem> {
+//        AsyncStream { continuation in
+//            Task {
+//                if repeatDraw {
+//                    for _ in 0 ..< numOfDraw {
+//                        guard let (choice, _) = selectChoice(from: array), let choice else {
+//                            return
+//                        }
+//
+//                        continuation.yield(choice)
+//                    }
+//
+//                } else {
+//                    var tmp = array
+//
+//                    // 生成1万个随机数据
+//                    for _ in 0 ..< numOfDraw {
+//                        guard let (choice, _) = selectChoice(from: tmp), let choice else {
+//                            return
+//                        }
+//
+//                        continuation.yield(choice)
+//
+//                        tmp.removeAll { choice == $0 }
+//                    }
+//                }
+//
+//                continuation.finish()
+//            }
+//        }
+//    }
 }

@@ -11,7 +11,7 @@ import RevenueCat
 import RevenueCatUI
 import SwiftUI
 
-let emailAddress = "im.ailu@outlook.com"
+// let emailAddress = "im.ailu@outlook.com"
 
 // MARK: - SettingsView
 
@@ -19,7 +19,7 @@ struct SettingsView: View {
     @Default(.noRepeat) private var noRepeat
     @Default(.equalWeight) private var equalWeight
     @Default(.rotationTime) private var rotationTime
-    @Default(.fontSize) private var fontSize
+//    @Default(.fontSize) private var fontSize
     @Default(.enableSound) private var enableSound
 
     @Environment(\.openURL) var openURL
@@ -32,7 +32,7 @@ struct SettingsView: View {
 
     @State private var showPaywall = false
 
-    @State private var isPremium = false
+//    @State private var isPremium = false
 
     var body: some View {
         NavigationStack {

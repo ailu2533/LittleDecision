@@ -15,11 +15,11 @@ struct SubscriptionInfo {
 
 // Preview Stub
 extension SubscriptionInfo {
-    static var stubNoAccess: SubscriptionInfo {
-        SubscriptionInfo(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
-    }
-
-    static var stubWithAccess: SubscriptionInfo {
-        SubscriptionInfo(canAccessContent: true, isEligibleForTrial: false, subscriptionState: .subscribed(endDate: .now + 7 * 86400))
-    }
+//    static var stubNoAccess: SubscriptionInfo {
+//        SubscriptionInfo(canAccessContent: false, isEligibleForTrial: true, subscriptionState: .notSubscribed)
+//    }
+//
+//    static var stubWithAccess: SubscriptionInfo {
+//        SubscriptionInfo(canAccessContent: true, isEligibleForTrial: false, subscriptionState: .subscribed(endDate: .now + 7 * 86400))
+//    }
 }

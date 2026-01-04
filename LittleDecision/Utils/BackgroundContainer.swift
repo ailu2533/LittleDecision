@@ -25,13 +25,6 @@ extension View {
         modifier(BackgroundViewModifier(background: background))
     }
 
-    // 设置页面的背景
-    func settingsBackground() -> some View {
-        customBackground {
-            Color.mainBackground
-        }
-    }
-
     // 主页面的背景
     func mainBackground() -> some View {
         customBackground {

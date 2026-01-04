@@ -19,11 +19,11 @@ extension Defaults.Keys {
     static let hasData = Key<Bool>("hasData", default: false, iCloud: true)
     static let decisionID = Key<UUID>("decisionId", default: UUID())
 
-    static let fontSize = Key<CGFloat>("fontSize", default: 15)
-
-    static let selectedThemeID = Key<ThemeID>("selectedThemeID", default: .pink)
-
-    static let selectedConfigurationID = Key<UUID?>("selectedConfigurationID", default: nil)
+//    static let fontSize = Key<CGFloat>("fontSize", default: 15)
+//
+//    static let selectedThemeID = Key<ThemeID>("selectedThemeID", default: .pink)
+//
+//    static let selectedConfigurationID = Key<UUID?>("selectedConfigurationID", default: nil)
 
     static let selectedSkinConfiguration = Key<SkinKind>("selectedSkinConfiguration", default: .pinkBlue)
 }
@@ -35,6 +35,6 @@ extension Defaults.Keys {
 //    /// The most recent app version that prompts for a review.
 //    @AppStorage("lastVersionPromptedForReview") var lastVersionPromptedForReview = ""
 
-    static let processCompletedCount = Key<Int>("processCompletedCount", default: 0)
-    static let lastVersionPromptedForReview = Key<String>("lastVersionPromptedForReview", default: "")
+//    static let processCompletedCount = Key<Int>("processCompletedCount", default: 0)
+//    static let lastVersionPromptedForReview = Key<String>("lastVersionPromptedForReview", default: "")
 }

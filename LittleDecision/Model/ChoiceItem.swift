@@ -13,12 +13,12 @@ import Foundation
 struct ChoiceItem: Codable {
     // MARK: Lifecycle
 
-    init(uuid: UUID = UUID(), content: String, weight: Int) {
-        self.uuid = uuid
-        self.content = content
-        self.weight = weight
-        enable = true
-    }
+//    init(uuid: UUID = UUID(), content: String, weight: Int) {
+//        self.uuid = uuid
+//        self.content = content
+//        self.weight = weight
+//        enable = true
+//    }
 
     init(choice: Choice) {
         uuid = choice.uuid

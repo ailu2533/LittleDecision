@@ -31,7 +31,7 @@ struct WeightInfoSection: View {
             }
         }
         .task(id: choice.weight) {
-            totalWeight = await choice.decision?.totalWeight ?? 0
+            totalWeight = choice.decision?.totalWeight ?? 0
         }
     }
 
