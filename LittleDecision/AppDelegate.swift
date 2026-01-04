@@ -14,7 +14,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             options.dsn = "https://a51608421af645fc8824915755586310@o4507787710627840.ingest.us.sentry.io/4508130349154304"
 //            options.debug = true // Enabled debug when first installing is always helpful
             options.tracesSampleRate = 0.1
-            options.profilesSampleRate = 0.1
+//            options.profilesSampleRate = 0.1
 
             // Uncomment the following lines to add more data to your events
             // options.attachScreenshot = true // This adds a screenshot to the error events

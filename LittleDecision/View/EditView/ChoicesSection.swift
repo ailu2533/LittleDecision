@@ -41,13 +41,6 @@ struct ChoicesSection: View {
         }
     }
 
-    var showFooter: Bool {
-        if let choices = decision.choices, !choices.isEmpty {
-            return true
-        }
-        return false
-    }
-
     // MARK: Private
 
     @Environment(GlobalViewModel.self) private var globalViewModel
@@ -58,8 +51,8 @@ struct ChoicesSection: View {
 
 extension ChoicesSection {
     private func deleteChoices(at indexSet: IndexSet) {
-        globalViewModel.deleteChoices(from: decision, at: indexSet)
-        totalWeight = decision.totalWeight
+        self.globalViewModel.deleteChoices(from: self.decision, at: indexSet)
+        self.totalWeight = self.decision.totalWeight
     }
 }
 
@@ -109,8 +102,8 @@ struct ChoicesSection2: View {
     private let tip = ChoiceTip()
 
     private func deleteChoices(at indexSet: IndexSet) {
-        decision.choices.remove(atOffsets: indexSet)
-        decision.totalWeight = decision.choices.map(\.weight).reduce(.zero, +)
+        self.decision.choices.remove(atOffsets: indexSet)
+        self.decision.totalWeight = self.decision.choices.map(\.weight).reduce(.zero, +)
     }
 
 //    var showFooter: Bool {

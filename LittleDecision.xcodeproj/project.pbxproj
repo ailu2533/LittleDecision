@@ -19,6 +19,7 @@
 		8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDB82042C8204F7005152BE /* StoreKit.framework */; };
 		8DDB822E2C8408C6005152BE /* Yuzu DecideEasy.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8DDB82062C82052C005152BE /* Yuzu DecideEasy.storekit */; };
 		8DE2A4C62C8C692B002BC37F /* HorizontalPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 8DE2A4C52C8C692B002BC37F /* HorizontalPicker */; };
+		8DE4A1B82F0A9F3300DEAB5A /* SpinWheel in Frameworks */ = {isa = PBXBuildFile; productRef = 8DE4A1B72F0A9F3300DEAB5A /* SpinWheel */; };
 		8DEC622C2CD139EC00565258 /* SpinWheel in Frameworks */ = {isa = PBXBuildFile; productRef = 8DEC622B2CD139EC00565258 /* SpinWheel */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 				8D1931ED2C6BB12D00F9D2A4 /* Defaults in Frameworks */,
 				8DDB82052C8204F7005152BE /* StoreKit.framework in Frameworks */,
 				8DDB82002C81C71B005152BE /* RevenueCatUI in Frameworks */,
+				8DE4A1B82F0A9F3300DEAB5A /* SpinWheel in Frameworks */,
 				8D1931EA2C6BAA7B00F9D2A4 /* LemonViews in Frameworks */,
 				8DC1AC722C98668800BB3645 /* SpinWheel in Frameworks */,
 				847E6533850C4C15BB78FD7A /* Sentry in Frameworks */,
@@ -126,6 +128,7 @@
 				8D8109A32CABFDE5000FB1FB /* SwiftUIX */,
 				00333968733A48FD9F279F4F /* Sentry */,
 				8DEC622B2CD139EC00565258 /* SpinWheel */,
+				8DE4A1B72F0A9F3300DEAB5A /* SpinWheel */,
 			);
 			productName = LittleDecision;
 			productReference = 27FCEFA32BBC6DAF002518E0 /* LittleDecision.app */;
@@ -172,7 +175,7 @@
 				8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */,
 				8D8109A22CABFDE5000FB1FB /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				9318866BACC941ACA07F80F0 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
-				8DEC622A2CD139EC00565258 /* XCLocalSwiftPackageReference "../SpinWheel" */,
+				8DE4A1B62F0A9F3300DEAB5A /* XCRemoteSwiftPackageReference "SpinWheel" */,
 			);
 			productRefGroup = 27FCEFA42BBC6DAF002518E0 /* Products */;
 			projectDirPath = "";
@@ -389,7 +392,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -429,7 +432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = top.lemonapp.LittleDecision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -465,13 +468,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		8DEC622A2CD139EC00565258 /* XCLocalSwiftPackageReference "../SpinWheel" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../SpinWheel;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		8D1931E82C6BAA7B00F9D2A4 /* XCRemoteSwiftPackageReference "LemonViews" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -485,8 +481,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/Defaults.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.6;
 			};
 		};
 		8D66ED052C7B5BA4003557C2 /* XCRemoteSwiftPackageReference "Subsonic" */ = {
@@ -510,7 +506,7 @@
 			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.3.0;
+				minimumVersion = 5.52.1;
 			};
 		};
 		8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */ = {
@@ -521,12 +517,20 @@
 				kind = branch;
 			};
 		};
+		8DE4A1B62F0A9F3300DEAB5A /* XCRemoteSwiftPackageReference "SpinWheel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ailu2533/SpinWheel";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		9318866BACC941ACA07F80F0 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getsentry/sentry-cocoa/";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
+				minimumVersion = 9.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -575,6 +579,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8DE2A4C42C8C692B002BC37F /* XCRemoteSwiftPackageReference "HorizontalPicker" */;
 			productName = HorizontalPicker;
+		};
+		8DE4A1B72F0A9F3300DEAB5A /* SpinWheel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8DE4A1B62F0A9F3300DEAB5A /* XCRemoteSwiftPackageReference "SpinWheel" */;
+			productName = SpinWheel;
 		};
 		8DEC622B2CD139EC00565258 /* SpinWheel */ = {
 			isa = XCSwiftPackageProductDependency;

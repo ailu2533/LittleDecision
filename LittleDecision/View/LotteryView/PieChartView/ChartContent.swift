@@ -14,7 +14,6 @@ struct ChartContent: View {
     // MARK: Internal
 
     var body: some View {
-        _ = Self._printChanges()
         SpinWheel(
             rawItems: spinCellItems,
             size: CGSize(width: radius, height: radius),

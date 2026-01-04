@@ -11,7 +11,7 @@ import SwiftData
 
 // MARK: GlobalViewModel + Decision
 
-public extension GlobalViewModel {
+extension GlobalViewModel {
     func deleteDecision(_ decision: Decision) {
         if decision.uuid == selectedDecision?.uuid {
             setSelectedDecision(nil)
@@ -35,7 +35,7 @@ public extension GlobalViewModel {
         send(.decisionUUID(decision.uuid))
     }
 
-    internal func fetchFirstDecision() -> Decision? {
+    func fetchFirstDecision() -> Decision? {
         var fetchDescriptor = FetchDescriptor<Decision>(
             sortBy: [
                 SortDescriptor(\Decision.createDate, order: .reverse),
