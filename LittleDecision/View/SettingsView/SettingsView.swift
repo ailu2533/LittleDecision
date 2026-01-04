@@ -74,6 +74,7 @@ struct SettingsView: View {
                 } icon: {
                     Image(systemSymbol: .repeat)
                 }
+                .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
             }
 
             Toggle(isOn: $equalWeight) {
@@ -88,6 +89,7 @@ struct SettingsView: View {
                 } icon: {
                     Image(systemSymbol: .equalSquare)
                 }
+                .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
             }
 
             Toggle(isOn: $enableSound) {
@@ -96,6 +98,7 @@ struct SettingsView: View {
                 } icon: {
                     Image(systemSymbol: .speakerWave3)
                 }
+                .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
             }
 
             rotationTimePicker
@@ -104,7 +107,6 @@ struct SettingsView: View {
         }.onChange(of: equalWeight) { _, newValue in
             globalViewModel.send(.userDefaultsEqualWeight(newValue))
         }
-        .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
     }
 
     private var contactSection: some View {
@@ -118,6 +120,7 @@ struct SettingsView: View {
             }
         } label: {
             Label("转盘旋转时长", systemSymbol: .stopwatch)
+                .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
         }
     }
 }
