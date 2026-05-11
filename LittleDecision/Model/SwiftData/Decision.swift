@@ -14,13 +14,22 @@ import SwiftData
 class Decision {
     // MARK: Lifecycle
 
-    init(uuid: UUID = UUID(), title: String, choices: [Choice], saved: Bool = false) {
+    init(
+        uuid: UUID = UUID(),
+        title: String,
+        choices: [Choice],
+        saved: Bool = false,
+        displayModel: Int = DecisionDisplayMode.wheel.rawValue,
+        createDate: Date = .now,
+        updateDate: Date = .now
+    ) {
         self.uuid = uuid
         self.title = title
         self.choices = choices
         self.saved = saved
-        createDate = .now
-        updateDate = .now
+        self.displayModel = displayModel
+        self.createDate = createDate
+        self.updateDate = updateDate
     }
 
     // MARK: Internal

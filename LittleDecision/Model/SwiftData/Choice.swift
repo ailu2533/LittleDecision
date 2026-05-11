@@ -15,10 +15,18 @@ import SwiftData
 class Choice {
     // MARK: Lifecycle
 
-    init(content: String, weight: Int = 1) {
+    init(
+        uuid: UUID = UUID(),
+        content: String,
+        weight: Int = 1,
+        enable: Bool = true,
+        createDate: Date = .now
+    ) {
+        self.uuid = uuid
         title = content
         self.weight = weight
-        createDate = .now
+        self.enable = enable
+        self.createDate = createDate
     }
 
     // MARK: Internal

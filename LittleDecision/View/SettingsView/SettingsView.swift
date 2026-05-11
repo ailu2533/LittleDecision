@@ -10,6 +10,7 @@ import LemonViews
 import RevenueCat
 import RevenueCatUI
 import SwiftUI
+import UniformTypeIdentifiers
 
 // let emailAddress = "im.ailu@outlook.com"
 
@@ -31,6 +32,11 @@ struct SettingsView: View {
     private var globalViewModel
 
     @State private var showPaywall = false
+    @State private var backupDocument = DecisionBackupDocument.empty
+    @State private var showExportFileExporter = false
+    @State private var showImportFileImporter = false
+    @State private var showBackupError = false
+    @State private var backupErrorMessage = ""
 
 //    @State private var isPremium = false
 
@@ -48,6 +54,8 @@ struct SettingsView: View {
 
                 settingsSection
 
+                dataSection
+
                 contactSection
             }
 //            .settingsBackground()
@@ -56,6 +64,25 @@ struct SettingsView: View {
             .sheet(isPresented: $showPaywall, content: {
                 PaywallView(displayCloseButton: true)
             })
+            .fileExporter(
+                isPresented: $showExportFileExporter,
+                document: backupDocument,
+                contentType: .json,
+                defaultFilename: "LittleDecision-Backup",
+                onCompletion: handleExportCompletion
+            )
+            .fileImporter(
+                isPresented: $showImportFileImporter,
+                allowedContentTypes: [.json],
+                allowsMultipleSelection: false,
+                onCompletion: handleImportCompletion,
+                onCancellation: {}
+            )
+            .alert("操作失败", isPresented: $showBackupError) {
+                Button("好", role: .cancel) {}
+            } message: {
+                Text(backupErrorMessage)
+            }
         }
     }
 
@@ -113,6 +140,20 @@ struct SettingsView: View {
         ContactSection()
     }
 
+    private var dataSection: some View {
+        Section {
+            Button(action: exportBackup) {
+                Label("导出数据", systemImage: "square.and.arrow.up")
+            }
+
+            Button(action: {
+                showImportFileImporter = true
+            }, label: {
+                Label("导入数据", systemImage: "square.and.arrow.down")
+            })
+        }
+    }
+
     private var rotationTimePicker: some View {
         Picker(selection: $rotationTime) {
             ForEach([2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0], id: \.self) { duration in
@@ -122,5 +163,44 @@ struct SettingsView: View {
             Label("转盘旋转时长", systemSymbol: .stopwatch)
                 .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
         }
+    }
+
+    private func exportBackup() {
+        do {
+            let document = try DecisionBackupStore.makeExportDocument(from: globalViewModel.modelContext)
+            _ = try DecisionBackupStore.writeExportDocumentToDocuments(document)
+
+            backupDocument = document
+            showExportFileExporter = true
+        } catch {
+            presentBackupError("导出失败: \(error.localizedDescription)")
+        }
+    }
+
+    private func handleExportCompletion(_ result: Result<URL, Error>) {
+        if case let .failure(error) = result {
+            presentBackupError("导出失败: \(error.localizedDescription)")
+        }
+    }
+
+    private func handleImportCompletion(_ result: Result<[URL], Error>) {
+        switch result {
+        case let .success(urls):
+            guard let url = urls.first else { return }
+
+            do {
+                try DecisionBackupStore.importBackup(from: url, into: globalViewModel.modelContext)
+                globalViewModel.send(.decisionUUID(Defaults[.decisionID]))
+            } catch {
+                presentBackupError("导入失败: \(error.localizedDescription)")
+            }
+        case let .failure(error):
+            presentBackupError("导入失败: \(error.localizedDescription)")
+        }
+    }
+
+    private func presentBackupError(_ message: String) {
+        backupErrorMessage = message
+        showBackupError = true
     }
 }
