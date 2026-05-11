@@ -35,8 +35,10 @@ struct SettingsView: View {
     @State private var backupDocument = DecisionBackupDocument.empty
     @State private var showExportFileExporter = false
     @State private var showImportFileImporter = false
-    @State private var showBackupError = false
-    @State private var backupErrorMessage = ""
+    @State private var isImportingBackup = false
+    @State private var showBackupAlert = false
+    @State private var backupAlertTitle = ""
+    @State private var backupAlertMessage = ""
 
 //    @State private var isPremium = false
 
@@ -78,10 +80,10 @@ struct SettingsView: View {
                 onCompletion: handleImportCompletion,
                 onCancellation: {}
             )
-            .alert("操作失败", isPresented: $showBackupError) {
+            .alert(backupAlertTitle, isPresented: $showBackupAlert) {
                 Button("好", role: .cancel) {}
             } message: {
-                Text(backupErrorMessage)
+                Text(backupAlertMessage)
             }
         }
     }
@@ -144,13 +146,25 @@ struct SettingsView: View {
         Section {
             Button(action: exportBackup) {
                 Label("导出数据", systemImage: "square.and.arrow.up")
+                    .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
+
             }
 
             Button(action: {
                 showImportFileImporter = true
             }, label: {
-                Label("导入数据", systemImage: "square.and.arrow.down")
+                HStack(spacing: 8) {
+                    Label("导入数据", systemImage: "square.and.arrow.down")
+                        .labelStyle(SettingsLabelStyle(backgroundColor: .cyan))
+
+                    if isImportingBackup {
+                        ProgressView()
+                            .controlSize(.small)
+                    }
+                }
+
             })
+            .disabled(isImportingBackup)
         }
     }
 
@@ -173,34 +187,47 @@ struct SettingsView: View {
             backupDocument = document
             showExportFileExporter = true
         } catch {
-            presentBackupError("导出失败: \(error.localizedDescription)")
+            presentBackupAlert(title: "导出失败", message: error.localizedDescription)
         }
     }
 
     private func handleExportCompletion(_ result: Result<URL, Error>) {
         if case let .failure(error) = result {
-            presentBackupError("导出失败: \(error.localizedDescription)")
+            presentBackupAlert(title: "导出失败", message: error.localizedDescription)
         }
     }
 
     private func handleImportCompletion(_ result: Result<[URL], Error>) {
         switch result {
         case let .success(urls):
-            guard let url = urls.first else { return }
+            guard let url = urls.first else {
+                presentBackupAlert(title: "导入失败", message: "未找到可导入的文件。")
+                return
+            }
 
-            do {
-                try DecisionBackupStore.importBackup(from: url, into: globalViewModel.modelContext)
-                globalViewModel.send(.decisionUUID(Defaults[.decisionID]))
-            } catch {
-                presentBackupError("导入失败: \(error.localizedDescription)")
+            isImportingBackup = true
+            showImportFileImporter = false
+
+            Task { @MainActor in
+                await Task.yield()
+                do {
+                    try DecisionBackupStore.importBackup(from: url, into: globalViewModel.modelContext)
+                    globalViewModel.send(.decisionUUID(Defaults[.decisionID]))
+                    isImportingBackup = false
+                    presentBackupAlert(title: "导入完成", message: "已成功导入并合并数据。")
+                } catch {
+                    isImportingBackup = false
+                    presentBackupAlert(title: "导入失败", message: error.localizedDescription)
+                }
             }
         case let .failure(error):
-            presentBackupError("导入失败: \(error.localizedDescription)")
+            presentBackupAlert(title: "导入失败", message: error.localizedDescription)
         }
     }
 
-    private func presentBackupError(_ message: String) {
-        backupErrorMessage = message
-        showBackupError = true
+    private func presentBackupAlert(title: String, message: String) {
+        backupAlertTitle = title
+        backupAlertMessage = message
+        showBackupAlert = true
     }
 }
